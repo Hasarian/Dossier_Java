@@ -1,0 +1,6 @@
+package falseData;
+
+public enum CareState
+{
+    AVAILABLE,SELECTED,ARCHIVED,AVAILABLETOVET,DONE,AVAILABLEDONE
+}
