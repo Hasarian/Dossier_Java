@@ -11,31 +11,28 @@ public class LoginPanel extends JPanel
 
     public LoginPanel(MainFrame frame)
     {
+        setLayout(null);
         setBounds(100,50,frame.getWidth()-2*100,frame.getHeight()-2*50);
         JLabel emailLabel=new JLabel("mail:");
         JLabel passwordLabel=new JLabel("password:");
-        emailLabel.setBounds(getWidth()/2,getHeight()/2,10,10);
-        passwordLabel.setBounds(getWidth()/2,getHeight()/2+emailLabel.getHeight(),10,10);
-        emailLabel.setHorizontalAlignment(JLabel.EAST);
-        passwordLabel.setHorizontalAlignment(JLabel.EAST);
+        emailLabel.setBounds(getWidth()/3,getHeight()/3,100,35);
+        passwordLabel.setBounds(getWidth()/3,getHeight()/3+emailLabel.getHeight(),100,emailLabel.getHeight());
         add(emailLabel);
         add(passwordLabel);
 
         email=new JTextField();
         password=new JTextField();
         password.setEditable(false);
-        email.setHorizontalAlignment(JTextField.WEST);
-        password.setHorizontalAlignment(JTextField.WEST);
-        email.setBounds(getWidth()/2+emailLabel.getWidth(),getHeight()/2,15,10);
-        password.setBounds(getWidth()/2+passwordLabel.getWidth(),getHeight()/2+email.getHeight(),15,10);
+        email.setBounds(getWidth()/2+emailLabel.getWidth(),getHeight()/3,150,35);
+        password.setBounds(getWidth()/2+passwordLabel.getWidth(),getHeight()/3+email.getHeight(),150,email.getHeight());
         add(email);
         add(password);
 
         quitButton=new JButton("exit");
         loginButton= new JButton("log in");
 
-        quitButton.setBounds(getWidth()*1/4,getHeight()-getHeight()/10,10,10);
-        loginButton.setBounds(getWidth()*3/4,getHeight()-getHeight()/10,10,10);
+        quitButton.setBounds(getWidth()*1/4,getHeight()-getHeight()/10,100,25);
+        loginButton.setBounds(quitButton.getX()+10+quitButton.getWidth(),getHeight()-getHeight()/10,100,quitButton.getHeight());
         add(quitButton);
         add(loginButton);
     }

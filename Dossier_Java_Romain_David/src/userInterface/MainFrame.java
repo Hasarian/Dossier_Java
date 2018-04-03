@@ -14,7 +14,8 @@ public class MainFrame extends JFrame
 
     public MainFrame()
     {
-        setBounds(15,15,500,500);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(15,15,500,250);
         setResizable(false);
         container=getContentPane();
         LoginPanel login = new LoginPanel(this);
