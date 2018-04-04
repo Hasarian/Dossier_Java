@@ -8,7 +8,13 @@ public class CareFolder
    private String note;
    private CareState state;
    private AnimalFolder animal;
-   private ArrayList <ToDoCare> careList;
-   private ArrayList<Food> foodList;
+   private ArrayList <ToDo> careList;
+
+    public ArrayList<ToDo> getCareList() {
+        return careList;
+    }
+
+    public AnimalFolder getAnimal(){return animal;}
+
 
 }
