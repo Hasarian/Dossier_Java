@@ -12,11 +12,11 @@ import java.util.ArrayList;
 public class AnimalCarePanel extends JPanel
 {
     CareData careData;
-    JFrame parentPanel;
+    JPanel parentPanel;
     JButton selectionButton,addInfoButton;
     ArrayList<JLabel> tasks;
 
-    public AnimalCarePanel(JFrame parentPanel)
+    public AnimalCarePanel(JPanel parentPanel)
     {
         super();
         this.parentPanel=parentPanel;
@@ -56,7 +56,6 @@ public class AnimalCarePanel extends JPanel
             if(activated)
             {
                 setBounds(getX(),getY(),getWidth(),parentPanel.getHeight()/10);
-                System.out.println(activated+"\t"+getHeight());
                 activated=false;
                 for(JLabel task:tasks)
                 {
@@ -66,7 +65,6 @@ public class AnimalCarePanel extends JPanel
             else
             {
                 setBounds(getX(),getY(),getWidth(),getHeight()*2);
-                System.out.println(activated+"\t"+getHeight());
                 activated=true;
                 for (JLabel task:tasks)
                 {

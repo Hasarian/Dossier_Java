@@ -11,6 +11,10 @@ public class MediCare extends SimpleCare
 
     @Override
     public String toString() {
-        return super.toString()+" at "+hour/100+"h"+hour%100;
+        String out=super.toString()+" ";
+        out+= String.format("%02d",hour/100);
+        out+="h";
+        out+=String.format("%02d",hour%100);
+        return out;
     }
 }
