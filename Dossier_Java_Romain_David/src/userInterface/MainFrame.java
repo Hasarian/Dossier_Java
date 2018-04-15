@@ -23,7 +23,7 @@ public class MainFrame extends JFrame
         activePanel=login;*/
         /*AnimalCarePanel animalCarePanel= new AnimalCarePanel(this);
         activePanel=animalCarePanel;*/
-        TaskListPanel taskListPanel=new TaskListPanel();
+        TaskListPanel taskListPanel=new TaskListPanel(this);
         activePanel=taskListPanel;
         container.add(activePanel);
         setVisible(true);

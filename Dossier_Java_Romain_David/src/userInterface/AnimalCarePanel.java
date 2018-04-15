@@ -16,19 +16,19 @@ public class AnimalCarePanel extends JPanel
     JButton selectionButton,addInfoButton;
     ArrayList<JLabel> tasks;
 
-    public AnimalCarePanel(JPanel parentPanel)
+    public AnimalCarePanel(JPanel parentPanel,int height)
     {
         super();
         this.parentPanel=parentPanel;
         careData=new CareData();
         setLayout(null);
-        setBounds(5,5,parentPanel.getWidth()*3/10,parentPanel.getHeight()/10);
+        setBounds(parentPanel.getX(),parentPanel.getY()+height,parentPanel.getWidth()*3/10,parentPanel.getHeight()/10);
         Border animalIntro=BorderFactory.createTitledBorder(careData.toString());
         setBorder(animalIntro);
         selectionButton=new JButton("select animal");
         addInfoButton=new JButton("see tasks");
-        selectionButton.setBounds(getX()+5,getY()+15,getWidth()*3/10,20);
-        addInfoButton.setBounds(getX()+getWidth()-selectionButton.getWidth(),selectionButton.getY(),selectionButton.getWidth(),selectionButton.getHeight());
+        selectionButton.setBounds(getX(),getY()+15,getWidth()*4/10,20);
+        addInfoButton.setBounds(getX()+getWidth()-selectionButton.getWidth()-15,selectionButton.getY(),selectionButton.getWidth()-5,selectionButton.getHeight());
         add(selectionButton);
         add(addInfoButton);
         addInfoButton.addActionListener(new AddinfoPush());
