@@ -23,8 +23,10 @@ public class MainFrame extends JFrame
         activePanel=login;*/
         /*AnimalCarePanel animalCarePanel= new AnimalCarePanel(this);
         activePanel=animalCarePanel;*/
-        TaskListPanel taskListPanel=new TaskListPanel(this);
-        activePanel=taskListPanel;
+        /*TaskListPanel taskListPanel=new TaskListPanel();
+        activePanel=taskListPanel;*/
+		RegistrationFormCareGiver form = new RegistrationFormCareGiver(this);
+		activePanel = form;
         container.add(activePanel);
         setVisible(true);
         System.out.println("frame dimensions: "+getX()+" "+getY()+" "+getWidth()+" "+getHeight());
