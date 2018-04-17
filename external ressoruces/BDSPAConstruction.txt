@@ -92,10 +92,11 @@ mailVeto varchar(50) not null,
 numOrdonnance integer(10) not null,
 idSoinMedical integer(10),
 constraint soinMedical_idSoinMedical_pk primary key(idSoinMedical),
-constraint ficheSoin_numDossier_fk foreign key (numDossier) references ficheSoin(numDossier)
-constraint ordonnance_numOrdonnance_fk foreign key (numOrdonnance) references ordonnance(numOrdonnance)
+constraint ficheSoin_numDossier_fk foreign key (numDossier) references ficheSoin(numDossier),
+constraint ordonnance_numOrdonnance_fk foreign key (numOrdonnance) references ordonnance(numOrdonnance),
 constraint ordonnance_mailVeto_fk foreign key (mailVeto) references ordonnance(mailVeto)
-)engine = InnoDB;
+)engine= InnoDB;
+
 create table ordonnance(
 numOrdonnance integer(50),
 description varchar(150) not null,
@@ -103,6 +104,7 @@ mailveto varchar(50) not null,
 constraint ordonnance_numOrdance_pk primary key(numOrdonnance),
 constraint veto_mailVeto_fk foreign key (mailVeto) references veto(mail)
 )engine = InnoDB;
+
 create table alimentation(
 numDossier integer(10),
 nature varchar(50) not null,
