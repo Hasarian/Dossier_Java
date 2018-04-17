@@ -9,7 +9,7 @@ public class Main
 {
     public static void main(String[] args)
     {
-        //MainFrame frame=new MainFrame();
+        LoginFrame frame=new LoginFrame();
         try {
             Connection testeConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/SPA?useSSL=false", "root", "pwMySQLie2017");
         }

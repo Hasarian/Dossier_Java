@@ -17,6 +17,7 @@ public class RegistrationFormCareGiver extends JPanel{
     private JList locality;
     private JSpinner hireDate;
     private JButton inscription, annuler;
+    private MainFrame frame;
 
     RegistrationFormCareGiver(MainFrame frame){
     	frame.setTitle("Formulaire d'inscription en tant que Soignant");
@@ -24,7 +25,7 @@ public class RegistrationFormCareGiver extends JPanel{
 		//frame.super("Formulaire d'inscription pour les Soignants");
 		this.setLayout(new GridBagLayout());
 		GridBagConstraints constraints = new GridBagConstraints();
-
+		this.frame=frame;
 		nameLabel = new JLabel("Votre nom :");
 		constraints.gridx = 0;
 		constraints.gridy = 0;
@@ -155,7 +156,7 @@ public class RegistrationFormCareGiver extends JPanel{
 		constraints.anchor = GridBagConstraints.LINE_END;
 		this.add(inscription, constraints);
 		annuler = new JButton("Annuler");
-		ButtonListener listener = new ButtonListener();
+		annuler.addActionListener(new CancelButtonListener());
 		constraints.gridx = 1;
 		constraints.gridy = 13;
 		constraints.gridwidth = GridBagConstraints.REMAINDER;
@@ -165,11 +166,18 @@ public class RegistrationFormCareGiver extends JPanel{
 
 	}
 
-	private class ButtonListener implements ActionListener{
+	private class ConfirmButtonListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			//metodeControler(name.getText(), lastname.getText(), mail.getText(), street.getText()
 			// , houseNumber.getText(), telNumber.getText(), note.getSelectedText(), isVolunteer.isSelected(),
 			// locality.getSelection(), hireDate.getValue());
+		}
+	}
+	private class CancelButtonListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			frame.changePanel();
 		}
 	}
 
