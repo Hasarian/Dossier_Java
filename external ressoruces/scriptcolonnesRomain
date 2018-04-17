@@ -1,0 +1,70 @@
+insert into espece
+values("chien",
+false,
+"à pattes",
+"avec les humains");
+
+insert into race
+values("labrador",
+"amical",
+"jaloux",
+"des calins, il en veut tous les jours"
+"chien"
+);
+
+insert into ficheanimal
+values(0000000001,
+"",
+45,
+"Rex",
+"labrador",
+str_to_date('01/01/2018','%e/%m/%Y'),
+null,
+false,
+"premiereVisite"
+);
+
+insert into race
+values("pitbull",
+"intelligent",
+"aime les enfants",
+"il a besoin d'amour",
+"chien");
+
+insert into ficheanimal
+values(0000000002,
+"a subi une triste enfance",
+18,
+"bichou",
+"pitbull",
+str_to_date('29/02/2012','%e/%m/%Y'),
+null,
+true,
+"ras"
+);
+insert into espece
+values(
+"panda";
+true,
+"il ne bouge pas",
+"foret de bamboo");
+
+insert into race
+values("panda geant",
+"n'a pas de libido",
+"n'a pas de libido",
+null,
+"panda"
+);
+
+insert into ficheAnimal
+values(0000000003,
+"cause de la mort: diabète",
+115,
+"Mao",
+"panda geant",
+str_to_date('23/3/2005','%e/%m/%Y'),
+str_to_date('20/1/2018','%e/%m/%Y'),
+false,
+"archive"
+);
