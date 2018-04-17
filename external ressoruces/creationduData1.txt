@@ -1,0 +1,20 @@
+insert into soignant
+values("servais.david@spa.be","Servais","David","rue de smuid", 6,049814565," idiot de temps a autre", true,Str_to_date('30-03-1995','%e-%m-%Y'),1);
+insert into soignant
+values("demoustiez.romain@spa.be","Demoustiez","Romain","rue du retard", 612,049816598," anarco-communiste de temps à autre", false,Str_to_date('6-01-1995','%e-%m-%Y'),1);
+
+insert into veto
+values("demoustiez.romain@spa.be",04926232);
+
+insert into localite
+values("libin", 6890, 1);
+
+insert into soinEffectue
+values("servais.david@spa.be",Str_to_date('6-01-2017 11:55:23','%d-%m-%Y %H:%i:%s'), 0000000001,0000000001);
+
+insert into modificationSoin
+values(0000000001, Str_to_date('30-mars-1995','%e-%m-%Y'),"servais.david@spa.be",0000000001);
+
+insert into ficheSoin
+values(0000000001,0000000001,"sert au teste",0);
+
