@@ -1,0 +1,129 @@
+create table soignant(
+mail varchar (50),
+ nom varchar(50) not null,
+ prenom varchar(50) not null,
+ rue varchar(100) not null,
+ numMaison integer(4) not null,
+ numTel integer(9),
+ remarque varchar(150),
+ estBenevole boolean not null,
+ dateEmbauche date not null, 
+localite integer(10),
+constraint mail_id_pk primary key(mail),
+constraint localite_fk foreign key (localite) references localite(idLocalite)
+)engine = InnoDB;
+create table localite(
+libelle varchar(100) not null,
+codePostal integer(4) not null,
+idLocalite integer(10), constraint localite_id_pk primary key(idlocalite)
+);
+create table veto(
+mail varchar (50),
+numContact integer(9) not null,
+constraint mail_id_pk primary key(mail),
+constraint mail_fk foreign key (mail) references soignant(mail)
+);
+
+create table soinEffectue(
+mail varchar(50) not null,
+dateSoin dateTime not null,
+numDossier integer(10) not null,
+idSoinEffectue integer(10),
+constraint idSoinEffectue_id_pk primary key(idSoinEffectue),
+constraint soignant_mail_fk foreign key (mail) references soignant(mail)
+)engine = InnoDB;
+create table modificationSoin(
+numDossier integer(10) not null,
+dateModification date not null,
+mail varchar(50) not null,
+idModification integer(10),
+constraint modificationSoin_idModification_pk primary key(idModification),
+constraint modificationSoin_numDossier_fk foreign key (numDossier) references ficheSoin(numDossier),
+constraint modificationSoin_mail_fk foreign key (mail) references veto(mail)
+)engine = InnoDB;
+
+create table ficheSoin(
+numDossier integer(10),
+id integer(10) not null,
+remarque varchar(250),
+etat integer(2) not null,
+constraint ficheSoin_numDossier_id_pk primary key(numDossier) ,
+constraint ficheAnimal_fk foreign key (id) references ficheAnimal(id)
+)engine = InnoDB;
+
+create table ficheAnimal(
+id integer(10),
+remarque varchar(150),
+poids integer(5),
+nomAnimal varchar(50) not null,
+race varchar(50) not null,
+dateArrive date not null,
+datedesces date,
+estDangereux boolean not null,
+etat varchar(25) not null,
+constraint ficheAnimal_id_pk primary key(id),
+constraint race_fk foreign key (race) references race(libelle)
+)engine = InnoDB;
+
+create table race(
+libelle varchar(50),
+traitDeCaractere varchar(50) not null,
+tare varchar(50),
+CaracteristiqueDuMilieuDeVie varchar(75),
+espece varchar(50),
+constraint race_libelle_pk primary key(libelle),
+constraint espece_libelle_fk foreign key (espece) references espece(libelle)
+)engine = InnoDB;
+
+create table espece(
+libelle varchar(50),
+estEnVoieDeDisparition boolean not null,
+typeDEplacement varchar(50) not null,
+milieuDeVie varchar(50) not null,
+constraint espece_libelle_pk primary key(libelle)
+);
+
+create table soinMedical(
+numDossier integer(10),
+dateSoinMedical date not null,
+heureSoinMediacl time,
+remarque varchar(150) not null,
+mailVeto varchar(50) not null,
+numOrdonnance integer(10) not null,
+idSoinMedical integer(10),
+constraint soinMedical_idSoinMedical_pk primary key(idSoinMedical),
+constraint ficheSoin_numDossier_fk foreign key (numDossier) references ficheSoin(numDossier)
+constraint ordonnance_numOrdonnance_fk foreign key (numOrdonnance) references ordonnance(numOrdonnance)
+constraint ordonnance_mailVeto_fk foreign key (mailVeto) references ordonnance(mailVeto)
+)engine = InnoDB;
+create table ordonnance(
+numOrdonnance integer(50),
+description varchar(150) not null,
+mailveto varchar(50) not null,
+constraint ordonnance_numOrdance_pk primary key(numOrdonnance),
+constraint veto_mailVeto_fk foreign key (mailVeto) references veto(mail)
+)engine = InnoDB;
+create table alimentation(
+numDossier integer(10),
+nature varchar(50) not null,
+qantite integer(10)not null,
+remarque varchar(150),
+constraint alimentation_numDossier_pk primary key(numDossier) ,
+constraint fichesoin_numDossier_fk foreign key (numDossier) references ficheSoin(numDossier)
+)engine = InnoDB;
+
+create table vaccination(
+id integer not null,
+numVaccin integer(10) not null,
+dateVaccination date not null,
+idVaccination integer(10),
+constraint vaccination_idVaccination_pk primary key(idVaccination) ,
+constraint ficheAnimal_id_fk foreign key (id) references ficheAnimal(id),
+constraint vaccin_numVaccin_fk foreign key (numVaccin) references vaccin(numVaccin)
+)engine = InnoDB;
+
+create table vaccin(
+numVaccin integer(10),
+libelle varchar(50),
+constraint vaccin_numVaccin_pk primary key(numVaccin)
+);
