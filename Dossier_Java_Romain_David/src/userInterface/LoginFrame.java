@@ -1,6 +1,7 @@
 package userInterface;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -31,19 +32,26 @@ public class LoginFrame extends JFrame
             this.frame=frame;
             this.targetFrame=targetFrame;
             setLayout(null);
-            setBounds(100,50,frame.getWidth()-2*100,frame.getHeight()-2*50);
+            setBounds(15,15,frame.getWidth()-50,frame.getHeight()-50);
+            setBackground(Color.WHITE);
+
+            ImageIcon banner= new ImageIcon("./externalRessources/banner.jpg");
+            JLabel bannerLabel=new JLabel(banner);
+            bannerLabel.setBounds(getX(),getY(),getWidth(),getHeight()*3/10);
+            add(bannerLabel);
+
             JLabel emailLabel=new JLabel("mail:");
             JLabel passwordLabel=new JLabel("password:");
-            emailLabel.setBounds(getWidth()/3,getHeight()/3,100,35);
-            passwordLabel.setBounds(getWidth()/3,getHeight()/3+emailLabel.getHeight(),100,emailLabel.getHeight());
+            emailLabel.setBounds(getWidth()*15/100,getHeight()*53/100,75,35);
+            passwordLabel.setBounds(emailLabel.getX(),emailLabel.getY()+emailLabel.getHeight()+5,emailLabel.getWidth(),emailLabel.getHeight());
             add(emailLabel);
             add(passwordLabel);
 
             email=new JTextField();
             password=new JTextField();
             password.setEditable(false);
-            email.setBounds(getWidth()/2+emailLabel.getWidth(),getHeight()/3,150,35);
-            password.setBounds(getWidth()/2+passwordLabel.getWidth(),getHeight()/3+email.getHeight(),150,email.getHeight());
+            email.setBounds(emailLabel.getX()+emailLabel.getWidth(),emailLabel.getY(),150,35);
+            password.setBounds(passwordLabel.getX()+passwordLabel.getWidth(),passwordLabel.getY(),150,email.getHeight());
             add(email);
             add(password);
 
@@ -51,7 +59,7 @@ public class LoginFrame extends JFrame
             loginButton= new JButton("log in");
             loginButton.addActionListener(new LoginListener());
             quitButton.addActionListener(new ExitListener());
-            quitButton.setBounds(getWidth()*1/4,getHeight()-getHeight()/10,100,25);
+            quitButton.setBounds(getWidth()*2/5,getHeight()-getHeight()/10,100,25);
             loginButton.setBounds(quitButton.getX()+10+quitButton.getWidth(),getHeight()-getHeight()/10,100,quitButton.getHeight());
             add(quitButton);
             add(loginButton);
@@ -63,7 +71,7 @@ public class LoginFrame extends JFrame
             public void actionPerformed(ActionEvent e)
             {
                 targetFrame.setVisible(true);
-                targetFrame.changePanel(new TaskListPanel(targetFrame));
+                targetFrame.initPanel();
                 frame.dispose();
             }
         }

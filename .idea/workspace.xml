@@ -2,9 +2,404 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e633ca09-66ed-4f9a-b57c-daa42bf763d4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainPanel.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/Main.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/Main.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/AnimalCarePanel.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/LoginFrame.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/LoginFrame.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainFrame.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainFrame.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/BDSPAConstruction.txt" afterPath="$PROJECT_DIR$/externalRessources/BDSPAConstruction.txt" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/Dossier-GestionSPA_DemoustiezRomain_ServaisDavid.pdf" afterPath="$PROJECT_DIR$/externalRessources/Dossier-GestionSPA_DemoustiezRomain_ServaisDavid.pdf" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/SchemaEA - Copie.lun" afterPath="$PROJECT_DIR$/externalRessources/SchemaEA - Copie.lun" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/SchemaEA.lun" afterPath="$PROJECT_DIR$/externalRessources/SchemaEA.lun" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/TeamSpeak-OverwolfInstaller.exe" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/UML_JAVA.vpp" afterPath="$PROJECT_DIR$/externalRessources/UML_JAVA.vpp" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/UML_JAVA.vpp.bak_000f" afterPath="$PROJECT_DIR$/externalRessources/UML_JAVA.vpp.bak_000f" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/UML_JAVA.vpp.bak_001d" afterPath="$PROJECT_DIR$/externalRessources/UML_JAVA.vpp.bak_001d" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/creationduData1.txt" afterPath="$PROJECT_DIR$/externalRessources/creationduData1.txt" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/CHANGES" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/CHANGES" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/COPYING" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/COPYING" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/README" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/README" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/README.txt" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/README.txt" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/build.xml" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/build.xml" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/mysql-connector-java-5.1.46-bin.jar" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/mysql-connector-java-5.1.46-bin.jar" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/mysql-connector-java-5.1.46.jar" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/mysql-connector-java-5.1.46.jar" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/FabricCommunicationException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/FabricCommunicationException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/FabricConnection.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/FabricConnection.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/FabricStateResponse.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/FabricStateResponse.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/HashShardMapping.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/HashShardMapping.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/RangeShardMapping.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/RangeShardMapping.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/Response.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/Response.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/Server.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/Server.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/ServerGroup.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/ServerGroup.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/ServerMode.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/ServerMode.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/ServerRole.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/ServerRole.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/ShardIndex.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/ShardIndex.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/ShardMapping.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/ShardMapping.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/ShardMappingFactory.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/ShardMappingFactory.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/ShardTable.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/ShardTable.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/ShardingType.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/ShardingType.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/hibernate/FabricMultiTenantConnectionProvider.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/hibernate/FabricMultiTenantConnectionProvider.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/jdbc/ErrorReportingExceptionInterceptor.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/jdbc/ErrorReportingExceptionInterceptor.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/jdbc/FabricMySQLConnection.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/jdbc/FabricMySQLConnection.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/jdbc/FabricMySQLConnectionProperties.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/jdbc/FabricMySQLConnectionProperties.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/jdbc/FabricMySQLConnectionProxy.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/jdbc/FabricMySQLConnectionProxy.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/jdbc/FabricMySQLDataSource.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/jdbc/FabricMySQLDataSource.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/jdbc/FabricMySQLDriver.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/jdbc/FabricMySQLDriver.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/jdbc/JDBC4FabricMySQLConnection.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/jdbc/JDBC4FabricMySQLConnection.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/jdbc/JDBC4FabricMySQLConnectionProxy.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/jdbc/JDBC4FabricMySQLConnectionProxy.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/proto/xmlrpc/AuthenticatedXmlRpcMethodCaller.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/proto/xmlrpc/AuthenticatedXmlRpcMethodCaller.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/proto/xmlrpc/DigestAuthentication.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/proto/xmlrpc/DigestAuthentication.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/proto/xmlrpc/InternalXmlRpcMethodCaller.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/proto/xmlrpc/InternalXmlRpcMethodCaller.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/proto/xmlrpc/ResultSetParser.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/proto/xmlrpc/ResultSetParser.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/proto/xmlrpc/XmlRpcClient.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/proto/xmlrpc/XmlRpcClient.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/proto/xmlrpc/XmlRpcMethodCaller.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/proto/xmlrpc/XmlRpcMethodCaller.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/xmlrpc/Client.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/xmlrpc/Client.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/xmlrpc/base/Array.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/xmlrpc/base/Array.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/xmlrpc/base/Data.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/xmlrpc/base/Data.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/xmlrpc/base/Fault.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/xmlrpc/base/Fault.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/xmlrpc/base/Member.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/xmlrpc/base/Member.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/xmlrpc/base/MethodCall.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/xmlrpc/base/MethodCall.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/xmlrpc/base/MethodResponse.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/xmlrpc/base/MethodResponse.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/xmlrpc/base/Param.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/xmlrpc/base/Param.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/xmlrpc/base/Params.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/xmlrpc/base/Params.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/xmlrpc/base/ResponseParser.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/xmlrpc/base/ResponseParser.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/xmlrpc/base/Struct.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/xmlrpc/base/Struct.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/xmlrpc/base/Value.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/xmlrpc/base/Value.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/fabric/xmlrpc/exceptions/MySQLFabricException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/fabric/xmlrpc/exceptions/MySQLFabricException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/AbandonedConnectionCleanupThread.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/AbandonedConnectionCleanupThread.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/AssertionFailedException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/AssertionFailedException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/AuthenticationPlugin.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/AuthenticationPlugin.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/BalanceStrategy.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/BalanceStrategy.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/BestResponseTimeBalanceStrategy.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/BestResponseTimeBalanceStrategy.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Blob.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Blob.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/BlobFromLocator.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/BlobFromLocator.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Buffer.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Buffer.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/BufferRow.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/BufferRow.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ByteArrayRow.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ByteArrayRow.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/CacheAdapter.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/CacheAdapter.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/CacheAdapterFactory.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/CacheAdapterFactory.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/CachedResultSetMetaData.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/CachedResultSetMetaData.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/CallableStatement.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/CallableStatement.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/CharsetMapping.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/CharsetMapping.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Charsets.properties" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Charsets.properties" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Clob.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Clob.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/CommunicationsException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/CommunicationsException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/CompressedInputStream.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/CompressedInputStream.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Connection.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Connection.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ConnectionFeatureNotAvailableException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ConnectionFeatureNotAvailableException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ConnectionGroup.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ConnectionGroup.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ConnectionGroupManager.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ConnectionGroupManager.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ConnectionImpl.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ConnectionImpl.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ConnectionLifecycleInterceptor.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ConnectionLifecycleInterceptor.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ConnectionProperties.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ConnectionProperties.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ConnectionPropertiesImpl.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ConnectionPropertiesImpl.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ConnectionPropertiesTransform.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ConnectionPropertiesTransform.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Constants.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Constants.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/DatabaseMetaData.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/DatabaseMetaData.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/DatabaseMetaDataUsingInfoSchema.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/DatabaseMetaDataUsingInfoSchema.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/DocsConnectionPropsHelper.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/DocsConnectionPropsHelper.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Driver.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Driver.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/EscapeProcessor.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/EscapeProcessor.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/EscapeProcessorResult.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/EscapeProcessorResult.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/EscapeTokenizer.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/EscapeTokenizer.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ExceptionInterceptor.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ExceptionInterceptor.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ExportControlled.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ExportControlled.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Extension.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Extension.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/FailoverConnectionProxy.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/FailoverConnectionProxy.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Field.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Field.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/IterateBlock.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/IterateBlock.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC42CallableStatement.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC42CallableStatement.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC42Helper.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC42Helper.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC42PreparedStatement.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC42PreparedStatement.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC42ResultSet.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC42ResultSet.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC42ServerPreparedStatement.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC42ServerPreparedStatement.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC42UpdatableResultSet.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC42UpdatableResultSet.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4CallableStatement.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4CallableStatement.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4ClientInfoProvider.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4ClientInfoProvider.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4ClientInfoProviderSP.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4ClientInfoProviderSP.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4CommentClientInfoProvider.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4CommentClientInfoProvider.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4Connection.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4Connection.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4DatabaseMetaData.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4DatabaseMetaData.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4DatabaseMetaDataUsingInfoSchema.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4DatabaseMetaDataUsingInfoSchema.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4LoadBalancedMySQLConnection.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4LoadBalancedMySQLConnection.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4MultiHostMySQLConnection.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4MultiHostMySQLConnection.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4MySQLConnection.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4MySQLConnection.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4MysqlSQLXML.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4MysqlSQLXML.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4NClob.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4NClob.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4PreparedStatement.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4PreparedStatement.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4PreparedStatementHelper.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4PreparedStatementHelper.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4ReplicationMySQLConnection.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4ReplicationMySQLConnection.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4ResultSet.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4ResultSet.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4ServerPreparedStatement.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4ServerPreparedStatement.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4UpdatableResultSet.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4UpdatableResultSet.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/LicenseConfiguration.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/LicenseConfiguration.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/LoadBalanceExceptionChecker.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/LoadBalanceExceptionChecker.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/LoadBalancedAutoCommitInterceptor.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/LoadBalancedAutoCommitInterceptor.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/LoadBalancedConnection.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/LoadBalancedConnection.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/LoadBalancedConnectionProxy.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/LoadBalancedConnectionProxy.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/LoadBalancedMySQLConnection.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/LoadBalancedMySQLConnection.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/LocalizedErrorMessages.properties" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/LocalizedErrorMessages.properties" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Messages.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Messages.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/MiniAdmin.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/MiniAdmin.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/MultiHostConnectionProxy.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/MultiHostConnectionProxy.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/MultiHostMySQLConnection.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/MultiHostMySQLConnection.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/MySQLConnection.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/MySQLConnection.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/MysqlDataTruncation.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/MysqlDataTruncation.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/MysqlDefs.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/MysqlDefs.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/MysqlErrorNumbers.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/MysqlErrorNumbers.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/MysqlIO.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/MysqlIO.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/MysqlParameterMetadata.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/MysqlParameterMetadata.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/MysqlSavepoint.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/MysqlSavepoint.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/NamedPipeSocketFactory.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/NamedPipeSocketFactory.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/NdbLoadBalanceExceptionChecker.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/NdbLoadBalanceExceptionChecker.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/NetworkResources.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/NetworkResources.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/NoSubInterceptorWrapper.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/NoSubInterceptorWrapper.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/NonRegisteringDriver.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/NonRegisteringDriver.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/NonRegisteringReplicationDriver.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/NonRegisteringReplicationDriver.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/NotImplemented.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/NotImplemented.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/NotUpdatable.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/NotUpdatable.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/OperationNotSupportedException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/OperationNotSupportedException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/OutputStreamWatcher.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/OutputStreamWatcher.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/PacketTooBigException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/PacketTooBigException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ParameterBindings.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ParameterBindings.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/PerConnectionLRUFactory.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/PerConnectionLRUFactory.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/PerVmServerConfigCacheFactory.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/PerVmServerConfigCacheFactory.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/PingTarget.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/PingTarget.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/PreparedStatement.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/PreparedStatement.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ProfilerEventHandlerFactory.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ProfilerEventHandlerFactory.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/RandomBalanceStrategy.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/RandomBalanceStrategy.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ReflectiveStatementInterceptorAdapter.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ReflectiveStatementInterceptorAdapter.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ReplicationConnection.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ReplicationConnection.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ReplicationConnectionGroup.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ReplicationConnectionGroup.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ReplicationConnectionGroupManager.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ReplicationConnectionGroupManager.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ReplicationConnectionProxy.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ReplicationConnectionProxy.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ReplicationDriver.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ReplicationDriver.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ReplicationMySQLConnection.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ReplicationMySQLConnection.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ResultSetImpl.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ResultSetImpl.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ResultSetInternalMethods.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ResultSetInternalMethods.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ResultSetMetaData.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ResultSetMetaData.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ResultSetRow.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ResultSetRow.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/RowData.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/RowData.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/RowDataCursor.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/RowDataCursor.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/RowDataDynamic.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/RowDataDynamic.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/RowDataStatic.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/RowDataStatic.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/SQLError.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/SQLError.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Security.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Security.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/SequentialBalanceStrategy.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/SequentialBalanceStrategy.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ServerAffinityStrategy.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ServerAffinityStrategy.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ServerPreparedStatement.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ServerPreparedStatement.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/SingleByteCharsetConverter.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/SingleByteCharsetConverter.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/SocketFactory.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/SocketFactory.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/SocketMetadata.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/SocketMetadata.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/SocksProxySocketFactory.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/SocksProxySocketFactory.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/StandardLoadBalanceExceptionChecker.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/StandardLoadBalanceExceptionChecker.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/StandardSocketFactory.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/StandardSocketFactory.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Statement.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Statement.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/StatementImpl.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/StatementImpl.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/StatementInterceptor.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/StatementInterceptor.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/StatementInterceptorV2.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/StatementInterceptorV2.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/StreamingNotifiable.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/StreamingNotifiable.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/StringUtils.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/StringUtils.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/TimeUtil.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/TimeUtil.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/TimeZoneMapping.properties" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/TimeZoneMapping.properties" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/UpdatableResultSet.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/UpdatableResultSet.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Util.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Util.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/V1toV2StatementInterceptorAdapter.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/V1toV2StatementInterceptorAdapter.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/WatchableOutputStream.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/WatchableOutputStream.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/WatchableWriter.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/WatchableWriter.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Wrapper.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Wrapper.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/WriterWatcher.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/WriterWatcher.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/authentication/CachingSha2PasswordPlugin.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/authentication/CachingSha2PasswordPlugin.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/authentication/MysqlClearPasswordPlugin.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/authentication/MysqlClearPasswordPlugin.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/authentication/MysqlNativePasswordPlugin.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/authentication/MysqlNativePasswordPlugin.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/authentication/MysqlOldPasswordPlugin.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/authentication/MysqlOldPasswordPlugin.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/authentication/Sha256PasswordPlugin.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/authentication/Sha256PasswordPlugin.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/configs/3-0-Compat.properties" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/configs/3-0-Compat.properties" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/configs/5-0-Compat.properties" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/configs/5-0-Compat.properties" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/configs/clusterBase.properties" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/configs/clusterBase.properties" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/configs/coldFusion.properties" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/configs/coldFusion.properties" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/configs/fullDebug.properties" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/configs/fullDebug.properties" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/configs/maxPerformance.properties" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/configs/maxPerformance.properties" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/configs/solarisMaxPerformance.properties" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/configs/solarisMaxPerformance.properties" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/DeadlockTimeoutRollbackMarker.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/DeadlockTimeoutRollbackMarker.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/MySQLDataException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/MySQLDataException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/MySQLIntegrityConstraintViolationException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/MySQLIntegrityConstraintViolationException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/MySQLInvalidAuthorizationSpecException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/MySQLInvalidAuthorizationSpecException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/MySQLNonTransientConnectionException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/MySQLNonTransientConnectionException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/MySQLNonTransientException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/MySQLNonTransientException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/MySQLQueryInterruptedException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/MySQLQueryInterruptedException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/MySQLStatementCancelledException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/MySQLStatementCancelledException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/MySQLSyntaxErrorException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/MySQLSyntaxErrorException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/MySQLTimeoutException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/MySQLTimeoutException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/MySQLTransactionRollbackException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/MySQLTransactionRollbackException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/MySQLTransientConnectionException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/MySQLTransientConnectionException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/MySQLTransientException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/MySQLTransientException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/jdbc4/CommunicationsException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/jdbc4/CommunicationsException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/jdbc4/MySQLDataException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/jdbc4/MySQLDataException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/jdbc4/MySQLIntegrityConstraintViolationException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/jdbc4/MySQLIntegrityConstraintViolationException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/jdbc4/MySQLInvalidAuthorizationSpecException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/jdbc4/MySQLInvalidAuthorizationSpecException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/jdbc4/MySQLNonTransientConnectionException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/jdbc4/MySQLNonTransientConnectionException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/jdbc4/MySQLNonTransientException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/jdbc4/MySQLNonTransientException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/jdbc4/MySQLQueryInterruptedException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/jdbc4/MySQLQueryInterruptedException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/jdbc4/MySQLSyntaxErrorException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/jdbc4/MySQLSyntaxErrorException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/jdbc4/MySQLTimeoutException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/jdbc4/MySQLTimeoutException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/jdbc4/MySQLTransactionRollbackException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/jdbc4/MySQLTransactionRollbackException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/jdbc4/MySQLTransientConnectionException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/jdbc4/MySQLTransientConnectionException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/jdbc4/MySQLTransientException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/exceptions/jdbc4/MySQLTransientException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/integration/c3p0/MysqlConnectionTester.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/integration/c3p0/MysqlConnectionTester.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/integration/jboss/ExtendedMysqlExceptionSorter.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/integration/jboss/ExtendedMysqlExceptionSorter.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/integration/jboss/MysqlValidConnectionChecker.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/integration/jboss/MysqlValidConnectionChecker.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/interceptors/ResultSetScannerInterceptor.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/interceptors/ResultSetScannerInterceptor.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/interceptors/ServerStatusDiffInterceptor.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/interceptors/ServerStatusDiffInterceptor.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/interceptors/SessionAssociationInterceptor.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/interceptors/SessionAssociationInterceptor.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/CallableStatementWrapper.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/CallableStatementWrapper.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/ConnectionWrapper.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/ConnectionWrapper.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/JDBC42CallableStatementWrapper.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/JDBC42CallableStatementWrapper.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/JDBC42PreparedStatementWrapper.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/JDBC42PreparedStatementWrapper.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/JDBC4CallableStatementWrapper.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/JDBC4CallableStatementWrapper.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/JDBC4ConnectionWrapper.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/JDBC4ConnectionWrapper.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/JDBC4MysqlPooledConnection.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/JDBC4MysqlPooledConnection.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/JDBC4MysqlXAConnection.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/JDBC4MysqlXAConnection.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/JDBC4PreparedStatementWrapper.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/JDBC4PreparedStatementWrapper.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/JDBC4StatementWrapper.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/JDBC4StatementWrapper.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/JDBC4SuspendableXAConnection.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/JDBC4SuspendableXAConnection.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/MysqlConnectionPoolDataSource.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/MysqlConnectionPoolDataSource.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/MysqlDataSource.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/MysqlDataSource.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/MysqlDataSourceFactory.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/MysqlDataSourceFactory.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/MysqlPooledConnection.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/MysqlPooledConnection.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/MysqlXAConnection.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/MysqlXAConnection.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/MysqlXADataSource.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/MysqlXADataSource.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/MysqlXAException.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/MysqlXAException.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/MysqlXid.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/MysqlXid.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/PreparedStatementWrapper.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/PreparedStatementWrapper.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/StatementWrapper.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/StatementWrapper.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/SuspendableXAConnection.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/SuspendableXAConnection.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/WrapperBase.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jdbc2/optional/WrapperBase.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jmx/LoadBalanceConnectionGroupManager.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jmx/LoadBalanceConnectionGroupManager.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jmx/LoadBalanceConnectionGroupManagerMBean.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jmx/LoadBalanceConnectionGroupManagerMBean.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jmx/ReplicationGroupManager.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jmx/ReplicationGroupManager.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jmx/ReplicationGroupManagerMBean.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/jmx/ReplicationGroupManagerMBean.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/log/Jdk14Logger.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/log/Jdk14Logger.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/log/Log.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/log/Log.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/log/LogFactory.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/log/LogFactory.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/log/LogUtils.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/log/LogUtils.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/log/NullLogger.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/log/NullLogger.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/log/Slf4JLogger.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/log/Slf4JLogger.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/log/StandardLogger.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/log/StandardLogger.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/profiler/LoggingProfilerEventHandler.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/profiler/LoggingProfilerEventHandler.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/profiler/ProfilerEvent.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/profiler/ProfilerEvent.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/profiler/ProfilerEventHandler.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/profiler/ProfilerEventHandler.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/util/Base64Decoder.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/util/Base64Decoder.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/util/BaseBugReport.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/util/BaseBugReport.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/util/ErrorMappingsDocGenerator.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/util/ErrorMappingsDocGenerator.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/util/LRUCache.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/util/LRUCache.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/util/PropertiesDocGenerator.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/util/PropertiesDocGenerator.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/util/ReadAheadInputStream.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/util/ReadAheadInputStream.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/util/ResultSetUtil.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/util/ResultSetUtil.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/util/ServerController.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/util/ServerController.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/util/TimezoneDump.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/util/TimezoneDump.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/com/mysql/jdbc/util/VersionFSHierarchyMaker.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/util/VersionFSHierarchyMaker.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/demo/fabric/Client1_Fabric.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/demo/fabric/Client1_Fabric.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/demo/fabric/Employee.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/demo/fabric/Employee.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/demo/fabric/EmployeesDataSource.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/demo/fabric/EmployeesDataSource.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/demo/fabric/EmployeesJdbc.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/demo/fabric/EmployeesJdbc.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/demo/fabric/HibernateFabric.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/demo/fabric/HibernateFabric.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/demo/fabric/resources/com/mysql/fabric/demo/employee.hbm.xml" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/demo/fabric/resources/com/mysql/fabric/demo/employee.hbm.xml" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/doc/sources/pom.xml" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/doc/sources/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/lib/c3p0-0.9.1-pre6.jar" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/lib/c3p0-0.9.1-pre6.jar" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/lib/c3p0-0.9.1-pre6.src.zip" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/lib/c3p0-0.9.1-pre6.src.zip" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/lib/jboss-common-jdbc-wrapper-src.jar" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/lib/jboss-common-jdbc-wrapper-src.jar" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/lib/jboss-common-jdbc-wrapper.jar" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/lib/jboss-common-jdbc-wrapper.jar" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/lib/slf4j-api-1.6.1.jar" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/lib/slf4j-api-1.6.1.jar" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/org/gjt/mm/mysql/Driver.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/org/gjt/mm/mysql/Driver.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/BaseStatementInterceptor.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/BaseStatementInterceptor.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/BaseTestCase.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/BaseTestCase.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/UnreliableSocketFactory.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/UnreliableSocketFactory.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/fabric/BaseFabricTestCase.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/fabric/BaseFabricTestCase.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/fabric/SetupFabricTestsuite.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/fabric/SetupFabricTestsuite.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/fabric/TestAdminCommands.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/fabric/TestAdminCommands.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/fabric/TestDumpCommands.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/fabric/TestDumpCommands.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/fabric/TestResultSetParser.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/fabric/TestResultSetParser.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/fabric/TestShardMapping.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/fabric/TestShardMapping.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/fabric/TestXmlRpcCore.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/fabric/TestXmlRpcCore.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/fabric/jdbc/TestBasicConnection.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/fabric/jdbc/TestBasicConnection.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/fabric/jdbc/TestFabricMySQLConnectionSharding.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/fabric/jdbc/TestFabricMySQLConnectionSharding.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/fabric/jdbc/TestHABasics.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/fabric/jdbc/TestHABasics.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/fabric/jdbc/TestHashSharding.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/fabric/jdbc/TestHashSharding.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/fabric/jdbc/TestRegressions.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/fabric/jdbc/TestRegressions.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/perf/BasePerfTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/perf/BasePerfTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/perf/LoadStorePerfTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/perf/LoadStorePerfTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/perf/RetrievalPerfTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/perf/RetrievalPerfTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/regression/BlobRegressionTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/regression/BlobRegressionTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/regression/CachedRowsetTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/regression/CachedRowsetTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/regression/CallableStatementRegressionTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/regression/CallableStatementRegressionTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/regression/CharsetRegressionTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/regression/CharsetRegressionTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/regression/ConnectionRegressionTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/regression/ConnectionRegressionTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/regression/DataSourceRegressionTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/regression/DataSourceRegressionTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/regression/EscapeProcessorRegressionTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/regression/EscapeProcessorRegressionTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/regression/MetaDataRegressionTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/regression/MetaDataRegressionTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/regression/MicroPerformanceRegressionTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/regression/MicroPerformanceRegressionTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/regression/NumbersRegressionTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/regression/NumbersRegressionTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/regression/PooledConnectionRegressionTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/regression/PooledConnectionRegressionTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/regression/ResultSetRegressionTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/regression/ResultSetRegressionTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/regression/StatementRegressionTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/regression/StatementRegressionTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/regression/StressRegressionTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/regression/StressRegressionTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/regression/StringRegressionTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/regression/StringRegressionTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/regression/SubqueriesRegressionTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/regression/SubqueriesRegressionTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/regression/SyntaxRegressionTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/regression/SyntaxRegressionTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/regression/UtilsRegressionTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/regression/UtilsRegressionTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/regression/jdbc4/ConnectionRegressionTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/regression/jdbc4/ConnectionRegressionTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/regression/jdbc4/ExceptionSubclassesTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/regression/jdbc4/ExceptionSubclassesTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/regression/jdbc4/MetaDataRegressionTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/regression/jdbc4/MetaDataRegressionTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/regression/jdbc4/StatementRegressionTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/regression/jdbc4/StatementRegressionTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/regression/jdbc42/ConnectionRegressionTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/regression/jdbc42/ConnectionRegressionTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/regression/jdbc42/ResultSetRegressionTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/regression/jdbc42/ResultSetRegressionTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/regression/jdbc42/StatementRegressionTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/regression/jdbc42/StatementRegressionTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/BlobTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/BlobTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/CallableStatementTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/CallableStatementTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/CharsetTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/CharsetTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/ConnectionTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/ConnectionTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/DataSourceTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/DataSourceTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/DateTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/DateTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/EscapeProcessingTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/EscapeProcessingTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/MetadataTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/MetadataTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/MiniAdminTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/MiniAdminTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/MultiHostConnectionTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/MultiHostConnectionTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/NumbersTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/NumbersTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/ReadOnlyCallableStatementTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/ReadOnlyCallableStatementTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/ResultSetTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/ResultSetTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/SSLTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/SSLTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/ServerControllerTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/ServerControllerTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/SimpleTransformer.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/SimpleTransformer.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/SplitDBdotNameTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/SplitDBdotNameTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/StatementsTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/StatementsTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/StringUtilsTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/StringUtilsTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/TestBug57662Logger.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/TestBug57662Logger.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/TestLifecycleInterceptor.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/TestLifecycleInterceptor.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/TransactionTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/TransactionTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/TraversalTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/TraversalTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/UpdatabilityTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/UpdatabilityTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/UtilsTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/UtilsTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/XATest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/XATest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/jdbc4/StatementsTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/jdbc4/StatementsTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/jdbc42/ConnectionTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/jdbc42/ConnectionTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/jdbc42/ResultSetTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/jdbc42/ResultSetTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/jdbc42/StatementsTest.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/jdbc42/StatementsTest.java" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/simple/tb2-data.txt.gz" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/simple/tb2-data.txt.gz" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/ssl-test-certs/ca-cert.pem" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/ssl-test-certs/ca-cert.pem" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/ssl-test-certs/ca-key.pem" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/ssl-test-certs/ca-key.pem" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/ssl-test-certs/ca-truststore" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/ssl-test-certs/ca-truststore" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/ssl-test-certs/certs_howto.txt" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/ssl-test-certs/certs_howto.txt" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/ssl-test-certs/client-cert.pem" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/ssl-test-certs/client-cert.pem" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/ssl-test-certs/client-key.pem" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/ssl-test-certs/client-key.pem" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/ssl-test-certs/client-keystore" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/ssl-test-certs/client-keystore" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/ssl-test-certs/mykey.pem" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/ssl-test-certs/mykey.pem" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/ssl-test-certs/mykey.pub" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/ssl-test-certs/mykey.pub" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/ssl-test-certs/server-cert.pem" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/ssl-test-certs/server-cert.pem" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/mysql-connector-java-5.1.46/src/testsuite/ssl-test-certs/server-key.pem" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/testsuite/ssl-test-certs/server-key.pem" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/scriptcolonnesRomain" afterPath="$PROJECT_DIR$/externalRessources/scriptcolonnesRomain" />
+      <change beforePath="$PROJECT_DIR$/external ressoruces/structure classes projet.png" afterPath="$PROJECT_DIR$/externalRessources/structure classes projet.png" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,39 +410,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainFrame.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainFrame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="27" column="51" lean-forward="false" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
+            <state relative-caret-position="867">
+              <caret line="55" column="20" lean-forward="true" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
               <folding>
-                <marker date="1523993895715" expanded="true" signature="2241:2247" ph="{...}" />
+                <element signature="e#276#277#0" expanded="true" />
+                <element signature="e#324#325#0" expanded="true" />
+                <element signature="e#375#376#0" expanded="true" />
+                <element signature="e#421#422#0" expanded="true" />
+                <element signature="e#1794#1795#0" expanded="true" />
+                <element signature="e#1832#1833#0" expanded="true" />
+                <element signature="e#2111#2112#0" expanded="true" />
+                <element signature="e#2157#2158#0" expanded="true" />
+                <element signature="e#2218#2219#0" expanded="true" />
+                <element signature="e#2263#2264#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AnimalCarePanel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/AnimalCarePanel.java">
+      <file leaf-file-name="MainPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="30" column="131" lean-forward="false" selection-start-line="30" selection-start-column="131" selection-end-line="30" selection-end-column="131" />
+            <state relative-caret-position="238">
+              <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1746#1747#0" expanded="true" />
-                <element signature="e#1785#1786#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TaskListPanel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="21" column="43" lean-forward="false" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#172#173#0" expanded="true" />
+                <element signature="e#205#206#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -56,83 +448,88 @@
       <file leaf-file-name="Container.java" pinned="false" current-in-tab="false">
         <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/awt/Container.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17221">
-              <caret line="1089" column="0" lean-forward="false" selection-start-line="1089" selection-start-column="0" selection-end-line="1089" selection-end-column="0" />
+            <state relative-caret-position="194">
+              <caret line="1260" column="0" lean-forward="false" selection-start-line="1260" selection-start-column="0" selection-end-line="1260" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SimpleCare.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/falseData/SimpleCare.java">
+      <file leaf-file-name="LoginFrame.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/LoginFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+            <state relative-caret-position="449">
+              <caret line="73" column="38" lean-forward="false" selection-start-line="73" selection-start-column="38" selection-end-line="73" selection-end-column="38" />
               <folding>
-                <element signature="e#110#111#0" expanded="true" />
-                <element signature="e#140#141#0" expanded="true" />
-                <element signature="e#175#176#0" expanded="true" />
-                <element signature="e#207#208#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#2994#2995#0" expanded="true" />
+                <element signature="e#3040#3041#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Food.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/falseData/Food.java">
+      <file leaf-file-name="banner.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/externalRessources/banner.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RegistrationFormCareGiver.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RegistrationFormCareGiver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="14" lean-forward="false" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+            <state relative-caret-position="2907">
+              <caret line="179" column="14" lean-forward="false" selection-start-line="179" selection-start-column="14" selection-end-line="179" selection-end-column="14" />
               <folding>
-                <element signature="e#288#289#0" expanded="true" />
-                <element signature="e#343#344#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#6499#6500#0" expanded="true" />
+                <element signature="e#6527#6528#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CareData.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/falseData/CareData.java">
+      <file leaf-file-name="ControlerData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/ControlerData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="27" column="54" lean-forward="false" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
+            <state relative-caret-position="34">
+              <caret line="2" column="26" lean-forward="false" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AnimalData.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/falseData/AnimalData.java">
+      <file leaf-file-name="creationduData1.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/externalRessources/creationduData1.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TaskListPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding>
-                <element signature="e#120#121#0" expanded="true" />
-                <element signature="e#147#148#0" expanded="true" />
-                <element signature="e#173#174#0" expanded="true" />
-                <element signature="e#198#199#0" expanded="true" />
-                <element signature="e#316#317#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="17" column="11" lean-forward="false" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MediCare.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/falseData/MediCare.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="23" lean-forward="false" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-              <folding />
+            <state relative-caret-position="187">
+              <caret line="11" column="41" lean-forward="false" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -173,14 +570,15 @@
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/falseData/CareData.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/falseData/AnimalData.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/falseData/MediCare.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/AnimalCarePanel.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/DataAccess/Principal.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RegistrationFormCareGiver.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/LoginPanel.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/LoginFrame.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainFrame.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/Main.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/LoginFrame.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainPanel.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainFrame.java" />
       </list>
     </option>
   </component>
@@ -190,10 +588,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="width" value="1375" />
-    <option name="height" value="920" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="922" />
+    <option name="width" value="943" />
+    <option name="height" value="1077" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -213,7 +611,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -237,22 +635,20 @@
               <item name="Dossier_Java" type="462c0819:PsiDirectoryNode" />
               <item name="Dossier_Java_Romain_David" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="falseData" type="462c0819:PsiDirectoryNode" />
+              <item name="userInterface" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Dossier_Java" type="b2602c69:ProjectViewProjectNode" />
               <item name="Dossier_Java" type="462c0819:PsiDirectoryNode" />
-              <item name="Dossier_Java_Romain_David" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="userInterface" type="462c0819:PsiDirectoryNode" />
+              <item name="externalRessources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -408,6 +804,7 @@
       <workItem from="1523947732267" duration="2551000" />
       <workItem from="1523952178673" duration="5990000" />
       <workItem from="1523994255834" duration="696000" />
+      <workItem from="1524148371629" duration="4928000" />
     </task>
     <task id="LOCAL-00001" summary="login frame sans les events">
       <created>1522594410214</created>
@@ -483,26 +880,25 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38403000" />
+    <option name="totallyTimeSpent" value="43428000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1375" height="920" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1874" height="1096" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32484075" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3234995" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34012738" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3397762" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21216731" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13240042" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -540,37 +936,22 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/falseData/AnimalData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="e#120#121#0" expanded="true" />
-            <element signature="e#147#148#0" expanded="true" />
-            <element signature="e#173#174#0" expanded="true" />
-            <element signature="e#198#199#0" expanded="true" />
-            <element signature="e#316#317#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="21" column="43" lean-forward="false" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/LoginPanel.java" />
     <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="26" column="34" lean-forward="false" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
           <folding>
-            <marker date="1523993895715" expanded="true" signature="2241:2247" ph="{...}" />
+            <element signature="e#276#277#0" expanded="true" />
+            <element signature="e#324#325#0" expanded="true" />
+            <element signature="e#375#376#0" expanded="true" />
+            <element signature="e#421#422#0" expanded="true" />
+            <element signature="e#1794#1795#0" expanded="true" />
+            <element signature="e#1832#1833#0" expanded="true" />
+            <element signature="e#2111#2112#0" expanded="true" />
+            <element signature="e#2157#2158#0" expanded="true" />
+            <element signature="e#2218#2219#0" expanded="true" />
+            <element signature="e#2263#2264#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -579,11 +960,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="24" column="44" lean-forward="false" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1746#1747#0" expanded="true" />
-            <element signature="e#1785#1786#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -591,7 +968,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="1" lean-forward="false" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -599,7 +978,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="27" column="54" lean-forward="false" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -607,12 +985,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-          <folding>
-            <element signature="e#110#111#0" expanded="true" />
-            <element signature="e#140#141#0" expanded="true" />
-            <element signature="e#175#176#0" expanded="true" />
-            <element signature="e#207#208#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -620,10 +992,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="14" lean-forward="false" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-          <folding>
-            <element signature="e#288#289#0" expanded="true" />
-            <element signature="e#343#344#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -631,7 +999,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="23" lean-forward="false" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -639,13 +1006,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="e#120#121#0" expanded="true" />
-            <element signature="e#147#148#0" expanded="true" />
-            <element signature="e#173#174#0" expanded="true" />
-            <element signature="e#198#199#0" expanded="true" />
-            <element signature="e#316#317#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -668,10 +1028,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="30" lean-forward="false" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-          <folding>
-            <element signature="e#288#289#0" expanded="true" />
-            <element signature="e#343#344#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -684,7 +1040,16 @@
         <state relative-caret-position="306">
           <caret line="19" column="47" lean-forward="false" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
           <folding>
-            <marker date="1523993895715" expanded="true" signature="2241:2247" ph="{...}" />
+            <element signature="e#276#277#0" expanded="true" />
+            <element signature="e#324#325#0" expanded="true" />
+            <element signature="e#375#376#0" expanded="true" />
+            <element signature="e#421#422#0" expanded="true" />
+            <element signature="e#1794#1795#0" expanded="true" />
+            <element signature="e#1832#1833#0" expanded="true" />
+            <element signature="e#2111#2112#0" expanded="true" />
+            <element signature="e#2157#2158#0" expanded="true" />
+            <element signature="e#2218#2219#0" expanded="true" />
+            <element signature="e#2263#2264#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -693,7 +1058,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="11" lean-forward="true" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -712,7 +1079,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="27" column="54" lean-forward="false" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -720,12 +1086,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-          <folding>
-            <element signature="e#110#111#0" expanded="true" />
-            <element signature="e#140#141#0" expanded="true" />
-            <element signature="e#175#176#0" expanded="true" />
-            <element signature="e#207#208#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -733,10 +1093,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="14" lean-forward="false" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-          <folding>
-            <element signature="e#288#289#0" expanded="true" />
-            <element signature="e#343#344#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -744,15 +1100,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="23" lean-forward="false" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/awt/Container.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17221">
-          <caret line="1089" column="0" lean-forward="false" selection-start-line="1089" selection-start-column="0" selection-end-line="1089" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -760,13 +1107,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="e#120#121#0" expanded="true" />
-            <element signature="e#147#148#0" expanded="true" />
-            <element signature="e#173#174#0" expanded="true" />
-            <element signature="e#198#199#0" expanded="true" />
-            <element signature="e#316#317#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -774,13 +1114,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/external ressoruces/creationduData1.txt">
+    <entry file="file://$PROJECT_DIR$/externalRessources/creationduData1.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1018">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -788,71 +1130,104 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="26" lean-forward="false" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/AnimalCarePanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="30" column="131" lean-forward="false" selection-start-line="30" selection-start-column="131" selection-end-line="30" selection-end-column="131" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1746#1747#0" expanded="true" />
-            <element signature="e#1785#1786#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RegistrationFormCareGiver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="179" column="14" lean-forward="true" selection-start-line="179" selection-start-column="14" selection-end-line="179" selection-end-column="14" />
+        <state relative-caret-position="2907">
+          <caret line="179" column="14" lean-forward="false" selection-start-line="179" selection-start-column="14" selection-end-line="179" selection-end-column="14" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#6499#6500#0" expanded="false" />
-            <element signature="e#6527#6528#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#6499#6500#0" expanded="true" />
+            <element signature="e#6527#6528#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/LoginPanel.java" />
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/LoginFrame.java">
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="66" column="32" lean-forward="true" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
+        <state relative-caret-position="187">
+          <caret line="11" column="41" lean-forward="false" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2688#2689#0" expanded="false" />
-            <element signature="e#2734#2735#0" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/AnimalCarePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="33" lean-forward="false" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/externalRessources/banner.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="21" column="43" lean-forward="false" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+        <state relative-caret-position="187">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/awt/Container.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="1260" column="0" lean-forward="false" selection-start-line="1260" selection-start-column="0" selection-end-line="1260" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/LoginFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="73" column="38" lean-forward="false" selection-start-line="73" selection-start-column="38" selection-end-line="73" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2994#2995#0" expanded="true" />
+            <element signature="e#3040#3041#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#172#173#0" expanded="true" />
+            <element signature="e#205#206#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="27" column="51" lean-forward="false" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
+        <state relative-caret-position="867">
+          <caret line="55" column="20" lean-forward="true" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
           <folding>
-            <marker date="1523993895715" expanded="true" signature="2241:2247" ph="{...}" />
+            <element signature="e#276#277#0" expanded="true" />
+            <element signature="e#324#325#0" expanded="true" />
+            <element signature="e#375#376#0" expanded="true" />
+            <element signature="e#421#422#0" expanded="true" />
+            <element signature="e#1794#1795#0" expanded="true" />
+            <element signature="e#1832#1833#0" expanded="true" />
+            <element signature="e#2111#2112#0" expanded="true" />
+            <element signature="e#2157#2158#0" expanded="true" />
+            <element signature="e#2218#2219#0" expanded="true" />
+            <element signature="e#2263#2264#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="11" lean-forward="false" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>

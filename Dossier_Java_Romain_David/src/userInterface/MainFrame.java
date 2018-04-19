@@ -8,7 +8,17 @@ import java.util.ArrayList;
 
 public class MainFrame extends JFrame
 {
-    private JPanel mainPanel;
+    private MainPanel mainPanel;
+
+    public JPanel getActivePanel() {
+        return mainPanel.getSouthPanel();
+    }
+    public void setActivePanel(JPanel panel)
+    {
+        mainPanel.setSouthPanel(panel);
+    }
+    private JPanel basePanel;
+
     private JMenuBar menuBar;
     private JMenu account,administration,newFile;
     private JMenuItem logout,newCareGiver,newAnimal;
@@ -21,8 +31,7 @@ public class MainFrame extends JFrame
         setBounds(15,15,1000,800);
         setResizable(false);
         container=getContentPane();
-        mainPanel=new TaskListPanel(this);
-        container.add(mainPanel);
+
         menuBar=new JMenuBar();
         setJMenuBar(menuBar);
         administration=new JMenu("administration");
@@ -39,18 +48,24 @@ public class MainFrame extends JFrame
         logout=new JMenuItem("logout");
         logout.addActionListener(new LogoutListener());
         account.add(logout);
+
         System.out.println("frame dimensions: "+getX()+" "+getY()+" "+getWidth()+" "+getHeight());
     }
     public void changePanel(JPanel newPanel)
     {
-        container.removeAll();
-        container.add(newPanel);
+        removeAll();
+        add(newPanel);
         container.validate();
         container.repaint();
     }
     public void changePanel()
     {
-        changePanel(mainPanel);
+        changePanel(basePanel);
+    }
+    public void initPanel()
+    {
+        mainPanel=new MainPanel(this);
+        container.add(mainPanel);
     }
     private class ChangePanelMenuListener implements ActionListener
     {

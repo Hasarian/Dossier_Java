@@ -1,0 +1,90 @@
+﻿insert into soignant
+values("servais.david@spa.be","Servais","David","rue de smuid", 6,049814565," idiot de temps a autre", true,Str_to_date('30-03-1995','%e-%m-%Y'),1);
+insert into soignant
+values("demoustiez.romain@spa.be","Demoustiez","Romain","rue du retard", 612,049816598," anarco-communiste de temps à autre", false,Str_to_date('6-01-1995','%e-%m-%Y'),1);
+
+insert into veto
+values("demoustiez.romain@spa.be",04926232);
+
+insert into localite
+values("libin", 6890, 1);
+
+insert into soinEffectue
+values("servais.david@spa.be",Str_to_date('6-01-2017 11:55:23','%d-%m-%Y %H:%i:%s'), 0000000001,0000000001);
+
+insert into modificationSoin
+values(0000000001, Str_to_date('30-mars-1995','%e-%m-%Y'),"servais.david@spa.be",0000000001);
+
+insert into ficheSoin
+values(0000000001,0000000001,"sert au test",0);
+
+insert into espece
+values("chien",
+false,
+"à pattes",
+"avec les humains");
+
+insert into race
+values("labrador",
+"amical",
+"jaloux",
+"des calins, il en veut tous les jours"
+"chien"
+);
+
+insert into ficheanimal
+values(0000000002,
+"",
+45,
+"Rex",
+"labrador",
+str_to_date('01/01/2018','%e/%m/%Y'),
+null,
+false,
+"premiereVisite"
+);
+
+insert into race
+values("pitbull",
+"intelligent",
+"aime les enfants",
+"il a besoin d'amour",
+"chien");
+
+insert into ficheanimal
+values(0000000001,
+"a subi une triste enfance",
+18,
+"bichou",
+"pitbull",
+str_to_date('29/02/2012','%e/%m/%Y'),
+null,
+true,
+"ras"
+);
+insert into espece
+values(
+"panda";
+true,
+"il ne bouge pas",
+"foret de bamboo");
+
+insert into race
+values("panda geant",
+"n'a pas de libido",
+"n'a pas de libido",
+null,
+"panda"
+);
+
+insert into ficheAnimal
+values(0000000003,
+"cause de la mort: diabète",
+115,
+"Mao",
+"panda geant",
+str_to_date('23/3/2005','%e/%m/%Y'),
+str_to_date('20/1/2018','%e/%m/%Y'),
+false,
+"archive"
+);
