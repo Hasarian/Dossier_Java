@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class MainFrame extends JFrame
 {
-    private JPanel activePanelPanel;
+    private JLabel bannerLabel;
     private JPanel basePanel;
 
     private JMenuBar menuBar;
@@ -23,7 +23,17 @@ public class MainFrame extends JFrame
         setBounds(15,15,1000,800);
         setResizable(false);
         container=getContentPane();
-
+        container.setBackground(Color.white);
+        setLayout(null);
+        basePanel=new JPanel();
+        basePanel.add(new JLabel("bonjour"));
+        container.add(basePanel);
+        /*ImageIcon banner= new ImageIcon("./externalRessources/banner.jpg");
+        bannerLabel=new JLabel(banner);
+        bannerLabel.setBounds(0,0,800,150);
+        bannerLabel.setBackground(Color.WHITE);
+        container.add(bannerLabel);*/
+        //initBanner();
         menuBar=new JMenuBar();
         setJMenuBar(menuBar);
         administration=new JMenu("administration");
@@ -45,10 +55,12 @@ public class MainFrame extends JFrame
     }
     public void changePanel(JPanel newPanel)
     {
-        removeAll();
-        add(newPanel);
+        container.removeAll();
+        initBanner();
+        container.add(newPanel);
         container.validate();
         container.repaint();
+        System.out.println(newPanel.getX()+" "+newPanel.getY());
     }
     public void changePanel()
     {
@@ -56,7 +68,8 @@ public class MainFrame extends JFrame
     }
     public void initPanel()
     {
-
+        basePanel.setBounds(0,bannerLabel.getY()+bannerLabel.getHeight()+20,200,200);
+        changePanel(basePanel);
     }
     private class ChangePanelMenuListener implements ActionListener
     {
@@ -77,5 +90,13 @@ public class MainFrame extends JFrame
             dispose();
             LoginFrame login=new LoginFrame();
         }
+    }
+    private void initBanner()
+    {
+        ImageIcon banner= new ImageIcon("./externalRessources/banner.jpg");
+        bannerLabel=new JLabel(banner);
+        bannerLabel.setBounds(0,0,800,150);
+        bannerLabel.setBackground(Color.WHITE);
+        container.add(bannerLabel);
     }
 }
