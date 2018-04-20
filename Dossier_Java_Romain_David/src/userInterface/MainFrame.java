@@ -8,15 +8,7 @@ import java.util.ArrayList;
 
 public class MainFrame extends JFrame
 {
-    private MainPanel mainPanel;
-
-    public JPanel getActivePanel() {
-        return mainPanel.getSouthPanel();
-    }
-    public void setActivePanel(JPanel panel)
-    {
-        mainPanel.setSouthPanel(panel);
-    }
+    private JPanel activePanelPanel;
     private JPanel basePanel;
 
     private JMenuBar menuBar;
@@ -64,8 +56,7 @@ public class MainFrame extends JFrame
     }
     public void initPanel()
     {
-        mainPanel=new MainPanel(this);
-        container.add(mainPanel);
+
     }
     private class ChangePanelMenuListener implements ActionListener
     {

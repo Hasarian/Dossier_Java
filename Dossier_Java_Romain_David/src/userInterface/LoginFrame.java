@@ -35,7 +35,7 @@ public class LoginFrame extends JFrame
             setBounds(15,15,frame.getWidth()-50,frame.getHeight()-50);
             setBackground(Color.WHITE);
 
-            ImageIcon banner= new ImageIcon("./externalRessources/banner.jpg");
+            ImageIcon banner= new ImageIcon("./externalRessources/banner-login.jpg");
             JLabel bannerLabel=new JLabel(banner);
             bannerLabel.setBounds(getX(),getY(),getWidth(),getHeight()*3/10);
             add(bannerLabel);
