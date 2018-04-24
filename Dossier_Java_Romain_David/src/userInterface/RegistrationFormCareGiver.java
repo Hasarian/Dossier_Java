@@ -20,7 +20,7 @@ public class RegistrationFormCareGiver extends JPanel{
     private MainFrame frame;
 
     RegistrationFormCareGiver(MainFrame frame){
-		setBounds(0,0,1000,800);
+		setBounds(0,0,1000,750);
 		//frame.super("Formulaire d'inscription pour les Soignants");
 		this.setLayout(new GridBagLayout());
 		setBackground(Color.WHITE);
