@@ -4,12 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class MainFrame extends JFrame
 {
     private MainPanel mainPanel;
-    private TaskListPanel basePanel;
+    private DashBoardPane basePanel;
     private JMenuBar menuBar;
     private JMenu account,administration,newFile;
     private JMenuItem logout,newCareGiver,newAnimal;
@@ -26,9 +25,9 @@ public class MainFrame extends JFrame
         setLayout(null);
         thisFrame=this;
 
-        basePanel=new TaskListPanel(this);
+        basePanel=new DashBoardPane(this);
 
-        mainPanel=new MainPanel(this,new TaskListPanel(this));
+        mainPanel=new MainPanel(this,new DashBoardPane(this));
         container.add(mainPanel);
 
 

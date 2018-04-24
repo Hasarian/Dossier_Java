@@ -23,7 +23,6 @@ public class MainPanel extends JSplitPane
         setTopComponent(banner);
 
         setBottomComponent(bottomPanel);
-        //setBottomComponent(bottomPanel);
 
     }
     public void changePanel(JPanel newPanel)

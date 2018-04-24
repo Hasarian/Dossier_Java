@@ -180,6 +180,4 @@ public class RegistrationFormCareGiver extends JPanel{
 			frame.changePanel();
 		}
 	}
-
-
 }
