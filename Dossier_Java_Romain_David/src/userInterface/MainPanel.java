@@ -30,7 +30,6 @@ public class MainPanel extends JSplitPane
     {
         setBottomComponent(newPanel);
         setDividerLocation(0.2);
-        setTopComponent(banner);
     }
 
 }
