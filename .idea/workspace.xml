@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e633ca09-66ed-4f9a-b57c-daa42bf763d4" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/DashBoardPane.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainFrame.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainFrame.java" />
       <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainPanel.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainPanel.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RegistrationFormCareGiver.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RegistrationFormCareGiver.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,22 +21,12 @@
       <file leaf-file-name="MainFrame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+            <state relative-caret-position="354">
+              <caret line="29" column="37" lean-forward="false" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
               <folding>
-                <element signature="e#1935#1936#0" expanded="true" />
-                <element signature="e#1973#1974#0" expanded="true" />
+                <element signature="e#1907#1908#0" expanded="true" />
+                <element signature="e#1945#1946#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JSplitPane.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/javax/swing/JSplitPane.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="779" column="0" lean-forward="false" selection-start-line="779" selection-start-column="0" selection-end-line="779" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -40,8 +34,8 @@
       <file leaf-file-name="BannerPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/BannerPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="30" lean-forward="false" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+            <state relative-caret-position="187">
+              <caret line="11" column="75" lean-forward="false" selection-start-line="11" selection-start-column="75" selection-end-line="11" selection-end-column="75" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -49,27 +43,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainPanel.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" column="32" lean-forward="false" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+            <state relative-caret-position="289">
+              <caret line="17" column="20" lean-forward="false" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/LoginFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-368">
-              <caret line="15" column="33" lean-forward="false" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2895#2896#0" expanded="true" />
-                <element signature="e#2941#2942#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -78,23 +58,13 @@
       <file leaf-file-name="RegistrationFormCareGiver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RegistrationFormCareGiver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="173" column="9" lean-forward="true" selection-start-line="173" selection-start-column="9" selection-end-line="173" selection-end-column="9" />
+            <state relative-caret-position="1751">
+              <caret line="181" column="5" lean-forward="false" selection-start-line="181" selection-start-column="5" selection-end-line="181" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#6450#6451#0" expanded="true" />
                 <element signature="e#6478#6479#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="creationduData1.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/externalRessources/creationduData1.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -105,6 +75,37 @@
             <state relative-caret-position="374">
               <caret line="91" column="32" lean-forward="false" selection-start-line="91" selection-start-column="32" selection-end-line="91" selection-end-column="32" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DashBoardPane.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/DashBoardPane.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="51" lean-forward="false" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="structure classes projet.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/externalRessources/structure classes projet.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TaskListPanel.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -121,15 +122,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaskListPanel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
+      <file leaf-file-name="refresh-arrow-icon-512.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/externalRessources/refresh-arrow-icon-512.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
@@ -176,11 +172,13 @@
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/LoginFrame.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/bannerPanel.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/BannerPanel.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RegistrationFormCareGiver.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainFrame.java" />
         <option value="$PROJECT_DIR$/externalRessources/BDSPAConstruction.txt" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainPanel.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/dashBoardPane.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RegistrationFormCareGiver.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/DashBoardPane.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java" />
       </list>
     </option>
   </component>
@@ -190,9 +188,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="922" />
-    <option name="width" value="943" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="921" />
+    <option name="width" value="944" />
     <option name="height" value="1077" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -483,26 +481,26 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52449000" />
+    <option name="totallyTimeSpent" value="56003000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1874" height="1096" extended-state="6" />
+    <frame x="921" y="0" width="944" height="1077" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3234995" sideWeight="0.3815931" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3226141" sideWeight="0.33081895" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21566632" sideWeight="0.55920345" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21991701" sideWeight="0.61099136" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.04577823" sideWeight="0.49784714" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21566632" sideWeight="0.44079655" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21991701" sideWeight="0.3890086" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13186222" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2640086" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.49784714" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -564,20 +562,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/falseData/SimpleCare.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/falseData/Food.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="14" lean-forward="false" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/falseData/MediCare.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -592,7 +576,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java">
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/DashBoardPane.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="11" column="24" lean-forward="false" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
@@ -623,8 +607,8 @@
         <state relative-caret-position="306">
           <caret line="19" column="47" lean-forward="false" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
           <folding>
-            <element signature="e#1935#1936#0" expanded="true" />
-            <element signature="e#1973#1974#0" expanded="true" />
+            <element signature="e#1907#1908#0" expanded="true" />
+            <element signature="e#1945#1946#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -711,11 +695,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/externalRessources/structure classes projet.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/externalRessources/scriptcolonnesRomain">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -744,59 +723,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/BannerPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="30" lean-forward="false" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RegistrationFormCareGiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="173" column="9" lean-forward="true" selection-start-line="173" selection-start-column="9" selection-end-line="173" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#6450#6451#0" expanded="true" />
-            <element signature="e#6478#6479#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="41" lean-forward="false" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-          <folding>
-            <element signature="e#1935#1936#0" expanded="true" />
-            <element signature="e#1973#1974#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/externalRessources/creationduData1.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -813,10 +739,83 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RegistrationFormCareGiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1751">
+          <caret line="181" column="5" lean-forward="false" selection-start-line="181" selection-start-column="5" selection-end-line="181" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6450#6451#0" expanded="true" />
+            <element signature="e#6478#6479#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="32" lean-forward="false" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+        <state relative-caret-position="289">
+          <caret line="17" column="20" lean-forward="false" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/BannerPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="75" lean-forward="false" selection-start-line="11" selection-start-column="75" selection-end-line="11" selection-end-column="75" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/DashBoardPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="51" lean-forward="false" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/externalRessources/refresh-arrow-icon-512.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/externalRessources/structure classes projet.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="29" column="37" lean-forward="false" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
+          <folding>
+            <element signature="e#1907#1908#0" expanded="true" />
+            <element signature="e#1945#1946#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="41" lean-forward="false" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
