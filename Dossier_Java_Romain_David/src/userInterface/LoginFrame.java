@@ -13,8 +13,7 @@ public class LoginFrame extends JFrame
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(15,15,500,400);
         setResizable(false);
-        targetFrame=new MainFrame();
-        add(new LoginPanel(this,targetFrame));
+        add(new LoginPanel(this));
         setVisible(true);
     }
 
@@ -27,7 +26,7 @@ public class LoginFrame extends JFrame
         JButton quitButton,loginButton;
         public String getEmail(){return email.getText(); }
 
-        public LoginPanel(LoginFrame frame,MainFrame targetFrame)
+        public LoginPanel(LoginFrame frame)
         {
             this.frame=frame;
             this.targetFrame=targetFrame;
@@ -70,8 +69,7 @@ public class LoginFrame extends JFrame
 
             public void actionPerformed(ActionEvent e)
             {
-                targetFrame.setVisible(true);
-                targetFrame.initPanel();
+                MainFrame newFrame= new MainFrame();
                 frame.dispose();
             }
         }
