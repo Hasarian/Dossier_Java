@@ -8,12 +8,13 @@ import java.util.ArrayList;
 
 public class MainFrame extends JFrame
 {
-    private JPanel mainPanel;
+    private MainPanel mainPanel;
+    private TaskListPanel basePanel;
     private JMenuBar menuBar;
     private JMenu account,administration,newFile;
     private JMenuItem logout,newCareGiver,newAnimal;
     private Container container;
-
+    private MainFrame thisFrame;
 
     public MainFrame()
     {
@@ -23,9 +24,13 @@ public class MainFrame extends JFrame
         container=getContentPane();
         container.setBackground(Color.white);
         setLayout(null);
+        thisFrame=this;
 
-        mainPanel=new MainPanel();
+        basePanel=new TaskListPanel(this);
+
+        mainPanel=new MainPanel(this,new TaskListPanel(this));
         container.add(mainPanel);
+
 
         menuBar=new JMenuBar();
         setJMenuBar(menuBar);
@@ -35,7 +40,7 @@ public class MainFrame extends JFrame
         administration.add(newFile);
         newCareGiver= new JMenuItem("care giver");
         newFile.add(newCareGiver);
-        newCareGiver.addActionListener(new ChangePanelMenuListener(new RegistrationFormCareGiver(this)));
+        newCareGiver.addActionListener(new ToCareFormListener());
         newAnimal=new JMenuItem("animal");
         newFile.add(newAnimal);
         account=new JMenu("account");
@@ -49,24 +54,20 @@ public class MainFrame extends JFrame
     }
     public void changePanel(JPanel newPanel)
     {
-
+        mainPanel.changePanel(newPanel);
         container.validate();
         container.repaint();
         System.out.println(newPanel.getX()+" "+newPanel.getY());
     }
     public void changePanel()
     {
-        changePanel();
+        changePanel(basePanel);
     }
-    private class ChangePanelMenuListener implements ActionListener
+    private class ToCareFormListener implements ActionListener
     {
-        JPanel newPanel;
-        private ChangePanelMenuListener(JPanel newPanel)
-        {
-            this.newPanel=newPanel;
-        }
         public void actionPerformed(ActionEvent e)
         {
+            RegistrationFormCareGiver newPanel=new RegistrationFormCareGiver(thisFrame);
             changePanel(newPanel);
         }
     }

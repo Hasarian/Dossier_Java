@@ -1,6 +1,7 @@
 package userInterface;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 
 public class TaskListPanel extends JPanel
@@ -9,6 +10,6 @@ public class TaskListPanel extends JPanel
     public TaskListPanel(JFrame frame)
     {
         this.frame=frame;
-
+        setBackground(Color.WHITE);
     }
 }
