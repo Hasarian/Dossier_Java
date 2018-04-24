@@ -8,6 +8,6 @@ public class TaskListPanel extends JPanel
     public TaskListPanel()
     {
         setBackground(Color.WHITE);
-        
+
     }
 }

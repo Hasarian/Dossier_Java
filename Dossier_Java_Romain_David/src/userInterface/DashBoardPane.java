@@ -14,9 +14,10 @@ public class DashBoardPane extends JPanel
         this.frame=frame;
         setBackground(Color.WHITE);
         JTabbedPane tabbedPane=new JTabbedPane();
-       tabbedPane.insertTab("task list",null,new TaskListPanel("1"),"",0);
-       tabbedPane.insertTab("your list",null,new TaskListPanel("2"),"",0);
+       tabbedPane.insertTab("task list",null,new TaskListPanel(),"",0);
+       tabbedPane.insertTab("your list",null,new TaskListPanel(),"",0);
        tabbedPane.setBounds(0,0,frame.getWidth()-20,500);
        add(tabbedPane);
     }
 }
+
