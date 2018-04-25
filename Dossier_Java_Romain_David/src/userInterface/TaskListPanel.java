@@ -8,42 +8,59 @@ import java.awt.*;
 
 public class TaskListPanel extends JPanel
 {
+    public static final int COLUMNNUMBER=3;
     private Object[][] data;
+    public Object[][]getTableData(){return data;}
+    private DashBoardPane parentPanel;
 
-    public TaskListPanel()
+    public DashBoardPane getParentPanel() {
+        return parentPanel;
+    }
+
+    private JScrollPane tablePane;
+    private JLabel infoLabel,infoLabel2,infoLabel3;
+    private JTable taskTable;
+
+    public JTable getTaskTable() {
+        return taskTable;
+    }
+
+    public JLabel getInfoLabel3() {
+        return infoLabel3;
+    }
+
+    public TaskListPanel(Object[][]data, DashBoardPane parentPanel)
     {
-        data=new Object[55][5];
-        for(int i=0;i<data.length;i++)
-        {
-            Object[] rowData={"rex","a5","dog"};
-            data[i]=rowData;
-        }
+        this.parentPanel=parentPanel;
+        this.data=data;
         setLayout(null);
         setBackground(Color.WHITE);
         TaskTableModel model=new TaskTableModel();
-        JTable taskTable=new JTable(model);
-        JScrollPane tablePane=new JScrollPane(taskTable);
+        taskTable=new JTable(model);
+        tablePane=new JScrollPane(taskTable);
         taskTable.setFillsViewportHeight(true);
         tablePane.setBounds(5,5,975,300);
         add(tablePane);
 
-        JLabel infoLabel=new JLabel("use click to select then click a button below to act");
+        infoLabel=new JLabel("use click to select then click a button below to act");
         infoLabel.setBounds(tablePane.getX(),tablePane.getY()+tablePane.getHeight(),350,15);
-        JLabel infoLabel2=new JLabel("use ctrl+click to select multiple tasks");
+        infoLabel2=new JLabel("use ctrl+click to select multiple tasks");
         infoLabel2.setBounds(infoLabel.getX(),infoLabel.getY()+infoLabel.getHeight(),infoLabel.getWidth(),infoLabel.getHeight());
-        JLabel infoLabel3=new JLabel("use shift+click to select all the tasks between two selections");
+        infoLabel3=new JLabel("use shift+click to select all the tasks between two selections");
         infoLabel3.setBounds(infoLabel.getX(),infoLabel2.getY()+infoLabel2.getHeight(),infoLabel.getWidth(),infoLabel.getHeight());
-        JButton ouvrir=new JButton("consult");
-        ouvrir.setBounds(20,infoLabel3.getY()+infoLabel3.getHeight()+20,200,60);
-        JButton select=new JButton("select");
-        select.setBounds(760,ouvrir.getY(),200,60);
-        /*add(taskTable.getTableHeader(),BorderLayout.PAGE_START);
-        add(taskTable,BorderLayout.CENTER);*/
-        add(select);
-        add(ouvrir);
+
         add(infoLabel);
         add(infoLabel2);
         add(infoLabel3);
+    }
+    public TaskListPanel(DashBoardPane parentPanel)
+    {
+        this(new String[25][COLUMNNUMBER],parentPanel);
+        for(int i=0;i<data.length;i++)
+        {
+            String[] rowData={"rex","a5","dog"};
+            data[i]=rowData;
+        }
     }
     private class TaskTableModel extends AbstractTableModel
     {
@@ -56,7 +73,7 @@ public class TaskListPanel extends JPanel
         private TaskTableModel()
         {
             for(int rownb=0;rownb<getRowCount();rownb++)
-                for(int columnNb=0;columnNb<getColumnCount();columnNb++)
+                for(int columnNb=0;columnNb<getColumnCount()&&data[rownb][columnNb]!=null;columnNb++)
                 {
                     setValueAt(data[rownb][columnNb],rownb,columnNb);
                 }
