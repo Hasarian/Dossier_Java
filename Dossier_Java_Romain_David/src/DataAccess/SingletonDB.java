@@ -1,13 +1,13 @@
 package DataAccess;
 
 public class SingletonDB {
-    private static PrincipalDBAccess connectionSingleton;
+    private static DBConnection connectionSingleton;
 
     private SingletonDB(){
     }
-    public static PrincipalDBAccess getInstance(){
+    public static DBConnection getInstance(){
         if(connectionSingleton == null){
-            return connectionSingleton = new PrincipalDBAccess();
+            return connectionSingleton = new DBConnection();
         }
         return  connectionSingleton;
     }
