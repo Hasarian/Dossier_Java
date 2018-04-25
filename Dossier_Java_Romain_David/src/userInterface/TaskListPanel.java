@@ -62,6 +62,35 @@ public class TaskListPanel extends JPanel
             data[i]=rowData;
         }
     }
+    public void removeData(Object[][]dataToRemove)
+    {
+        for(int i=0;i<dataToRemove.length;i++)
+                removeSingleData(dataToRemove[i]);
+    }
+    public void removeSingleData(Object[]dataToRemove)
+    {
+        int i=0;
+        int j=0;
+        while(i<data.length&&data[i]!=dataToRemove)
+        {
+            i++;
+        }
+        if(dataToRemove==data[i])
+        {
+            while((i+j)<data.length-1)
+            {
+                data[i + j] = data[i + j + 1];
+                j++;
+            }
+        }
+        Object[][] newData=data.clone();
+        data=new Object[i+j][COLUMNNUMBER];
+        for(i=0;i<data.length;i++)for(j=0;j<COLUMNNUMBER;j++)
+        {
+            data[i][j]=newData[i][j];
+        }
+    }
+
     private class TaskTableModel extends AbstractTableModel
     {
         private String [] columnNames=

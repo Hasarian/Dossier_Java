@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class DashBoardPane extends JPanel {
     JFrame frame;
     JTabbedPane tabbedPane;
+    TaskListPanel personnelPanel;
 
     public DashBoardPane(JFrame frame) {
         setLayout(null);
@@ -27,7 +28,14 @@ public class DashBoardPane extends JPanel {
     }
 
     public void generatePersonnalList(Object[][] data) {
-        tabbedPane.insertTab("your list", null, new TaskListPanel(data, this), "", 0);
+        if(personnelPanel==null) {
+            personnelPanel = new TaskListPanel(data, this);
+            tabbedPane.insertTab("your list", null, personnelPanel, "", 1);
+        }
+        else
+        {
+            
+        }
         repaint();
     }
 }
