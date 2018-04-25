@@ -27,14 +27,14 @@ public class DashBoardPane extends JPanel {
        add(tabbedPane);
     }
 
-    public void generatePersonnalList(Object[][] data) {
+    public void generatePersonnalList(ArrayList<ArrayList<String>> data) {
         if(personnelPanel==null) {
-            personnelPanel = new TaskListPanel(data, this);
+            personnelPanel = new TaskListPanel(this,data);
             tabbedPane.insertTab("your list", null, personnelPanel, "", 1);
         }
         else
         {
-            
+            for(ArrayList<String> newRow:data)personnelPanel.addRow(newRow);
         }
         repaint();
     }

@@ -5,12 +5,12 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class TaskListPanel extends JPanel
 {
-    public static final int COLUMNNUMBER=3;
-    private Object[][] data;
-    public Object[][]getTableData(){return data;}
+    private ArrayList<ArrayList<String>> data;
+    public ArrayList<ArrayList<String>> getTableData(){return data;}
     private DashBoardPane parentPanel;
 
     public DashBoardPane getParentPanel() {
@@ -29,7 +29,7 @@ public class TaskListPanel extends JPanel
         return infoLabel3;
     }
 
-    public TaskListPanel(Object[][]data, DashBoardPane parentPanel)
+    public TaskListPanel(DashBoardPane parentPanel,ArrayList<ArrayList<String>>data)
     {
         this.parentPanel=parentPanel;
         this.data=data;
@@ -52,43 +52,31 @@ public class TaskListPanel extends JPanel
         add(infoLabel);
         add(infoLabel2);
         add(infoLabel3);
+
     }
     public TaskListPanel(DashBoardPane parentPanel)
     {
-        this(new String[25][COLUMNNUMBER],parentPanel);
-        for(int i=0;i<data.length;i++)
+        this(parentPanel,new ArrayList<ArrayList<String>>());
+        for(int i=0;i<3;i++)
         {
-            String[] rowData={"rex","a5","dog"};
-            data[i]=rowData;
+            ArrayList<String> rowData=new ArrayList<String>();
+            rowData.add("rex");
+            rowData.add("a5");
+            rowData.add("dog");
+            data.add(rowData);
         }
     }
-    public void removeData(Object[][]dataToRemove)
+    public void removeData(ArrayList<ArrayList<String>> dataToRemove)
     {
-        for(int i=0;i<dataToRemove.length;i++)
-                removeSingleData(dataToRemove[i]);
+        for(ArrayList<String>data:dataToRemove)removeSingleData(data);
     }
-    public void removeSingleData(Object[]dataToRemove)
+    public void removeSingleData(ArrayList<String> dataToRemove)
     {
-        int i=0;
-        int j=0;
-        while(i<data.length&&data[i]!=dataToRemove)
-        {
-            i++;
-        }
-        if(dataToRemove==data[i])
-        {
-            while((i+j)<data.length-1)
-            {
-                data[i + j] = data[i + j + 1];
-                j++;
-            }
-        }
-        Object[][] newData=data.clone();
-        data=new Object[i+j][COLUMNNUMBER];
-        for(i=0;i<data.length;i++)for(j=0;j<COLUMNNUMBER;j++)
-        {
-            data[i][j]=newData[i][j];
-        }
+      data.remove(dataToRemove);
+    }
+    public void addRow(ArrayList<String> newData)
+    {
+        data.add(newData);
     }
 
     private class TaskTableModel extends AbstractTableModel
@@ -99,16 +87,8 @@ public class TaskListPanel extends JPanel
                         "cell number",
                         "species",
                 };
-        private TaskTableModel()
-        {
-            for(int rownb=0;rownb<getRowCount();rownb++)
-                for(int columnNb=0;columnNb<getColumnCount()&&data[rownb][columnNb]!=null;columnNb++)
-                {
-                    setValueAt(data[rownb][columnNb],rownb,columnNb);
-                }
-        }
         public int getRowCount() {
-            return data.length;
+            return data.size();
         }
 
         public int getColumnCount() {
@@ -116,7 +96,7 @@ public class TaskListPanel extends JPanel
         }
 
         public Object getValueAt(int rowIndex, int columnIndex) {
-            return data[rowIndex][columnIndex];
+            return data.get(rowIndex).get(columnIndex);
         }
 
         public String getColumnName(int col) {
@@ -127,8 +107,8 @@ public class TaskListPanel extends JPanel
         public boolean isCellEditable(int rowIndex, int columnIndex) {
             return columnIndex==columnNames.length-1;
         }
-        public void setValueAt(Object value, int row, int col) {
-            data[row][col] = value;
+        public void setValueAt(String value, int row, int col) {
+            data.get(row).set(col,value);
             fireTableCellUpdated(row, col);
         }
         public Class getColumnClass(int c) {
