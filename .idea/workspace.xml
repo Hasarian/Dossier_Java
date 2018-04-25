@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e633ca09-66ed-4f9a-b57c-daa42bf763d4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java" />
     </list>
@@ -28,7 +27,7 @@
       <file leaf-file-name="BannerPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/BannerPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
+            <state relative-caret-position="168">
               <caret line="11" column="75" lean-forward="false" selection-start-line="11" selection-start-column="75" selection-end-line="11" selection-end-column="75" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -64,22 +63,34 @@
       <file leaf-file-name="TaskListPanel.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+            <state relative-caret-position="219">
+              <caret line="53" column="34" lean-forward="false" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1781#1782#0" expanded="true" />
-                <element signature="e#1823#1824#0" expanded="true" />
-                <element signature="e#1862#1863#0" expanded="true" />
-                <element signature="e#1911#1912#0" expanded="true" />
-                <element signature="e#1978#1979#0" expanded="true" />
-                <element signature="e#2036#2037#0" expanded="true" />
-                <element signature="e#2083#2084#0" expanded="true" />
-                <element signature="e#2130#2131#0" expanded="true" />
-                <element signature="e#2220#2221#0" expanded="true" />
-                <element signature="e#2284#2285#0" expanded="true" />
-                <marker date="1524664216230" expanded="true" signature="1139:1145" ph="{...}" />
+                <element signature="e#2457#2458#0" expanded="true" />
+                <element signature="e#2499#2500#0" expanded="true" />
+                <element signature="e#2538#2539#0" expanded="true" />
+                <element signature="e#2587#2588#0" expanded="true" />
+                <element signature="e#2654#2655#0" expanded="true" />
+                <element signature="e#2712#2713#0" expanded="true" />
+                <element signature="e#2760#2761#0" expanded="true" />
+                <element signature="e#2807#2808#0" expanded="true" />
+                <element signature="e#2897#2898#0" expanded="true" />
+                <element signature="e#2961#2962#0" expanded="true" />
+                <element signature="e#3161#3162#0" expanded="true" />
+                <element signature="e#3219#3220#0" expanded="true" />
+                <marker date="1524666720061" expanded="true" signature="1880:1886" ph="{...}" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TableModel.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/javax/swing/table/TableModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="113" column="18" lean-forward="false" selection-start-line="113" selection-start-column="18" selection-end-line="113" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -87,8 +98,8 @@
       <file leaf-file-name="AbstractTableModel.java" pinned="false" current-in-tab="false">
         <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/javax/swing/table/AbstractTableModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="80" column="18" lean-forward="false" selection-start-line="80" selection-start-column="18" selection-end-line="80" selection-end-column="18" />
+            <state relative-caret-position="787">
+              <caret line="78" column="56" lean-forward="false" selection-start-line="78" selection-start-column="56" selection-end-line="78" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -405,7 +416,7 @@
       <workItem from="1524209409054" duration="257000" />
       <workItem from="1524566027594" duration="1258000" />
       <workItem from="1524590197908" duration="151000" />
-      <workItem from="1524654982417" duration="7200000" />
+      <workItem from="1524654982417" duration="9749000" />
     </task>
     <task id="LOCAL-00001" summary="login frame sans les events">
       <created>1522594410214</created>
@@ -477,11 +488,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523961070302</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="table">
+      <created>1524664228463</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1524664228463</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65200000" />
+    <option name="totallyTimeSpent" value="67749000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1554" height="916" extended-state="6" />
@@ -499,7 +517,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10174029" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10174029" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -530,7 +548,8 @@
     <MESSAGE value="-animal panel&#10;&#10;ajouter et retirer les tasks" />
     <MESSAGE value="ils se mettent l'un en dessous de l'autre&#10;&#10;mais les boutons ne s'affiche qu'au début" />
     <MESSAGE value="les boutons commencent à fonctionner" />
-    <option name="LAST_COMMIT_MESSAGE" value="les boutons commencent à fonctionner" />
+    <MESSAGE value="table" />
+    <option name="LAST_COMMIT_MESSAGE" value="table" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -539,7 +558,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/LoginPanel.java" />
     <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/falseData/StandardUser.java" />
     <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/falseData/ToDo.java" />
     <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/CarePanel.java" />
@@ -681,16 +699,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/BannerPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="11" column="75" lean-forward="false" selection-start-line="11" selection-start-column="75" selection-end-line="11" selection-end-column="75" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/javax/swing/JTable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
@@ -717,14 +725,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/javax/swing/table/AbstractTableModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="80" column="18" lean-forward="false" selection-start-line="80" selection-start-column="18" selection-end-line="80" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/DashBoardPane.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -735,23 +735,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/javax/swing/table/TableModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+        <state relative-caret-position="165">
+          <caret line="113" column="18" lean-forward="false" selection-start-line="113" selection-start-column="18" selection-end-line="113" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/BannerPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="11" column="75" lean-forward="false" selection-start-line="11" selection-start-column="75" selection-end-line="11" selection-end-column="75" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1781#1782#0" expanded="true" />
-            <element signature="e#1823#1824#0" expanded="true" />
-            <element signature="e#1862#1863#0" expanded="true" />
-            <element signature="e#1911#1912#0" expanded="true" />
-            <element signature="e#1978#1979#0" expanded="true" />
-            <element signature="e#2036#2037#0" expanded="true" />
-            <element signature="e#2083#2084#0" expanded="true" />
-            <element signature="e#2130#2131#0" expanded="true" />
-            <element signature="e#2220#2221#0" expanded="true" />
-            <element signature="e#2284#2285#0" expanded="true" />
-            <marker date="1524664216230" expanded="true" signature="1139:1145" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/javax/swing/table/AbstractTableModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="787">
+          <caret line="78" column="56" lean-forward="false" selection-start-line="78" selection-start-column="56" selection-end-line="78" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="53" column="34" lean-forward="false" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2457#2458#0" expanded="true" />
+            <element signature="e#2499#2500#0" expanded="true" />
+            <element signature="e#2538#2539#0" expanded="true" />
+            <element signature="e#2587#2588#0" expanded="true" />
+            <element signature="e#2654#2655#0" expanded="true" />
+            <element signature="e#2712#2713#0" expanded="true" />
+            <element signature="e#2760#2761#0" expanded="true" />
+            <element signature="e#2807#2808#0" expanded="true" />
+            <element signature="e#2897#2898#0" expanded="true" />
+            <element signature="e#2961#2962#0" expanded="true" />
+            <element signature="e#3161#3162#0" expanded="true" />
+            <element signature="e#3219#3220#0" expanded="true" />
+            <marker date="1524666720061" expanded="true" signature="1880:1886" ph="{...}" />
           </folding>
         </state>
       </provider>
