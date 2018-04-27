@@ -31,7 +31,7 @@ mail varchar (50),
  remarque varchar(150),
  estBenevole boolean not null,
  dateEmbauche date not null, 
-localite integer(10),
+localite integer(10) not null,
 constraint mail_id_pk primary key(mail),
 constraint localite_fk foreign key (localite) references localite(idLocalite)
 )engine = InnoDB;
