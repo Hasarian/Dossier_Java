@@ -9,6 +9,10 @@ public class DashBoardPane extends JPanel {
     JTabbedPane tabbedPane;
     TaskListPanel personnelPanel;
 
+    public TaskListPanel getPersonnelPanel() {
+        return personnelPanel;
+    }
+
     public DashBoardPane(JFrame frame) {
         setLayout(null);
         //setBounds(0,400,500,500);

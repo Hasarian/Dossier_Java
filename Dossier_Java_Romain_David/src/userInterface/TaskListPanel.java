@@ -57,14 +57,48 @@ public class TaskListPanel extends JPanel
     public TaskListPanel(DashBoardPane parentPanel)
     {
         this(parentPanel,new ArrayList<ArrayList<String>>());
-        for(int i=0;i<3;i++)
-        {
-            ArrayList<String> rowData=new ArrayList<String>();
-            rowData.add("rex");
-            rowData.add("a5");
-            rowData.add("dog");
-            data.add(rowData);
-        }
+        ArrayList<String> rowData=new ArrayList<String>();
+        rowData.add("rex");
+        rowData.add("0001");
+        rowData.add("a5");
+        rowData.add("dog");
+        data.add(rowData);
+
+        rowData=new ArrayList<String>();
+        rowData.add("alfonse");
+        rowData.add("0002");
+        rowData.add("c8");
+        rowData.add("tortue");
+        data.add(rowData);
+
+        rowData=new ArrayList<String>();
+        rowData.add("misty");
+        rowData.add("0003");
+        rowData.add("b3");
+        rowData.add("cat");
+        data.add(rowData);
+
+        rowData=new ArrayList<String>();
+        rowData.add("ash");
+        rowData.add("0004");
+        rowData.add("a5");
+        rowData.add("dog");
+        data.add(rowData);
+
+        rowData=new ArrayList<String>();
+        rowData.add("ziggy");
+        rowData.add("0005");
+        rowData.add("a8");
+        rowData.add("dog");
+        data.add(rowData);
+
+        rowData=new ArrayList<String>();
+        rowData.add("farcry");
+        rowData.add("0006");
+        rowData.add("b2");
+        rowData.add("cat");
+        data.add(rowData);
+
     }
     public void removeData(ArrayList<ArrayList<String>> dataToRemove)
     {
@@ -84,6 +118,7 @@ public class TaskListPanel extends JPanel
         private String [] columnNames=
                 {
                         "name",
+                        "id",
                         "cell number",
                         "species",
                 };

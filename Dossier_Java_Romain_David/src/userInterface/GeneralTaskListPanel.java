@@ -27,11 +27,12 @@ public class GeneralTaskListPanel extends TaskListPanel {
             ArrayList<ArrayList<String>> newData = new ArrayList<ArrayList<String>>();
             for (int i = 0; i < getTaskTable().getSelectedRows().length; i++)
             {
+                System.out.println( getTaskTable().getSelectedRows().length);
                 newData.add(getTableData().get(getTaskTable().getSelectedRows()[i]));
             }
             getParentPanel().generatePersonnalList(newData);
             removeData(newData);
-
+            getTaskTable().clearSelection();
         }
     }
 }
