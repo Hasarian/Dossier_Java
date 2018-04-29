@@ -49,18 +49,17 @@ public class MainFrame extends JFrame
         account.add(logout);
 
         setVisible(true);
-        System.out.println("frame dimensions: "+getX()+" "+getY()+" "+getWidth()+" "+getHeight());
     }
     public void changePanel(JPanel newPanel)
     {
         mainPanel.changePanel(newPanel);
         container.validate();
         container.repaint();
-        System.out.println(newPanel.getX()+" "+newPanel.getY());
     }
     public void changePanel()
     {
         changePanel(basePanel);
+        System.out.println(basePanel.getPersonnelPanel());
     }
     private class ToCareFormListener implements ActionListener
     {
