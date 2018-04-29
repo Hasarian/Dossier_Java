@@ -1,5 +1,6 @@
 package Model;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class CareGiver {
@@ -13,7 +14,7 @@ public class CareGiver {
     private Boolean estBenevole;
     private Calendar dateEmbauche;
     private Localite localite;
-    CareGiver(String mail, String firstName, String name,
+    public CareGiver(String mail, String firstName, String name,
               String street, Integer numMaison, Integer numTel,
               String remarque, Boolean estBenevole,
               Calendar dateEmbauche, Localite localite){
@@ -68,4 +69,18 @@ public class CareGiver {
     public String getStreet() {
         return street;
     }
+
+    public ArrayList<Object> getAttributObligatoir(){// changer le nom
+        ArrayList<Object> attributs = new ArrayList<Object>();
+        attributs.add(this.getMail());
+        attributs.add(this.getFirstName());
+        attributs.add(this.getName());
+        attributs.add(this.getDateEmbauche());
+        attributs.add(this.getStreet());
+        attributs.add(this.getLocalite());
+        attributs.add(this.getNumMaison());
+        attributs.add(this.getEstBenevole());
+        return attributs;
+    }
+
 }

@@ -7,7 +7,7 @@ import Model.CareGiver;
 public class CareGiverBusiness {
     CareGiver careGiver;
     DAOCareGiver daoCareGiver;
-    CareGiverBusiness(CareGiver careGiver){
+    public CareGiverBusiness(CareGiver careGiver){
         setDaoCareGiver();
     }
 
@@ -16,11 +16,18 @@ public class CareGiverBusiness {
     }
 
     public void setCareGiver(CareGiver careGiver) {
-        //if()
+        if( checkCareGiverAttribut(careGiver)){
+            daoCareGiver.create(careGiver);
+        }
+       // else
+            //faire exeption
     }
-    private boolean checkAttributNotNull(){
-        boolean check = false;
-        return check;
+
+    private static boolean checkCareGiverAttribut(CareGiver careGiver){
+        int indice = 0;
+        while (indice < careGiver.getAttributObligatoir().size() && careGiver.getAttributObligatoir().get(indice) != null)
+            indice++;
+        return indice == careGiver.getAttributObligatoir().size();
     }
 
 }

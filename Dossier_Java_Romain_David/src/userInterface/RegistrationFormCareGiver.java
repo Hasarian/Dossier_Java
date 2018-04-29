@@ -1,5 +1,10 @@
 package userInterface;
 
+import Business.CareGiverBusiness;
+import Model.CareGiver;
+import Model.Localite;
+
+import javax.rmi.CORBA.Util;
 import javax.swing.*;
 import javax.swing.plaf.basic.DefaultMenuLayout;
 import java.awt.*;
@@ -141,7 +146,8 @@ public class RegistrationFormCareGiver extends JPanel{
 		constraints.gridy = 9;
 		constraints.insets = new Insets(0,10,50,90);
 		this.add(hireDateLabel, constraints);
-		hireDate = new JSpinner(new SpinnerDateModel());
+		hireDate = new JSpinner(new SpinnerNumberModel());
+		hireDate.setEditor(new JSpinner.DateEditor(hireDate, "dd/MM/yyyy"));
 		constraints.gridx = 2;
 		constraints.gridy = 9;
 		constraints.gridwidth = GridBagConstraints.REMAINDER;
@@ -149,6 +155,7 @@ public class RegistrationFormCareGiver extends JPanel{
 		this.add(hireDate, constraints);
 
 		inscription = new JButton("Confirmer l'inscription");
+		inscription.addActionListener(new ConfirmButtonListener());
 		constraints.gridx = 1;
 		constraints.gridy = 12;
 		constraints.gridwidth = GridBagConstraints.REMAINDER;
@@ -165,12 +172,46 @@ public class RegistrationFormCareGiver extends JPanel{
 		//mail.addActionListener(listener);
 
 	}
+	public int jSpinnerToDate(JSpinner spinnerDate){
+    	int date;
+    	String stringMois = spinnerDate.getValue().toString();
 
-	private class ConfirmButtonListener implements ActionListener{
+    	String []mois= new String[12];
+    	mois[0] = "jan";
+		mois[1] = "feb";
+		mois[2] = "mar";
+		mois[3] = "apr";
+		mois[4] = "may";
+		mois[5] = "jun";
+		mois[6] = "jul";
+		mois[7] = "aug";
+		mois[8] = "sep";
+		mois[9] = "oct";
+		mois[10] = "nov";
+		mois[11] = "dec";
+		int moisDate = 0;
+		while (moisDate < mois.length && !mois[moisDate].equals(stringMois.substring(4,7).toLowerCase())) {
+			moisDate++;
+		}
+		date = Integer.parseInt(stringMois.substring(8,10));
+		date += moisDate * 100;
+		date += Integer.parseInt(stringMois.substring(25))*10000;
+    	return date;
+	}
+
+	private class ConfirmButtonListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			//metodeControler(name.getText(), lastname.getText(), mail.getText(), street.getText()
-			// , houseNumber.getText(), telNumber.getText(), note.getSelectedText(), isVolunteer.isSelected(),
-			// locality.getSelection(), hireDate.getValue());
+
+
+			int tempDate = jSpinnerToDate(hireDate);
+			int year = tempDate/10000;
+			int month = (tempDate / 100)%100;
+			int day = tempDate %100;
+			GregorianCalendar date = new GregorianCalendar();
+			date.set(year,month,day);
+			new CareGiverBusiness(new CareGiver(name.getText(), lastName.getText(), mail.getText(), street.getText()
+			 ,Integer.parseInt(houseNumber.getText()), Integer.parseInt(telNumber.getText()), note.getSelectedText(), isVolunteer.isSelected(), date,
+					(Localite) locality.getSelectedValue()));
 		}
 	}
 	private class CancelButtonListener implements ActionListener
