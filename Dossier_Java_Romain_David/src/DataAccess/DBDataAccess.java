@@ -3,9 +3,11 @@ package DataAccess;
 
 import DAO.DAOCareGiver;
 import Model.CareGiver;
+import Model.Localite;
 
 import javax.swing.*;
 import java.sql.*;
+import java.util.GregorianCalendar;
 
 public class DBDataAccess implements DAOCareGiver {
     private Connection singletonDBAcces;
@@ -51,11 +53,15 @@ public class DBDataAccess implements DAOCareGiver {
         CareGiver careGiver = null;
         String sql = "select soignant where mail = ?";
         try {
-
             PreparedStatement statement = singletonDBAcces.prepareStatement(sql);
             statement.setString(1, id);
             ResultSet data = statement.executeQuery();
             ResultSetMetaData meta = data.getMetaData();
+            GregorianCalendar hireDate = new GregorianCalendar();
+            hireDate.setTime(data.getDate("dateEmbauche"));
+            return new CareGiver(data.getString("mail"),data.getString("prenom"),data.getString("nom"),
+                    data.getString("rue"), data.getInt("numMAison"),data.getInt("numTel"), data.getString("remarque"),
+                    data.getBoolean("estBenevole"),hireDate , (Localite) data.getObject("localite"));
         }
         catch (SQLException e){
 

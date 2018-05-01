@@ -5,13 +5,10 @@ import DataAccess.ErreurInsertCareGiver;
 import Model.CareGiver;
 import Model.Localite;
 
-import javax.rmi.CORBA.Util;
 import javax.swing.*;
-import javax.swing.plaf.basic.DefaultMenuLayout;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -149,7 +146,7 @@ public class RegistrationFormCareGiver extends JPanel{
 		constraints.gridy = 9;
 		constraints.insets = new Insets(0,10,50,90);
 		this.add(hireDateLabel, constraints);
-		hireDate = new JSpinner(new SpinnerNumberModel());
+		hireDate = new JSpinner(new SpinnerDateModel());
 		hireDate.setEditor(new JSpinner.DateEditor(hireDate, "dd/MM/yyyy"));
 		constraints.gridx = 2;
 		constraints.gridy = 9;
@@ -182,7 +179,7 @@ public class RegistrationFormCareGiver extends JPanel{
 			GregorianCalendar date = new GregorianCalendar();
 			date.setTime((Date) hireDate.getValue());
 			try {
-				careGiverBusiness.setCareGiver(new CareGiver(name.getText(), lastName.getText(), mail.getText(), street.getText()
+				careGiverBusiness.setCareGiverData(new CareGiver(name.getText(), lastName.getText(), mail.getText(), street.getText()
 						, Integer.parseInt(houseNumber.getText()), Integer.parseInt(telNumber.getText()), note.getSelectedText(), isVolunteer.isSelected(), date,
 						(Localite) locality.getSelectedValue()));
 			}

@@ -8,7 +8,7 @@ import java.sql.Connection;
 
 public interface DAOCareGiver {
     void create(CareGiver careGiver)throws ErreurInsertCareGiver;
-    Object read(String id);
+    CareGiver read(String id);
     void update(CareGiver careGiver);
     void delete(String id);
 }

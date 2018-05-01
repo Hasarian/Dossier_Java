@@ -16,7 +16,7 @@ public class CareGiverBusiness {
         this.daoCareGiver = new DBDataAccess();
     }
 
-    public void setCareGiver(CareGiver careGiver) throws ErreurInsertCareGiver {
+    public void setCareGiverData(CareGiver careGiver) throws ErreurInsertCareGiver {
 
             if (checkCareGiverAttribut(careGiver)) {
                 try {
@@ -26,9 +26,15 @@ public class CareGiverBusiness {
                     throw new ErreurInsertCareGiver(e.getMessage());
                 }
             }
+    }
 
-       // else
-            //faire exeption
+    public void setCareGiver(CareGiver careGiver) {
+        if (checkCareGiverAttribut(careGiver))this.careGiver = careGiver;
+    }
+
+    public CareGiver getCareGiver(String id) {
+        setCareGiver(daoCareGiver.read(id));
+            return careGiver;
     }
 
     private static boolean checkCareGiverAttribut(CareGiver careGiver){
