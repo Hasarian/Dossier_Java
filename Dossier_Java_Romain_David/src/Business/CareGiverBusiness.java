@@ -2,23 +2,31 @@ package Business;
 
 import DAO.DAOCareGiver;
 import DataAccess.DBDataAccess;
+import DataAccess.ErreurInsertCareGiver;
 import Model.CareGiver;
 
 public class CareGiverBusiness {
     CareGiver careGiver;
     DAOCareGiver daoCareGiver;
-    public CareGiverBusiness(CareGiver careGiver){
-        setDaoCareGiver();
-    }
+
+    public CareGiverBusiness(){setDaoCareGiver();}
+    public CareGiverBusiness(CareGiver careGiver){ this(); }
 
     public void setDaoCareGiver() {
         this.daoCareGiver = new DBDataAccess();
     }
 
-    public void setCareGiver(CareGiver careGiver) {
-        if( checkCareGiverAttribut(careGiver)){
-            daoCareGiver.create(careGiver);
-        }
+    public void setCareGiver(CareGiver careGiver) throws ErreurInsertCareGiver {
+
+            if (checkCareGiverAttribut(careGiver)) {
+                try {
+                daoCareGiver.create(careGiver);
+                }
+                catch (ErreurInsertCareGiver e){
+                    throw new ErreurInsertCareGiver(e.getMessage());
+                }
+            }
+
        // else
             //faire exeption
     }

@@ -5,10 +5,7 @@ import DAO.DAOCareGiver;
 import Model.CareGiver;
 
 import javax.swing.*;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Types;
+import java.sql.*;
 
 public class DBDataAccess implements DAOCareGiver {
     private Connection singletonDBAcces;
@@ -17,7 +14,7 @@ public class DBDataAccess implements DAOCareGiver {
     }
 
 
-    public void create(CareGiver careGiver) {
+    public void create(CareGiver careGiver) throws ErreurInsertCareGiver {
         String sql = "insert into careGiver(mail, prenomn nom, rue, numMaison, numtel, remarque, estBenevole, dateEmbauche, localite) values(?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement statement = singletonDBAcces.prepareStatement(sql);
@@ -35,7 +32,7 @@ public class DBDataAccess implements DAOCareGiver {
             statement.setDate(9, new java.sql.Date(careGiver.getDateEmbauche().getTimeInMillis()));
             statement.setInt(10, careGiver.getLocalite().getIdLocalite());
         }catch (SQLException e){
-            JOptionPane.showMessageDialog(null, e.getMessage(), "erreur DB acces careGiver", JOptionPane.ERROR_MESSAGE);
+            throw new ErreurInsertCareGiver(e.getMessage());
         }
     }
 
@@ -52,6 +49,17 @@ public class DBDataAccess implements DAOCareGiver {
 
     public CareGiver read(String id) {
         CareGiver careGiver = null;
+        String sql = "select soignant where mail = ?";
+        try {
+
+            PreparedStatement statement = singletonDBAcces.prepareStatement(sql);
+            statement.setString(1, id);
+            ResultSet data = statement.executeQuery();
+            ResultSetMetaData meta = data.getMetaData();
+        }
+        catch (SQLException e){
+
+        }
         return careGiver;
     }
 }

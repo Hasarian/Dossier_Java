@@ -1,6 +1,7 @@
 package userInterface;
 
 import Business.CareGiverBusiness;
+import DataAccess.ErreurInsertCareGiver;
 import Model.CareGiver;
 import Model.Localite;
 
@@ -11,6 +12,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class RegistrationFormCareGiver extends JPanel{
@@ -23,6 +25,7 @@ public class RegistrationFormCareGiver extends JPanel{
     private JSpinner hireDate;
     private JButton inscription, annuler;
     private MainFrame frame;
+    private CareGiverBusiness careGiverBusiness;
 
     RegistrationFormCareGiver(MainFrame frame){
 		setBounds(0,0,1000,750);
@@ -170,48 +173,22 @@ public class RegistrationFormCareGiver extends JPanel{
 		this.add(annuler, constraints);
 		//TextListener listener = new TextListener();
 		//mail.addActionListener(listener);
+		careGiverBusiness = new CareGiverBusiness();
 
-	}
-	public int jSpinnerToDate(JSpinner spinnerDate){
-    	int date;
-    	String stringMois = spinnerDate.getValue().toString();
-
-    	String []mois= new String[12];
-    	mois[0] = "jan";
-		mois[1] = "feb";
-		mois[2] = "mar";
-		mois[3] = "apr";
-		mois[4] = "may";
-		mois[5] = "jun";
-		mois[6] = "jul";
-		mois[7] = "aug";
-		mois[8] = "sep";
-		mois[9] = "oct";
-		mois[10] = "nov";
-		mois[11] = "dec";
-		int moisDate = 0;
-		while (moisDate < mois.length && !mois[moisDate].equals(stringMois.substring(4,7).toLowerCase())) {
-			moisDate++;
-		}
-		date = Integer.parseInt(stringMois.substring(8,10));
-		date += moisDate * 100;
-		date += Integer.parseInt(stringMois.substring(25))*10000;
-    	return date;
 	}
 
 	private class ConfirmButtonListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-
-
-			int tempDate = jSpinnerToDate(hireDate);
-			int year = tempDate/10000;
-			int month = (tempDate / 100)%100;
-			int day = tempDate %100;
 			GregorianCalendar date = new GregorianCalendar();
-			date.set(year,month,day);
-			new CareGiverBusiness(new CareGiver(name.getText(), lastName.getText(), mail.getText(), street.getText()
-			 ,Integer.parseInt(houseNumber.getText()), Integer.parseInt(telNumber.getText()), note.getSelectedText(), isVolunteer.isSelected(), date,
-					(Localite) locality.getSelectedValue()));
+			date.setTime((Date) hireDate.getValue());
+			try {
+				careGiverBusiness.setCareGiver(new CareGiver(name.getText(), lastName.getText(), mail.getText(), street.getText()
+						, Integer.parseInt(houseNumber.getText()), Integer.parseInt(telNumber.getText()), note.getSelectedText(), isVolunteer.isSelected(), date,
+						(Localite) locality.getSelectedValue()));
+			}
+			catch (ErreurInsertCareGiver error){
+				JOptionPane.showMessageDialog(null, error.getMessage(),"Erreur dans la Création du soigneur",JOptionPane.ERROR_MESSAGE);
+			}
 		}
 	}
 	private class CancelButtonListener implements ActionListener
