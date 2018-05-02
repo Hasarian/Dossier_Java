@@ -14,11 +14,11 @@ public class BannerPanel extends JPanel
         bannerLabel.setBounds(0,0,800,150);
         bannerLabel.setBackground(Color.WHITE);
         setBackground(Color.white);
-        JLabel nameLabel=new JLabel("name");
+        JLabel nameLabel=new JLabel("Name");
         nameLabel.setBounds(840,5,200,45);
-        JLabel firstLabel=new JLabel("firstName");
+        JLabel firstLabel=new JLabel("FirstName");
         firstLabel.setBounds(840,45,200,45);
-        JLabel email=new JLabel("email");
+        JLabel email=new JLabel("Email");
         email.setBounds(840,85,200,45);
 
         add(bannerLabel);

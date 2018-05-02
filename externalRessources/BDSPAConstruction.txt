@@ -56,7 +56,7 @@ libelle varchar(50),
 traitDeCaractere varchar(50) not null,
 tare varchar(50),
 CaracteristiqueDuMilieuDeVie varchar(75),
-espece varchar(50),
+espece varchar(50) not null,
 constraint race_libelle_pk primary key(libelle),
 constraint espece_libelle_fk foreign key (espece) references espece(libelle)
 )engine = InnoDB;
@@ -77,11 +77,10 @@ constraint race_fk foreign key (race) references race(libelle)
 )engine = InnoDB;
 
 create table ficheSoin(
-numDossier integer(10) auto increment,
-id integer(10) not null unique,
+id integer(10),
 remarque varchar(250),
 etat integer(2) not null,
-constraint ficheSoin_numDossier_id_pk primary key(numDossier) ,
+constraint ficheSoin_id_pk primary key(id) ,
 constraint ficheAnimal_fk foreign key (id) references ficheAnimal(id)
 )engine = InnoDB;
 

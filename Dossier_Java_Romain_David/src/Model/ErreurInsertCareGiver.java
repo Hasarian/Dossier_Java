@@ -1,4 +1,4 @@
-package DataAccess;
+package Model;
 
 public class ErreurInsertCareGiver extends Exception {
     private String errorMessage;

@@ -2,7 +2,7 @@ package Business;
 
 import DAO.DAOCareGiver;
 import DataAccess.DBDataAccess;
-import DataAccess.ErreurInsertCareGiver;
+import Model.ErreurInsertCareGiver;
 import Model.CareGiver;
 
 public class CareGiverBusiness {
