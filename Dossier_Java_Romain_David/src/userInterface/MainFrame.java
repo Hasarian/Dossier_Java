@@ -1,5 +1,7 @@
 package userInterface;
 
+import uIController.CareGiverController;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -15,7 +17,7 @@ public class MainFrame extends JFrame
     private Container container;
     private MainFrame thisFrame;
 
-    public MainFrame()
+    public MainFrame(CareGiverController loggedIn)
     {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(15,15,1000,800);

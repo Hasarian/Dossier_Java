@@ -1,12 +1,14 @@
 package Model;
 
+import erreurs.ErrorNull;
+
 public class Espece {
     private String libelle;
     private Boolean estEnVoieDeDisparition;
     private String typeDeDeplacement;
     private String milieuDeVie;
 
-    public Espece(String libelle, Boolean estEnVoieDeDisparition, String typeDeDeplacement, String milieuDeVie)throws ErrorNull{
+    public Espece(String libelle, Boolean estEnVoieDeDisparition, String typeDeDeplacement, String milieuDeVie)throws ErrorNull {
         setEstEnVoieDeDisparition(estEnVoieDeDisparition);
         setLibelle(libelle);
         setMilieuDeVie(milieuDeVie);

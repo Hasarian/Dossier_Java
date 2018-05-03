@@ -1,4 +1,7 @@
 package Model;
+
+import erreurs.ErrorNull;
+
 //setter des String pour empecher les texte trop long
 public class Race {
     private String libelle;
@@ -7,7 +10,7 @@ public class Race {
     private String CaracteristiqueDuMilieuDeVie;
     private Espece espece;
 
-    public Race(String libelle, String traitDeCaractere, String tare, String caracteristiqueDuMilieuDeVie, Espece espece) throws ErrorNull{
+    public Race(String libelle, String traitDeCaractere, String tare, String caracteristiqueDuMilieuDeVie, Espece espece) throws ErrorNull {
         setCaracteristiqueDuMilieuDeVie(caracteristiqueDuMilieuDeVie);
         setEspece(espece);
         setLibelle(libelle);

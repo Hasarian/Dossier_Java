@@ -1,4 +1,4 @@
-package Model;
+package erreurs;
 
 public class ErreurInsertCareGiver extends Exception {
     private String errorMessage;

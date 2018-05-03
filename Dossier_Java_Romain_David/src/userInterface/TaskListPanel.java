@@ -140,15 +140,15 @@ public class TaskListPanel extends JPanel
 
         @Override
         public boolean isCellEditable(int rowIndex, int columnIndex) {
-            return columnIndex==columnNames.length-1;
+            return false;
         }
         public void setValueAt(String value, int row, int col) {
             data.get(row).set(col,value);
             fireTableCellUpdated(row, col);
         }
-        public Class getColumnClass(int c) {
+        /*public Class getColumnClass(int c) {
             return getValueAt(0, c).getClass();
-        }
+        }*/
 
     }
 }

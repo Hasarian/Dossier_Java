@@ -3,15 +3,16 @@ package DataAccess;
 
 import DAO.DAOCareGiver;
 import Model.CareGiver;
-import Model.ErreurInsertCareGiver;
+import erreurs.ErreurInsertCareGiver;
 import Model.Localite;
+import erreurs.InexistantCareGiver;
 
 import java.sql.*;
 import java.util.GregorianCalendar;
 
-public class DBDataAccess implements DAOCareGiver {
+public class CaraGiverDataAccess implements DAOCareGiver {
     private Connection singletonDBAcces;
-    public DBDataAccess(){
+    public CaraGiverDataAccess(){
         singletonDBAcces = SingletonDB.getInstance();
     }
 
@@ -49,14 +50,16 @@ public class DBDataAccess implements DAOCareGiver {
 
     }
 
-    public CareGiver read(String id) throws ErrorReadCareGiver {
+    public CareGiver read(String id) throws InexistantCareGiver
+    {
         CareGiver careGiver = null;
         String sql = "select * from soignant where mail = ?";
         try {
             PreparedStatement statement = singletonDBAcces.prepareStatement(sql);
             statement.setString(1, id);
             ResultSet data = statement.executeQuery();
-
+            if(!data.next()) throw new InexistantCareGiver();
+            ResultSetMetaData meta = data.getMetaData();
             GregorianCalendar hireDate = new GregorianCalendar();
             hireDate.setTime(data.getDate("dateEmbauche"));
             Integer numTel = (data.wasNull()? null : data.getInt("numTel"));

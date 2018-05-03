@@ -1,7 +1,7 @@
 package userInterface;
 
 import Business.CareGiverBusiness;
-import Model.ErreurInsertCareGiver;
+import erreurs.ErreurInsertCareGiver;
 import Model.CareGiver;
 import Model.Localite;
 

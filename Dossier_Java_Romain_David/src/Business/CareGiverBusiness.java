@@ -1,8 +1,8 @@
 package Business;
 
 import DAO.DAOCareGiver;
-import DataAccess.DBDataAccess;
-import Model.ErreurInsertCareGiver;
+import DataAccess.CaraGiverDataAccess;
+import erreurs.ErreurInsertCareGiver;
 import Model.CareGiver;
 
 public class CareGiverBusiness {
@@ -13,18 +13,13 @@ public class CareGiverBusiness {
     public CareGiverBusiness(CareGiver careGiver){ this(); }
 
     public void setDaoCareGiver() {
-        this.daoCareGiver = new DBDataAccess();
+        this.daoCareGiver = new CaraGiverDataAccess();
     }
 
     public void setCareGiverData(CareGiver careGiver) throws ErreurInsertCareGiver {
 
             if (checkCareGiverAttribut(careGiver)) {
-                try {
                 daoCareGiver.create(careGiver);
-                }
-                catch (ErreurInsertCareGiver e){
-                    throw new ErreurInsertCareGiver(e.getMessage());
-                }
             }
     }
 

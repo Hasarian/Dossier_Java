@@ -1,5 +1,7 @@
 package userInterface;
 
+import uIController.CareGiverController;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -69,8 +71,16 @@ public class LoginFrame extends JFrame
 
             public void actionPerformed(ActionEvent e)
             {
-                MainFrame newFrame= new MainFrame();
-                frame.dispose();
+                try {
+                    CareGiverController loginControl = new CareGiverController();
+                    loginControl.setCareGiverConnection(emailLabel.getText());
+                    MainFrame newFrame = new MainFrame(loginControl);
+                    frame.dispose();
+                }
+                catch()
+                {
+
+                }
             }
         }
 
