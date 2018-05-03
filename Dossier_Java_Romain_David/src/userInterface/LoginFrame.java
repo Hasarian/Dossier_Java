@@ -1,11 +1,14 @@
 package userInterface;
 
+import erreurs.BDConnexionError;
+import erreurs.InexistantCareGiver;
 import uIController.CareGiverController;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class LoginFrame extends JFrame
 {
@@ -77,9 +80,14 @@ public class LoginFrame extends JFrame
                     MainFrame newFrame = new MainFrame(loginControl);
                     frame.dispose();
                 }
-                catch()
-                {
 
+                catch(BDConnexionError dbError)
+                {
+                    JOptionPane.showMessageDialog(null,dbError.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
+                }
+                catch (InexistantCareGiver loginError)
+                {
+                    JOptionPane.showMessageDialog(null,loginError.getMessage(),"unknown login",JOptionPane.ERROR_MESSAGE);
                 }
             }
         }

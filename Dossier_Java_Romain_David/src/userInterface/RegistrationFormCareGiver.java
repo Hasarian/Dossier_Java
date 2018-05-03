@@ -1,6 +1,7 @@
 package userInterface;
 
 import Business.CareGiverBusiness;
+import erreurs.BDConnexionError;
 import erreurs.ErreurInsertCareGiver;
 import Model.CareGiver;
 import Model.Localite;
@@ -170,7 +171,6 @@ public class RegistrationFormCareGiver extends JPanel{
 		this.add(annuler, constraints);
 		//TextListener listener = new TextListener();
 		//mail.addActionListener(listener);
-		careGiverBusiness = new CareGiverBusiness();
 
 	}
 
@@ -179,12 +179,17 @@ public class RegistrationFormCareGiver extends JPanel{
 			GregorianCalendar date = new GregorianCalendar();
 			date.setTime((Date) hireDate.getValue());
 			try {
+				careGiverBusiness = new CareGiverBusiness();
 				careGiverBusiness.setCareGiverData(new CareGiver(name.getText(), lastName.getText(), mail.getText(), street.getText()
 						, Integer.parseInt(houseNumber.getText()), Integer.parseInt(telNumber.getText()), note.getSelectedText(), isVolunteer.isSelected(), date,
 						(Localite) locality.getSelectedValue()));
 			}
 			catch (ErreurInsertCareGiver error){
 				JOptionPane.showMessageDialog(null, error.getMessage(),"Erreur dans la Création du soigneur",JOptionPane.ERROR_MESSAGE);
+			}
+			catch (BDConnexionError connexionError)
+			{
+				JOptionPane.showMessageDialog(null, connexionError.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
 			}
 		}
 	}

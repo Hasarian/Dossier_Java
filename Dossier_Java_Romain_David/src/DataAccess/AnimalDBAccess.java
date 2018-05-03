@@ -4,6 +4,7 @@ import DAO.DAOAnimal;
 import Model.Animal;
 import Model.CareGiver;
 import Model.Localite;
+import erreurs.BDConnexionError;
 import sun.java2d.loops.GeneralRenderer;
 
 import java.sql.*;
@@ -12,7 +13,7 @@ import java.util.GregorianCalendar;
 public class AnimalDBAccess implements DAOAnimal {
     private Connection connection;
 
-    public AnimalDBAccess(){
+    public AnimalDBAccess () throws BDConnexionError{
         connection = SingletonDB.getInstance();
     }
 

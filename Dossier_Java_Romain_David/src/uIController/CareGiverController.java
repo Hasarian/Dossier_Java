@@ -1,17 +1,21 @@
 package uIController;
 
 import Business.CareGiverBusiness;
+import erreurs.BDConnexionError;
+import erreurs.InexistantCareGiver;
+
+import java.sql.SQLException;
 
 public class CareGiverController
 {
     private CareGiverBusiness business;
 
-    public CareGiverController()
+    public CareGiverController() throws BDConnexionError
     {
         business=new CareGiverBusiness();
     }
 
-    public void setCareGiverConnection(String login)
+    public void setCareGiverConnection(String login) throws BDConnexionError, InexistantCareGiver
     {
             business.setCareGiver(business.getCareGiver(login));
     }

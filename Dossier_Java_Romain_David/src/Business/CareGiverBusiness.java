@@ -2,17 +2,21 @@ package Business;
 
 import DAO.DAOCareGiver;
 import DataAccess.CaraGiverDataAccess;
+import erreurs.BDConnexionError;
 import erreurs.ErreurInsertCareGiver;
 import Model.CareGiver;
+import erreurs.InexistantCareGiver;
+
+import java.sql.SQLException;
 
 public class CareGiverBusiness {
     CareGiver careGiver;
     DAOCareGiver daoCareGiver;
 
-    public CareGiverBusiness(){setDaoCareGiver();}
-    public CareGiverBusiness(CareGiver careGiver){ this(); }
+    public CareGiverBusiness() throws BDConnexionError{setDaoCareGiver();}
+    public CareGiverBusiness(CareGiver careGiver)throws BDConnexionError{ this(); }
 
-    public void setDaoCareGiver() {
+    public void setDaoCareGiver() throws BDConnexionError {
         this.daoCareGiver = new CaraGiverDataAccess();
     }
 
@@ -27,7 +31,8 @@ public class CareGiverBusiness {
         this.careGiver = careGiver;
     }
 
-    public CareGiver getCareGiver(String id) {
+    public CareGiver getCareGiver(String id) throws BDConnexionError, InexistantCareGiver
+    {
         setCareGiver(daoCareGiver.read(id));
             return careGiver;
     }
