@@ -29,7 +29,7 @@ public class CareGiverBusiness {
     }
 
     public void setCareGiver(CareGiver careGiver) {
-        if (checkCareGiverAttribut(careGiver))this.careGiver = careGiver;
+        this.careGiver = careGiver;
     }
 
     public CareGiver getCareGiver(String id) {

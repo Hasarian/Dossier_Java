@@ -49,23 +49,25 @@ public class DBDataAccess implements DAOCareGiver {
 
     }
 
-    public CareGiver read(String id) {
+    public CareGiver read(String id) throws ErrorReadCareGiver {
         CareGiver careGiver = null;
-        String sql = "select soignant where mail = ?";
+        String sql = "select * from soignant where mail = ?";
         try {
             PreparedStatement statement = singletonDBAcces.prepareStatement(sql);
             statement.setString(1, id);
             ResultSet data = statement.executeQuery();
-            ResultSetMetaData meta = data.getMetaData();
+
             GregorianCalendar hireDate = new GregorianCalendar();
             hireDate.setTime(data.getDate("dateEmbauche"));
+            Integer numTel = (data.wasNull()? null : data.getInt("numTel"));
+            String remarque = (data.wasNull()? null : data.getString("remarque"));
+
             return new CareGiver(data.getString("mail"),data.getString("prenom"),data.getString("nom"),
-                    data.getString("rue"), data.getInt("numMAison"),data.getInt("numTel"), data.getString("remarque"),
+                    data.getString("rue"), data.getInt("numMAison"),numTel, remarque,
                     data.getBoolean("estBenevole"),hireDate , (Localite) data.getObject("localite"));
         }
         catch (SQLException e){
-
+            throw new ErrorReadCareGiver(e.getMessage());
         }
-        return careGiver;
     }
 }
