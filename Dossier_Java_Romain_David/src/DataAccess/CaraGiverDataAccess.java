@@ -3,6 +3,7 @@ package DataAccess;
 
 import DAO.DAOCareGiver;
 import Model.CareGiver;
+import erreurs.BDConnexionError;
 import erreurs.ErreurInsertCareGiver;
 import Model.Localite;
 import erreurs.InexistantCareGiver;
@@ -12,7 +13,7 @@ import java.util.GregorianCalendar;
 
 public class CaraGiverDataAccess implements DAOCareGiver {
     private Connection singletonDBAcces;
-    public CaraGiverDataAccess(){
+    public CaraGiverDataAccess() throws BDConnexionError{
         singletonDBAcces = SingletonDB.getInstance();
     }
 
@@ -50,27 +51,27 @@ public class CaraGiverDataAccess implements DAOCareGiver {
 
     }
 
-    public CareGiver read(String id) throws InexistantCareGiver
-    {
-        CareGiver careGiver = null;
-        String sql = "select * from soignant where mail = ?";
+    public CareGiver read(String id) throws InexistantCareGiver,BDConnexionError{
         try {
+            CareGiver careGiver = null;
+            String sql = "select * from soignant where mail = ?";
             PreparedStatement statement = singletonDBAcces.prepareStatement(sql);
             statement.setString(1, id);
             ResultSet data = statement.executeQuery();
-            if(!data.next()) throw new InexistantCareGiver();
+            if (!data.next()) throw new InexistantCareGiver();
             ResultSetMetaData meta = data.getMetaData();
             GregorianCalendar hireDate = new GregorianCalendar();
             hireDate.setTime(data.getDate("dateEmbauche"));
-            Integer numTel = (data.wasNull()? null : data.getInt("numTel"));
-            String remarque = (data.wasNull()? null : data.getString("remarque"));
+            Integer numTel = (data.wasNull() ? null : data.getInt("numTel"));
+            String remarque = (data.wasNull() ? null : data.getString("remarque"));
 
-            return new CareGiver(data.getString("mail"),data.getString("prenom"),data.getString("nom"),
-                    data.getString("rue"), data.getInt("numMAison"),numTel, remarque,
-                    data.getBoolean("estBenevole"),hireDate , (Localite) data.getObject("localite"));
+            return new CareGiver(data.getString("mail"), data.getString("prenom"), data.getString("nom"),
+                    data.getString("rue"), data.getInt("numMAison"), numTel, remarque,
+                    data.getBoolean("estBenevole"), hireDate, (Localite) data.getObject("localite"));
         }
-        catch (SQLException e){
-            throw new ErrorReadCareGiver(e.getMessage());
+        catch(SQLException sqlException)
+        {
+            throw new BDConnexionError();
         }
     }
 }
