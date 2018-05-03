@@ -5,6 +5,7 @@ import DAO.DAOCareGiver;
 import Model.CareGiver;
 import erreurs.ErreurInsertCareGiver;
 import Model.Localite;
+import erreurs.ErrorNull;
 import erreurs.InexistantCareGiver;
 
 import java.sql.*;
@@ -50,7 +51,7 @@ public class CaraGiverDataAccess implements DAOCareGiver {
 
     }
 
-    public CareGiver read(String id) throws InexistantCareGiver
+    public CareGiver read(String id) throws InexistantCareGiver, ErrorNull
     {
         CareGiver careGiver = null;
         String sql = "select * from soignant where mail = ?";
@@ -70,7 +71,7 @@ public class CaraGiverDataAccess implements DAOCareGiver {
                     data.getBoolean("estBenevole"),hireDate , (Localite) data.getObject("localite"));
         }
         catch (SQLException e){
-            throw new ErrorReadCareGiver(e.getMessage());
+            throw new InexistantCareGiver();
         }
     }
 }

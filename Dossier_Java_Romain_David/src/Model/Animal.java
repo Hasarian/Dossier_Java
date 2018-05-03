@@ -43,4 +43,28 @@ public class Animal {
     public void setEstDangereux(Boolean estDangereux) {
         this.estDangereux = estDangereux;
     }
+
+    public void setRemarqueAnimal(String remarqueAnimal) {
+        this.remarqueAnimal = remarqueAnimal;
+    }
+
+    public void setRemaqueSoin(String remaqueSoin) {
+        this.remaqueSoin = remaqueSoin;
+    }
+
+    public void setNumCellule(Integer numCellule) {
+        this.numCellule = numCellule;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setDateDesces(GregorianCalendar dateDesces) {
+        this.dateDesces = dateDesces;
+    }
+
+    public String getEtatAnimal() {
+        return etatAnimal;
+    }
 }
