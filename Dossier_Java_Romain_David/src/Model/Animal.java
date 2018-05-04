@@ -1,5 +1,7 @@
 package Model;
 
+import erreurs.ErrorNull;
+
 import java.util.GregorianCalendar;
 
 public class Animal {
@@ -20,27 +22,33 @@ public class Animal {
 
     }
 
-    public void setDateArrive(GregorianCalendar dateArrive) {
+    public void setDateArrive(GregorianCalendar dateArrive) throws ErrorNull {
+        if(dateArrive == null) throw new ErrorNull();
         this.dateArrive = dateArrive;
     }
 
-    public void setNomAnimal(String nomAnimal) {
+    public void setNomAnimal(String nomAnimal) throws ErrorNull {
+        if(nomAnimal == null) throw new ErrorNull();
         this.nomAnimal = nomAnimal;
     }
 
-    public void setEtatFicheSoin(Integer etatFicheSoin) {
+    public void setEtatFicheSoin(Integer etatFicheSoin) throws ErrorNull {
+        if(etatFicheSoin == null) throw new ErrorNull();
         this.etatFicheSoin = etatFicheSoin;
     }
 
-    public void setRace(Race race) {
+    public void setRace(Race race) throws ErrorNull {
+        if(race == null) throw new ErrorNull();
         this.race = race;
     }
 
-    public void setEtatAnimal(String etatAnimal) {
+    public void setEtatAnimal(String etatAnimal) throws ErrorNull {
+        if(etatAnimal == null) throw new ErrorNull();
         this.etatAnimal = etatAnimal;
     }
 
-    public void setEstDangereux(Boolean estDangereux) {
+    public void setEstDangereux(Boolean estDangereux) throws ErrorNull {
+        if(estDangereux == null) throw new ErrorNull();
         this.estDangereux = estDangereux;
     }
 
@@ -52,11 +60,13 @@ public class Animal {
         this.remaqueSoin = remaqueSoin;
     }
 
-    public void setNumCellule(Integer numCellule) {
+    public void setNumCellule(Integer numCellule) throws ErrorNull {
+        if(numCellule == null) throw new ErrorNull();
         this.numCellule = numCellule;
     }
 
-    public void setId(Integer id) {
+    public void setId(Integer id) throws ErrorNull {
+        if(id == null) throw new ErrorNull();
         this.id = id;
     }
 
@@ -64,7 +74,7 @@ public class Animal {
         this.dateDesces = dateDesces;
     }
 
-    public String getEtatAnimal() {
+    public String getEtatAnimal(){
         return etatAnimal;
     }
 }

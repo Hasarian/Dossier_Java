@@ -10,8 +10,7 @@ import java.sql.SQLException;
 
 public interface DAOCareGiver {
     void create(CareGiver careGiver)throws ErreurInsertCareGiver;
-    CareGiver read(String id) throws InexistantCareGiver, ErrorNull;
-    CareGiver read(String id) throws InexistantCareGiver, BDConnexionError;
+    CareGiver read(String id) throws InexistantCareGiver, BDConnexionError, ErrorNull;
     void update(CareGiver careGiver);
     void delete(String id);
 }

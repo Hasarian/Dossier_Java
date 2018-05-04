@@ -1,14 +1,16 @@
 package Model;
 
+import erreurs.ErrorNull;
+
 public class Localite {
     private Integer idLocalite;
     private Integer codePostal;
     private String libelle;
 
-    Localite(Integer idLocalite, Integer codePostal, String libelle) {
-        this.codePostal = codePostal;
-        this.idLocalite = idLocalite;
-        this.libelle = libelle;
+    public Localite(Integer idLocalite, Integer codePostal, String libelle) throws ErrorNull {
+        setCodePostal(codePostal);
+        setIdLocalite(idLocalite);
+        setLibelle(libelle);
     }
 
     public Integer getCodePostal() {
@@ -21,5 +23,20 @@ public class Localite {
 
     public String getLibelle() {
         return libelle;
+    }
+
+    public void setLibelle(String libelle) throws ErrorNull {
+        if(libelle == null) throw new ErrorNull();
+        this.libelle = libelle;
+    }
+
+    public void setCodePostal(Integer codePostal) throws ErrorNull {
+        if(codePostal == null) throw new ErrorNull();
+        this.codePostal = codePostal;
+    }
+
+    public void setIdLocalite(Integer idLocalite) throws ErrorNull {
+        if(idLocalite == null) throw new ErrorNull();
+        this.idLocalite = idLocalite;
     }
 }

@@ -52,15 +52,18 @@ public class CaraGiverDataAccess implements DAOCareGiver {
 
     }
 
-    public CareGiver read(String id) throws InexistantCareGiver
+    public CareGiver read(String id) throws InexistantCareGiver, ErrorNull, BDConnexionError
     {
         CareGiver careGiver = null;
-        String sql = "select * from soignant where mail = ?";
+        String sql = "select * from soignant, localite where soignant.mail = ? and soignent.localite = localite.id";
         try {
             PreparedStatement statement = singletonDBAcces.prepareStatement(sql);
             statement.setString(1, id);
             ResultSet data = statement.executeQuery();
             if (!data.next()) throw new InexistantCareGiver();
+            //recherche arraylist localoite sur l'id
+            Localite localite = new Localite(data.getInt("idLocalite"),data.getInt("codePostal"),data.getString("libelle"));
+            //if(!Business.arrayListLocalite.containt(localite))Business.arrayListLocalite.add(localite);
             ResultSetMetaData meta = data.getMetaData();
             GregorianCalendar hireDate = new GregorianCalendar();
             hireDate.setTime(data.getDate("dateEmbauche"));
@@ -69,13 +72,10 @@ public class CaraGiverDataAccess implements DAOCareGiver {
 
             return new CareGiver(data.getString("mail"), data.getString("prenom"), data.getString("nom"),
                     data.getString("rue"), data.getInt("numMAison"), numTel, remarque,
-                    data.getBoolean("estBenevole"), hireDate, (Localite) data.getObject("localite"));
+                    data.getBoolean("estBenevole"), hireDate, localite );
         }
-        catch(SQLException sqlException)
-        {
+        catch(SQLException sqlException) {
             throw new BDConnexionError();
-        catch (SQLException e){
-            throw new InexistantCareGiver();
         }
     }
 }
