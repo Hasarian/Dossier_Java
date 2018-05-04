@@ -5,6 +5,7 @@ import DataAccess.CaraGiverDataAccess;
 import erreurs.BDConnexionError;
 import erreurs.ErreurInsertCareGiver;
 import Model.CareGiver;
+import erreurs.ErrorNull;
 import erreurs.InexistantCareGiver;
 
 import java.sql.SQLException;
@@ -31,7 +32,7 @@ public class CareGiverBusiness {
         this.careGiver = careGiver;
     }
 
-    public CareGiver getCareGiver(String id) throws BDConnexionError, InexistantCareGiver
+    public CareGiver getCareGiver(String id) throws BDConnexionError, InexistantCareGiver, ErrorNull
     {
         setCareGiver(daoCareGiver.read(id));
             return careGiver;

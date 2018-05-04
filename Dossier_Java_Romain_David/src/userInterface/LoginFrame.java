@@ -1,6 +1,7 @@
 package userInterface;
 
 import erreurs.BDConnexionError;
+import erreurs.ErrorNull;
 import erreurs.InexistantCareGiver;
 import uIController.CareGiverController;
 
@@ -72,11 +73,13 @@ public class LoginFrame extends JFrame
         private class LoginListener implements ActionListener
         {
 
-            public void actionPerformed(ActionEvent e)
+            public void actionPerformed (ActionEvent e)
             {
                 try {
                     CareGiverController loginControl = new CareGiverController();
+                    System.out.println("1");
                     loginControl.setCareGiverConnection(emailLabel.getText());
+                    System.out.println("2");
                     MainFrame newFrame = new MainFrame(loginControl);
                     frame.dispose();
                 }
@@ -88,6 +91,9 @@ public class LoginFrame extends JFrame
                 catch (InexistantCareGiver loginError)
                 {
                     JOptionPane.showMessageDialog(null,loginError.getMessage(),"unknown login",JOptionPane.ERROR_MESSAGE);
+                }
+                catch (ErrorNull errorNull){
+                    JOptionPane.showMessageDialog(null,errorNull.getMessage(),"Attribut obligatoir non rempli",JOptionPane.ERROR_MESSAGE);
                 }
             }
         }

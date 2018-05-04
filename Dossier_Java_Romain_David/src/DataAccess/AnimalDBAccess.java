@@ -1,9 +1,7 @@
 package DataAccess;
 
 import DAO.DAOAnimal;
-import Model.Animal;
-import Model.CareGiver;
-import Model.Localite;
+import Model.*;
 import erreurs.BDConnexionError;
 import sun.java2d.loops.GeneralRenderer;
 
@@ -19,12 +17,26 @@ public class AnimalDBAccess implements DAOAnimal {
 
     @Override
     public Animal read(int id) {
-        String sql = "select * from ficheSoin, ficheAnimal where ficheSoin = ? and ficheSoin.id = ficheAnimal.id";
+        String sql = "select * from ficheSoin, ficheAnimal, espece, race where ficheSoin = ? " +
+                "and ficheSoin.id = ficheAnimal.id and ficheAnimal.race = race.libelle and race.espece = espece.libelle";
         try{
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, id);
             ResultSet data = statement.executeQuery();
-            ResultSetMetaData meta = data.getMetaData();
+            //ResultSetMetaData meta = data.getMetaData();
+            Race race;
+            Espece espece;
+
+           /* race = new Race(data.getString("libelle"), data.getString("traitDeCaractere"), data.get)
+            libelle varchar(50),
+                    traitDeCaractere varchar(50) not null,
+                    tare varchar(50),
+                    CaracteristiqueDuMilieuDeVie varchar(75),
+                    espece varchar(50) not null,*/
+
+
+
+
             GregorianCalendar dateArrive =  new GregorianCalendar();
             GregorianCalendar dateDesces = new GregorianCalendar();
 
@@ -35,7 +47,7 @@ public class AnimalDBAccess implements DAOAnimal {
             return null;
         }
         catch(SQLException e){
-
+            new BDConnexionError();
         }
         return null;
     }

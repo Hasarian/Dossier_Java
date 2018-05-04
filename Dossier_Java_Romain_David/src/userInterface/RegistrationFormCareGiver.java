@@ -5,6 +5,7 @@ import erreurs.BDConnexionError;
 import erreurs.ErreurInsertCareGiver;
 import Model.CareGiver;
 import Model.Localite;
+import erreurs.ErrorNull;
 
 import javax.swing.*;
 import java.awt.*;
@@ -190,6 +191,10 @@ public class RegistrationFormCareGiver extends JPanel{
 			catch (BDConnexionError connexionError)
 			{
 				JOptionPane.showMessageDialog(null, connexionError.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
+			}
+			catch (ErrorNull errorNull)
+			{
+				JOptionPane.showMessageDialog(null,errorNull.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
 			}
 		}
 	}
