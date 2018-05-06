@@ -32,7 +32,9 @@ public class CareGiverBusiness {
 
     public CareGiver getCareGiver(String id) throws BDConnexionError, InexistantCareGiver, ErrorNull
     {
+        System.out.println("4");
         setCareGiver(daoCareGiver.read(id));
+        System.out.println("5");
             return careGiver;
     }
 

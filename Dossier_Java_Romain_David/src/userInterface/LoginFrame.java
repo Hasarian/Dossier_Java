@@ -76,9 +76,10 @@ public class LoginFrame extends JFrame
             public void actionPerformed (ActionEvent e)
             {
                 try {
-
+                    System.out.println("1");
                     CareGiverController loginControl = new CareGiverController();
-                    loginControl.setCareGiverConnection(emailLabel.getText());
+                    System.out.println("2");
+                    loginControl.setCareGiverConnection(email.getText());
                     MainFrame newFrame = new MainFrame(loginControl);
                     frame.dispose();
                 }

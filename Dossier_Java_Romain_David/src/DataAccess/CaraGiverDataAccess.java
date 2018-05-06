@@ -9,6 +9,7 @@ import Model.Localite;
 import erreurs.ErrorNull;
 import erreurs.InexistantCareGiver;
 
+import javax.swing.*;
 import java.sql.*;
 import java.util.GregorianCalendar;
 
@@ -54,12 +55,15 @@ public class CaraGiverDataAccess implements DAOCareGiver {
 
     public CareGiver read(String id) throws InexistantCareGiver, ErrorNull, BDConnexionError
     {
-        CareGiver careGiver = null;
-        String sql = "select * from soignant, localite where soignant.mail = ? and soignent.localite = localite.id";
+        System.out.println("s1");
+        CareGiver careGiver;
+        String sql = "select * from soignant, localite where soignant.mail = ? and soignant.localite = localite.idLocalite";
         try {
             PreparedStatement statement = singletonDBAcces.prepareStatement(sql);
+            System.out.println("s2");
             statement.setString(1, id);
             ResultSet data = statement.executeQuery();
+            System.out.println("s3");
             if (!data.next()) throw new InexistantCareGiver();
             //recherche arraylist localoite sur l'id
             Localite localite = new Localite(data.getInt("idLocalite"),data.getInt("codePostal"),data.getString("libelle"));
@@ -75,6 +79,7 @@ public class CaraGiverDataAccess implements DAOCareGiver {
                     data.getBoolean("estBenevole"), hireDate, localite );
         }
         catch(SQLException sqlException) {
+            JOptionPane.showMessageDialog(null,sqlException.getMessage(),"Attribut obligatoir non rempli",JOptionPane.ERROR_MESSAGE);
             throw new BDConnexionError();
         }
     }
