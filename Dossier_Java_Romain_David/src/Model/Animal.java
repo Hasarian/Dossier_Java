@@ -17,8 +17,19 @@ public class Animal {
     private String remaqueSoin;
     private Integer etatFicheSoin;
 
-    public Animal(Integer id, String remarqueAnimal, Integer numCellule, String race, String nomAnimal, GregorianCalendar dateArrive, GregorianCalendar dateDesces,
-                  Boolean estDangereux, String etatAnimal, String remarqueSoin, Integer etatFicheSoin){
+    public Animal(Integer id, String remarqueAnimal, Integer numCellule, Race race, String nomAnimal, GregorianCalendar dateArrive, GregorianCalendar dateDesces,
+                  Boolean estDangereux, String etatAnimal, String remarqueSoin, Integer etatFicheSoin)throws ErrorNull{
+        setId(id);
+        setDateArrive(dateArrive);
+        setDateDesces(dateDesces);
+        setEstDangereux(estDangereux);
+        setEtatAnimal(etatAnimal);
+        setEtatFicheSoin(etatFicheSoin);
+        setNomAnimal(nomAnimal);
+        setNumCellule(numCellule);
+        setRace(race);
+        setRemarqueAnimal(remarqueAnimal);
+        setRemaqueSoin(remarqueSoin);
 
     }
 
@@ -76,5 +87,9 @@ public class Animal {
 
     public String getEtatAnimal(){
         return etatAnimal;
+    }
+
+    public Integer getEtatFicheSoin() {
+        return etatFicheSoin;
     }
 }

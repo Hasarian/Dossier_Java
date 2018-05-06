@@ -3,9 +3,11 @@ package DataAccess;
 import DAO.DAOAnimal;
 import Model.*;
 import erreurs.BDConnexionError;
+import erreurs.ErrorNull;
 import sun.java2d.loops.GeneralRenderer;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 public class AnimalDBAccess implements DAOAnimal {
@@ -16,40 +18,73 @@ public class AnimalDBAccess implements DAOAnimal {
     }
 
     @Override
-    public Animal read(int id) {
+    public Animal read(int id) throws ErrorNull, BDConnexionError {
+        Animal animal = null;
         String sql = "select * from ficheSoin, ficheAnimal, espece, race where ficheSoin = ? " +
                 "and ficheSoin.id = ficheAnimal.id and ficheAnimal.race = race.libelle and race.espece = espece.libelle";
         try{
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, id);
             ResultSet data = statement.executeQuery();
-            //ResultSetMetaData meta = data.getMetaData();
-            Race race;
-            Espece espece;
+            animal = dataToAnimal(data);
 
-           /* race = new Race(data.getString("libelle"), data.getString("traitDeCaractere"), data.get)
-            libelle varchar(50),
-                    traitDeCaractere varchar(50) not null,
-                    tare varchar(50),
-                    CaracteristiqueDuMilieuDeVie varchar(75),
-                    espece varchar(50) not null,*/
+        }
 
+        catch(SQLException e){
+            new BDConnexionError();
+        }
+        return animal;
+    }
+    public ArrayList<Animal> readAllAnimal() throws ErrorNull, BDConnexionError{
 
+        ArrayList<Animal> animals = new ArrayList<Animal>();
 
+        try{
+            String sql = "select * from ficheSoin, ficheAnimal, espece, race where " +
+                    "ficheSoin.id = ficheAnimal.id and ficheAnimal.race = race.libelle and race.espece = espece.libelle";
+            PreparedStatement statement = connection.prepareStatement(sql);
 
-            GregorianCalendar dateArrive =  new GregorianCalendar();
-            GregorianCalendar dateDesces = new GregorianCalendar();
+            ResultSet data = statement.executeQuery();
+            while(data.next()) {
+                animals.add(dataToAnimal(data));
+            }
 
-            dateArrive.setTime(data.getDate("dateArrive"));
-            dateDesces.setTime(data.getDate("dateDesces"));
-
-
-            return null;
         }
         catch(SQLException e){
             new BDConnexionError();
         }
-        return null;
+        return animals;
+    }
+    private Animal dataToAnimal(ResultSet data)throws ErrorNull, BDConnexionError{
+        Animal animal = null;
+        try {
+            Race race;
+            Espece espece;
+            // essais 1 nomTable.nomColone
+
+            espece = new Espece(data.getString("espece.libelle"), data.getBoolean("espece.estEnVoieDeDisparition"),
+                    data.getString("espece.typeDeDeplacement"), data.getString("espece.milieuDeVie"));
+
+            String caracteristiqueDuMilieuDeVie = (data.wasNull() ? null : data.getString("race.caracteristiqueDuMilieuDeVie"));
+            String tare = (data.wasNull() ? null : data.getString("race.tare"));
+            race = new Race(data.getString("race.libelle"), data.getString("race.traitDeCaractere"),
+                    tare, caracteristiqueDuMilieuDeVie, espece);
+
+            GregorianCalendar dateArrive = new GregorianCalendar();
+            GregorianCalendar dateDesces = new GregorianCalendar();
+
+            dateArrive.setTime(data.getDate("ficheAnimal.dateArrive"));
+            dateDesces.setTime(data.getDate("ficheAnimal.dateDesces"));
+
+            animal = new Animal(data.getInt("ficheAnimal.id"), data.getString("ficheAnimal.remarque"), data.getInt("ficheAnimal.numCellule"),
+                    race, data.getString("ficheAnimal.nomAnimal"), dateArrive, dateDesces, data.getBoolean("ficheAnimal.estDangereux"), data.getString("ficheAnimal.etat"),
+                    data.getString("ficheSoin.remaque"), data.getInt("ficheSoin.etat"));
+            return animal;
+        }
+        catch(SQLException e){
+            new BDConnexionError();
+        }
+        return animal;
     }
 
     @Override

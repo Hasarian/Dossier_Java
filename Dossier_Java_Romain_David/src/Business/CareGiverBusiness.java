@@ -23,9 +23,7 @@ public class CareGiverBusiness {
 
     public void setCareGiverData(CareGiver careGiver) throws ErreurInsertCareGiver {
 
-            if (checkCareGiverAttribut(careGiver)) {
                 daoCareGiver.create(careGiver);
-            }
     }
 
     public void setCareGiver(CareGiver careGiver) {
@@ -36,13 +34,6 @@ public class CareGiverBusiness {
     {
         setCareGiver(daoCareGiver.read(id));
             return careGiver;
-    }
-
-    private static boolean checkCareGiverAttribut(CareGiver careGiver){
-        int indice = 0;
-        while (indice < careGiver.getAttributObligatoir().size() && careGiver.getAttributObligatoir().get(indice) != null)
-            indice++;
-        return indice == careGiver.getAttributObligatoir().size();
     }
 
 }

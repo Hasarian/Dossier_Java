@@ -1,23 +1,23 @@
 
-drop table  vaccination purge;
-drop table vaccin  purge;
-drop table alimentation  purge;
-drop table soinMedical  purge;
-drop table  ordonnance purge;
-drop table  modificationSoin purge;
-drop table soinEffectue  purge;
-drop table ficheSoin  purge;
-drop table ficheAnimal  purge;
-drop table  race purge;
-drop table  espece purge;
-drop table  veto purge;
-drop table soignant  purge;
-drop table  localite purge;
+drop table  vaccination;
+drop table vaccin;
+drop table alimentation;
+drop table soinMedical;
+drop table  ordonnance;
+drop table  modificationSoin;
+drop table soinEffectue;
+drop table ficheSoin;
+drop table ficheAnimal;
+drop table  race;
+drop table  espece;
+drop table  veto;
+drop table soignant;
+drop table  localite;
 
 create table localite(
 libelle varchar(100) not null,
 codePostal integer(4) not null,
-idLocalite integer(10) auto increment, constraint localite_id_pk primary key(idlocalite),
+idLocalite integer(10) auto_increment, constraint localite_id_pk primary key(idlocalite),
 constraint localite_codePostal_idLocalite_unique unique (libelle, codePostal)
 );
 
@@ -62,7 +62,7 @@ constraint espece_libelle_fk foreign key (espece) references espece(libelle)
 )engine = InnoDB;
 
 create table ficheAnimal(
-id integer(10) auto increment,
+id integer(10) auto_increment,
 remarque varchar(150),
 numCellule integer(5),
 poids integer(5),
@@ -88,7 +88,7 @@ create table soinEffectue(
 mail varchar(50) not null,
 dateSoin dateTime not null,
 numDossier integer(10) not null,
-idSoinEffectue integer(10) auto increment,
+idSoinEffectue integer(10) auto_increment,
 constraint idSoinEffectue_id_pk primary key(idSoinEffectue),
 constraint soignant_mail_fk foreign key (mail) references soignant(mail)
 )engine = InnoDB;
@@ -97,15 +97,15 @@ create table modificationSoin(
 numDossier integer(10) not null,
 dateModification date not null,
 mail varchar(50) not null,
-idModification integer(10) auto increment,
+idModification integer(10) auto_increment,
 constraint modificationSoin_idModification_pk primary key(idModification),
-constraint modificationSoin_numDossier_fk foreign key (numDossier) references ficheSoin(numDossier),
+constraint modificationSoin_numDossier_fk foreign key (numDossier) references ficheSoin(id),
 constraint modificationSoin_mail_fk foreign key (mail) references veto(mail),
 constraint localite_numDossier_dateModification_mail_unique unique (numDossier, mail, dateModification)
 )engine = InnoDB;
 
 create table ordonnance(
-numOrdonnance integer(50) auto increment,
+numOrdonnance integer(50) auto_increment,
 description varchar(150) not null,
 mailveto varchar(50) not null,
 constraint ordonnance_numOrdance_pk primary key(numOrdonnance),
@@ -119,12 +119,12 @@ heureSoinMediacl time,
 remarque varchar(150) not null,
 mailVeto varchar(50) not null,
 numOrdonnance integer(10) not null,
-idSoinMedical integer(10) auto increment,
+idSoinMedical integer(10) auto_increment,
 constraint soinMedical_idSoinMedical_pk primary key(idSoinMedical),
-constraint ficheSoin_numDossier_fk foreign key (numDossier) references ficheSoin(numDossier),
+constraint ficheSoin_numDossier_fk foreign key (numDossier) references ficheSoin(id),
 constraint ordonnance_numOrdonnance_fk foreign key (numOrdonnance) references ordonnance(numOrdonnance),
 constraint ordonnance_mailVeto_fk foreign key (mailVeto) references ordonnance(mailVeto),
-constraint soinMedical_numDossier_dateSoin_unique unique (numDossier, dateSoin)
+constraint soinMedical_numDossier_dateSoin_unique unique (numDossier, dateSoinMedical)
 )engine= InnoDB;
 
 create table alimentation(
@@ -133,11 +133,11 @@ nature varchar(50) not null,
 qantite integer(10)not null,
 remarque varchar(150),
 constraint alimentation_numDossier_pk primary key(numDossier) ,
-constraint fichesoin_numDossier_fk foreign key (numDossier) references ficheSoin(numDossier)
+constraint alimentation_fichesoin_numDossier_fk foreign key (numDossier) references ficheSoin(id)
 )engine = InnoDB;
 
 create table vaccin(
-numVaccin integer(10) auto increment,
+numVaccin integer(10) auto_increment,
 libelle varchar(50),
 constraint vaccin_numVaccin_pk primary key(numVaccin)
 );
@@ -146,7 +146,7 @@ create table vaccination(
 id integer not null,
 numVaccin integer(10) not null,
 dateVaccination date not null,
-idVaccination integer(10) auto increment,
+idVaccination integer(10) auto_increment,
 constraint vaccination_idVaccination_pk primary key(idVaccination) ,
 constraint ficheAnimal_id_fk foreign key (id) references ficheAnimal(id),
 constraint vaccin_numVaccin_fk foreign key (numVaccin) references vaccin(numVaccin),
