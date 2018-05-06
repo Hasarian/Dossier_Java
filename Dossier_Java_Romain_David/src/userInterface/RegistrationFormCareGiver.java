@@ -6,6 +6,8 @@ import erreurs.ErreurInsertCareGiver;
 import Model.CareGiver;
 import Model.Localite;
 import erreurs.ErrorNull;
+import uIController.CareGiverController;
+import uIController.LocaliteController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,8 +27,9 @@ public class RegistrationFormCareGiver extends JPanel{
     private JButton inscription, annuler;
     private MainFrame frame;
     private CareGiverBusiness careGiverBusiness;
+    private LocaliteController localiteController;
 
-    RegistrationFormCareGiver(MainFrame frame){
+    RegistrationFormCareGiver(MainFrame frame) throws BDConnexionError, ErrorNull{
 		setBounds(0,0,1000,750);
 		//frame.super("Formulaire d'inscription pour les Soignants");
 		this.setLayout(new GridBagLayout());
@@ -134,14 +137,14 @@ public class RegistrationFormCareGiver extends JPanel{
 		constraints.gridy = 8;
 		//constraints.insets = new Insets(0,20,0,0);
 		this.add(localityLabel, constraints);
-		locality = new JList(/* valeurs de la bd*/);
+		locality = new JList(iULocatilte());
 		locality.setVisibleRowCount(2);
 		locality.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
 		constraints.gridx = 2;
 		constraints.gridy = 8;
 		constraints.gridwidth = GridBagConstraints.REMAINDER;
-		//constraints.insets = new Insets(0,20,0,0);
+		constraints.insets = new Insets(0,20,0,0);
 		this.add(new JScrollPane(locality), constraints);
 		hireDateLabel = new JLabel("Votre date D'embauche ?");
 		constraints.gridx = 0;
@@ -174,16 +177,29 @@ public class RegistrationFormCareGiver extends JPanel{
 		//mail.addActionListener(listener);
 
 	}
+	private String[] iULocatilte()throws ErrorNull,BDConnexionError{
+		localiteController = new LocaliteController();
+		String [] localitesTexte = new String [localiteController.getAllLocalite().size()];
+		int i = 0;
+
+		for (Localite localite: localiteController.getAllLocalite()) {
+			localitesTexte[i] = localite.getLibelle()+" ("+localite.getCodePostal()+")";
+			i++;
+		}
+		return localitesTexte;
+	}
 
 	private class ConfirmButtonListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			GregorianCalendar date = new GregorianCalendar();
 			date.setTime((Date) hireDate.getValue());
 			try {
-				careGiverBusiness = new CareGiverBusiness();
-				careGiverBusiness.setCareGiverData(new CareGiver(name.getText(), lastName.getText(), mail.getText(), street.getText()
-						, Integer.parseInt(houseNumber.getText()), Integer.parseInt(telNumber.getText()), note.getSelectedText(), isVolunteer.isSelected(), date,
-						(Localite) locality.getSelectedValue()));
+				CareGiverController careGiverController = new CareGiverController();
+				System.out.println("...");
+				CareGiver careGiver = new CareGiver(mail.getText(),name.getText(), lastName.getText(), street.getText()
+						, Integer.parseInt(houseNumber.getText()), Integer.parseInt(telNumber.getText()), note.getText(), isVolunteer.isSelected(), date,
+						localiteController.getAllLocalite().get(locality.getSelectedIndex()));
+				careGiverController.setCareGiverData(careGiver);
 			}
 			catch (ErreurInsertCareGiver error){
 				JOptionPane.showMessageDialog(null, error.getMessage(),"Erreur dans la Création du soigneur",JOptionPane.ERROR_MESSAGE);

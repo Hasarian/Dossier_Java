@@ -1,5 +1,7 @@
 package userInterface;
 
+import erreurs.BDConnexionError;
+import erreurs.ErrorNull;
 import uIController.CareGiverController;
 
 import javax.swing.*;
@@ -67,8 +69,18 @@ public class MainFrame extends JFrame
     {
         public void actionPerformed(ActionEvent e)
         {
-            RegistrationFormCareGiver newPanel=new RegistrationFormCareGiver(thisFrame);
-            changePanel(newPanel);
+            try {
+                RegistrationFormCareGiver newPanel = new RegistrationFormCareGiver(thisFrame);
+                changePanel(newPanel);
+            }
+            catch (BDConnexionError connexionError)
+            {
+                JOptionPane.showMessageDialog(null, connexionError.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
+            }
+            catch (ErrorNull errorNull)
+            {
+                JOptionPane.showMessageDialog(null,errorNull.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
     private class LogoutListener implements ActionListener

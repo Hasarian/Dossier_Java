@@ -60,7 +60,6 @@ public class AnimalDBAccess implements DAOAnimal {
         try {
             Race race;
             Espece espece;
-            // essais 1 nomTable.nomColone
 
             espece = new Espece(data.getString("espece.libelle"), data.getBoolean("espece.estEnVoieDeDisparition"),
                     data.getString("espece.typeDeDeplacement"), data.getString("espece.milieuDeVie"));

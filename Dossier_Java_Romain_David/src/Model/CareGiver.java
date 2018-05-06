@@ -20,16 +20,16 @@ public class CareGiver {
               String street, Integer numMaison, Integer numTel,
               String remarque, Boolean estBenevole,
               Calendar dateEmbauche, Localite localite)throws ErrorNull {
-        this.mail = mail;
-        this.firstName = firstName;
-        this.name = name;
-        this.street = street;
-        this.numMaison = numMaison;
-        this.numTel = numTel;
-        this.remarque = remarque;
-        this.estBenevole = estBenevole;
-        this.dateEmbauche = dateEmbauche;
-        this.localite = localite;
+        setDateEmbauche(dateEmbauche);
+        setEstBenevole(estBenevole);
+        setFirstName(firstName);
+        setLocalite(localite);
+        setMail(mail);
+        setName(name);
+        setNumMaison(numMaison);
+        setNumTel(numTel);
+        setRemarque(remarque);
+        setStreet(street);
     }
 
     public Boolean getEstBenevole() {
@@ -120,17 +120,6 @@ public class CareGiver {
         this.street = street;
     }
 
-    public ArrayList<Object> getAttributObligatoir(){// changer le nom
-        ArrayList<Object> attributs = new ArrayList<Object>();
-        attributs.add(this.getMail());
-        attributs.add(this.getFirstName());
-        attributs.add(this.getName());
-        attributs.add(this.getDateEmbauche());
-        attributs.add(this.getStreet());
-        attributs.add(this.getLocalite());
-        attributs.add(this.getNumMaison());
-        attributs.add(this.getEstBenevole());
-        return attributs;
-    }
+
 
 }

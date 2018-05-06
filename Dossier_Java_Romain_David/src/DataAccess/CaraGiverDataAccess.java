@@ -21,8 +21,9 @@ public class CaraGiverDataAccess implements DAOCareGiver {
 
 
     public void create(CareGiver careGiver) throws ErreurInsertCareGiver {
-        String sql = "insert into careGiver(mail, prenomn nom, rue, numMaison, numtel, remarque, estBenevole, dateEmbauche, localite) values(?,?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into soignant(mail, prenom, nom, rue, numMaison, numtel, remarque, estBenevole, dateEmbauche, localite) values(?,?,?,?,?,?,?,?,?,?)";
         try {
+
             PreparedStatement statement = singletonDBAcces.prepareStatement(sql);
             if(careGiver.getNumTel() == null)statement.setNull(6, Types.INTEGER);
             else statement.setInt(6,careGiver.getNumTel());
@@ -37,6 +38,7 @@ public class CaraGiverDataAccess implements DAOCareGiver {
             statement.setBoolean(8, careGiver.getEstBenevole());
             statement.setDate(9, new java.sql.Date(careGiver.getDateEmbauche().getTimeInMillis()));
             statement.setInt(10, careGiver.getLocalite().getIdLocalite());
+            statement.executeUpdate();
         }catch (SQLException e){
             throw new ErreurInsertCareGiver(e.getMessage());
         }

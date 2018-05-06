@@ -22,8 +22,8 @@ public class CareGiverBusiness {
     }
 
     public void setCareGiverData(CareGiver careGiver) throws ErreurInsertCareGiver {
-
-                daoCareGiver.create(careGiver);
+        System.out.println("le busi ...");
+        daoCareGiver.create(careGiver);
     }
 
     public void setCareGiver(CareGiver careGiver) {
@@ -32,9 +32,7 @@ public class CareGiverBusiness {
 
     public CareGiver getCareGiver(String id) throws BDConnexionError, InexistantCareGiver, ErrorNull
     {
-        System.out.println("4");
         setCareGiver(daoCareGiver.read(id));
-        System.out.println("5");
             return careGiver;
     }
 
