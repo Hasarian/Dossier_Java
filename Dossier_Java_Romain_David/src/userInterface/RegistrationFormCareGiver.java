@@ -253,4 +253,28 @@ public class RegistrationFormCareGiver extends JPanel{
 			frame.changePanel();
 		}
 	}
+
+	/*
+	private JLabel nameLabel, lastNameLabel, mailLabel, streetLabel, houseNumberLabel,
+			telNumberLabel, noteLabel, isVolunteerLabel, localityLabel, hireDateLabel, hireDate;
+    private JTextField name, lastName, mail, street, houseNumber, telNumber;
+    private JTextArea note;
+    private JCheckBox isVolunteer;
+    private JList locality;
+
+	*/
+	public void setInfos(String name,String lastName,String mail,String street,String houseNumber,String telNumber,String note,boolean isVolunteer,String locality)
+	{
+		this.name.setText(name);
+		this.lastName.setText(lastName);
+		this.mail.setText(mail);
+		this.street.setText(street);
+		this.houseNumber.setText(houseNumber);
+		this.telNumber.setText(telNumber);
+		this.note.setText(note);
+		this.isVolunteer.setEnabled(isVolunteer);
+		//this.locality.setFocus
+	}
+
+	//attention: pas terminé:localité n'est pas sélectionné !
 }
