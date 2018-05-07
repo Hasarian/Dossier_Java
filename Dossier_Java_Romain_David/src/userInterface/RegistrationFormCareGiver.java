@@ -226,6 +226,8 @@ public class RegistrationFormCareGiver extends JPanel{
 						, house, tel, noteTexte, isVolunteer.isSelected(), date,
 						localiteController.getAllLocalite().get(locality.getSelectedIndex()));
 				careGiverController.setCareGiverData(careGiver);
+				JOptionPane.showMessageDialog(null,"vous avez été inscrit(e)!","confirmation d'inscription",JOptionPane.ERROR_MESSAGE);
+				frame.changePanel();
 			}
 			catch (ErreurInsertCareGiver error){
 				JOptionPane.showMessageDialog(null, error.getMessage(),"Erreur dans la Création du soigneur",JOptionPane.ERROR_MESSAGE);

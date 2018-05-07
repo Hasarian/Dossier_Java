@@ -15,8 +15,10 @@ public class SingletonDB {
     public static Connection getInstance()throws BDConnexionError{
         if(connectionSingleton == null){
             try {
-                connectionSingleton = DriverManager.getConnection("jdbc:mysql://localhost:3306/SPA?useSSL=false", "root", "Sd246aEq");
+                connectionSingleton = DriverManager.getConnection("jdbc:mysql://localhost:3306/spa?useSSL=false", "root", "pwMySQLie2017");
+                //pwMySQLie2017
             } catch (SQLException SQLE) {
+                System.out.println(SQLE.getMessage());
                throw  new BDConnexionError();
             }
         }

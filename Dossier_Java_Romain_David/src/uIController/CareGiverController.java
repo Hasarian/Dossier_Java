@@ -22,4 +22,16 @@ public class CareGiverController
     public void setCareGiverData(CareGiver careGiver) throws ErreurInsertCareGiver {
         business.setCareGiverData(careGiver);
     }
+    public String getUserName()
+    {
+        return business.getUserName();
+    }
+    public String getUSerFirstName()
+    {
+        return business.getUserFirstName();
+    }
+    public String getUserEmail()
+    {
+        return business.getUserEmail();
+    }
 }

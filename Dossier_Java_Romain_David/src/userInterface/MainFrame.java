@@ -31,7 +31,7 @@ public class MainFrame extends JFrame
 
         basePanel=new DashBoardPane(this);
 
-        mainPanel=new MainPanel(this,new DashBoardPane(this));
+        mainPanel=new MainPanel(loggedIn,new DashBoardPane(this));
         container.add(mainPanel);
 
 

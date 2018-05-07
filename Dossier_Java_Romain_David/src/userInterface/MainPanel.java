@@ -1,5 +1,7 @@
 package userInterface;
 
+import uIController.CareGiverController;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -8,14 +10,14 @@ public class MainPanel extends JSplitPane
 {
     private JPanel banner;
 
-    public MainPanel(JFrame frame,JPanel bottomPanel)
+    public MainPanel(CareGiverController user, JPanel bottomPanel)
     {
         super(JSplitPane.VERTICAL_SPLIT);
         setBackground(Color.WHITE);
 
         setBounds(0,0,1000,800);
 
-        banner=new BannerPanel();
+        banner=new BannerPanel(user);
         setDividerLocation(0.2);
         setDividerSize(0);
         /*System.out.println("panel: "+getX()+" "+getY()+" "+getWidth()+" "+getHeight());

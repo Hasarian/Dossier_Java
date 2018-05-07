@@ -35,6 +35,18 @@ public class CareGiverBusiness {
         setCareGiver(daoCareGiver.read(id));
             return careGiver;
     }
+    public String getUserName()
+    {
+        return careGiver.getName();
+    }
+    public String getUserFirstName()
+    {
+        return careGiver.getFirstName();
+    }
+    public String getUserEmail()
+    {
+        return careGiver.getMail();
+    }
 
 }
 
