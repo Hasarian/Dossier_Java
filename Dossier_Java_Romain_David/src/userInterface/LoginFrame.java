@@ -62,6 +62,7 @@ public class LoginFrame extends JFrame
 
             quitButton=new JButton("exit");
             loginButton= new JButton("log in");
+
             loginButton.addActionListener(new LoginListener());
             quitButton.addActionListener(new ExitListener());
             quitButton.setBounds(getWidth()*2/5,getHeight()-getHeight()/10,100,25);
@@ -76,9 +77,7 @@ public class LoginFrame extends JFrame
             public void actionPerformed (ActionEvent e)
             {
                 try {
-                    System.out.println("1");
                     CareGiverController loginControl = new CareGiverController();
-                    System.out.println("2");
                     loginControl.setCareGiverConnection(email.getText());
                     MainFrame newFrame = new MainFrame(loginControl);
                     frame.dispose();
