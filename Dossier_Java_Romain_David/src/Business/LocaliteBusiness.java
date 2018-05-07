@@ -17,4 +17,6 @@ public class LocaliteBusiness {
     public ArrayList<Localite> getAllLocalite() throws BDConnexionError, ErrorNull{
         return daoLocalite.readAllLocalite();
     }
+
+    //êut être éviter de recharger les localités que l'on a déjà + créer un moyen d'aller les chercher une par une
 }

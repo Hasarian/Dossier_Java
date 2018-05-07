@@ -2,6 +2,7 @@ package Business;
 
 import DAO.DAOCareGiver;
 import DataAccess.CaraGiverDataAccess;
+import Model.Veterinaire;
 import erreurs.BDConnexionError;
 import erreurs.ErreurInsertCareGiver;
 import Model.CareGiver;
@@ -46,6 +47,10 @@ public class CareGiverBusiness {
     public String getUserEmail()
     {
         return careGiver.getMail();
+    }
+    public boolean isVeto()
+    {
+        return careGiver instanceof Veterinaire ;
     }
 
 }

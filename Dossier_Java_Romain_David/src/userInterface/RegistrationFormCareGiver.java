@@ -226,7 +226,7 @@ public class RegistrationFormCareGiver extends JPanel{
 						, house, tel, noteTexte, isVolunteer.isSelected(), date,
 						localiteController.getAllLocalite().get(locality.getSelectedIndex()));
 				careGiverController.setCareGiverData(careGiver);
-				JOptionPane.showMessageDialog(null,"vous avez été inscrit(e)!","confirmation d'inscription",JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null,"vous avez été inscrit(e)!","confirmation d'inscription",JOptionPane.INFORMATION_MESSAGE);
 				frame.changePanel();
 			}
 			catch (ErreurInsertCareGiver error){
@@ -263,7 +263,7 @@ public class RegistrationFormCareGiver extends JPanel{
     private JList locality;
 
 	*/
-	public void setInfos(String name,String lastName,String mail,String street,String houseNumber,String telNumber,String note,boolean isVolunteer,String locality)
+	public void setInfos(String name,String lastName,String mail,String street,String houseNumber,String telNumber,String note,boolean isVolunteer,Localite locality)
 	{
 		this.name.setText(name);
 		this.lastName.setText(lastName);
@@ -273,7 +273,17 @@ public class RegistrationFormCareGiver extends JPanel{
 		this.telNumber.setText(telNumber);
 		this.note.setText(note);
 		this.isVolunteer.setEnabled(isVolunteer);
-		//this.locality.setFocus
+		try {
+            this.locality.setSelectedIndex(localiteController.getAllLocalite().indexOf(locality));
+        }
+        catch(BDConnexionError connectError)
+        {
+            JOptionPane.showMessageDialog(null,"unable to connect to the BD","connexion error",JOptionPane.ERROR_MESSAGE);
+        }
+        catch (ErrorNull errorNull)
+        {
+            JOptionPane.showMessageDialog(null,errorNull.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
+        }
 	}
 
 	//attention: pas terminé:localité n'est pas sélectionné !

@@ -39,6 +39,10 @@ public class Race {
     public void setTraitDeCaractere(String traitDeCaractere) {
         this.traitDeCaractere = traitDeCaractere;//varchar(50)
     }
+    public String toString()
+    {
+        return libelle+"-("+espece.toString()+")";
+    }
 }
    /* create table race(
         libelle varchar(50),

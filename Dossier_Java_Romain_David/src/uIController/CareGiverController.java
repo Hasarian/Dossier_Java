@@ -34,4 +34,5 @@ public class CareGiverController
     {
         return business.getUserEmail();
     }
+    public boolean isVeto(){return business.isVeto();}
 }

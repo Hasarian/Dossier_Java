@@ -29,9 +29,9 @@ public class MainFrame extends JFrame
         setLayout(null);
         thisFrame=this;
 
-        basePanel=new DashBoardPane(this);
+        basePanel=new DashBoardPane(this,loggedIn);
 
-        mainPanel=new MainPanel(loggedIn,new DashBoardPane(this));
+        mainPanel=new MainPanel(loggedIn,basePanel);
         container.add(mainPanel);
 
 

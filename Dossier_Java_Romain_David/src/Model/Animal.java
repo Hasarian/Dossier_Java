@@ -5,6 +5,12 @@ import erreurs.ErrorNull;
 import java.util.GregorianCalendar;
 
 public class Animal {
+    public enum EtatSoin{
+        DISPONIBLE,RESERVEE,VETODISPO,VETORESERVEE
+    }
+    public enum EtatAnimal{
+        NORMAL,ARCHIVE,
+    }
     private Integer id;
     private String remarqueAnimal;
     private Integer numCellule;
@@ -13,12 +19,12 @@ public class Animal {
     private GregorianCalendar dateArrive;
     private GregorianCalendar dateDesces;
     private Boolean estDangereux;
-    private String etatAnimal;
+    private EtatAnimal etatFicheAnimal;
     private String remaqueSoin;
-    private Integer etatFicheSoin;
+    private EtatSoin etatFicheSoin;
 
     public Animal(Integer id, String remarqueAnimal, Integer numCellule, Race race, String nomAnimal, GregorianCalendar dateArrive, GregorianCalendar dateDesces,
-                  Boolean estDangereux, String etatAnimal, String remarqueSoin, Integer etatFicheSoin)throws ErrorNull{
+                  Boolean estDangereux, EtatAnimal etatAnimal, String remarqueSoin, EtatSoin etatFicheSoin)throws ErrorNull{
         setId(id);
         setDateArrive(dateArrive);
         setDateDesces(dateDesces);
@@ -43,7 +49,7 @@ public class Animal {
         this.nomAnimal = nomAnimal;
     }
 
-    public void setEtatFicheSoin(Integer etatFicheSoin) throws ErrorNull {
+    public void setEtatFicheSoin(EtatSoin etatFicheSoin) throws ErrorNull {
         if(etatFicheSoin == null) throw new ErrorNull();
         this.etatFicheSoin = etatFicheSoin;
     }
@@ -53,9 +59,9 @@ public class Animal {
         this.race = race;
     }
 
-    public void setEtatAnimal(String etatAnimal) throws ErrorNull {
-        if(etatAnimal == null) throw new ErrorNull();
-        this.etatAnimal = etatAnimal;
+    public void setEtatAnimal(EtatAnimal etatAnimal) throws ErrorNull {
+        if(etatAnimal == null)
+        this.etatFicheAnimal = etatAnimal;
     }
 
     public void setEstDangereux(Boolean estDangereux) throws ErrorNull {
@@ -85,11 +91,21 @@ public class Animal {
         this.dateDesces = dateDesces;
     }
 
-    public String getEtatAnimal(){
-        return etatAnimal;
+    public EtatAnimal getEtatAnimal(){
+        return etatFicheAnimal;
     }
 
-    public Integer getEtatFicheSoin() {
+    public EtatSoin getEtatFicheSoin() {
         return etatFicheSoin;
     }
+
+    /* "name",
+             "id",
+             "cell number",
+             "species",*/
+    public String getNomAnimal(){return nomAnimal;}
+    public String getId(){return id.toString();}
+    public String getCellNumber(){return numCellule.toString();}
+    public String getSpecies(){return race.toString();}
+    public EtatSoin getEtatSoin(){return etatFicheSoin;}
 }

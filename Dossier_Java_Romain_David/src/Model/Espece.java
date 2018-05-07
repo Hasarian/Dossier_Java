@@ -38,6 +38,11 @@ public class Espece {
             this.typeDeDeplacement = typeDeDeplacement;
         else throw new ErrorNull("typeDeDeplacement du modele espece");
     }
+
+    @Override
+    public String toString() {
+        return libelle;
+    }
 }
 
 

@@ -75,6 +75,8 @@ public class AnimalDBAccess implements DAOAnimal {
             dateArrive.setTime(data.getDate("ficheAnimal.dateArrive"));
             dateDesces.setTime(data.getDate("ficheAnimal.dateDesces"));
 
+            //il faut qu'ici on traduise les integer et String en enum, pour les envoyer à la couche business qui s'occupera de créer les objets
+
             animal = new Animal(data.getInt("ficheAnimal.id"), data.getString("ficheAnimal.remarque"), data.getInt("ficheAnimal.numCellule"),
                     race, data.getString("ficheAnimal.nomAnimal"), dateArrive, dateDesces, data.getBoolean("ficheAnimal.estDangereux"), data.getString("ficheAnimal.etat"),
                     data.getString("ficheSoin.remaque"), data.getInt("ficheSoin.etat"));

@@ -5,20 +5,49 @@ import DataAccess.AnimalDBAccess;
 import Model.Animal;
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
+import uIController.CareGiverController;
 
 import java.util.ArrayList;
 
+import static Model.Animal.EtatSoin.DISPONIBLE;
+
 public class AnimalBusiness {
-    Animal animal;
-    DAOAnimal daoAnimal;
 
-    public AnimalBusiness() throws BDConnexionError {
+    private ArrayList<Animal> availableList,personnalList,vetoAvailableList,vetoPersonnalList;
+    private DAOAnimal daoAnimal;
+
+    public AnimalBusiness(CareGiverController user) throws BDConnexionError,ErrorNull {
         daoAnimal = new AnimalDBAccess();
+        availableList=new ArrayList<Animal>();
+        personnalList=new ArrayList<Animal>();
+        vetoAvailableList=(user.isVeto())?new ArrayList<Animal>():null;
+        vetoPersonnalList=(user.isVeto())?new ArrayList<Animal>():null;
+        ArrayList<Animal> allAnimals = getAllAnimals();
+        ArrayList<Animal> animauxDansLaSpa=new ArrayList<Animal>();
+        for(Animal animal:allAnimals)
+        {
+           if(animal.getEtatAnimal()!=Animal.EtatAnimal.ARCHIVE)
+           {
+               switch (animal.getEtatFicheSoin())
+               {
+                   case DISPONIBLE:
+                       availableList.add(animal);
+                       break;
+                   case RESERVEE:
+                       break;
+                   case VETODISPO:
+                       if(vetoAvailableList!=null)
+                           vetoAvailableList.add(animal);
+                       break;
+                   case VETORESERVEE:
+                       if(vetoPersonnalList!=null)
+                           break;
+               }
+           }
+        }
+
     }
 
-    public void setAnimal(Animal animal) {
-        this.animal = animal;
-    }
 
     public Animal getAnimal(int id) throws ErrorNull, BDConnexionError {
         return daoAnimal.read(id);
@@ -27,4 +56,7 @@ public class AnimalBusiness {
         return daoAnimal.readAllAnimal();
     }
 
+    public ArrayList<Animal> getAvailableList() {
+        return availableList;
+    }
 }
