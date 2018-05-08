@@ -1,7 +1,7 @@
 package DataAccess;
 
 
-import DAO.DAOCareGiver;
+import DataAccess.DAO.DAOCareGiver;
 import Model.CareGiver;
 import erreurs.BDConnexionError;
 import erreurs.ErreurInsertCareGiver;

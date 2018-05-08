@@ -43,6 +43,7 @@ public class Race {
     {
         return libelle+"-("+espece.toString()+")";
     }
+    public String getLibelle(){return libelle;}
 }
    /* create table race(
         libelle varchar(50),

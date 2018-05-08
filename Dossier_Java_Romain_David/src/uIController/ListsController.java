@@ -14,7 +14,7 @@ public class ListsController
 
     public ListsController(CareGiverController user) throws BDConnexionError, ErrorNull
     {
-        animalBusiness=new AnimalBusiness(user);
+        animalBusiness=AnimalBusiness.obtenirAnimalBusiness(user);
     }
 
     public ArrayList<ArrayList<String>> getAvailableData()

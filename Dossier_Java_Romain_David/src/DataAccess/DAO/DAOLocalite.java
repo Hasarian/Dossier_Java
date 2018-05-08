@@ -1,11 +1,9 @@
-package DAO;
+package DataAccess.DAO;
 
-import Model.CareGiver;
 import Model.Localite;
 import erreurs.BDConnexionError;
 import erreurs.ErreurInsertCareGiver;
 import erreurs.ErrorNull;
-import erreurs.InexistantCareGiver;
 
 import java.util.ArrayList;
 

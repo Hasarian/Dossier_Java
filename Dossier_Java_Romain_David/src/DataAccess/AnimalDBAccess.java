@@ -1,11 +1,12 @@
 package DataAccess;
 
-import Business.CareGiverBusiness;
-import DAO.DAOAnimal;
+import Business.AnimalBusiness;
+import Business.EspeceBusiness;
+import DataAccess.DAO.DAOAnimal;
 import Model.*;
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
-import sun.java2d.loops.GeneralRenderer;
+import uIController.CareGiverController;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class AnimalDBAccess implements DAOAnimal {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, id);
             ResultSet data = statement.executeQuery();
-            animal = dataToAnimal(data);
+            dataToAnimal(data);
 
         }
 
@@ -36,9 +37,8 @@ public class AnimalDBAccess implements DAOAnimal {
         }
         return animal;
     }
-    public ArrayList<Animal> readAllAnimal() throws ErrorNull, BDConnexionError{
+    public void readAllAnimals() throws ErrorNull, BDConnexionError{
 
-        ArrayList<Animal> animals = new ArrayList<Animal>();
 
         try{
             String sql = "select * from ficheSoin, ficheAnimal, espece, race where " +
@@ -47,30 +47,31 @@ public class AnimalDBAccess implements DAOAnimal {
 
             ResultSet data = statement.executeQuery();
             while(data.next()) {
-                animals.add(dataToAnimal(data));
+                dataToAnimal(data);
             }
 
         }
         catch(SQLException e){
             new BDConnexionError();
         }
-        return animals;
     }
-    private Animal dataToAnimal(ResultSet data)throws ErrorNull, BDConnexionError{
-        Animal animal = null;
+    private void dataToAnimal(ResultSet data)throws ErrorNull, BDConnexionError{
+        AnimalBusiness business=AnimalBusiness.obtenirAnimalBusiness(user);
         try {
-            Race race;
-            Espece espece;
-            CareGiver careGiver;
-            CareGiverBusiness careGiverBusiness;
+            EspeceBusiness especeBusiness=EspeceBusiness.obtenirEspeceBusiness();
 
-            espece = new Espece(data.getString("espece.libelle"), data.getBoolean("espece.estEnVoieDeDisparition"),
-                    data.getString("espece.typeDeDeplacement"), data.getString("espece.milieuDeVie"));
+            String libelleEspece=(data.wasNull())?null:data.getString("espece.libelle");
+            Boolean estEnVoieDeDisparition=(data.wasNull())?null:data.getBoolean("espece.estEnVoieDeDisparition");
+            String typeDeplacement=(data.wasNull())?null:data.getString("espece.typeDeDeplacement");
+            String milieuDeVie=(data.wasNull())?null:data.getString("espece.milieuDeVie");
+            Espece espece=especeBusiness.obtenirEspece(libelleEspece,estEnVoieDeDisparition,typeDeplacement,milieuDeVie);
 
+
+            String libelleRace=(data.wasNull())?null:data.getString("race.libelle");
+            String traitDeCaractere=(data.wasNull())?null:data.getString("race.traitDeCaractere");
             String caracteristiqueDuMilieuDeVie = (data.wasNull() ? null : data.getString("race.caracteristiqueDuMilieuDeVie"));
             String tare = (data.wasNull() ? null : data.getString("race.tare"));
-            race = new Race(data.getString("race.libelle"), data.getString("race.traitDeCaractere"),
-                    tare, caracteristiqueDuMilieuDeVie, espece);
+            Race race= especeBusiness.obtenirRace(libelleRace,traitDeCaractere,tare,caracteristiqueDuMilieuDeVie,espece);
 
 
             GregorianCalendar dateArrive = new GregorianCalendar();
@@ -80,21 +81,16 @@ public class AnimalDBAccess implements DAOAnimal {
             dateDesces.setTime(data.getDate("ficheAnimal.dateDesces"));
             Animal.EtatAnimal [] etatAnimal = Animal.EtatAnimal.values();
             Animal.EtatSoin [] etatSoins = Animal.EtatSoin.values();
-            //etatSoins[data.getInt("ficheSoin.etat")];
 
+            /*Integer id, String remarque, Integer numCell, String nomAnimal, Race race, GregorianCalendar dateArrivee,
+                    GregorianCalendar dateDeces, Boolean estDangereux, Animal.EtatAnimal etatAnimal, Animal.EtatSoin etatSoin,
+                    String remarqueSoin, Animal.EtatSoin etatFicheSoin, CareGiver careGiver*/
+            business.ajoutAnimal();
 
-
-            //il faut qu'ici on traduise les integer et String en enum, pour les envoyer à la couche business qui s'occupera de créer les objets
-
-            animal = new Animal(data.getInt("ficheAnimal.id"), data.getString("ficheAnimal.remarque"), data.getInt("ficheAnimal.numCellule"),
-                    race, data.getString("ficheAnimal.nomAnimal"), dateArrive, dateDesces, data.getBoolean("ficheAnimal.estDangereux"), etatAnimal[data.getInt("ficheAnimal.etat")],
-                    data.getString("ficheSoin.remaque"), etatSoins[data.getInt("ficheSoin.etat")]);
-            return animal;
         }
         catch(SQLException e){
             new BDConnexionError();
         }
-        return animal;
     }
 
     @Override

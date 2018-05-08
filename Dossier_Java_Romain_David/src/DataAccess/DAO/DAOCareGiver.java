@@ -1,12 +1,10 @@
-package DAO;
+package DataAccess.DAO;
 
 import erreurs.BDConnexionError;
 import erreurs.ErreurInsertCareGiver;
 import Model.CareGiver;
 import erreurs.ErrorNull;
 import erreurs.InexistantCareGiver;
-
-import java.sql.SQLException;
 
 public interface DAOCareGiver {
     void create(CareGiver careGiver)throws ErreurInsertCareGiver;

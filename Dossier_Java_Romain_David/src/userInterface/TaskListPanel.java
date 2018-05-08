@@ -17,9 +17,6 @@ public class TaskListPanel extends JPanel
     private DashBoardPane parentPanel;
     private ListsController listController;
 
-    public DashBoardPane getParentPanel() {
-        return parentPanel;
-    }
 
     private JScrollPane tablePane;
     private JLabel infoLabel,infoLabel2,infoLabel3;

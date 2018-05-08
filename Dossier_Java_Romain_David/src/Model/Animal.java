@@ -6,10 +6,10 @@ import java.util.GregorianCalendar;
 
 public class Animal {
     public enum EtatSoin{
-        DISPONIBLE,RESERVEE,VETODISPO,VETORESERVEE
+        DISPONIBLE,RESERVEE,VETODISPO,VETORESERVEE,ARCHIVEE
     }
     public enum EtatAnimal{
-        NORMAL,ARCHIVE,
+        NORMAL,ARCHIVE,PREMIEREVISITE
     }
     private Integer id;
     private String remarqueAnimal;
@@ -113,5 +113,9 @@ public class Animal {
     public void setCareGiver(CareGiver careGiver) throws ErrorNull {
         if(numCellule == null) throw new ErrorNull();
         this.careGiver = careGiver;
+    }
+    public boolean isReservedByUser(String mailReservation)
+    {
+        return mailReservation.compareTo(careGiver.getMail())==0;
     }
 }

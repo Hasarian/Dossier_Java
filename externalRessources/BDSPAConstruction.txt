@@ -80,7 +80,7 @@ create table ficheSoin(
 id integer(10),
 remarque varchar(250),
 etat integer(2) not null,
-email varchar(50) not null,
+email varchar(50),
 constraint ficheSoin_id_pk primary key(id) ,
 constraint ficheAnimal_fk foreign key (id) references ficheAnimal(id),
 constraint ficheSoin_soignant_email_fk foreign key(soignant) references soignant(email)
