@@ -1,6 +1,6 @@
 package Business;
 
-import DAO.DAOLocalite;
+import DataAccess.DAO.DAOLocalite;
 import DataAccess.LocaliteBDAccess;
 import Model.Localite;
 import erreurs.BDConnexionError;

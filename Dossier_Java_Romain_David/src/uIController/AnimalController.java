@@ -11,11 +11,11 @@ public class AnimalController {
     AnimalBusiness animalBusiness;
 
     public AnimalController(CareGiverController user) throws BDConnexionError,ErrorNull {
-        animalBusiness = new AnimalBusiness(user);
+        animalBusiness = AnimalBusiness.obtenirAnimalBusiness(user);
     }
 
     public Animal getAnimal(int id) throws ErrorNull, BDConnexionError {
-        return animalBusiness.getAnimal(id);
+        return animalBusiness.getAnimalInBD(id);
     }
     public ArrayList<Animal> getAllAnimals() throws ErrorNull,BDConnexionError{
         return animalBusiness.getAllAnimals();

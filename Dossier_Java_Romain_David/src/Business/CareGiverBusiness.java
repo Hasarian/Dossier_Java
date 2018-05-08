@@ -1,6 +1,6 @@
 package Business;
 
-import DAO.DAOCareGiver;
+import DataAccess.DAO.DAOCareGiver;
 import DataAccess.CaraGiverDataAccess;
 import Model.Veterinaire;
 import erreurs.BDConnexionError;
@@ -9,14 +9,12 @@ import Model.CareGiver;
 import erreurs.ErrorNull;
 import erreurs.InexistantCareGiver;
 
-import java.sql.SQLException;
-
 public class CareGiverBusiness {
     CareGiver careGiver;
     DAOCareGiver daoCareGiver;
 
     public CareGiverBusiness() throws BDConnexionError{setDaoCareGiver();}
-    public CareGiverBusiness(CareGiver careGiver)throws BDConnexionError{ this(); }
+
 
     public void setDaoCareGiver() throws BDConnexionError {
         this.daoCareGiver = new CaraGiverDataAccess();

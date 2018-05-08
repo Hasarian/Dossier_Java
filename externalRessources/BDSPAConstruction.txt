@@ -1,4 +1,3 @@
-
 drop table  vaccination;
 drop table vaccin;
 drop table alimentation;
@@ -30,7 +29,7 @@ mail varchar (50),
  numTel integer(9),
  remarque varchar(150),
  estBenevole boolean not null,
- dateEmbauche date not null, 
+ dateEmbauche date not null,
 localite integer(10) not null,
 constraint mail_id_pk primary key(mail),
 constraint localite_fk foreign key (localite) references localite(idLocalite)
@@ -80,10 +79,10 @@ create table ficheSoin(
 id integer(10),
 remarque varchar(250),
 etat integer(2) not null,
-email varchar(50) not null,
+email varchar(50),
 constraint ficheSoin_id_pk primary key(id) ,
 constraint ficheAnimal_fk foreign key (id) references ficheAnimal(id),
-constraint ficheSoin_soignant_email_fk foreign key(soignant) references soignant(email)
+constraint ficheSoin_soignant_email_fk foreign key(email) references soignant(mail)
 )engine = InnoDB;
 
 create table soinEffectue(
@@ -154,4 +153,3 @@ constraint ficheAnimal_id_fk foreign key (id) references ficheAnimal(id),
 constraint vaccin_numVaccin_fk foreign key (numVaccin) references vaccin(numVaccin),
 constraint vaccination_numVaccin_id_unique unique (numVaccin, id)
 )engine = InnoDB;
-

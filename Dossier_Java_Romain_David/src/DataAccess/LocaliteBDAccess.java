@@ -1,11 +1,9 @@
 package DataAccess;
 
-import DAO.DAOLocalite;
+import DataAccess.DAO.DAOLocalite;
 import Model.Localite;
 import erreurs.BDConnexionError;
-import erreurs.ErreurInsertCareGiver;
 import erreurs.ErrorNull;
-import erreurs.InexistantCareGiver;
 
 import javax.swing.*;
 import java.sql.Connection;

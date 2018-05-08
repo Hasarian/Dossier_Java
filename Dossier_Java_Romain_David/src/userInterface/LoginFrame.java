@@ -13,7 +13,6 @@ import java.sql.SQLException;
 
 public class LoginFrame extends JFrame
 {
-    MainFrame targetFrame;
     public LoginFrame()
     {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -27,15 +26,12 @@ public class LoginFrame extends JFrame
     {
         MainFrame targetFrame;
         LoginFrame frame;
-        JLabel emailLabel,passwordLabel;
         JTextField email,password;
         JButton quitButton,loginButton;
-        public String getEmail(){return email.getText(); }
 
         public LoginPanel(LoginFrame frame)
         {
             this.frame=frame;
-            this.targetFrame=targetFrame;
             setLayout(null);
             setBounds(15,15,frame.getWidth()-50,frame.getHeight()-50);
             setBackground(Color.WHITE);

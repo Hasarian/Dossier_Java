@@ -43,6 +43,7 @@ public class Espece {
     public String toString() {
         return libelle;
     }
+    public String getLibelle(){return libelle;}
 }
 
 
