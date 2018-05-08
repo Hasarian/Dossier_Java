@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e633ca09-66ed-4f9a-b57c-daa42bf763d4" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/DataAccess/AnimalDBAccess.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/DataAccess/AnimalDBAccess.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -504,7 +503,7 @@
       <workItem from="1525416054932" duration="6129000" />
       <workItem from="1525713769438" duration="8899000" />
       <workItem from="1525764390398" duration="9453000" />
-      <workItem from="1525775017604" duration="1769000" />
+      <workItem from="1525775017604" duration="1795000" />
     </task>
     <task id="LOCAL-00001" summary="login frame sans les events">
       <created>1522594410214</created>
@@ -632,11 +631,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525775448854</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="mardi 8/5:&#10;aprem">
+      <created>1525777289678</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1525777289678</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117631000" />
+    <option name="totallyTimeSpent" value="117657000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1874" height="1096" extended-state="6" />
@@ -723,7 +729,8 @@
     <MESSAGE value="on commence la profondeur et la connexion&#10;&#10;fuck it" />
     <MESSAGE value="mardi 8/5 au matin" />
     <MESSAGE value="mardi 8/5:&#10;script" />
-    <option name="LAST_COMMIT_MESSAGE" value="mardi 8/5:&#10;script" />
+    <MESSAGE value="mardi 8/5:&#10;aprem" />
+    <option name="LAST_COMMIT_MESSAGE" value="mardi 8/5:&#10;aprem" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
