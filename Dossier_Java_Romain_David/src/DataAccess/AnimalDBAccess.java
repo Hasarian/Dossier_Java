@@ -73,6 +73,8 @@ public class AnimalDBAccess implements DAOAnimal {
             String tare = (data.wasNull() ? null : data.getString("race.tare"));
             Race race= especeBusiness.obtenirRace(libelleRace,traitDeCaractere,tare,caracteristiqueDuMilieuDeVie,espece);
 
+            Integer id = (data.wasNull())?null:new Integer(data.getInt("ficheAnimal.id"));
+
 
             GregorianCalendar dateArrive = new GregorianCalendar();
             GregorianCalendar dateDesces = new GregorianCalendar();
@@ -85,7 +87,7 @@ public class AnimalDBAccess implements DAOAnimal {
             /*Integer id, String remarque, Integer numCell, String nomAnimal, Race race, GregorianCalendar dateArrivee,
                     GregorianCalendar dateDeces, Boolean estDangereux, Animal.EtatAnimal etatAnimal, Animal.EtatSoin etatSoin,
                     String remarqueSoin, Animal.EtatSoin etatFicheSoin, CareGiver careGiver*/
-            business.ajoutAnimal();
+            business.ajoutAnimal(id);
 
         }
         catch(SQLException e){

@@ -31,7 +31,7 @@ values(1,
 str_to_date('01/01/2018','%e/%m/%Y'),
 null,
 false,
-"premiereVisite"
+2
 );
 insert into race
 values("pitbull",
@@ -50,7 +50,7 @@ values(2,
 str_to_date('29/02/2012','%e/%m/%Y'),
 null,
 true,
-"ras"
+0
 );
 insert into espece
 values(
@@ -77,19 +77,14 @@ values(3,
 str_to_date('23/3/2005','%e/%m/%Y'),
 str_to_date('20/1/2018','%e/%m/%Y'),
 false,
-"archive"
+1
 );
 
 insert into ficheSoin
-values(0000000001,"sert au test",0);
+values(0000000001,"sert au test",0,null);
 insert into modificationSoin
 values(0000000001, Str_to_date('30-03-1995','%e-%m-%Y'),"demoustiez.romain@spa.be",0000000001);
 
 
 insert into soinEffectue
 values("servais.david@spa.be",Str_to_date('6-01-2017 11:55:23','%d-%m-%Y %H:%i:%s'),0000000001,2);
-
-
-
-
-
