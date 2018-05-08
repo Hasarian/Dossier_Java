@@ -1,6 +1,7 @@
 package Model;
 
 import erreurs.ErrorNull;
+//faire toString
 
 public class Localite {
     private Integer idLocalite;

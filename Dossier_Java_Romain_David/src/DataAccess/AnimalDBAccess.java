@@ -1,5 +1,6 @@
 package DataAccess;
 
+import Business.CareGiverBusiness;
 import DAO.DAOAnimal;
 import Model.*;
 import erreurs.BDConnexionError;
@@ -60,6 +61,8 @@ public class AnimalDBAccess implements DAOAnimal {
         try {
             Race race;
             Espece espece;
+            CareGiver careGiver;
+            CareGiverBusiness careGiverBusiness;
 
             espece = new Espece(data.getString("espece.libelle"), data.getBoolean("espece.estEnVoieDeDisparition"),
                     data.getString("espece.typeDeDeplacement"), data.getString("espece.milieuDeVie"));
@@ -69,17 +72,23 @@ public class AnimalDBAccess implements DAOAnimal {
             race = new Race(data.getString("race.libelle"), data.getString("race.traitDeCaractere"),
                     tare, caracteristiqueDuMilieuDeVie, espece);
 
+
             GregorianCalendar dateArrive = new GregorianCalendar();
             GregorianCalendar dateDesces = new GregorianCalendar();
 
             dateArrive.setTime(data.getDate("ficheAnimal.dateArrive"));
             dateDesces.setTime(data.getDate("ficheAnimal.dateDesces"));
+            Animal.EtatAnimal [] etatAnimal = Animal.EtatAnimal.values();
+            Animal.EtatSoin [] etatSoins = Animal.EtatSoin.values();
+            //etatSoins[data.getInt("ficheSoin.etat")];
+
+
 
             //il faut qu'ici on traduise les integer et String en enum, pour les envoyer à la couche business qui s'occupera de créer les objets
 
             animal = new Animal(data.getInt("ficheAnimal.id"), data.getString("ficheAnimal.remarque"), data.getInt("ficheAnimal.numCellule"),
-                    race, data.getString("ficheAnimal.nomAnimal"), dateArrive, dateDesces, data.getBoolean("ficheAnimal.estDangereux"), data.getString("ficheAnimal.etat"),
-                    data.getString("ficheSoin.remaque"), data.getInt("ficheSoin.etat"));
+                    race, data.getString("ficheAnimal.nomAnimal"), dateArrive, dateDesces, data.getBoolean("ficheAnimal.estDangereux"), etatAnimal[data.getInt("ficheAnimal.etat")],
+                    data.getString("ficheSoin.remaque"), etatSoins[data.getInt("ficheSoin.etat")]);
             return animal;
         }
         catch(SQLException e){

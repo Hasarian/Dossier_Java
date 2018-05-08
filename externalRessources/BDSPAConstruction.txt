@@ -71,7 +71,7 @@ race varchar(50) not null,
 dateArrive date not null,
 datedesces date,
 estDangereux boolean not null,
-etat varchar(25) not null,
+etat integer(2) not null,
 constraint ficheAnimal_id_pk primary key(id),
 constraint race_fk foreign key (race) references race(libelle)
 )engine = InnoDB;
@@ -80,8 +80,10 @@ create table ficheSoin(
 id integer(10),
 remarque varchar(250),
 etat integer(2) not null,
+email varchar(50) not null,
 constraint ficheSoin_id_pk primary key(id) ,
-constraint ficheAnimal_fk foreign key (id) references ficheAnimal(id)
+constraint ficheAnimal_fk foreign key (id) references ficheAnimal(id),
+constraint ficheSoin_soignant_email_fk foreign key(soignant) references soignant(email)
 )engine = InnoDB;
 
 create table soinEffectue(

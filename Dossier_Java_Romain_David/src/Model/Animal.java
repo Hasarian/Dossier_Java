@@ -22,9 +22,10 @@ public class Animal {
     private EtatAnimal etatFicheAnimal;
     private String remaqueSoin;
     private EtatSoin etatFicheSoin;
+    private CareGiver careGiver;
 
     public Animal(Integer id, String remarqueAnimal, Integer numCellule, Race race, String nomAnimal, GregorianCalendar dateArrive, GregorianCalendar dateDesces,
-                  Boolean estDangereux, EtatAnimal etatAnimal, String remarqueSoin, EtatSoin etatFicheSoin)throws ErrorNull{
+                  Boolean estDangereux, EtatAnimal etatAnimal, String remarqueSoin, EtatSoin etatFicheSoin, CareGiver careGiver)throws ErrorNull{
         setId(id);
         setDateArrive(dateArrive);
         setDateDesces(dateDesces);
@@ -36,7 +37,7 @@ public class Animal {
         setRace(race);
         setRemarqueAnimal(remarqueAnimal);
         setRemaqueSoin(remarqueSoin);
-
+        setCareGiver(careGiver);
     }
 
     public void setDateArrive(GregorianCalendar dateArrive) throws ErrorNull {
@@ -108,4 +109,9 @@ public class Animal {
     public String getCellNumber(){return numCellule.toString();}
     public String getSpecies(){return race.toString();}
     public EtatSoin getEtatSoin(){return etatFicheSoin;}
+
+    public void setCareGiver(CareGiver careGiver) throws ErrorNull {
+        if(numCellule == null) throw new ErrorNull();
+        this.careGiver = careGiver;
+    }
 }
