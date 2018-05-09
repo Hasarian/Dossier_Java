@@ -85,15 +85,6 @@ constraint ficheAnimal_fk foreign key (id) references ficheAnimal(id),
 constraint ficheSoin_soignant_email_fk foreign key(email) references soignant(mail)
 )engine = InnoDB;
 
-create table soinEffectue(
-mail varchar(50) not null,
-dateSoin dateTime not null,
-numDossier integer(10) not null,
-idSoinEffectue integer(10) auto_increment,
-constraint idSoinEffectue_id_pk primary key(idSoinEffectue),
-constraint soignant_mail_fk foreign key (mail) references soignant(mail)
-)engine = InnoDB;
-
 create table modificationSoin(
 numDossier integer(10) not null,
 dateModification date not null,
@@ -127,6 +118,16 @@ constraint ordonnance_numOrdonnance_fk foreign key (numOrdonnance) references or
 constraint ordonnance_mailVeto_fk foreign key (mailVeto) references ordonnance(mailVeto),
 constraint soinMedical_numDossier_dateSoin_unique unique (numDossier, dateSoinMedical)
 )engine= InnoDB;
+
+create table soinEffectue(
+mail varchar(50) not null,
+dateSoin dateTime not null,
+numSoinMedical integer(10) not null,
+idSoinEffectue integer(10) auto_increment,
+constraint idSoinEffectue_id_pk primary key(idSoinEffectue),
+constraint soignant_mail_fk foreign key (mail) references soignant(mail),
+constraint soinEffectue_soinMedical_idSoinMediacal_fk foreign key (numSoinMedical) references soinMedical(idSoinMedical)
+)engine = InnoDB;
 
 create table alimentation(
 numDossier integer(10),
