@@ -3,19 +3,17 @@ package userInterface;
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
 import uIController.CareGiverController;
-import uIController.ListsController;
+import uIController.ListsControllerAnimal;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
-import javax.swing.table.JTableHeader;
-import javax.swing.table.TableColumn;
 import java.awt.*;
 import java.util.ArrayList;
 
 public class TaskListPanel extends JPanel
 {
     private DashBoardPane parentPanel;
-    private ListsController listController;
+    private ListsControllerAnimal listController;
 
 
     private JScrollPane tablePane;
@@ -33,7 +31,7 @@ public class TaskListPanel extends JPanel
     public TaskListPanel(DashBoardPane parentPanel, CareGiverController user)
     {
         try {
-            listController = new ListsController(user);
+            listController = new ListsControllerAnimal(user);
         }
         catch (BDConnexionError connexionError)
         {

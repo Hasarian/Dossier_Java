@@ -110,8 +110,7 @@ public class Animal {
     public String getSpecies(){return race.toString();}
     public EtatSoin getEtatSoin(){return etatFicheSoin;}
 
-    public void setCareGiver(CareGiver careGiver) throws ErrorNull {
-        if(numCellule == null) throw new ErrorNull();
+    public void setCareGiver(CareGiver careGiver){
         this.careGiver = careGiver;
     }
     public boolean isReservedByUser(String mailReservation)

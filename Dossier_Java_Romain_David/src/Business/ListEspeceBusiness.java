@@ -1,25 +1,24 @@
 package Business;
 
-import Model.Animal;
 import Model.Espece;
 import Model.Race;
 import erreurs.ErrorNull;
 
 import java.util.ArrayList;
 
-public class EspeceBusiness
+public class ListEspeceBusiness
 {
     private ArrayList<Espece> especes;
     private ArrayList<Race> races;
-    private static EspeceBusiness instance;
-    private  EspeceBusiness()
+    private static ListEspeceBusiness instance;
+    private ListEspeceBusiness()
     {
         especes=new ArrayList<Espece>();
         races=new ArrayList<Race>();
     }
-    public static EspeceBusiness obtenirEspeceBusiness()
+    public static ListEspeceBusiness obtenirEspeceBusiness()
     {
-        if(instance==null)instance=new EspeceBusiness();
+        if(instance==null)instance=new ListEspeceBusiness();
         return instance;
     }
     public Espece obtenirEspece(String libelle,boolean estEnVoieDeDisparition,String typeDeplacement,String milieuDeVie) throws ErrorNull

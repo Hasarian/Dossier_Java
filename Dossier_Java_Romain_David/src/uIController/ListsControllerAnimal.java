@@ -1,26 +1,26 @@
 package uIController;
 
-import Business.AnimalBusiness;
+import Business.ListAnimalBusiness;
 import Model.Animal;
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
 
 import java.util.ArrayList;
 
-public class ListsController
+public class ListsControllerAnimal
 {
 
-    private AnimalBusiness animalBusiness;
+    private ListAnimalBusiness listAnimalBusiness;
 
-    public ListsController(CareGiverController user) throws BDConnexionError, ErrorNull
+    public ListsControllerAnimal(CareGiverController user) throws BDConnexionError, ErrorNull
     {
-        animalBusiness=AnimalBusiness.obtenirAnimalBusiness(user);
+        listAnimalBusiness =ListAnimalBusiness.obtenirAnimalBusiness(user);
     }
 
     public ArrayList<ArrayList<String>> getAvailableData()
     {
         ArrayList<ArrayList<String>> data=new ArrayList<ArrayList<String>>();
-        for(Animal animal:animalBusiness.getAvailableList())
+        for(Animal animal: listAnimalBusiness.getAvailableList())
         {
             ArrayList<String> row=new ArrayList<String>();
             row.add(animal.getNomAnimal());
