@@ -40,11 +40,16 @@ public class CareGiverBusiness {
         this.currentUser = currentUser;
     }
 
-    public CareGiver getCurrentUser(String id) throws BDConnexionError, InexistantCareGiver, ErrorNull
+    public CareGiver getCurrentUserInDB(String id) throws BDConnexionError, InexistantCareGiver, ErrorNull
     {
         setCurrentUser(daoCareGiver.read(id));
-            return currentUser;
+        return currentUser;
     }
+
+    public CareGiver getCurrentUser() {
+        return currentUser;
+    }
+
     public String getUserName()
     {
         return currentUser.getName();

@@ -17,7 +17,7 @@ public class CareGiverController
 
     public void setCareGiverConnection(String login) throws BDConnexionError, InexistantCareGiver, ErrorNull
     {
-            business.setCurrentUser(business.getCurrentUser(login));
+            business.setCurrentUser(business.getCurrentUserInDB(login));
     }
     public void setCareGiverData(CareGiver careGiver) throws ErreurInsertCareGiver {
         business.setCareGiverData(careGiver);
@@ -35,4 +35,10 @@ public class CareGiverController
         return business.getUserEmail();
     }
     public boolean isVeto(){return business.isVeto();}
+
+    public CareGiver getCareGiver()
+    {
+        return business.getCurrentUser();
+    }
+
 }

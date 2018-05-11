@@ -154,4 +154,13 @@ public class ListAnimalBusiness {
         }
         return animal;
     }
+
+    public void updateEtatFicheSoin(Animal animal, Animal.EtatSoin nouvelEtat) throws ErrorNull
+    {
+        animal.setEtatFicheSoin(nouvelEtat);
+        if(nouvelEtat== Animal.EtatSoin.RESERVEE||nouvelEtat==Animal.EtatSoin.VETORESERVEE) animal.setCareGiver(user.getCareGiver());
+        else if(nouvelEtat==Animal.EtatSoin.DISPONIBLE||nouvelEtat== Animal.EtatSoin.VETODISPO) animal.setCareGiver(null);
+        daoAnimal.update(animal);
+        ajoutAnimal(animal);
+    }
 }

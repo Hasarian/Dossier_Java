@@ -75,25 +75,23 @@ public class ListsControllerAnimal
     public void selectVetoTask(Integer id) throws ErrorNull
     {
         Animal selected=listAnimalBusiness.getAnimal(id.toString());
-        selected.setEtatFicheSoin(Animal.EtatSoin.VETORESERVEE);
-        listAnimalBusiness.ajoutAnimal(selected);
+        listAnimalBusiness.updateEtatFicheSoin(selected, Animal.EtatSoin.VETORESERVEE);
     }
     public void selectTask(Integer id) throws ErrorNull
     {
         Animal selected=listAnimalBusiness.getAnimal(id.toString());
-        selected.setEtatFicheSoin(Animal.EtatSoin.DISPONIBLE);
-        listAnimalBusiness.ajoutAnimal(selected);
+        listAnimalBusiness.updateEtatFicheSoin(selected, Animal.EtatSoin.RESERVEE);
     }
     public void unselectVetoTask(Integer id) throws ErrorNull
     {
         Animal selected=listAnimalBusiness.getAnimal(id.toString());
-        selected.setEtatFicheSoin(Animal.EtatSoin.VETODISPO);
+        listAnimalBusiness.updateEtatFicheSoin(selected,Animal.EtatSoin.VETODISPO);
         listAnimalBusiness.ajoutAnimal(selected);
     }
     public void unselectTask(Integer id) throws ErrorNull
     {
         Animal selected=listAnimalBusiness.getAnimal(id.toString());
-        selected.setEtatFicheSoin(Animal.EtatSoin.DISPONIBLE);
-        listAnimalBusiness.ajoutAnimal(selected);
+       listAnimalBusiness.updateEtatFicheSoin(selected,Animal.EtatSoin.DISPONIBLE);
+       listAnimalBusiness.ajoutAnimal(selected);
     }
 }

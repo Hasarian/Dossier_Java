@@ -3,6 +3,7 @@ package uIController;
 import Business.AnimalBusiness;
 import Business.ListAnimalBusiness;
 import Model.Animal;
+import Model.CareGiver;
 import Model.SearchAnimalBetweenDate;
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
