@@ -1,5 +1,6 @@
 package userInterface;
 
+import ThreadAppli.ThreadLogin;
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
 import erreurs.InexistantCareGiver;
@@ -13,17 +14,20 @@ import java.sql.SQLException;
 
 public class LoginFrame extends JFrame
 {
+
     public LoginFrame()
     {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(15,15,500,400);
         setResizable(false);
+
         add(new LoginPanel(this));
         setVisible(true);
     }
 
     private class LoginPanel extends JPanel
     {
+        ThreadLogin threadLogin;
         MainFrame targetFrame;
         LoginFrame frame;
         JTextField email,password;
@@ -35,6 +39,11 @@ public class LoginFrame extends JFrame
             setLayout(null);
             setBounds(15,15,frame.getWidth()-50,frame.getHeight()-50);
             setBackground(Color.WHITE);
+
+            ImageIcon SPALogo= new ImageIcon("./externalRessources/Logo_de_la_SPA.jpg");
+            JLabel logoLabel = new JLabel(SPALogo);
+            logoLabel.setBounds(45,325,20,20);
+            add(logoLabel);
 
             ImageIcon banner= new ImageIcon("./externalRessources/banner-login.jpg");
             JLabel bannerLabel=new JLabel(banner);
@@ -65,6 +74,8 @@ public class LoginFrame extends JFrame
             loginButton.setBounds(quitButton.getX()+10+quitButton.getWidth(),getHeight()-getHeight()/10,100,quitButton.getHeight());
             add(quitButton);
             add(loginButton);
+            threadLogin = new ThreadLogin(logoLabel, this);
+            threadLogin.start();
         }
 
         private class LoginListener implements ActionListener
