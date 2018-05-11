@@ -2,13 +2,18 @@ package userInterface;
 
 import Model.CareGiver;
 import com.sun.org.apache.xpath.internal.operations.Mod;
+import erreurs.BDConnexionError;
+import erreurs.ErrorNull;
 import sun.tools.jconsole.CreateMBeanDialog;
+import uIController.AnimalController;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class SearchAnimal extends JPanel {
     private JLabel dateDebutLabel, dateFinLabel;
@@ -16,8 +21,10 @@ public class SearchAnimal extends JPanel {
     private JTable resultat;
     private JButton confirmer;
     private CareGiver user;
+    private AnimalController animalController;
 
     public SearchAnimal(){
+        animalController = new AnimalController();
         dateDebutLabel = new JLabel("Date qui servira de borne inférieure à la recherche");
         dateDebutLabel.setBounds(50,50,50,20);
         this.add(dateDebutLabel);
@@ -33,10 +40,7 @@ public class SearchAnimal extends JPanel {
         dateFin.setEditor(new JSpinner.DateEditor(dateFin, "dd/MM/yyyy"));
         dateFin.setBounds(110,70,50,20);
         this.add(dateFin);
-        ModelTable model = new ModelTable();
-        resultat = new JTable(model);
-        resultat.setBounds(25,85,500,500);
-        resultat.setVisible(false);
+
         //resultat = new JScrollPane(resultat);
         confirmer = new JButton("Rechercher");
         confirmer.addActionListener(new ConfirmeButtonListener());
@@ -48,9 +52,24 @@ public class SearchAnimal extends JPanel {
 
     private class ConfirmeButtonListener implements ActionListener
     {
-        public void actionPerformed(ActionEvent e)
-        {
-
+        public void actionPerformed(ActionEvent e) {
+            try {
+                GregorianCalendar dateDebTemp = new GregorianCalendar();
+                dateDebTemp.setTime((Date) dateDebut.getValue());
+                GregorianCalendar dateFinTemp = new GregorianCalendar();
+                dateFinTemp.setTime((Date) dateFin.getValue());
+                ModelTable model = new ModelTable(animalController.getAnimalsBetweenDate(dateDebTemp, dateFinTemp));
+                resultat = new JTable(model);
+                resultat.setBounds(25, 85, 500, 500);
+            }
+        catch(BDConnexionError connexionError)
+            {
+                JOptionPane.showMessageDialog(null, connexionError.getMessage(), "accès BD", JOptionPane.ERROR_MESSAGE);
+            }
+			catch(ErrorNull errorNull)
+            {
+                JOptionPane.showMessageDialog(null, errorNull.getMessage(), "db access error", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
     private class ModelTable extends AbstractTableModel

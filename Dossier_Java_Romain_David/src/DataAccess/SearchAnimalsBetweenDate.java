@@ -6,10 +6,8 @@ import Model.*;
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import javax.tools.JavaCompiler;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
@@ -19,14 +17,19 @@ public class SearchAnimalsBetweenDate {
     public SearchAnimalsBetweenDate() throws BDConnexionError {
         connection = SingletonDB.getInstance();
     }
-    public ArrayList<SearchAnimalBetweenDate> readAnimalsbetweenDates() throws BDConnexionError, ErrorNull{
+    public ArrayList<SearchAnimalBetweenDate> readAnimalsbetweenDates(GregorianCalendar dateDeb, GregorianCalendar dateFin) throws BDConnexionError, ErrorNull{
         ArrayList<SearchAnimalBetweenDate> resultSearch = new ArrayList<SearchAnimalBetweenDate>();
         try {
             String sql = "select*\n" +
                     "    from ficheAnimal, vaccination, vaccin, fichesoin\n" +
-                    "    where ficheAnimal.id = ? and fichesoin.id = ficheanimal.id and vaccination.id = ficheanimal.id " +
+                    "    where ficheAnimal.dateArrive > ? and ficheAnimal.dateArrive < ? and fichesoin.id = ficheanimal.id " +
+                    "and vaccination.id = ficheanimal.id " +
                     "and vaccination.numVaccin = vaccin.numVaccin;";
             PreparedStatement statement = connection.prepareStatement(sql);
+            java.sql.Date sqlDate = new Date(dateDeb.getTimeInMillis());
+            statement.setDate(1, sqlDate);
+            sqlDate = new Date(dateFin.getTimeInMillis());
+            statement.setDate(2, sqlDate);
 
             ResultSet data = statement.executeQuery();
             while (data.next()) {

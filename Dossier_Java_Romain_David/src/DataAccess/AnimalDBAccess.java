@@ -13,9 +13,13 @@ import java.util.GregorianCalendar;
 
 public class AnimalDBAccess implements DAOAnimal {
     private Connection connection;
-
+    private CareGiverBusiness user;
     public AnimalDBAccess () throws BDConnexionError{
         connection = SingletonDB.getInstance();
+    }
+    public AnimalDBAccess(CareGiverBusiness user)throws BDConnexionError{
+        this();
+        this.user = user;
     }
 
     @Override
@@ -27,7 +31,7 @@ public class AnimalDBAccess implements DAOAnimal {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, id);
             ResultSet data = statement.executeQuery();
-            dataToAnimal(data);
+            dataToAnimal(data, user);
 
         }
 
@@ -46,7 +50,7 @@ public class AnimalDBAccess implements DAOAnimal {
 
             ResultSet data = statement.executeQuery();
             while(data.next()) {
-                dataToAnimal(data);
+                dataToAnimal(data,user);
             }
 
         }

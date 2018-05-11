@@ -13,11 +13,11 @@ import java.util.GregorianCalendar;
 public class AnimalBusiness {
     SearchAnimalsBetweenDate research;
 
-    public AnimalBusiness() throws BDConnexionError {
+    public AnimalBusiness(){
     }
 
     public ArrayList<SearchAnimalBetweenDate> getAnimalsBetweenDates(GregorianCalendar dateDebut, GregorianCalendar dateFin) throws ErrorNull, BDConnexionError{
-        return research.readAnimalsbetweenDates();
+        return research.readAnimalsbetweenDates(dateDebut,dateFin);
     }
     public static Animal getAnimal (Integer id, String remarque, Integer numCell, String nomAnimal, Race race, GregorianCalendar dateArrivee,
                                GregorianCalendar dateDeces, Boolean estDangereux, Animal.EtatAnimal etatAnimal,

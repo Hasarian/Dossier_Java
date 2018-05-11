@@ -20,4 +20,12 @@ public class Vaccin {
         if(numVaccin == null) throw new ErrorNull();
         this.numVaccin = numVaccin;
     }
+
+    public String getLibelle() {
+        return libelle;
+    }
+
+    public Integer getNumVaccin() {
+        return numVaccin;
+    }
 }

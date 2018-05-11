@@ -16,4 +16,24 @@ public class SearchAnimalBetweenDate {
         this.race = race;
         this.espece = espece;
     }
+
+    public Animal getAnimal() {
+        return animal;
+    }
+
+    public Espece getEspece() {
+        return espece;
+    }
+
+    public Race getRace() {
+        return race;
+    }
+
+    public Vaccin getVaccin() {
+        return vaccin;
+    }
+
+    public Vaccination getVaccination() {
+        return vaccination;
+    }
 }
