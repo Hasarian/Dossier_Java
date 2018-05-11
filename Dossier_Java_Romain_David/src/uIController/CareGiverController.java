@@ -4,8 +4,6 @@ import Business.CareGiverBusiness;
 import Model.CareGiver;
 import erreurs.*;
 
-import java.sql.SQLException;
-
 public class CareGiverController
 {
     private CareGiverBusiness business;
@@ -17,7 +15,7 @@ public class CareGiverController
 
     public void setCareGiverConnection(String login) throws BDConnexionError, InexistantCareGiver, ErrorNull
     {
-            business.setCareGiver(business.getCareGiver(login));
+            business.setCurrentUser(business.getCurrentUser(login));
     }
     public void setCareGiverData(CareGiver careGiver) throws ErreurInsertCareGiver {
         business.setCareGiverData(careGiver);

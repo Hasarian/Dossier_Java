@@ -31,6 +31,10 @@ public class CareGiver {
         setRemarque(remarque);
         setStreet(street);
     }
+    public CareGiver(String email)
+    {
+        mail=email;
+    }
 
     public Boolean getEstBenevole() {
         return estBenevole;

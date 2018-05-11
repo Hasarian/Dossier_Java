@@ -31,7 +31,7 @@ public class AnimalDBAccess implements DAOAnimal {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, id);
             ResultSet data = statement.executeQuery();
-            dataToAnimal(data, user);
+            dataToAnimal(data);
 
         }
 
@@ -50,7 +50,7 @@ public class AnimalDBAccess implements DAOAnimal {
 
             ResultSet data = statement.executeQuery();
             while(data.next()) {
-                dataToAnimal(data,user);
+                dataToAnimal(data);
             }
 
         }
@@ -58,8 +58,8 @@ public class AnimalDBAccess implements DAOAnimal {
             new BDConnexionError();
         }
     }
-    private Animal dataToAnimal(ResultSet data, CareGiverBusiness userBusiness)throws ErrorNull, BDConnexionError{
-        ListAnimalBusiness business=ListAnimalBusiness.obtenirAnimalBusiness(userBusiness.get);
+    private void dataToAnimal(ResultSet data)throws ErrorNull{
+        ListAnimalBusiness business=ListAnimalBusiness.obtenirAnimalBusiness();
         try {
             ListEspeceBusiness listEspeceBusiness =ListEspeceBusiness.obtenirEspeceBusiness();
 
@@ -85,14 +85,15 @@ public class AnimalDBAccess implements DAOAnimal {
             dateArrive.setTime(data.getDate("ficheAnimal.dateArrive"));
             dateDesces.setTime(data.getDate("ficheAnimal.dateDesces"));
             Boolean estDangereux=(data.wasNull())?null:data.getBoolean("ficheAnimal.estDangereux");
-            Animal.EtatAnimal [] etatAnimal = Animal.EtatAnimal.values();
-            Animal.EtatSoin [] etatSoins = Animal.EtatSoin.values();
+            Animal.EtatSoin etatSoins = Animal.EtatSoin.values()[data.getInt("ficheSoin.etat")];
+            Animal.EtatAnimal etatAnimal=Animal.EtatAnimal.values()[data.getInt("ficheAnimal.etat")];
+
             String remarqueSoin=(data.wasNull())?null:data.getString("ficheSoin.remarque");
             String email=(data.wasNull())?null:data.getString("ficheSoin.email");
-            /*Integer id, String remarque, Integer numCell, String nomAnimal, Race race, GregorianCalendar dateArrivee,
-                    GregorianCalendar dateDeces, Boolean estDangereux, Animal.EtatAnimal etatAnimal, Animal.EtatSoin etatSoin,
-                    String remarqueSoin, Animal.EtatSoin etatFicheSoin, CareGiver careGiver*/
-            business.ajoutAnimal(id,remarque,numCell,nom,race,dateArrive,dateDesces,estDangereux,etatAnimal,remarqueSoin,etatSoins,);
+            /*(Integer id, String remarque, Integer numCell, String nomAnimal, Race race, GregorianCalendar dateArrivee,
+                               GregorianCalendar dateDeces, Boolean estDangereux, Animal.EtatAnimal etatAnimal, Animal.EtatSoin etatSoin,
+                               String remarqueSoin, Animal.EtatSoin etatFicheSoin, CareGiver careGiver*/
+            business.ajoutAnimal(id,remarque,numCell,nom,race,dateArrive,dateDesces,estDangereux,etatAnimal,remarqueSoin,etatSoins,user.getUserByMail(email));
 
         }
         catch(SQLException e){

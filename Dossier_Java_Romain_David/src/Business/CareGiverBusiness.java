@@ -9,9 +9,12 @@ import Model.CareGiver;
 import erreurs.ErrorNull;
 import erreurs.InexistantCareGiver;
 
+import java.util.ArrayList;
+
 public class CareGiverBusiness {
-    CareGiver careGiver;
-    DAOCareGiver daoCareGiver;
+    private CareGiver currentUser;
+    private DAOCareGiver daoCareGiver;
+    private ArrayList<CareGiver> otherUsers;
 
     public CareGiverBusiness() throws BDConnexionError{setDaoCareGiver();}
 
@@ -25,30 +28,52 @@ public class CareGiverBusiness {
         daoCareGiver.create(careGiver);
     }
 
-    public void setCareGiver(CareGiver careGiver) {
-        this.careGiver = careGiver;
+    public void setCurrentUser(CareGiver currentUser) {
+        this.currentUser = currentUser;
     }
 
-    public CareGiver getCareGiver(String id) throws BDConnexionError, InexistantCareGiver, ErrorNull
+    public CareGiver getCurrentUser(String id) throws BDConnexionError, InexistantCareGiver, ErrorNull
     {
-        setCareGiver(daoCareGiver.read(id));
-            return careGiver;
+        setCurrentUser(daoCareGiver.read(id));
+            return currentUser;
     }
     public String getUserName()
     {
-        return careGiver.getName();
+        return currentUser.getName();
     }
     public String getUserFirstName()
     {
-        return careGiver.getFirstName();
+        return currentUser.getFirstName();
     }
     public String getUserEmail()
     {
-        return careGiver.getMail();
+        return currentUser.getMail();
     }
     public boolean isVeto()
     {
-        return careGiver instanceof Veterinaire ;
+        return currentUser instanceof Veterinaire ;
+    }
+    public CareGiver getUserByMail(String mail)
+    {
+            if(isKnown(mail))
+            {
+                for (CareGiver user:otherUsers)
+                {
+                    if( user.getMail().equals(mail)) return user;
+                }
+                return currentUser;
+            }
+            return new CareGiver(mail);
+    }
+    public boolean isKnown(String mail)
+    {
+
+        for (CareGiver user:otherUsers
+             )
+        {
+           if( user.getMail().equals(mail)) return true;
+        }
+        return currentUser.getMail().equals(mail);
     }
 
 }

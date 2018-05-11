@@ -31,12 +31,16 @@ public class ListAnimalBusiness {
         if(instance==null) instance=new ListAnimalBusiness(user);
         return instance;
     }
+    public static ListAnimalBusiness obtenirAnimalBusiness()
+    {
+        return instance;
+    }
 
 
     public Animal getAnimalInBD(int id) throws ErrorNull, BDConnexionError {
         return daoAnimal.read(id);
     }
-    public ArrayList<Animal> getAllAnimals() throws ErrorNull, BDConnexionError{
+    public ArrayList<Animal> getAllAnimals() {
         return allAnimals;
     }
 
@@ -51,7 +55,7 @@ public class ListAnimalBusiness {
     public ArrayList<Animal> getVetoPersonnalList(){ return vetoPersonnalList; }
 
     public Animal ajoutAnimal (Integer id, String remarque, Integer numCell, String nomAnimal, Race race, GregorianCalendar dateArrivee,
-                               GregorianCalendar dateDeces, Boolean estDangereux, Animal.EtatAnimal etatAnimal, Animal.EtatSoin etatSoin,
+                               GregorianCalendar dateDeces, Boolean estDangereux, Animal.EtatAnimal etatAnimal,
                                String remarqueSoin, Animal.EtatSoin etatFicheSoin, CareGiver careGiver)
     throws ErrorNull
     {
@@ -85,7 +89,7 @@ public class ListAnimalBusiness {
             {
                 removeAnimal(animal.getId());
                 animal=ajoutAnimal(id,remarque,numCell,nomAnimal,race,dateArrivee,
-                        dateDeces,estDangereux, etatAnimal,etatSoin,
+                        dateDeces,estDangereux, etatAnimal,
                         remarqueSoin, etatFicheSoin, careGiver);
             }
         }

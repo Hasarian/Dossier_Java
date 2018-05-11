@@ -4,7 +4,6 @@ import Model.CareGiver;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
-import sun.tools.jconsole.CreateMBeanDialog;
 import uIController.AnimalController;
 
 import javax.swing.*;
@@ -23,7 +22,7 @@ public class SearchAnimal extends JPanel {
     private CareGiver user;
     private AnimalController animalController;
 
-    public SearchAnimal(){
+    public SearchAnimal() throws BDConnexionError{
         animalController = new AnimalController();
         dateDebutLabel = new JLabel("Date qui servira de borne inférieure à la recherche");
         dateDebutLabel.setBounds(50,50,50,20);
@@ -45,10 +44,7 @@ public class SearchAnimal extends JPanel {
         confirmer = new JButton("Rechercher");
         confirmer.addActionListener(new ConfirmeButtonListener());
     }
-    public SearchAnimal(CareGiver user){
-        this();
-        this.user = user;
-    }
+
 
     private class ConfirmeButtonListener implements ActionListener
     {
