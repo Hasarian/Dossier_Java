@@ -1,4 +1,6 @@
 package userInterface;
 
-public class SearchTask {
+import javax.swing.*;
+
+public class SearchTask extends JPanel {
 }

@@ -4,13 +4,15 @@ import Business.CareGiverBusiness;
 import Model.CareGiver;
 import erreurs.*;
 
+import java.util.ArrayList;
+
 public class CareGiverController
 {
     private CareGiverBusiness business;
 
     public CareGiverController() throws BDConnexionError
     {
-        business=new CareGiverBusiness();
+        business=CareGiverBusiness.otebnirCareGiverBusiness();
     }
 
     public void setCareGiverConnection(String login) throws BDConnexionError, InexistantCareGiver, ErrorNull

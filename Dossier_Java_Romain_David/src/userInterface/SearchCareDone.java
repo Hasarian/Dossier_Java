@@ -1,4 +1,6 @@
 package userInterface;
 
-public class SearchCareDone {
+import javax.swing.*;
+
+public class SearchCareDone extends JPanel{
 }

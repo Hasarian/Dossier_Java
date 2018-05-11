@@ -12,11 +12,17 @@ import java.util.ArrayList;
 
 public class TaskListPanel extends JPanel
 {
-    private DashBoardPane parentPanel;
+    //private DashBoardPane parentPanel;
     private ListsControllerAnimal listController;
 
 
     private JScrollPane tablePane;
+    public void setTablePan(JScrollPane tablePane){this.tablePane=tablePane;}
+
+    public JScrollPane getTablePane() {
+        return tablePane;
+    }
+
     private JLabel infoLabel,infoLabel2,infoLabel3;
     private JTable taskTable;
 
@@ -31,7 +37,7 @@ public class TaskListPanel extends JPanel
     public TaskListPanel(DashBoardPane parentPanel, CareGiverController user)
     {
         try {
-            listController = new ListsControllerAnimal(user);
+            listController = ListsControllerAnimal.obtenirListController(user);
         }
         catch (BDConnexionError connexionError)
         {
@@ -41,7 +47,7 @@ public class TaskListPanel extends JPanel
         {
             JOptionPane.showMessageDialog(null,error.getMessage(),"attribute error",JOptionPane.ERROR_MESSAGE);
         }
-            this.parentPanel = parentPanel;
+            //this.parentPanel = parentPanel;
             setLayout(null);
             setBackground(Color.WHITE);
             TaskTableModel model = new TaskTableModel(listController.getAvailableData());
@@ -65,8 +71,11 @@ public class TaskListPanel extends JPanel
 
     }
 
+    public ListsControllerAnimal getListController() {
+        return listController;
+    }
 
-    private class TaskTableModel extends AbstractTableModel
+    protected class TaskTableModel extends AbstractTableModel
     {
         private ArrayList<ArrayList<String>> data;
         private String [] columnNames=

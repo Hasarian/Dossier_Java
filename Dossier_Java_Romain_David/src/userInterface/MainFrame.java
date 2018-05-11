@@ -2,6 +2,7 @@ package userInterface;
 
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
+import jdk.nashorn.internal.scripts.JO;
 import uIController.CareGiverController;
 
 import javax.swing.*;
@@ -14,12 +15,12 @@ public class MainFrame extends JFrame
     private MainPanel mainPanel;
     private DashBoardPane basePanel;
     private JMenuBar menuBar;
-    private JMenu account,administration,newFile;
-    private JMenuItem logout,newCareGiver,newAnimal;
+    private JMenu account,administration,newFile,search;
+    private JMenuItem logout,newCareGiver,searchTask,searchAnimal,searchCare;
     private Container container;
     private MainFrame thisFrame;
 
-    public MainFrame(CareGiverController loggedIn)
+    public MainFrame(CareGiverController loggedIn) throws BDConnexionError,ErrorNull
     {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(15,15,1000,800);
@@ -39,13 +40,25 @@ public class MainFrame extends JFrame
         setJMenuBar(menuBar);
         administration=new JMenu("administration");
         menuBar.add(administration);
-        newFile=new  JMenu("new...");
+
+        newFile=new  JMenu("nouveau...");
         administration.add(newFile);
         newCareGiver= new JMenuItem("care giver");
         newFile.add(newCareGiver);
         newCareGiver.addActionListener(new ToCareFormListener());
-        newAnimal=new JMenuItem("animal");
-        newFile.add(newAnimal);
+
+        search=new JMenu("recherche");
+        searchAnimal=new JMenuItem("animal");
+        search.add(searchAnimal);
+        searchAnimal.addActionListener(new ToAnimalSearchListener());
+        searchCare=new JMenuItem("soin");
+        search.add(searchCare);
+        searchCare.addActionListener(new ToCareSearchListener());
+        searchTask=new JMenuItem("tâche");
+        searchTask.add(searchTask);
+        searchTask.addActionListener(new ToTaskSearchListener());
+
+
         account=new JMenu("account");
         menuBar.add(account);
         logout=new JMenuItem("logout");
@@ -89,6 +102,35 @@ public class MainFrame extends JFrame
         {
             dispose();
             LoginFrame login=new LoginFrame();
+        }
+    }
+    private class ToCareSearchListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+                SearchCareDone newPanel = new SearchCareDone();
+                changePanel(newPanel);
+        }
+    }
+    private class ToTaskSearchListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            SearchTask newPanel = new SearchTask();
+            changePanel(newPanel);
+        }
+    }
+    private class ToAnimalSearchListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            try {
+                SearchAnimal newPanel = new SearchAnimal();
+                changePanel(newPanel);
+            } catch (BDConnexionError connexionError)
+            {
+                JOptionPane.showMessageDialog(null, connexionError.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 }

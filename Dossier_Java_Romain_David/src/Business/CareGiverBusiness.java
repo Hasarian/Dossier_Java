@@ -15,9 +15,17 @@ public class CareGiverBusiness {
     private CareGiver currentUser;
     private DAOCareGiver daoCareGiver;
     private ArrayList<CareGiver> otherUsers;
+    private static CareGiverBusiness instance;
 
-    public CareGiverBusiness() throws BDConnexionError{setDaoCareGiver();}
-
+    private CareGiverBusiness() throws BDConnexionError{setDaoCareGiver();}
+    public static CareGiverBusiness otebnirCareGiverBusiness() throws BDConnexionError
+    {
+        if(instance==null)
+        {
+            instance= new CareGiverBusiness();
+        }
+            return instance;
+    }
 
     public void setDaoCareGiver() throws BDConnexionError {
         this.daoCareGiver = new CaraGiverDataAccess();

@@ -12,6 +12,8 @@ import uIController.CareGiverController;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
+import static Model.Animal.EtatSoin.*;
+
 public class ListAnimalBusiness {
     private ArrayList<Animal> availableList,personnalList,vetoAvailableList,vetoPersonnalList,allAnimals;
     private DAOAnimal daoAnimal;
@@ -60,39 +62,7 @@ public class ListAnimalBusiness {
     throws ErrorNull
     {
         Animal animal=new Animal(id,remarque,numCell,race,nomAnimal,dateArrivee,dateDeces,estDangereux,etatAnimal,remarqueSoin,etatFicheSoin,careGiver);
-        if(!existeDeja(animal)) {
-            if (etatAnimal != Animal.EtatAnimal.ARCHIVE) {
-                switch (etatFicheSoin) {
-                    case DISPONIBLE:
-                        availableList.add(animal);
-                        break;
-                    case RESERVEE:
-                        if (animal.isReservedByUser(user.getUserEmail())) personnalList.add(animal);
-                        break;
-                    case VETODISPO:
-                        if (vetoAvailableList != null)
-                            vetoAvailableList.add(animal);
-                        break;
-                    case VETORESERVEE:
-                        if (vetoPersonnalList != null && animal.isReservedByUser(user.getUserEmail()))
-                            vetoPersonnalList.add(animal);
-                        break;
-                }
-            }
-            allAnimals.add(animal);
-        } else
-        {
-            if(!etatChange(animal))
-            {
-                animal=getAnimal(animal.getId());
-            }else
-            {
-                removeAnimal(animal.getId());
-                animal=ajoutAnimal(id,remarque,numCell,nomAnimal,race,dateArrivee,
-                        dateDeces,estDangereux, etatAnimal,
-                        remarqueSoin, etatFicheSoin, careGiver);
-            }
-        }
+        ajoutAnimal(animal);
         return animal;
     }
     public boolean etatChange(Animal nouvelAnimal)
@@ -148,5 +118,40 @@ public class ListAnimalBusiness {
             }
         }
         allAnimals.remove(animal);
+    }
+    public Animal ajoutAnimal(Animal animal)
+    {
+        if(!existeDeja(animal)) {
+            if (animal.getEtatAnimal() != Animal.EtatAnimal.ARCHIVE) {
+                switch (animal.getEtatFicheSoin()) {
+                    case DISPONIBLE:
+                        availableList.add(animal);
+                        break;
+                    case RESERVEE:
+                        if (animal.isReservedByUser(user.getUserEmail())) personnalList.add(animal);
+                        break;
+                    case VETODISPO:
+                        if (vetoAvailableList != null)
+                            vetoAvailableList.add(animal);
+                        break;
+                    case VETORESERVEE:
+                        if (vetoPersonnalList != null && animal.isReservedByUser(user.getUserEmail()))
+                            vetoPersonnalList.add(animal);
+                        break;
+                }
+            }
+            allAnimals.add(animal);
+        } else
+        {
+            if(!etatChange(animal))
+            {
+                animal=getAnimal(animal.getId());
+            }else
+            {
+                removeAnimal(animal.getId());
+                animal=ajoutAnimal(animal);
+            }
+        }
+        return animal;
     }
 }

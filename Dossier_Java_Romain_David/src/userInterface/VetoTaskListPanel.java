@@ -1,18 +1,15 @@
 package userInterface;
 
-import sun.security.util.Length;
 import uIController.CareGiverController;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
-public class GeneralTaskListPanel extends TaskListPanel {
-    public GeneralTaskListPanel(DashBoardPane parentPanel, CareGiverController user) {
-        super(parentPanel,user);
-
-        TaskTableModel model = new TaskTableModel(getListController().getAvailableData());
+public class VetoTaskListPanel extends TaskListPanel {
+    public VetoTaskListPanel(DashBoardPane parentPanel, CareGiverController user) {
+        super(parentPanel, user);
+        TaskTableModel model = new TaskTableModel(getListController().getVetoAvailableData());
         JTable taskTable = new JTable(model);
         JScrollPane tablePane = new JScrollPane(taskTable);
         taskTable.setFillsViewportHeight(true);
@@ -30,7 +27,6 @@ public class GeneralTaskListPanel extends TaskListPanel {
         add(select);
         add(openFile);
     }
-
     private class SelectListener implements ActionListener {
 
         @Override
