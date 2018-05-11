@@ -20,8 +20,11 @@ public class VetoPersonnalListPanel extends TaskListPanel {
         openFile.setBounds(20, getInfoLabel3().getY() + getInfoLabel3().getHeight() + 20, 200, 60);
         JButton start = new JButton("start care");
         start.setBounds(760, openFile.getY(), 200, 60);
+        JButton unselect=new JButton("abandon task");
+        unselect.setBounds(start.getX(),start.getY()+start.getHeight()+15,150,50);
 
         add(start);
         add(openFile);
+        add(unselect);
     }
 }
