@@ -9,6 +9,8 @@ import uIController.ListsControllerAnimal;
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class TaskListPanel extends JPanel
@@ -16,6 +18,9 @@ public class TaskListPanel extends JPanel
     //private DashBoardPane parentPanel;
     private ListsControllerAnimal listController;
 
+    public ListsControllerAnimal getListController() {
+        return listController;
+    }
 
     private JScrollPane tablePane;
     public void setTablePan(JScrollPane tablePane){this.tablePane=tablePane;}
@@ -26,13 +31,19 @@ public class TaskListPanel extends JPanel
 
     private JLabel infoLabel,infoLabel2,infoLabel3;
     private JTable taskTable;
-
+    public void setTaskTable(JTable table){taskTable=table;}
     public JTable getTaskTable() {
         return taskTable;
     }
 
     public JLabel getInfoLabel3() {
         return infoLabel3;
+    }
+
+    JButton openFile;
+
+    public JButton getOpenFile() {
+        return openFile;
     }
 
     public TaskListPanel(DashBoardPane parentPanel, CareGiverController user)
@@ -61,10 +72,24 @@ public class TaskListPanel extends JPanel
         infoLabel3=new JLabel("use shift+click to select all the tasks between two selections");
         infoLabel3.setBounds(infoLabel.getX(),infoLabel2.getY()+infoLabel2.getHeight(),infoLabel.getWidth(),infoLabel.getHeight());
 
+        openFile = new JButton("consult");
+        openFile.setBounds(20, getInfoLabel3().getY() + getInfoLabel3().getHeight() + 20, 200, 60);
+        add(openFile);
+
         add(infoLabel);
         add(infoLabel2);
         add(infoLabel3);
 
+    }
+
+    private class SelectListener implements ActionListener
+    {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String id= getTaskTable().getValueAt(getTaskTable().getSelectedRow(),0).toString();
+            AnimalInfoFrame info=new AnimalInfoFrame(listController,id);
+        }
     }
 
 
@@ -103,7 +128,7 @@ public class TaskListPanel extends JPanel
             return columnNames.length;
         }
 
-        public Object getValueAt(int rowIndex, int columnIndex) {
+        public String getValueAt(int rowIndex, int columnIndex) {
             switch (etat) {
                 case DISPONIBLE:
                     return listController.getAvailableData().get(rowIndex).get(columnIndex);

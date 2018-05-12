@@ -23,24 +23,23 @@ public class AnimalDBAccess implements DAOAnimal {
     }
 
     @Override
-    public Animal read(int id) throws ErrorNull, BDConnexionError {
-        Animal animal = null;
+    public Animal read(int id) throws ErrorNull {
         String sql = "select * from ficheSoin, ficheAnimal, espece, race where ficheSoin = ? " +
                 "and ficheSoin.id = ficheAnimal.id and ficheAnimal.race = race.libelle and race.espece = espece.libelle";
         try{
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, id);
             ResultSet data = statement.executeQuery();
-            dataToAnimal(data);
+            return dataToAnimal(data);
 
         }
 
         catch(SQLException e){
             new BDConnexionError();
+            return null;
         }
-        return animal;
     }
-    public void readAllAnimals() throws ErrorNull, BDConnexionError{
+    public void readAllAnimals() throws ErrorNull{
 
 
         try{
@@ -58,7 +57,7 @@ public class AnimalDBAccess implements DAOAnimal {
             new BDConnexionError();
         }
     }
-    private void dataToAnimal(ResultSet data)throws ErrorNull{
+    private Animal dataToAnimal(ResultSet data)throws ErrorNull{
         ListAnimalBusiness business=ListAnimalBusiness.obtenirAnimalBusiness();
         try {
             ListEspeceBusiness listEspeceBusiness =ListEspeceBusiness.obtenirEspeceBusiness();
@@ -93,11 +92,12 @@ public class AnimalDBAccess implements DAOAnimal {
             /*(Integer id, String remarque, Integer numCell, String nomAnimal, Race race, GregorianCalendar dateArrivee,
                                GregorianCalendar dateDeces, Boolean estDangereux, Animal.EtatAnimal etatAnimal, Animal.EtatSoin etatSoin,
                                String remarqueSoin, Animal.EtatSoin etatFicheSoin, CareGiver careGiver*/
-            business.ajoutAnimal(id,remarque,numCell,nom,race,dateArrive,dateDesces,estDangereux,etatAnimal,remarqueSoin,etatSoins,user.getUserByMail(email));
+            return business.ajoutAnimal(id,remarque,numCell,nom,race,dateArrive,dateDesces,estDangereux,etatAnimal,remarqueSoin,etatSoins,user.getUserByMail(email));
 
         }
         catch(SQLException e){
             new BDConnexionError();
+            return null;
         }
     }
 

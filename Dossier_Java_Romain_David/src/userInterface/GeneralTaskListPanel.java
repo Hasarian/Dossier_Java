@@ -1,6 +1,7 @@
 package userInterface;
 
 import Model.Animal;
+import erreurs.ErrorNull;
 import sun.security.util.Length;
 import uIController.CareGiverController;
 
@@ -14,30 +15,39 @@ public class GeneralTaskListPanel extends TaskListPanel {
         super(parentPanel,user);
 
         TaskTableModel model = new TaskTableModel(Animal.EtatSoin.DISPONIBLE);
-        JTable taskTable = new JTable(model);
-        JScrollPane tablePane = new JScrollPane(taskTable);
-        taskTable.setFillsViewportHeight(true);
+        setTaskTable( new JTable(model));
+        JScrollPane tablePane = new JScrollPane(getTaskTable());
+        getTaskTable().setFillsViewportHeight(true);
         tablePane.setBounds(5, 5, 975, 300);
         setTablePan(tablePane);
         add(getTablePane());
 
 
-        JButton openFile = new JButton("consult");
-        openFile.setBounds(20, getInfoLabel3().getY() + getInfoLabel3().getHeight() + 20, 200, 60);
         JButton select = new JButton("select");
         select.setBounds(760, openFile.getY(), 200, 60);
         select.addActionListener(new SelectListener());
 
         add(select);
-        add(openFile);
+
     }
 
     private class SelectListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            int[] selectedRows=getTaskTable().getSelectedRows();
+            try {
+                for (int i : selectedRows) {
+                    getListController().selectTask(new Integer(getListController().getAvailbleId(i)));
+                }
+            }
+            catch (ErrorNull error)
+            {
+                JOptionPane.showMessageDialog(null,error.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
+            }
             getTaskTable().clearSelection();
+            getTablePane().repaint();
         }
+
     }
 }

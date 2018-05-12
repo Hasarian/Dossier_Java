@@ -1,5 +1,7 @@
 package userInterface;
 
+import uIController.AnimalInfoDisplayer;
+
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,7 +11,7 @@ public class Main
 {
     public static void main(String[] args)
     {
-        LoginFrame frame=new LoginFrame();
-
+        //LoginFrame frame=new LoginFrame();
+        AnimalInfoFrame frame=new AnimalInfoFrame();
     }
 }

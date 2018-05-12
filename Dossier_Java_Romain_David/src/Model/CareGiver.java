@@ -4,6 +4,7 @@ import erreurs.ErrorNull;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class CareGiver {
     private String mail;
@@ -30,6 +31,19 @@ public class CareGiver {
         setNumTel(numTel);
         setRemarque(remarque);
         setStreet(street);
+    }
+    public CareGiver() throws ErrorNull
+    {
+        setDateEmbauche(new GregorianCalendar());
+        setEstBenevole(false);
+        setFirstName("jean-philippe");
+        setLocalite(new Localite());
+        setMail("philippe@ford.be");
+        setName("Poutou");
+        setNumMaison(6);
+        setNumTel(new Integer(658462));
+        setRemarque("grand et fort");
+        setStreet("fin du capitalisme.com");
     }
     public CareGiver(String email)
     {
@@ -124,6 +138,9 @@ public class CareGiver {
         this.street = street;
     }
 
-
+    public String toString()
+    {
+        return firstName+" "+name;
+    }
 
 }

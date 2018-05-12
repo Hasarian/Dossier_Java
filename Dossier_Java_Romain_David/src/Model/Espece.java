@@ -14,6 +14,13 @@ public class Espece {
         setMilieuDeVie(milieuDeVie);
         setTypeDeDeplacement(typeDeDeplacement);
     }
+    public Espece() throws ErrorNull
+    {
+        setEstEnVoieDeDisparition(true);
+        setLibelle("chien");
+        setMilieuDeVie("maison");
+        setTypeDeDeplacement("à pattes");
+    }
 
     public void setEstEnVoieDeDisparition(Boolean estEnVoieDeDisparition) throws ErrorNull {
         if(estEnVoieDeDisparition != null)
@@ -41,7 +48,7 @@ public class Espece {
 
     @Override
     public String toString() {
-        return libelle;
+        return (estEnVoieDeDisparition)?libelle+" [en voie de disparition]":libelle;
     }
     public String getLibelle(){return libelle;}
 }

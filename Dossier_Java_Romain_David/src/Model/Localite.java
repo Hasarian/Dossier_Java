@@ -13,6 +13,12 @@ public class Localite {
         setIdLocalite(idLocalite);
         setLibelle(libelle);
     }
+    public Localite() throws ErrorNull
+    {
+        setCodePostal(new Integer(7000));
+        setIdLocalite(new Integer(1));
+        setLibelle("Mons");
+    }
 
     public Integer getCodePostal() {
         return codePostal;

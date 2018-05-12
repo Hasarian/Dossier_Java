@@ -39,6 +39,21 @@ public class Animal {
         setRemaqueSoin(remarqueSoin);
         setCareGiver(careGiver);
     }
+    public Animal() throws ErrorNull
+    {
+        setId(new Integer(1));
+        setDateArrive(new GregorianCalendar());
+        setDateDesces(new GregorianCalendar());
+        setEstDangereux(false);
+        setEtatAnimal(EtatAnimal.NORMAL);
+        setEtatFicheSoin(EtatSoin.RESERVEE);
+        setNomAnimal("rex");
+        setNumCellule(5);
+        setRace(new Race());
+        setRemarqueAnimal("grand et fort, aime les radis");
+        setRemaqueSoin("il faut lui donner de l'aspirine avec sa nourriture");
+        setCareGiver(new Veterinaire());
+    }
 
     public void setDateArrive(GregorianCalendar dateArrive) throws ErrorNull {
         if(dateArrive == null) throw new ErrorNull();
@@ -100,21 +115,37 @@ public class Animal {
         return etatFicheSoin;
     }
 
-    /* "name",
-             "id",
-             "cell number",
-             "species",*/
     public String getNomAnimal(){return nomAnimal;}
     public String getId(){return id.toString();}
     public String getCellNumber(){return numCellule.toString();}
     public String getSpecies(){return race.toString();}
     public EtatSoin getEtatSoin(){return etatFicheSoin;}
-
+    public String getRemarqueAnimal(){return remarqueAnimal;}
     public void setCareGiver(CareGiver careGiver){
         this.careGiver = careGiver;
     }
     public boolean isReservedByUser(String mailReservation)
     {
         return mailReservation.compareTo(careGiver.getMail())==0;
+    }
+
+    public GregorianCalendar getDateArrive() {
+        return dateArrive;
+    }
+
+    public GregorianCalendar getDateDesces() {
+        return dateDesces;
+    }
+
+    public Boolean getEstDangereux() {
+        return estDangereux;
+    }
+
+    public CareGiver getCareGiver() {
+        return careGiver;
+    }
+    public String getRemaqueSoin()
+    {
+        return remaqueSoin;
     }
 }

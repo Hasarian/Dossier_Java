@@ -72,6 +72,22 @@ public class ListsControllerAnimal
     {
         return listAnimalBusiness.getVetoPersonnalList().size()==0;
     }
+    public String getAvailbleId(int index)
+    {
+        return listAnimalBusiness.getAvailableList().get(index).getId();
+    }
+    public String getVetoAvailbleId(int index)
+    {
+        return listAnimalBusiness.getVetoAvailableList().get(index).getId();
+    }
+    public String getVetoSelectedId(int index)
+    {
+        return listAnimalBusiness.getVetoPersonnalList().get(index).getId();
+    }
+    public String getSelectedId(int index)
+    {
+        return listAnimalBusiness.getPersonnalList().get(index).getId();
+    }
     public void selectVetoTask(Integer id) throws ErrorNull
     {
         Animal selected=listAnimalBusiness.getAnimal(id.toString());
@@ -93,5 +109,9 @@ public class ListsControllerAnimal
         Animal selected=listAnimalBusiness.getAnimal(id.toString());
        listAnimalBusiness.updateEtatFicheSoin(selected,Animal.EtatSoin.DISPONIBLE);
        listAnimalBusiness.ajoutAnimal(selected);
+    }
+    public Animal getanimal(String id)
+    {
+        return listAnimalBusiness.getAnimal(id);
     }
 }
