@@ -30,6 +30,7 @@ public class VetoTaskListPanel extends TaskListPanel {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            if(getListController().vetoPersonnalListIsNull())getParentPanel().insertTab(new VetoPersonnalListPanel(getParentPanel(),getUser()),"liste personnelle vete");
             int[] selectedRows=getTaskTable().getSelectedRows();
             try {
                 for (int i : selectedRows) {

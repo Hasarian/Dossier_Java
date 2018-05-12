@@ -40,6 +40,11 @@ public class DashBoardPane extends JPanel {
 
        add(tabbedPane);
     }
+    public void insertTab(TaskListPanel newTab,String description)
+    {
+        tabbedPane.insertTab(description,null,newTab,"",0);
+        revalidate();
+    }
  //à faire ! ici: ajoute insert Tab et appelle le listController pour qu'il transvase les données d'une liste à l'autre
 
 }

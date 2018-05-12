@@ -35,6 +35,7 @@ public class GeneralTaskListPanel extends TaskListPanel {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            if(getListController().personnalListIsNull())getParentPanel().insertTab(new PersonnalTaskListPanel(getParentPanel(),getUser()),"personnal list");
             int[] selectedRows=getTaskTable().getSelectedRows();
             try {
                 for (int i : selectedRows) {
@@ -46,7 +47,6 @@ public class GeneralTaskListPanel extends TaskListPanel {
                 JOptionPane.showMessageDialog(null,error.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
             }
             getTaskTable().clearSelection();
-            getTablePane().repaint();
         }
 
     }

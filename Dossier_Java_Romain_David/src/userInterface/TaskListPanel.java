@@ -15,7 +15,17 @@ import java.util.ArrayList;
 
 public class TaskListPanel extends JPanel
 {
-    //private DashBoardPane parentPanel;
+    private DashBoardPane parentPanel;
+    private CareGiverController user;
+
+    public CareGiverController getUser() {
+        return user;
+    }
+
+    public DashBoardPane getParentPanel() {
+        return parentPanel;
+    }
+
     private ListsControllerAnimal listController;
 
     public ListsControllerAnimal getListController() {
@@ -48,6 +58,7 @@ public class TaskListPanel extends JPanel
 
     public TaskListPanel(DashBoardPane parentPanel, CareGiverController user)
     {
+        this.user=user;
         try {
             listController = ListsControllerAnimal.obtenirListController(user);
         }
@@ -59,7 +70,7 @@ public class TaskListPanel extends JPanel
         {
             JOptionPane.showMessageDialog(null,error.getMessage(),"attribute error",JOptionPane.ERROR_MESSAGE);
         }
-            //this.parentPanel = parentPanel;
+            this.parentPanel = parentPanel;
             setLayout(null);
             setBackground(Color.WHITE);
             add(tablePane);
