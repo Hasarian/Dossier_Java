@@ -10,7 +10,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class DashBoardPane extends JPanel {
-    JFrame frame;
+    MainFrame frame;
     JTabbedPane tabbedPane;
     TaskListPanel personnelPanel;
     ListsControllerAnimal listController;
@@ -18,8 +18,9 @@ public class DashBoardPane extends JPanel {
     public TaskListPanel getPersonnelPanel() {
         return personnelPanel;
     }
+    public MainFrame getFrame(){return frame;}
 
-    public DashBoardPane(JFrame frame, CareGiverController user) throws ErrorNull, BDConnexionError {
+    public DashBoardPane(MainFrame frame, CareGiverController user) throws ErrorNull, BDConnexionError {
         setLayout(null);
         //setBounds(0,400,500,500);
         this.frame = frame;
@@ -44,6 +45,10 @@ public class DashBoardPane extends JPanel {
     {
         tabbedPane.insertTab(description,null,newTab,"",0);
         revalidate();
+    }
+    public void removeTab(TaskListPanel tab)
+    {
+        tabbedPane.remove(tab);
     }
  //à faire ! ici: ajoute insert Tab et appelle le listController pour qu'il transvase les données d'une liste à l'autre
 

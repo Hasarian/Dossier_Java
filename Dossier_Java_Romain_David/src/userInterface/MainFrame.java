@@ -16,12 +16,14 @@ public class MainFrame extends JFrame
     private DashBoardPane basePanel;
     private JMenuBar menuBar;
     private JMenu account,administration,newFile,search;
-    private JMenuItem logout,newCareGiver,searchTask,searchAnimal,searchCare;
+    private JMenuItem logout,newCareGiver,searchTask,searchAnimal,searchCare,personnalInfo;
     private Container container;
     private MainFrame thisFrame;
+    private CareGiverController user;
 
     public MainFrame(CareGiverController loggedIn) throws BDConnexionError,ErrorNull
     {
+        user=loggedIn;
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(15,15,1000,800);
         setResizable(false);
@@ -64,6 +66,9 @@ public class MainFrame extends JFrame
         logout=new JMenuItem("logout");
         logout.addActionListener(new LogoutListener());
         account.add(logout);
+        personnalInfo=new JMenuItem("personnal informations");
+        personnalInfo.addActionListener(new ToPersonnalInfoListener());
+        account.add(personnalInfo);
 
         setVisible(true);
     }
@@ -131,6 +136,15 @@ public class MainFrame extends JFrame
             {
                 JOptionPane.showMessageDialog(null, connexionError.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
             }
+        }
+    }
+    private class ToPersonnalInfoListener implements ActionListener
+    {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            changePanel(new UserInfoPanel(user));
         }
     }
 }

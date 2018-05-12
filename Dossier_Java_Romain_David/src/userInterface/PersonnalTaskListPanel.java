@@ -10,8 +10,10 @@ import java.awt.event.ActionListener;
 
 public class PersonnalTaskListPanel extends TaskListPanel
 {
+    PersonnalTaskListPanel thisPanel;
     public PersonnalTaskListPanel(DashBoardPane parentPanel, CareGiverController user) {
         super(parentPanel, user);
+        thisPanel=this;
         TaskTableModel model = new TaskTableModel(Animal.EtatSoin.RESERVEE);
         setTaskTable( new JTable(model));
         JScrollPane tablePane = new JScrollPane(getTaskTable());
@@ -23,6 +25,9 @@ public class PersonnalTaskListPanel extends TaskListPanel
 
         JButton start = new JButton("start care");
         start.setBounds(760, openFile.getY(), 200, 60);
+        start.addActionListener(new StartListener());
+        //commencer les soins
+
         JButton unselect=new JButton("abandon task");
         unselect.addActionListener(new AbandonListener());
         unselect.setBounds(start.getX(),start.getY()+start.getHeight()+15,150,50);
@@ -45,7 +50,22 @@ public class PersonnalTaskListPanel extends TaskListPanel
                 JOptionPane.showMessageDialog(null,error.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
             }
             getTaskTable().clearSelection();
+            if(getListController().personnalListIsNull())getParentPanel().removeTab(thisPanel);
             getTablePane().repaint();
+        }
+    }
+    private class StartListener implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            try {
+                String id=getListController().getSelectedId(getTaskTable().getSelectedRow());
+                getParentPanel().getFrame().changePanel(new TaskPanel(id,getUser()));
+            }
+            catch (Exception error)
+            {
+                JOptionPane.showMessageDialog(null,error.getMessage(),"erreur",JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 }

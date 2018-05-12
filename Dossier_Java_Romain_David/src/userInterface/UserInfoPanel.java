@@ -5,11 +5,12 @@ import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
 import uIController.CareGiverController;
 
-public class UserInfoPanel extends RegistrationFormCareGiver
+import javax.swing.*;
+
+public class UserInfoPanel extends JPanel
 {
-    public UserInfoPanel(MainFrame frame, CareGiverController user) throws BDConnexionError, ErrorNull
+    public UserInfoPanel(CareGiverController user)
     {
-        super(frame);
 
     }
 }

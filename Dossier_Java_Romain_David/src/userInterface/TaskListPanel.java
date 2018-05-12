@@ -85,6 +85,7 @@ public class TaskListPanel extends JPanel
 
         openFile = new JButton("consult");
         openFile.setBounds(20, getInfoLabel3().getY() + getInfoLabel3().getHeight() + 20, 200, 60);
+        openFile.addActionListener(new ConsultListener());
         add(openFile);
 
         add(infoLabel);
@@ -93,7 +94,7 @@ public class TaskListPanel extends JPanel
 
     }
 
-    private class SelectListener implements ActionListener
+    private class ConsultListener implements ActionListener
     {
 
         @Override
