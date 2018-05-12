@@ -42,7 +42,7 @@ public class LoginFrame extends JFrame
 
             ImageIcon SPALogo= new ImageIcon("./externalRessources/Logo_de_la_SPA.jpg");
             JLabel logoLabel = new JLabel(SPALogo);
-            logoLabel.setBounds(45,325,20,20);
+            logoLabel.setBounds(frame.getX(),getY()+getHeight()-20,20,20);
             add(logoLabel);
 
             ImageIcon banner= new ImageIcon("./externalRessources/banner-login.jpg");
