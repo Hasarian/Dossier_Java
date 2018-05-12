@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e633ca09-66ed-4f9a-b57c-daa42bf763d4" name="Default" comment="">
+    <list default="true" id="e633ca09-66ed-4f9a-b57c-daa42bf763d4" name="Default" comment="trucs et autres">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainFrame.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainFrame.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/GeneralTaskListPanel.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/GeneralTaskListPanel.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/PersonnalTaskListPanel.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/PersonnalTaskListPanel.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/SearchAnimal.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/SearchAnimal.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/SearchCareDone.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/SearchCareDone.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/VetoPersonnalListPanel.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/VetoPersonnalListPanel.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/VetoTaskListPanel.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/VetoTaskListPanel.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,57 +39,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CareGiverController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/CareGiverController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="22" column="24" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
-              <folding>
-                <element signature="e#1027#1028#0" expanded="true" />
-                <element signature="e#1075#1076#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CareGiverBusiness.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/CareGiverBusiness.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="35" column="39" lean-forward="true" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
-              <folding>
-                <element signature="e#1157#1158#0" expanded="true" />
-                <element signature="e#1203#1204#0" expanded="true" />
-                <element signature="e#1439#1440#0" expanded="true" />
-                <element signature="e#1473#1474#0" expanded="true" />
-                <element signature="e#1512#1513#0" expanded="true" />
-                <element signature="e#1556#1557#0" expanded="true" />
-                <element signature="e#1599#1600#0" expanded="true" />
-                <element signature="e#1648#1649#0" expanded="true" />
-                <element signature="e#1687#1688#0" expanded="true" />
-                <element signature="e#1731#1732#0" expanded="true" />
-                <element signature="e#1765#1766#0" expanded="true" />
-                <element signature="e#1823#1824#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GeneralTaskListPanel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/GeneralTaskListPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="39" column="9" lean-forward="true" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="PersonnalTaskListPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/PersonnalTaskListPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="24" column="78" lean-forward="true" selection-start-line="24" selection-start-column="78" selection-end-line="24" selection-end-column="78" />
+            <state relative-caret-position="170">
+              <caret line="11" column="74" lean-forward="false" selection-start-line="11" selection-start-column="74" selection-end-line="11" selection-end-column="74" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -91,21 +51,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CareGiver.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/Model/CareGiver.java">
+      <file leaf-file-name="VetoPersonnalListPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/VetoPersonnalListPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-374">
-              <caret line="79" column="36" lean-forward="false" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
+            <state relative-caret-position="119">
+              <caret line="10" column="78" lean-forward="false" selection-start-line="10" selection-start-column="78" selection-end-line="10" selection-end-column="78" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RegistrationFormCareGiver.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RegistrationFormCareGiver.java">
+      <file leaf-file-name="VetoTaskListPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/VetoTaskListPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="227" column="50" lean-forward="false" selection-start-line="227" selection-start-column="50" selection-end-line="227" selection-end-column="50" />
+            <state relative-caret-position="119">
+              <caret line="12" column="75" lean-forward="false" selection-start-line="12" selection-start-column="75" selection-end-line="12" selection-end-column="75" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GeneralTaskListPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/GeneralTaskListPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="17" column="31" lean-forward="false" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -114,8 +84,8 @@
       <file leaf-file-name="SearchAnimal.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/SearchAnimal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="668">
-              <caret line="56" column="116" lean-forward="true" selection-start-line="56" selection-start-column="116" selection-end-line="56" selection-end-column="116" />
+            <state relative-caret-position="306">
+              <caret line="92" column="25" lean-forward="false" selection-start-line="92" selection-start-column="25" selection-end-line="92" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -123,31 +93,58 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DashBoardPane.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/DashBoardPane.java">
+      <file leaf-file-name="TaskListPanel.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            <state relative-caret-position="-341">
+              <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+              <folding>
+                <element signature="e#2660#2661#0" expanded="true" />
+                <element signature="e#2698#2699#0" expanded="true" />
+                <element signature="e#4059#4060#0" expanded="true" />
+                <element signature="e#4106#4107#0" expanded="true" />
+                <element signature="e#4196#4197#0" expanded="true" />
+                <element signature="e#4232#4233#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TaskPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainFrame.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainFrame.java">
+      <file leaf-file-name="AnimalController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/AnimalController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+            <state relative-caret-position="340">
+              <caret line="29" column="54" lean-forward="false" selection-start-line="29" selection-start-column="54" selection-end-line="29" selection-end-column="54" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Animal.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/Model/Animal.java">
+      <file leaf-file-name="SearchCareDone.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/SearchCareDone.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="665">
-              <caret line="112" column="38" lean-forward="false" selection-start-line="112" selection-start-column="38" selection-end-line="112" selection-end-column="38" />
+            <state relative-caret-position="85">
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SearchTask.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/SearchTask.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="36" lean-forward="false" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -214,15 +211,8 @@
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/DataAccess/DAO/DAOAnimal.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Model/CareGiver.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/DataAccess/AnimalDBAccess.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/SearchAnimal.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/SearchCareDone.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/SearchTask.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/GeneralTaskListPanel.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/VetoTaskListPanel.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/DashBoardPane.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/VetoPersonnalListPanel.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/PersonnalTaskListPanel.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskPanel.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/AnimalController.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/CareGiverController.java" />
@@ -230,6 +220,13 @@
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/ListsControllerAnimal.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/ListAnimalBusiness.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainFrame.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/SearchCareDone.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/SearchAnimal.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/PersonnalTaskListPanel.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/GeneralTaskListPanel.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/VetoPersonnalListPanel.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/VetoTaskListPanel.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java" />
       </list>
     </option>
   </component>
@@ -274,10 +271,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -328,6 +322,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -509,7 +506,8 @@
       <workItem from="1525785751126" duration="3533000" />
       <workItem from="1525935132146" duration="14014000" />
       <workItem from="1526021280035" duration="6105000" />
-      <workItem from="1526038295627" duration="12027000" />
+      <workItem from="1526038295627" duration="13314000" />
+      <workItem from="1526129980953" duration="3345000" />
     </task>
     <task id="LOCAL-00001" summary="login frame sans les events">
       <created>1522594410214</created>
@@ -693,11 +691,18 @@
       <option name="project" value="LOCAL" />
       <updated>1526052851749</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="trucs et autres">
+      <created>1526053517818</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1526053517818</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153336000" />
+    <option name="totallyTimeSpent" value="157968000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1554" height="916" extended-state="6" />
@@ -710,19 +715,19 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299866" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33034572" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32763532" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33034572" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19544846" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19812584" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299866" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24966533" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -791,7 +796,8 @@
     <MESSAGE value="niveau controller:&#10;&#10;fonctions pour changer un animal de liste (qui seront à envoyer dans les boutons) finies" />
     <MESSAGE value="ajout de deux-trois classes" />
     <MESSAGE value="fonctions business et control: update" />
-    <option name="LAST_COMMIT_MESSAGE" value="fonctions business et control: update" />
+    <MESSAGE value="trucs et autres" />
+    <option name="LAST_COMMIT_MESSAGE" value="trucs et autres" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -861,7 +867,7 @@
         <state relative-caret-position="220">
           <caret line="31" column="42" lean-forward="false" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -878,7 +884,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -886,7 +891,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -894,10 +898,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="682">
           <caret line="89" column="0" lean-forward="true" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-          <folding>
-            <marker date="1526040773551" expanded="true" signature="780:974" ph="select * fro... ficheSoin" />
-            <marker date="1526040773551" expanded="true" signature="1418:1598" ph="select * fro... ficheSoin" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -981,14 +981,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/SearchTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="36" lean-forward="false" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/AnimalBusiness.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1029,44 +1021,152 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/SearchCareDone.java">
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/ListEspeceBusiness.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="47" column="16" lean-forward="false" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="94" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/ListsControllerAnimal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="94" column="7" lean-forward="false" selection-start-line="94" selection-start-column="7" selection-end-line="94" selection-end-column="7" />
+          <folding>
+            <element signature="e#1490#1498#0" expanded="false" />
+            <element signature="e#1758#1759#0" expanded="false" />
+            <element signature="e#1828#1829#0" expanded="false" />
+            <element signature="e#2471#2472#0" expanded="false" />
+            <element signature="e#2545#2546#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/ListAnimalBusiness.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="161" column="122" lean-forward="false" selection-start-line="161" selection-start-column="122" selection-end-line="161" selection-end-column="122" />
+          <folding>
+            <element signature="e#1341#1342#0" expanded="false" />
+            <element signature="e#1372#1373#0" expanded="false" />
+            <element signature="e#1539#1540#0" expanded="false" />
+            <element signature="e#1572#1573#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/CareGiverController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="22" column="24" lean-forward="false" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+          <folding>
+            <element signature="e#1027#1028#0" expanded="true" />
+            <element signature="e#1075#1076#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/CareGiverBusiness.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="35" column="39" lean-forward="false" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
+          <folding>
+            <element signature="e#1157#1158#0" expanded="false" />
+            <element signature="e#1203#1204#0" expanded="false" />
+            <element signature="e#1439#1440#0" expanded="false" />
+            <element signature="e#1473#1474#0" expanded="false" />
+            <element signature="e#1512#1513#0" expanded="false" />
+            <element signature="e#1556#1557#0" expanded="false" />
+            <element signature="e#1599#1600#0" expanded="false" />
+            <element signature="e#1648#1649#0" expanded="false" />
+            <element signature="e#1687#1688#0" expanded="false" />
+            <element signature="e#1731#1732#0" expanded="false" />
+            <element signature="e#1765#1766#0" expanded="false" />
+            <element signature="e#1823#1824#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/Model/CareGiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="79" column="36" lean-forward="false" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RegistrationFormCareGiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3536">
+          <caret line="227" column="50" lean-forward="false" selection-start-line="227" selection-start-column="50" selection-end-line="227" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/DashBoardPane.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="42" lean-forward="false" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/Model/Animal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1700">
+          <caret line="112" column="38" lean-forward="false" selection-start-line="112" selection-start-column="38" selection-end-line="112" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="52" column="69" lean-forward="true" selection-start-line="52" selection-start-column="69" selection-end-line="52" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/SearchTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="36" lean-forward="false" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/SearchCareDone.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/AnimalController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="29" column="54" lean-forward="false" selection-start-line="29" selection-start-column="54" selection-end-line="29" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/SearchAnimal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="92" column="25" lean-forward="false" selection-start-line="92" selection-start-column="25" selection-end-line="92" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/VetoTaskListPanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="11" column="92" lean-forward="false" selection-start-line="11" selection-start-column="92" selection-end-line="11" selection-end-column="92" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/VetoPersonnalListPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="23" column="82" lean-forward="true" selection-start-line="22" selection-start-column="8" selection-end-line="23" selection-end-column="82" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="82" column="31" lean-forward="true" selection-start-line="82" selection-start-column="31" selection-end-line="82" selection-end-column="31" />
-          <folding>
-            <element signature="e#572#573#0" expanded="true" />
-            <element signature="e#604#605#0" expanded="true" />
-            <element signature="e#2547#2548#0" expanded="true" />
-            <element signature="e#2584#2585#0" expanded="true" />
-          </folding>
+          <caret line="12" column="75" lean-forward="false" selection-start-line="12" selection-start-column="75" selection-end-line="12" selection-end-column="75" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1078,146 +1178,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/ListEspeceBusiness.java">
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/VetoPersonnalListPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="47" column="16" lean-forward="false" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="94" />
+        <state relative-caret-position="119">
+          <caret line="10" column="78" lean-forward="false" selection-start-line="10" selection-start-column="78" selection-end-line="10" selection-end-column="78" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/AnimalController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="49" column="5" lean-forward="false" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/ListsControllerAnimal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="94" column="7" lean-forward="false" selection-start-line="94" selection-start-column="7" selection-end-line="94" selection-end-column="7" />
-          <folding>
-            <element signature="e#1490#1498#0" expanded="true" />
-            <element signature="e#1758#1759#0" expanded="true" />
-            <element signature="e#1828#1829#0" expanded="true" />
-            <element signature="e#2471#2472#0" expanded="true" />
-            <element signature="e#2545#2546#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/ListAnimalBusiness.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="161" column="122" lean-forward="false" selection-start-line="161" selection-start-column="122" selection-end-line="161" selection-end-column="122" />
-          <folding>
-            <element signature="e#1341#1342#0" expanded="true" />
-            <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#1539#1540#0" expanded="true" />
-            <element signature="e#1572#1573#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/Model/CareGiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-374">
-          <caret line="79" column="36" lean-forward="false" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/Model/Animal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="112" column="38" lean-forward="false" selection-start-line="112" selection-start-column="38" selection-end-line="112" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/CareGiverController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="22" column="24" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
-          <folding>
-            <element signature="e#1027#1028#0" expanded="true" />
-            <element signature="e#1075#1076#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/CareGiverBusiness.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="35" column="39" lean-forward="true" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
-          <folding>
-            <element signature="e#1157#1158#0" expanded="true" />
-            <element signature="e#1203#1204#0" expanded="true" />
-            <element signature="e#1439#1440#0" expanded="true" />
-            <element signature="e#1473#1474#0" expanded="true" />
-            <element signature="e#1512#1513#0" expanded="true" />
-            <element signature="e#1556#1557#0" expanded="true" />
-            <element signature="e#1599#1600#0" expanded="true" />
-            <element signature="e#1648#1649#0" expanded="true" />
-            <element signature="e#1687#1688#0" expanded="true" />
-            <element signature="e#1731#1732#0" expanded="true" />
-            <element signature="e#1765#1766#0" expanded="true" />
-            <element signature="e#1823#1824#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/GeneralTaskListPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="39" column="9" lean-forward="true" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
+        <state relative-caret-position="170">
+          <caret line="17" column="31" lean-forward="false" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/PersonnalTaskListPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="24" column="78" lean-forward="true" selection-start-line="24" selection-start-column="78" selection-end-line="24" selection-end-column="78" />
+        <state relative-caret-position="170">
+          <caret line="11" column="74" lean-forward="false" selection-start-line="11" selection-start-column="74" selection-end-line="11" selection-end-column="74" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RegistrationFormCareGiver.java">
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TaskListPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="227" column="50" lean-forward="false" selection-start-line="227" selection-start-column="50" selection-end-line="227" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/SearchAnimal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="668">
-          <caret line="56" column="116" lean-forward="true" selection-start-line="56" selection-start-column="116" selection-end-line="56" selection-end-column="116" />
+        <state relative-caret-position="-341">
+          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2660#2661#0" expanded="true" />
+            <element signature="e#2698#2699#0" expanded="true" />
+            <element signature="e#4059#4060#0" expanded="true" />
+            <element signature="e#4106#4107#0" expanded="true" />
+            <element signature="e#4196#4197#0" expanded="true" />
+            <element signature="e#4232#4233#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/DashBoardPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>

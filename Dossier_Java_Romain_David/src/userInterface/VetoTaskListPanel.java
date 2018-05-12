@@ -1,5 +1,6 @@
 package userInterface;
 
+import Model.Animal;
 import uIController.CareGiverController;
 
 import javax.swing.*;
@@ -9,7 +10,7 @@ import java.awt.event.ActionListener;
 public class VetoTaskListPanel extends TaskListPanel {
     public VetoTaskListPanel(DashBoardPane parentPanel, CareGiverController user) {
         super(parentPanel, user);
-        TaskTableModel model = new TaskTableModel(getListController().getVetoAvailableData());
+        TaskTableModel model = new TaskTableModel(Animal.EtatSoin.VETODISPO);
         JTable taskTable = new JTable(model);
         JScrollPane tablePane = new JScrollPane(taskTable);
         taskTable.setFillsViewportHeight(true);

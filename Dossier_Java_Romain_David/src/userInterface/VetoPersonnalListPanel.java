@@ -1,5 +1,6 @@
 package userInterface;
 
+import Model.Animal;
 import uIController.CareGiverController;
 
 import javax.swing.*;
@@ -7,7 +8,7 @@ import javax.swing.*;
 public class VetoPersonnalListPanel extends TaskListPanel {
     public VetoPersonnalListPanel(DashBoardPane parentPanel, CareGiverController user) {
         super(parentPanel, user);
-        TaskTableModel model = new TaskTableModel(getListController().getVetoPersonnalDatz());
+        TaskTableModel model = new TaskTableModel(Animal.EtatSoin.VETORESERVEE);
         JTable taskTable = new JTable(model);
         JScrollPane tablePane = new JScrollPane(taskTable);
         taskTable.setFillsViewportHeight(true);

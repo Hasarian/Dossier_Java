@@ -50,6 +50,7 @@ public class SearchAnimal extends JPanel {
     {
         public void actionPerformed(ActionEvent e) {
             try {
+                if(resultat!=null) remove(resultat);
                 GregorianCalendar dateDebTemp = new GregorianCalendar();
                 dateDebTemp.setTime((Date) dateDebut.getValue());
                 GregorianCalendar dateFinTemp = new GregorianCalendar();
@@ -57,6 +58,8 @@ public class SearchAnimal extends JPanel {
                 ModelTable model = new ModelTable(animalController.getAnimalsBetweenDate(dateDebTemp, dateFinTemp));
                 resultat = new JTable(model);
                 resultat.setBounds(25, 85, 500, 500);
+                add(resultat);
+                //repaint();
             }
         catch(BDConnexionError connexionError)
             {

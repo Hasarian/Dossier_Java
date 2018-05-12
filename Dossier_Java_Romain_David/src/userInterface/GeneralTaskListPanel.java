@@ -1,5 +1,6 @@
 package userInterface;
 
+import Model.Animal;
 import sun.security.util.Length;
 import uIController.CareGiverController;
 
@@ -12,7 +13,7 @@ public class GeneralTaskListPanel extends TaskListPanel {
     public GeneralTaskListPanel(DashBoardPane parentPanel, CareGiverController user) {
         super(parentPanel,user);
 
-        TaskTableModel model = new TaskTableModel(getListController().getAvailableData());
+        TaskTableModel model = new TaskTableModel(Animal.EtatSoin.DISPONIBLE);
         JTable taskTable = new JTable(model);
         JScrollPane tablePane = new JScrollPane(taskTable);
         taskTable.setFillsViewportHeight(true);

@@ -1,5 +1,6 @@
 package userInterface;
 
+import Model.Animal;
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
 import uIController.CareGiverController;
@@ -50,11 +51,6 @@ public class TaskListPanel extends JPanel
             //this.parentPanel = parentPanel;
             setLayout(null);
             setBackground(Color.WHITE);
-            TaskTableModel model = new TaskTableModel(listController.getAvailableData());
-            taskTable = new JTable(model);
-            tablePane = new JScrollPane(taskTable);
-            taskTable.setFillsViewportHeight(true);
-            tablePane.setBounds(5, 5, 975, 300);
             add(tablePane);
 
 
@@ -71,13 +67,11 @@ public class TaskListPanel extends JPanel
 
     }
 
-    public ListsControllerAnimal getListController() {
-        return listController;
-    }
 
     protected class TaskTableModel extends AbstractTableModel
     {
-        private ArrayList<ArrayList<String>> data;
+        private Animal.EtatSoin etat;
+        private ListsControllerAnimal listControl;
         private String [] columnNames=
                 {
                         "name",
@@ -86,12 +80,23 @@ public class TaskListPanel extends JPanel
                         "species",
                 };
 
-        public TaskTableModel(ArrayList<ArrayList<String>> data)
+        public TaskTableModel(Animal.EtatSoin etat)
         {
-            this.data=data;
+            this.etat=etat;
         }
         public int getRowCount() {
-            return data.size();
+            switch (etat)
+            {
+                case DISPONIBLE:
+                    return listController.getAvailableData().size();
+                case RESERVEE:
+                    return listController.getPersonnalDatz().size();
+                case VETODISPO:
+                    return listController.getVetoAvailableData().size();
+                case VETORESERVEE:
+                    return listController.getVetoPersonnalDatz().size();
+                    default: return 0;
+            }
         }
 
         public int getColumnCount() {
@@ -99,7 +104,17 @@ public class TaskListPanel extends JPanel
         }
 
         public Object getValueAt(int rowIndex, int columnIndex) {
-            return data.get(rowIndex).get(columnIndex);
+            switch (etat) {
+                case DISPONIBLE:
+                    return listController.getAvailableData().get(rowIndex).get(columnIndex);
+                case RESERVEE:
+                    return listController.getPersonnalDatz().get(rowIndex).get(columnIndex);
+                case VETODISPO:
+                    return listController.getVetoAvailableData().get(rowIndex).get(columnIndex);
+                case VETORESERVEE:
+                    return listController.getVetoPersonnalDatz().get(rowIndex).get(columnIndex);
+                    default: return null;
+            }
         }
 
         public String getColumnName(int col) {
