@@ -20,7 +20,6 @@ public class ListAnimalBusiness {
     private static ListAnimalBusiness instance;
     private CareGiverController user;
     private ListAnimalBusiness(CareGiverController user) throws BDConnexionError,ErrorNull {
-        System.out.println("listAnimal business créé");
         this.user=user;
         daoAnimal = new AnimalDBAccess();
         availableList=new ArrayList<Animal>();

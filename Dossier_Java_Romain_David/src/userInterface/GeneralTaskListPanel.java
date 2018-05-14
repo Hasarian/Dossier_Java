@@ -26,8 +26,8 @@ public class GeneralTaskListPanel extends TaskListPanel {
         JButton select = new JButton("select");
         select.setBounds(760, openFile.getY(), 200, 60);
         select.addActionListener(new SelectListener());
-
         add(select);
+        add(getOpenFile());
 
     }
 
