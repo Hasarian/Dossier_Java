@@ -7,21 +7,23 @@ import java.util.GregorianCalendar;
 public class SoinEffectue {
     private CareGiver careGiver;
     private GregorianCalendar dateHeure;
-    private Animal ficheSoin;
     private Integer idSoinEffectue;
+    private SoinMedical soinMedical;
+    private String remarque;
 
     public SoinEffectue(CareGiver careGiver, GregorianCalendar dateHeure,
-                        Animal ficheSoin, Integer idSoinEffectue) throws ErrorNull{
+                        SoinMedical soinMedical, Integer idSoinEffectue,String remarque) throws ErrorNull{
         setCareGiver(careGiver);
         setDateHeure(dateHeure);
-        setFicheSoin(ficheSoin);
+        setFicheSoin(soinMedical);
         setIdSoinEffectue(idSoinEffectue);
+        this.remarque=remarque;
 
     }
 
-    public void setFicheSoin(Animal ficheSoin) throws ErrorNull {
+    public void setFicheSoin(SoinMedical ficheSoin) throws ErrorNull {
         if(ficheSoin == null) throw new ErrorNull();
-        this.ficheSoin = ficheSoin;
+        this.soinMedical = ficheSoin;
     }
 
     public void setCareGiver(CareGiver careGiver) throws ErrorNull {
@@ -39,4 +41,14 @@ public class SoinEffectue {
         this.idSoinEffectue = idSoinEffectue;
     }
 
+    public GregorianCalendar getDateHeure() {
+        return dateHeure;
+    }
+
+    public SoinMedical getFicheSoin() {
+        return soinMedical;
+    }
+    public String getRemarque(){
+        return remarque;
+    }
 }

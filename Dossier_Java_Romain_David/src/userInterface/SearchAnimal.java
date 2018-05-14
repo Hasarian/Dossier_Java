@@ -20,7 +20,6 @@ public class SearchAnimal extends JPanel {
     private JSpinner dateDebut, dateFin;
     private JTable resultat;
     private JButton confirmer;
-    private CareGiver user;
     private AnimalController animalController;
 
     public SearchAnimal() throws BDConnexionError,ErrorNull{

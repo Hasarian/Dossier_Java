@@ -1,7 +1,9 @@
 package Business;
 
+import DataAccess.CareByCareGiver;
 import DataAccess.DAO.DAOCareGiver;
 import DataAccess.CaraGiverDataAccess;
+import Model.SoinEffectue;
 import Model.Veterinaire;
 import erreurs.BDConnexionError;
 import erreurs.ErreurInsertCareGiver;
@@ -34,7 +36,6 @@ public class CareGiverBusiness {
     }
 
     public void setCareGiverData(CareGiver careGiver) throws ErreurInsertCareGiver {
-        System.out.println("le busi ...");
         daoCareGiver.create(careGiver);
     }
 
@@ -84,6 +85,16 @@ public class CareGiverBusiness {
                 return user;
             }
     }
+    public void getUserByMailFromBD(String mail) throws InexistantCareGiver,BDConnexionError,ErrorNull
+    {
+        CareGiver user=daoCareGiver.read(mail);
+        if(user.getMail().compareTo(currentUser.getMail())==0)currentUser=user;
+        else
+        {
+            if(isKnown(mail)) otherUsers.remove(getUserByMail(mail));
+            otherUsers.add(user);
+        }
+    }
 
     public boolean isKnown(String mail)
     {
@@ -94,6 +105,13 @@ public class CareGiverBusiness {
            if( user.getMail().equals(mail)) return true;
         }
         return currentUser.getMail().equals(mail);
+    }
+
+
+    public ArrayList<SoinEffectue> getSoinsEffectues(String mail) throws BDConnexionError
+    {
+        CareByCareGiver acces=new CareByCareGiver();
+        return acces.searchHistory(mail);
     }
 
 }

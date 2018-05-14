@@ -10,7 +10,6 @@ public class SoinMedical {
     private Integer idSoinMedical;
     private Animal ficheSoin;
     private GregorianCalendar date;
-    private Time heure;
     private String remarque;
     private CareGiver careGiver;
     private Integer numOrdonnance;
@@ -23,7 +22,6 @@ public class SoinMedical {
         setIdSoinMedical(idSoinMedical);
         setNumOrdonnance(numOrdonnance);
         setRemarque(remarque);
-        this.heure = heure;
 
     }
 
@@ -55,5 +53,16 @@ public class SoinMedical {
     public void setNumOrdonnance(Integer numOrdonnance) throws ErrorNull {
         if(numOrdonnance == null) throw new ErrorNull();
         this.numOrdonnance = numOrdonnance;
+    }
+    public Animal getFicheSoin(){
+        return ficheSoin;
+    }
+
+    public GregorianCalendar getDate() {
+        return date;
+    }
+
+    public String getRemarque() {
+        return remarque;
     }
 }

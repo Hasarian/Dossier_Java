@@ -51,10 +51,10 @@ public class MainFrame extends JFrame
         searchAnimal=new JMenuItem("animal");
         search.add(searchAnimal);
         searchAnimal.addActionListener(new ToAnimalSearchListener());
-        searchCare=new JMenuItem("soin");
+        searchCare=new JMenuItem("soins effectués sur un animal");
         search.add(searchCare);
         searchCare.addActionListener(new ToCareSearchListener());
-        searchTask=new JMenuItem("tâche");
+        searchTask=new JMenuItem("tâches effectuées par un soignant");
         search.add(searchTask);
         searchTask.addActionListener(new ToTaskSearchListener());
         administration.add(search);
@@ -111,7 +111,7 @@ public class MainFrame extends JFrame
     {
         public void actionPerformed(ActionEvent e)
         {
-                SearchCareGiver newPanel = new SearchCareGiver();
+                SearchCareByAnimal newPanel = new SearchCareByAnimal();
                 changePanel(newPanel);
         }
     }
@@ -119,8 +119,14 @@ public class MainFrame extends JFrame
     {
         public void actionPerformed(ActionEvent e)
         {
-            SearchTask newPanel = new SearchTask();
-            changePanel(newPanel);
+            try {
+                SearchTaskByGiver newPanel = new SearchTaskByGiver(thisFrame);
+                changePanel(newPanel);
+            }
+            catch(BDConnexionError bdConnexionError)
+            {
+                JOptionPane.showMessageDialog(null, bdConnexionError.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
     private class ToAnimalSearchListener implements ActionListener
