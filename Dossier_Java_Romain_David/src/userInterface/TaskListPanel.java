@@ -108,7 +108,6 @@ public class TaskListPanel extends JPanel
     protected class TaskTableModel extends AbstractTableModel
     {
         private Animal.EtatSoin etat;
-        private ListsControllerAnimal listControl;
         private String [] columnNames=
                 {
                         "name",
@@ -125,13 +124,13 @@ public class TaskListPanel extends JPanel
             switch (etat)
             {
                 case DISPONIBLE:
-                    return listController.getAvailableData().size();
+                    return listController.availAbleDataCount();
                 case RESERVEE:
-                    return listController.getPersonnalDatz().size();
+                    return listController.personnalDataCount();
                 case VETODISPO:
-                    return listController.getVetoAvailableData().size();
+                    return listController.getVetoAvailableCount();
                 case VETORESERVEE:
-                    return listController.getVetoPersonnalDatz().size();
+                    return listController.getVetoPersonnalDataCount();
                     default: return 0;
             }
         }
@@ -143,14 +142,14 @@ public class TaskListPanel extends JPanel
         public String getValueAt(int rowIndex, int columnIndex) {
             switch (etat) {
                 case DISPONIBLE:
-                    return listController.getAvailableData().get(rowIndex).get(columnIndex);
+                    return listController.getAvailableData(rowIndex,columnIndex);
                 case RESERVEE:
-                    return listController.getPersonnalDatz().get(rowIndex).get(columnIndex);
+                    return listController.getPersonnalData(rowIndex,columnIndex);
                 case VETODISPO:
-                    return listController.getVetoAvailableData().get(rowIndex).get(columnIndex);
+                    return listController.getVetoAvailableData(rowIndex,columnIndex);
                 case VETORESERVEE:
-                    return listController.getVetoPersonnalDatz().get(rowIndex).get(columnIndex);
-                    default: return null;
+                    return listController.getVetoPersonnalData(rowIndex,columnIndex);
+                    default: return "inexistant data";
             }
         }
 

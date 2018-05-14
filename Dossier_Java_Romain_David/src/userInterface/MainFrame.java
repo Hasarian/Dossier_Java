@@ -2,7 +2,6 @@ package userInterface;
 
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
-import jdk.nashorn.internal.scripts.JO;
 import uIController.CareGiverController;
 
 import javax.swing.*;
@@ -113,7 +112,7 @@ public class MainFrame extends JFrame
     {
         public void actionPerformed(ActionEvent e)
         {
-                SearchCareDone newPanel = new SearchCareDone();
+                SearchCareGiver newPanel = new SearchCareGiver();
                 changePanel(newPanel);
         }
     }
@@ -135,6 +134,10 @@ public class MainFrame extends JFrame
             } catch (BDConnexionError connexionError)
             {
                 JOptionPane.showMessageDialog(null, connexionError.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
+            }
+            catch (ErrorNull errorNull)
+            {
+                JOptionPane.showMessageDialog(null,errorNull.getMessage(),"argument invalide",JOptionPane.ERROR_MESSAGE);
             }
         }
     }

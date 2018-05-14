@@ -3,49 +3,47 @@ package uIController;
 import Business.AnimalBusiness;
 import Business.ListAnimalBusiness;
 import Model.Animal;
-import Model.CareGiver;
-import Model.SearchAnimalBetweenDate;
+import Model.Vaccination;
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class AnimalController {
-    ListAnimalBusiness listAnimalBusiness;
-    AnimalBusiness animalBusiness;
+    private AnimalBusiness animalBusiness;
 
-
-    public  AnimalController()throws BDConnexionError{
-        animalBusiness = new AnimalBusiness();
+    public  AnimalController()throws BDConnexionError, ErrorNull{
+        animalBusiness = AnimalBusiness.obtenirAnimalBusiness();
     }
-
-    public AnimalController(CareGiverController user) throws BDConnexionError,ErrorNull {
-        listAnimalBusiness = ListAnimalBusiness.obtenirAnimalBusiness(user);
-    }
-
-    public Animal getAnimal(int id) throws ErrorNull, BDConnexionError {
-        return listAnimalBusiness.getAnimalInBD(id);
-    }
-    public ArrayList getAnimalsBetweenDate(GregorianCalendar dateDebut, GregorianCalendar dateFin) throws ErrorNull, BDConnexionError{
-        ArrayList<SearchAnimalBetweenDate> results  = animalBusiness.getAnimalsBetweenDates(dateDebut, dateFin);
-        ArrayList<ArrayList<String>> resultToString = new ArrayList<ArrayList<String>>();
-        ArrayList<String> ligne = new ArrayList<String>();
-
-        for (SearchAnimalBetweenDate result : results) {
-            ligne.add(result.getAnimal().getId());
-            ligne.add(result.getAnimal().getCellNumber());
-            ligne.add(result.getAnimal().getNomAnimal());
-            ligne.add(result.getAnimal().getEtatAnimal().toString());
-            ligne.add(result.getRace().getLibelle());
-            ligne.add(result.getEspece().getLibelle());
-            ligne.add(result.getVaccin().getLibelle());
-            ligne.add(result.getVaccination().getDate().getTime().toString());
-            resultToString.add(ligne);
+    public ArrayList<ArrayList<String>> getAnimalsBetweenDates(GregorianCalendar dateDebTemp,GregorianCalendar dateFinTemp) throws BDConnexionError,ErrorNull
+    {
+        ArrayList<Vaccination> vaccinations =animalBusiness.getAnimalsBetweenDates(dateDebTemp,dateFinTemp);
+        ArrayList<ArrayList<String>> data=new ArrayList<ArrayList<String>>();
+        for(Vaccination vaccination:vaccinations)
+        {
+            ArrayList<String> row=new ArrayList<String>();
+            /*"Nom", "est dangereux", "num cellule", "espece", "vaccin", "date vaccin", "date arrive"*/
+            row.add(vaccination.getAnimal().getNomAnimal());
+            if(vaccination.getAnimal().getEstDangereux()) row.add("oui");
+            else row.add("non");
+            row.add(vaccination.getAnimal().getCellNumber());
+            row.add(vaccination.getAnimal().getSpecies());
+            row.add(vaccination.getNumVaccin().getLibelle());
+            String date=new String();
+            date+=vaccination.getDate().get(Calendar.DAY_OF_MONTH)+"/";
+            date+=vaccination.getDate().get(Calendar.MONTH)+"/";
+            date+=vaccination.getDate().get(Calendar.YEAR);
+            row.add(date);
+            date=new String();
+            date+=vaccination.getAnimal().getDateArrive().get(Calendar.DAY_OF_MONTH)+"/";
+            date+=vaccination.getAnimal().getDateArrive().get(Calendar.MONTH)+"/";
+            date+=vaccination.getAnimal().getDateArrive().get(Calendar.YEAR);
+            row.add(date);
+            data.add(row);
         }
-        return resultToString;
+        return data;
     }
-    public ArrayList<Animal> getAllAnimals() throws ErrorNull,BDConnexionError{
-        return listAnimalBusiness.getAllAnimals();
-    }
+
 }

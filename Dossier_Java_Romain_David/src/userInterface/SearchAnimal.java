@@ -22,7 +22,7 @@ public class SearchAnimal extends JPanel {
     private CareGiver user;
     private AnimalController animalController;
 
-    public SearchAnimal() throws BDConnexionError{
+    public SearchAnimal() throws BDConnexionError,ErrorNull{
         animalController = new AnimalController();
         dateDebutLabel = new JLabel("Date qui servira de borne inférieure à la recherche");
         dateDebutLabel.setBounds(50,50,50,20);
@@ -55,7 +55,7 @@ public class SearchAnimal extends JPanel {
                 dateDebTemp.setTime((Date) dateDebut.getValue());
                 GregorianCalendar dateFinTemp = new GregorianCalendar();
                 dateFinTemp.setTime((Date) dateFin.getValue());
-                ModelTable model = new ModelTable(animalController.getAnimalsBetweenDate(dateDebTemp, dateFinTemp));
+                ModelTable model = new ModelTable(animalController.getAnimalsBetweenDates(dateDebTemp, dateFinTemp));
                 resultat = new JTable(model);
                 resultat.setBounds(25, 85, 500, 500);
                 add(resultat);
@@ -79,10 +79,7 @@ public class SearchAnimal extends JPanel {
                         "Nom",
                         "est dangereux",
                         "num cellule",
-                        "espece",
                         "race",
-                        "milieu de vie",
-                        "type deplacement",
                         "vaccin",
                         "date vaccin",
                         "date arrive"

@@ -1,6 +1,6 @@
 package DataAccess;
 
-import Business.ListAnimalBusiness;
+import Business.AnimalBusiness;
 import Business.CareGiverBusiness;
 import Business.ListEspeceBusiness;
 import DataAccess.DAO.DAOAnimal;
@@ -13,25 +13,22 @@ import java.util.GregorianCalendar;
 
 public class AnimalDBAccess implements DAOAnimal {
     private Connection connection;
-    private CareGiverBusiness user;
-    public AnimalDBAccess () throws BDConnexionError{
+    private AnimalBusiness business;
+    public AnimalDBAccess () throws BDConnexionError,ErrorNull{
         connection = SingletonDB.getInstance();
-    }
-    public AnimalDBAccess(CareGiverBusiness user)throws BDConnexionError{
-        this();
-        this.user = user;
+        business= AnimalBusiness.obtenirAnimalBusiness();
     }
 
     @Override
-    public Animal read(int id) throws ErrorNull {
+    public Animal read(int id) throws ErrorNull,BDConnexionError {
         String sql = "select * from ficheSoin, ficheAnimal, espece, race where ficheSoin = ? " +
                 "and ficheSoin.id = ficheAnimal.id and ficheAnimal.race = race.libelle and race.espece = espece.libelle";
         try{
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, id);
             ResultSet data = statement.executeQuery();
-            return dataToAnimal(data);
-
+            dataToAnimal(data);
+            return business.getAnimal(data.getString("espece.libelle"));
         }
 
         catch(SQLException e){
@@ -39,7 +36,7 @@ public class AnimalDBAccess implements DAOAnimal {
             return null;
         }
     }
-    public void readAllAnimals() throws ErrorNull{
+    public void readAllAnimals() throws ErrorNull,BDConnexionError{
 
 
         try{
@@ -57,8 +54,26 @@ public class AnimalDBAccess implements DAOAnimal {
             new BDConnexionError();
         }
     }
-    private Animal dataToAnimal(ResultSet data)throws ErrorNull{
-        ListAnimalBusiness business=ListAnimalBusiness.obtenirAnimalBusiness();
+
+
+
+    @Override
+    public void create(Animal animal) {
+
+    }
+
+    @Override
+    public void update(Animal animal) {
+
+    }
+
+    @Override
+    public void delete(int id) {
+
+    }
+
+    private void dataToAnimal(ResultSet data)throws ErrorNull,BDConnexionError{
+        CareGiverBusiness userBusiness=CareGiverBusiness.otebnirCareGiverBusiness();
         try {
             ListEspeceBusiness listEspeceBusiness =ListEspeceBusiness.obtenirEspeceBusiness();
 
@@ -92,32 +107,17 @@ public class AnimalDBAccess implements DAOAnimal {
             /*(Integer id, String remarque, Integer numCell, String nomAnimal, Race race, GregorianCalendar dateArrivee,
                                GregorianCalendar dateDeces, Boolean estDangereux, Animal.EtatAnimal etatAnimal, Animal.EtatSoin etatSoin,
                                String remarqueSoin, Animal.EtatSoin etatFicheSoin, CareGiver careGiver*/
-            return business.ajoutAnimal(id,remarque,numCell,nom,race,dateArrive,dateDesces,estDangereux,etatAnimal,remarqueSoin,etatSoins,user.getUserByMail(email));
+            business.nouvelAnimalFromDB(id,remarque,numCell,nom,race,dateArrive,dateDesces,estDangereux,etatAnimal,remarqueSoin,etatSoins,userBusiness.getUserByMail(email));
 
         }
         catch(SQLException e){
             new BDConnexionError();
-            return null;
         }
     }
-
-
-
-    @Override
-    public void create(Animal animal) {
-
-    }
-
-    @Override
-    public void update(Animal animal) {
-
-    }
-
-    @Override
-    public void delete(int id) {
-
-    }
 }
+
+
+
     /*private Integer id;
     private String remarqueAnimal;
     private Integer numCellule;

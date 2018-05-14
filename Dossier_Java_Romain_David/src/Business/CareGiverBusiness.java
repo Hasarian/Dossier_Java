@@ -68,16 +68,21 @@ public class CareGiverBusiness {
     }
     public CareGiver getUserByMail(String mail)
     {
-            if(isKnown(mail))
-            {
-                for (CareGiver user:otherUsers)
-                {
-                    if( user.getMail().equals(mail)) return user;
-                }
-                return currentUser;
+        if(isKnown(mail))
+        {
+            for (CareGiver user : otherUsers) {
+                if (user.getMail().equals(mail)) return user;
             }
-            return new CareGiver(mail);
+            return currentUser;
+        }
+        else
+            {
+                CareGiver user=new CareGiver(mail);
+                otherUsers.add(user);
+                return user;
+            }
     }
+
     public boolean isKnown(String mail)
     {
 

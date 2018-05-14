@@ -11,31 +11,75 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 public class AnimalBusiness {
-    SearchAnimalsBetweenDate research;
-
-    public AnimalBusiness(){
+    private SearchAnimalsBetweenDate research;
+    private AnimalDBAccess dbAcces;
+    private ArrayList<Animal> allAnimals;
+    private static AnimalBusiness instance;
+    private ListAnimalBusiness listBusiness;
+    private AnimalBusiness()throws BDConnexionError,ErrorNull{
+        research=new SearchAnimalsBetweenDate();
+        allAnimals=new ArrayList<Animal>();
+        dbAcces=new AnimalDBAccess();
+        dbAcces.readAllAnimals();
+        listBusiness=ListAnimalBusiness.obtenirAnimalBusiness();
+    }
+    public static AnimalBusiness obtenirAnimalBusiness()
+    throws BDConnexionError,ErrorNull
+    {
+        if(instance==null) instance=new AnimalBusiness();
+        return instance;
     }
 
-    public ArrayList<SearchAnimalBetweenDate> getAnimalsBetweenDates(GregorianCalendar dateDebut, GregorianCalendar dateFin) throws ErrorNull, BDConnexionError{
-        return research.readAnimalsbetweenDates(dateDebut,dateFin);
+    public Animal getAnimal(String id)
+    {
+        for(Animal animal:allAnimals)
+        {
+            if(animal.getId().compareTo(id)==0) return animal;
+        }
+        return null;
     }
-    public static Animal getAnimal (Integer id, String remarque, Integer numCell, String nomAnimal, Race race, GregorianCalendar dateArrivee,
-                               GregorianCalendar dateDeces, Boolean estDangereux, Animal.EtatAnimal etatAnimal,
-                               String remarqueSoin, Animal.EtatSoin etatFicheSoin, CareGiver careGiver) throws ErrorNull {
-        Animal animal = new Animal(id, remarque, numCell, race, nomAnimal, dateArrivee, dateDeces, estDangereux, etatAnimal, remarqueSoin, etatFicheSoin, careGiver);
-        return animal;
-    }
-    public static Espece getEspece(String libelle,Boolean estEnVoieDeDisparition,String typeDeplacement,String milieuDeVie) throws ErrorNull{
-        return new Espece(libelle,estEnVoieDeDisparition,typeDeplacement,milieuDeVie);
+    public void nouvelAnimalFromDB(Integer id, String remarque, Integer numCell, String nom, Race race, GregorianCalendar dateArrivee, GregorianCalendar dateFin,
+                             Boolean estDangereux, Animal.EtatAnimal etatAnimal, String remarqueSoin,Animal.EtatSoin etatSoin,CareGiver careGiver)
+    throws ErrorNull
+    {
+        Animal newAnimal=new Animal(id,remarque,numCell,race,nom,dateArrivee,dateFin,estDangereux,etatAnimal,remarqueSoin,etatSoin,careGiver);
+        if(getAnimal(id.toString())!=null) {
+            allAnimals.remove(getAnimal(id.toString()));
+            listBusiness.removeAnimal(id.toString());
+        }
+        allAnimals.add(newAnimal);
+        listBusiness.ajoutAnimal(newAnimal);
+
     }
 
-    public static Race getRace(String libelle,String traitDeCaractere,String tare,String caracteristiquesDuMillieuDeVie,Espece espece) throws ErrorNull{
-        return new Race(libelle,traitDeCaractere,tare,caracteristiquesDuMillieuDeVie,espece);
+    public Vaccin getVaccin(String libelle, Integer numVaccin) throws ErrorNull
+    {
+        return new Vaccin(libelle,numVaccin);
     }
-    public  static Vaccination getVaccination(Animal animal, Vaccin numVaccin, GregorianCalendar date, Integer idVaccination) throws ErrorNull{
-        return new Vaccination(animal,numVaccin, date,idVaccination);
+    public Vaccination getVaccination(Animal animal,Vaccin vaccin,GregorianCalendar dateVaccination,Integer numVaccination) throws ErrorNull
+    {
+        return new Vaccination(animal,vaccin,dateVaccination,numVaccination);
     }
-    public static Vaccin getVaccin(String libelle, Integer numVaccin) throws ErrorNull{
-        return new Vaccin(libelle, numVaccin);
+
+    public ArrayList<Animal> getAllAnimals() {
+        return allAnimals;
+    }
+    public boolean existeDeja(Animal nouvelAnimal)
+    {
+        String id=nouvelAnimal.getId();
+        int i=0;
+        while(i<allAnimals.size()&&allAnimals.get(i).getId().compareTo(id)==0)
+        {
+            i++;
+        }
+        return allAnimals.get(i).getId().compareTo(id)==0;
+    }
+    public void animalUpdate(Animal animal)
+    {
+        dbAcces.update(animal);
+    }
+    public ArrayList<Vaccination> getAnimalsBetweenDates(GregorianCalendar dateDebut,GregorianCalendar dateFin) throws BDConnexionError,ErrorNull
+    {
+        return (new SearchAnimalsBetweenDate()).readAnimalsbetweenDates(dateDebut,dateFin);
     }
 }

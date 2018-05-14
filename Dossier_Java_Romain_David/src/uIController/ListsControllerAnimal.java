@@ -14,28 +14,41 @@ public class ListsControllerAnimal
 
     private ListsControllerAnimal(CareGiverController user) throws BDConnexionError, ErrorNull
     {
-        listAnimalBusiness =ListAnimalBusiness.obtenirAnimalBusiness(user);
+        listAnimalBusiness =ListAnimalBusiness.obtenirAnimalBusiness();
     }
     public static ListsControllerAnimal obtenirListController(CareGiverController user) throws BDConnexionError,ErrorNull
     {
         if(instance==null)instance=new ListsControllerAnimal(user);
         return instance;
     }
-    public ArrayList<ArrayList<String>> getAvailableData()
+    public String getColumn(int column,Animal animal)
     {
-        ArrayList<ArrayList<String>> data=new ArrayList<ArrayList<String>>();
-        remplirData(listAnimalBusiness.getAvailableList(),data);
-        return data;
-    }
-    public ArrayList<ArrayList<String>> getPersonnalDatz()
-    {
-        ArrayList<ArrayList<String>> data=(listAnimalBusiness.getPersonnalList().size()==0)?null:new ArrayList<ArrayList<String>>();
-        if(data!=null)
+        switch(column)
         {
-               remplirData(listAnimalBusiness.getPersonnalList(),data);
+            case 0:
+                return animal.getNomAnimal();
+            case 1:
+                return animal.getId();
+            case 2:
+                return animal.getCellNumber();
+            case 3:
+                return animal.getSpecies();
+            default:
+                return "unkown data";
         }
-        return data;
     }
+    public String getAvailableData(int row, int column)
+    {
+        Animal animal=listAnimalBusiness.getAvailableList().get(row);
+        return getColumn(column,animal);
+    }
+    public int availAbleDataCount(){return listAnimalBusiness.getAvailableList().size();}
+
+    public String getPersonnalData(int row, int column)
+    {
+        return getColumn(column,listAnimalBusiness.getPersonnalList().get(row));
+    }
+    public int personnalDataCount(){return listAnimalBusiness.getPersonnalList().size();}
 
     public void remplirData(ArrayList<Animal> listeAnimal,ArrayList<ArrayList<String>> data)
     {
@@ -53,21 +66,17 @@ public class ListsControllerAnimal
     {
         return listAnimalBusiness.getPersonnalList().size()==0;
     }
-    public ArrayList<ArrayList<String>> getVetoAvailableData()
+    public String getVetoAvailableData(int row, int column)
     {
-        ArrayList<ArrayList<String>> data=new ArrayList<ArrayList<String>>();
-        remplirData(listAnimalBusiness.getVetoAvailableList(),data);
-        return data;
+        return getColumn(column,listAnimalBusiness.getVetoAvailableList().get(row));
     }
-    public ArrayList<ArrayList<String>> getVetoPersonnalDatz()
+    public int getVetoAvailableCount(){return listAnimalBusiness.getVetoAvailableList().size();}
+
+    public String getVetoPersonnalData(int row, int column)
     {
-        ArrayList<ArrayList<String>> data=(listAnimalBusiness.getVetoPersonnalList().size()==0)?null:new ArrayList<ArrayList<String>>();
-        if(data!=null)
-        {
-            remplirData(listAnimalBusiness.getVetoPersonnalList(),data);
-        }
-        return data;
+        return getColumn(column,listAnimalBusiness.getVetoPersonnalList().get(row));
     }
+    public int getVetoPersonnalDataCount(){return listAnimalBusiness.getVetoPersonnalList().size();}
     public boolean vetoPersonnalListIsNull()
     {
         return listAnimalBusiness.getVetoPersonnalList().size()==0;

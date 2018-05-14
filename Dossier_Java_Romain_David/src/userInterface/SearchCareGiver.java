@@ -2,6 +2,7 @@ package userInterface;
 
 import javax.swing.*;
 
-public class SearchCareDone extends JPanel
+public class SearchCareGiver extends JPanel
 {
+
 }

@@ -36,6 +36,15 @@ public class Vaccination {
         if(numVaccin != null) this.numVaccin = numVaccin;
         else throw new ErrorNull("numVaccin");
     }
+    public Animal getAnimal(){return animal;}
+
+    public Vaccin getNumVaccin() {
+        return numVaccin;
+    }
+
+    public Integer getIdVaccination() {
+        return idVaccination;
+    }
 
     public GregorianCalendar getDate() {
         return date;
