@@ -57,15 +57,11 @@ public class CaraGiverDataAccess implements DAOCareGiver {
 
     public CareGiver read(String id) throws InexistantCareGiver, ErrorNull, BDConnexionError
     {
-        System.out.println("s1");
-        CareGiver careGiver;
         String sql = "select * from soignant, localite where soignant.mail = ? and soignant.localite = localite.idLocalite";
         try {
             PreparedStatement statement = singletonDBAcces.prepareStatement(sql);
-            System.out.println("s2");
             statement.setString(1, id);
             ResultSet data = statement.executeQuery();
-            System.out.println("s3");
             if (!data.next()) throw new InexistantCareGiver();
             //recherche arraylist localoite sur l'id
             Localite localite = new Localite(data.getInt("idLocalite"),data.getInt("codePostal"),data.getString("libelle"));

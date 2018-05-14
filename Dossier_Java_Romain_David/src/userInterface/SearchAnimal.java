@@ -8,6 +8,7 @@ import uIController.AnimalController;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -24,13 +25,14 @@ public class SearchAnimal extends JPanel {
 
     public SearchAnimal() throws BDConnexionError{
         setLayout(null);
+        setBackground(Color.WHITE);
         animalController = new AnimalController();
         dateDebutLabel = new JLabel("Date qui servira de borne inférieure à la recherche");
         dateDebutLabel.setBounds(50,0,300,20);
         this.add(dateDebutLabel);
         dateDebut = new JSpinner(new SpinnerDateModel());
 		dateDebut.setEditor(new JSpinner.DateEditor(dateDebut, "dd/MM/yyyy"));
-		dateDebut.setBounds(dateDebutLabel.getX()+dateDebutLabel.getWidth()+5,dateDebutLabel.getY(),100,20);
+		dateDebut.setBounds(dateDebutLabel.getX()+dateDebutLabel.getWidth()+5,dateDebutLabel.getY(),100,dateDebutLabel.getHeight());
 		this.add(dateDebut);
 
 		dateFinLabel = new JLabel("Date qui servira de borne suppérieure à la recherche");
