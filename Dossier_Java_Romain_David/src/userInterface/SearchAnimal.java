@@ -23,7 +23,7 @@ public class SearchAnimal extends JPanel {
     private CareGiver user;
     private AnimalController animalController;
 
-    public SearchAnimal() throws BDConnexionError{
+    public SearchAnimal() throws BDConnexionError,ErrorNull{
         setLayout(null);
         setBackground(Color.WHITE);
         animalController = new AnimalController();
