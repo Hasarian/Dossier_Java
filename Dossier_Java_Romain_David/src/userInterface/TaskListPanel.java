@@ -73,20 +73,21 @@ public class TaskListPanel extends JPanel
             this.parentPanel = parentPanel;
             setLayout(null);
             setBackground(Color.WHITE);
-            add(tablePane);
+            //add(tablePane);
 
+
+
+        openFile = new JButton("consult");
+        openFile.setBounds(20, this.getY()+this.getHeight()-100, 200, 60);
+        openFile.addActionListener(new ConsultListener());
+        add(openFile);
 
         infoLabel=new JLabel("use click to select then click a button below to act");
-        infoLabel.setBounds(tablePane.getX(),tablePane.getY()+tablePane.getHeight(),350,15);
+        infoLabel.setBounds(this.getX(),openFile.getY()-(openFile.getHeight()*3),350,15);
         infoLabel2=new JLabel("use ctrl+click to select multiple tasks");
         infoLabel2.setBounds(infoLabel.getX(),infoLabel.getY()+infoLabel.getHeight(),infoLabel.getWidth(),infoLabel.getHeight());
         infoLabel3=new JLabel("use shift+click to select all the tasks between two selections");
         infoLabel3.setBounds(infoLabel.getX(),infoLabel2.getY()+infoLabel2.getHeight(),infoLabel.getWidth(),infoLabel.getHeight());
-
-        openFile = new JButton("consult");
-        openFile.setBounds(20, getInfoLabel3().getY() + getInfoLabel3().getHeight() + 20, 200, 60);
-        openFile.addActionListener(new ConsultListener());
-        add(openFile);
 
         add(infoLabel);
         add(infoLabel2);
@@ -108,7 +109,6 @@ public class TaskListPanel extends JPanel
     protected class TaskTableModel extends AbstractTableModel
     {
         private Animal.EtatSoin etat;
-        private ListsControllerAnimal listControl;
         private String [] columnNames=
                 {
                         "name",

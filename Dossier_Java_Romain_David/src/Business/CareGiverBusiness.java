@@ -17,7 +17,10 @@ public class CareGiverBusiness {
     private ArrayList<CareGiver> otherUsers;
     private static CareGiverBusiness instance;
 
-    private CareGiverBusiness() throws BDConnexionError{setDaoCareGiver();}
+    private CareGiverBusiness() throws BDConnexionError{
+        System.out.println("soignant business créé");
+        setDaoCareGiver();
+    }
     public static CareGiverBusiness otebnirCareGiverBusiness() throws BDConnexionError
     {
         if(instance==null)

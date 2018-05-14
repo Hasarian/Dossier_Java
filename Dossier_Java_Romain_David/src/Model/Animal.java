@@ -26,6 +26,7 @@ public class Animal {
 
     public Animal(Integer id, String remarqueAnimal, Integer numCellule, Race race, String nomAnimal, GregorianCalendar dateArrive, GregorianCalendar dateDesces,
                   Boolean estDangereux, EtatAnimal etatAnimal, String remarqueSoin, EtatSoin etatFicheSoin, CareGiver careGiver)throws ErrorNull{
+        System.out.print("model animal: créé");
         setId(id);
         setDateArrive(dateArrive);
         setDateDesces(dateDesces);

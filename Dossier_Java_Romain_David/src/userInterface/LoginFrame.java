@@ -88,6 +88,7 @@ public class LoginFrame extends JFrame
                     loginControl.setCareGiverConnection(email.getText());
                     MainFrame newFrame = new MainFrame(loginControl);
                     frame.dispose();
+                    threadLogin.stopThread();
                 }
 
                 catch(BDConnexionError dbError)

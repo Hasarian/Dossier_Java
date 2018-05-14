@@ -13,6 +13,7 @@ public class ListEspeceBusiness
     private static ListEspeceBusiness instance;
     private ListEspeceBusiness()
     {
+        System.out.println("liste espece business créé");
         especes=new ArrayList<Espece>();
         races=new ArrayList<Race>();
     }

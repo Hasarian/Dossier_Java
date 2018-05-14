@@ -14,6 +14,7 @@ public class AnimalBusiness {
     SearchAnimalsBetweenDate research;
 
     public AnimalBusiness(){
+        System.out.println("animalBusiness créé");
     }
 
     public ArrayList<SearchAnimalBetweenDate> getAnimalsBetweenDates(GregorianCalendar dateDebut, GregorianCalendar dateFin) throws ErrorNull, BDConnexionError{

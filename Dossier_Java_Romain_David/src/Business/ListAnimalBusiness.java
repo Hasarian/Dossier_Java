@@ -20,6 +20,7 @@ public class ListAnimalBusiness {
     private static ListAnimalBusiness instance;
     private CareGiverController user;
     private ListAnimalBusiness(CareGiverController user) throws BDConnexionError,ErrorNull {
+        System.out.println("listAnimal business créé");
         this.user=user;
         daoAnimal = new AnimalDBAccess();
         availableList=new ArrayList<Animal>();
@@ -61,6 +62,7 @@ public class ListAnimalBusiness {
                                String remarqueSoin, Animal.EtatSoin etatFicheSoin, CareGiver careGiver)
     throws ErrorNull
     {
+        System.out.println("il crée l'animal "+id);
         Animal animal=new Animal(id,remarque,numCell,race,nomAnimal,dateArrivee,dateDeces,estDangereux,etatAnimal,remarqueSoin,etatFicheSoin,careGiver);
         ajoutAnimal(animal);
         return animal;
