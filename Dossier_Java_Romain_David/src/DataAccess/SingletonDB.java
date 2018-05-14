@@ -18,7 +18,7 @@ public class SingletonDB {
                 connectionSingleton = DriverManager.getConnection("jdbc:mysql://localhost:3306/spa?useSSL=false", "root", "pwMySQLie2017");
                 //pwMySQLie2017
             } catch (SQLException SQLE) {
-                System.out.println(SQLE.getMessage());
+               // System.out.println(SQLE.getMessage());
                throw  new BDConnexionError();
             }
         }

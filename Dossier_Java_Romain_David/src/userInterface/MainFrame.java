@@ -32,7 +32,6 @@ public class MainFrame extends JFrame
         thisFrame=this;
 
         basePanel=new DashBoardPane(this,loggedIn);
-
         mainPanel=new MainPanel(loggedIn,basePanel);
         container.add(mainPanel);
 
@@ -56,9 +55,9 @@ public class MainFrame extends JFrame
         search.add(searchCare);
         searchCare.addActionListener(new ToCareSearchListener());
         searchTask=new JMenuItem("tâche");
-        searchTask.add(searchTask);
+        search.add(searchTask);
         searchTask.addActionListener(new ToTaskSearchListener());
-
+        administration.add(search);
 
         account=new JMenu("account");
         menuBar.add(account);

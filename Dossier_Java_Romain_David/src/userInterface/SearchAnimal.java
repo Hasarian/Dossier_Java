@@ -8,6 +8,7 @@ import uIController.AnimalController;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -22,27 +23,31 @@ public class SearchAnimal extends JPanel {
     private CareGiver user;
     private AnimalController animalController;
 
-    public SearchAnimal() throws BDConnexionError,ErrorNull{
+    public SearchAnimal() throws BDConnexionError{
+        setLayout(null);
+        setBackground(Color.WHITE);
         animalController = new AnimalController();
         dateDebutLabel = new JLabel("Date qui servira de borne inférieure à la recherche");
-        dateDebutLabel.setBounds(50,50,50,20);
+        dateDebutLabel.setBounds(50,0,300,20);
         this.add(dateDebutLabel);
         dateDebut = new JSpinner(new SpinnerDateModel());
 		dateDebut.setEditor(new JSpinner.DateEditor(dateDebut, "dd/MM/yyyy"));
-		dateDebut.setBounds(110,50,50,20);
+		dateDebut.setBounds(dateDebutLabel.getX()+dateDebutLabel.getWidth()+5,dateDebutLabel.getY(),100,dateDebutLabel.getHeight());
 		this.add(dateDebut);
 
 		dateFinLabel = new JLabel("Date qui servira de borne suppérieure à la recherche");
-		dateFinLabel.setBounds(50,70,50,20);
+		dateFinLabel.setBounds(dateDebutLabel.getX(),dateDebutLabel.getY()+dateDebutLabel.getHeight()+5,dateDebutLabel.getWidth(),dateDebutLabel.getHeight());
 		this.add(dateFinLabel);
         dateFin = new JSpinner(new SpinnerDateModel());
         dateFin.setEditor(new JSpinner.DateEditor(dateFin, "dd/MM/yyyy"));
-        dateFin.setBounds(110,70,50,20);
+        dateFin.setBounds(dateDebut.getX(),dateFinLabel.getY(),dateDebut.getWidth(),dateDebut.getHeight());
         this.add(dateFin);
 
         //resultat = new JScrollPane(resultat);
         confirmer = new JButton("Rechercher");
         confirmer.addActionListener(new ConfirmeButtonListener());
+        confirmer.setBounds(dateFin.getX()+dateFin.getWidth()+5,dateFin.getY(),dateFin.getWidth()+2,dateFin.getHeight());
+        add(confirmer);
     }
 
 

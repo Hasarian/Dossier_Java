@@ -43,7 +43,6 @@ public class AnimalDBAccess implements DAOAnimal {
             String sql = "select * from ficheSoin, ficheAnimal, espece, race where " +
                     "ficheSoin.id = ficheAnimal.id and ficheAnimal.race = race.libelle and race.espece = espece.libelle";
             PreparedStatement statement = connection.prepareStatement(sql);
-
             ResultSet data = statement.executeQuery();
             while(data.next()) {
                 dataToAnimal(data);
@@ -77,9 +76,10 @@ public class AnimalDBAccess implements DAOAnimal {
         try {
             ListEspeceBusiness listEspeceBusiness =ListEspeceBusiness.obtenirEspeceBusiness();
 
+            //System.out.println(data.getString("espece.libelle"));
             String libelleEspece=(data.wasNull())?null:data.getString("espece.libelle");
             Boolean estEnVoieDeDisparition=(data.wasNull())?null:data.getBoolean("espece.estEnVoieDeDisparition");
-            String typeDeplacement=(data.wasNull())?null:data.getString("espece.typeDeDeplacement");
+            String typeDeplacement=(data.wasNull())?null:data.getString("espece.typeDEDeplacement");
             String milieuDeVie=(data.wasNull())?null:data.getString("espece.milieuDeVie");
             Espece espece= listEspeceBusiness.obtenirEspece(libelleEspece,estEnVoieDeDisparition,typeDeplacement,milieuDeVie);
 
@@ -104,6 +104,7 @@ public class AnimalDBAccess implements DAOAnimal {
 
             String remarqueSoin=(data.wasNull())?null:data.getString("ficheSoin.remarque");
             String email=(data.wasNull())?null:data.getString("ficheSoin.email");
+
             /*(Integer id, String remarque, Integer numCell, String nomAnimal, Race race, GregorianCalendar dateArrivee,
                                GregorianCalendar dateDeces, Boolean estDangereux, Animal.EtatAnimal etatAnimal, Animal.EtatSoin etatSoin,
                                String remarqueSoin, Animal.EtatSoin etatFicheSoin, CareGiver careGiver*/
