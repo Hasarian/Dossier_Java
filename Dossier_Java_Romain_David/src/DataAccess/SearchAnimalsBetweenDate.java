@@ -7,6 +7,7 @@ import Business.ListEspeceBusiness;
 import Model.*;
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
+import uIController.CareGiverController;
 
 import javax.tools.JavaCompiler;
 import java.sql.*;
@@ -21,12 +22,9 @@ public class SearchAnimalsBetweenDate {
 
     public SearchAnimalsBetweenDate() throws BDConnexionError,ErrorNull {
         connection = SingletonDB.getInstance();
-        animalBusiness = AnimalBusiness.obtenirAnimalBusiness();
-        listeEspece = ListEspeceBusiness.obtenirEspeceBusiness();
-        careGiverBusiness = CareGiverBusiness.otebnirCareGiverBusiness();
     }
 
-    public ArrayList<Vaccination> readAnimalsbetweenDates(GregorianCalendar dateDeb, GregorianCalendar dateFin) throws ErrorNull {
+    public ArrayList<Vaccination> readAnimalsbetweenDates(GregorianCalendar dateDeb, GregorianCalendar dateFin) throws ErrorNull,BDConnexionError {
         ArrayList<Vaccination> resultSearch = new ArrayList<Vaccination>();
         try {
             //changer la date recherchée
@@ -52,8 +50,11 @@ public class SearchAnimalsBetweenDate {
         return resultSearch;
     }
 
-    public Vaccination traductionSQL(ResultSet data) throws SQLException, ErrorNull
+    public Vaccination traductionSQL(ResultSet data) throws SQLException, ErrorNull,BDConnexionError
     {
+        listeEspece = ListEspeceBusiness.obtenirEspeceBusiness();
+        careGiverBusiness = CareGiverBusiness.otebnirCareGiverBusiness();
+        animalBusiness = AnimalBusiness.obtenirAnimalBusiness(ListAnimalBusiness.obtenirListAnimalBusiness(new CareGiverController()));
         String libelleEspece = (data.wasNull()) ? null : data.getString("espece.libelle");
         Boolean estEnVoieDeDisparition = (data.wasNull()) ? null : data.getBoolean("espece.estEnVoieDeDisparition");
         String typeDeplacement = (data.wasNull()) ? null : data.getString("espece.typeDeDeplacement");

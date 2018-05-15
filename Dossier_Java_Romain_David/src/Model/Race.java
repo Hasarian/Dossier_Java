@@ -17,14 +17,14 @@ public class Race {
         setTare(tare);
         setTraitDeCaractere(traitDeCaractere);
     }
-    public Race() throws ErrorNull
+    /*public Race() throws ErrorNull
     {
         setLibelle("labrador");
         setTraitDeCaractere("joyeux");
         setCaracteristiqueDuMilieuDeVie("urbain");
         setTare("sale");
         setEspece(new Espece());
-    }
+    }*/
 
     public void setLibelle(String libelle) throws ErrorNull {
         if(libelle != null) this.libelle = libelle;
@@ -36,7 +36,7 @@ public class Race {
     }
 
     public void setEspece(Espece espece) throws ErrorNull {
-        if(libelle != null) this.espece = espece;//varchar(50)
+        if(espece!= null) this.espece = espece;//varchar(50)
         else throw new ErrorNull("espece du modele Race");
     }
 

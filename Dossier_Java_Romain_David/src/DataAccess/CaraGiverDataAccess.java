@@ -11,6 +11,7 @@ import erreurs.InexistantCareGiver;
 
 import javax.swing.*;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 public class CaraGiverDataAccess implements DAOCareGiver {
@@ -78,6 +79,26 @@ public class CaraGiverDataAccess implements DAOCareGiver {
         }
         catch(SQLException sqlException) {
             JOptionPane.showMessageDialog(null,sqlException.getMessage(),"Attribut obligatoir non rempli",JOptionPane.ERROR_MESSAGE);
+            throw new BDConnexionError();
+        }
+    }
+    public ArrayList<String> readallMails() throws BDConnexionError
+    {
+        String sql="select mail from soignant";
+        try
+        {
+            PreparedStatement statement=singletonDBAcces.prepareStatement(sql);
+            ResultSet data=statement.executeQuery();
+            ArrayList<String> mails=new ArrayList<String>();
+            while(data.next())
+            {
+                mails.add(data.getString("mail"));
+            }
+            return mails;
+        }
+
+        catch (SQLException sqlException)
+        {
             throw new BDConnexionError();
         }
     }

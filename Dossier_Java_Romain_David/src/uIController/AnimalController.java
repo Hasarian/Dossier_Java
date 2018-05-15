@@ -15,7 +15,7 @@ public class AnimalController {
     private AnimalBusiness animalBusiness;
 
     public  AnimalController()throws BDConnexionError, ErrorNull{
-        animalBusiness = AnimalBusiness.obtenirAnimalBusiness();
+        animalBusiness = AnimalBusiness.obtenirAnimalBusiness(ListAnimalBusiness.obtenirListAnimalBusiness(new CareGiverController()));
     }
     public ArrayList<ArrayList<String>> getAnimalsBetweenDates(GregorianCalendar dateDebTemp,GregorianCalendar dateFinTemp) throws BDConnexionError,ErrorNull
     {

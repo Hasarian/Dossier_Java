@@ -21,19 +21,15 @@ public class ListAnimalBusiness {
     private CareGiverController user;
     private ListAnimalBusiness(CareGiverController user) throws BDConnexionError,ErrorNull {
         this.user=user;
-        animalBusiness=AnimalBusiness.obtenirAnimalBusiness();
         availableList=new ArrayList<Animal>();
         personnalList=new ArrayList<Animal>();
         vetoAvailableList=(user.isVeto())?new ArrayList<Animal>():null;
         vetoPersonnalList=(user.isVeto())?new ArrayList<Animal>():null;
+        animalBusiness=AnimalBusiness.obtenirAnimalBusiness(this);
     }
     public static ListAnimalBusiness obtenirListAnimalBusiness(CareGiverController user)throws  BDConnexionError,ErrorNull
     {
         if(instance==null) instance=new ListAnimalBusiness(user);
-        return instance;
-    }
-    public static ListAnimalBusiness obtenirAnimalBusiness()
-    {
         return instance;
     }
 

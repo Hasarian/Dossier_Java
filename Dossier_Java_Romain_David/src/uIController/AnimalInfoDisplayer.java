@@ -10,10 +10,10 @@ public class AnimalInfoDisplayer
 {
     Animal animal;
     public AnimalInfoDisplayer(String animalId,ListsControllerAnimal list){this.animal=list.getanimal(animalId);}
-    public AnimalInfoDisplayer() throws ErrorNull
+    /*public AnimalInfoDisplayer() throws ErrorNull
     {
         animal=new Animal();
-    }
+    }*/
     public String getNom()
     {
         return animal.getNomAnimal();

@@ -26,7 +26,7 @@ public class Animal {
 
     public Animal(Integer id, String remarqueAnimal, Integer numCellule, Race race, String nomAnimal, GregorianCalendar dateArrive, GregorianCalendar dateDesces,
                   Boolean estDangereux, EtatAnimal etatAnimal, String remarqueSoin, EtatSoin etatFicheSoin, CareGiver careGiver)throws ErrorNull{
-        System.out.print("model animal: créé");
+        //System.out.print("model animal: créé");
         setId(id);
         setDateArrive(dateArrive);
         setDateDesces(dateDesces);
@@ -40,7 +40,7 @@ public class Animal {
         setRemaqueSoin(remarqueSoin);
         setCareGiver(careGiver);
     }
-    public Animal() throws ErrorNull
+    /*public Animal() throws ErrorNull
     {
         setId(new Integer(1));
         setDateArrive(new GregorianCalendar());
@@ -54,7 +54,7 @@ public class Animal {
         setRemarqueAnimal("grand et fort, aime les radis");
         setRemaqueSoin("il faut lui donner de l'aspirine avec sa nourriture");
         setCareGiver(new Veterinaire());
-    }
+    }*/
 
     public void setDateArrive(GregorianCalendar dateArrive) throws ErrorNull {
         if(dateArrive == null) throw new ErrorNull();

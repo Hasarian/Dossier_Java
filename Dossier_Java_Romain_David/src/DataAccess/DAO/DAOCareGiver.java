@@ -6,9 +6,12 @@ import Model.CareGiver;
 import erreurs.ErrorNull;
 import erreurs.InexistantCareGiver;
 
+import java.util.ArrayList;
+
 public interface DAOCareGiver {
     void create(CareGiver careGiver)throws ErreurInsertCareGiver;
     CareGiver read(String id) throws InexistantCareGiver, BDConnexionError, ErrorNull;
     void update(CareGiver careGiver);
     void delete(String id);
+    ArrayList<String> readallMails() throws BDConnexionError;
 }

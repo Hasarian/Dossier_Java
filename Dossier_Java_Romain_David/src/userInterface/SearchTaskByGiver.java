@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class SearchTaskByGiver extends JPanel {
     private MainFrame mainFrame;
-    private JTextField idGiver;
+    private JList idGiver;
     private JButton searchButton;
     private CareGiverController careGiverControl;
     private JScrollPane tablePane;
@@ -24,14 +24,17 @@ public class SearchTaskByGiver extends JPanel {
         setBackground(Color.WHITE);
         setLayout(null);
         JLabel idGiverLabel= new JLabel("mail du soignant:");
-        idGiverLabel.setBounds(50,getY(),35,20);
-        idGiver=new JTextField();
-        idGiver.setBounds(idGiverLabel.getX()+idGiverLabel.getWidth(),idGiverLabel.getY(),40,idGiverLabel.getHeight());
+        idGiverLabel.setBounds(50,getY(),125,20);
+        idGiver=new JList(careGiverControl.getallUsers());
+        idGiver.setVisibleRowCount(1);
+        idGiver.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        idGiver.setSelectedIndex(0);
+        idGiver.setBounds(idGiverLabel.getX()+idGiverLabel.getWidth(),idGiverLabel.getY(),150,idGiverLabel.getHeight()*3);
         add(idGiverLabel);
         add(idGiver);
 
         searchButton=new JButton("search");
-        searchButton.setBounds(idGiver.getX(),idGiver.getY()+idGiver.getHeight()+10,idGiver.getWidth(),idGiver.getHeight());
+        searchButton.setBounds(idGiver.getX(),idGiver.getY()+idGiver.getHeight()+10,idGiverLabel.getWidth(),idGiverLabel.getHeight());
         searchButton.addActionListener(new SearchListener());
         add(searchButton);
 
@@ -53,10 +56,10 @@ public class SearchTaskByGiver extends JPanel {
         public void actionPerformed(ActionEvent e)
         {
             if(tablePane!=null)remove(tablePane);
-            String mail=idGiver.getText();
+            String mail=idGiver.getSelectedValue().toString();
             JLabel nom,numTel,estbenevole,codePosal;
             nom=new JLabel(careGiverControl.getOtherName(mail));
-            nom.setBounds(getX()+15,searchButton.getY()+searchButton.getHeight()+20,50,20);
+            nom.setBounds(searchButton.getX()+searchButton.getWidth()+50,15,150,20);
             add(nom);
             numTel=new JLabel(careGiverControl.getOtherTel(mail));
             numTel.setBounds(nom.getX(),nom.getY()+nom.getHeight()+5,25,nom.getHeight());
@@ -72,7 +75,7 @@ public class SearchTaskByGiver extends JPanel {
                 ModelTable model = new ModelTable(careGiverControl.careDoneBy(mail));
                 JTable careTable = new JTable(model);
                 tablePane = new JScrollPane(careTable);
-                tablePane.setBounds(getX() + 15, searchButton.getY() + searchButton.getHeight() + 20, getWidth() - 30, 300);
+                tablePane.setBounds(getX() + 15, searchButton.getY() + codePosal.getHeight() + 20, getWidth() - 30, 300);
                 add(tablePane);
             } catch (BDConnexionError connexionError)
             {

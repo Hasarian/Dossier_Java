@@ -6,6 +6,7 @@ import DataAccess.SearchAnimalsBetweenDate;
 import Model.*;
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
+import uIController.CareGiverController;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
@@ -16,17 +17,19 @@ public class AnimalBusiness {
     private ArrayList<Animal> allAnimals;
     private static AnimalBusiness instance;
     private ListAnimalBusiness listBusiness;
-    private AnimalBusiness()throws BDConnexionError,ErrorNull{
+    private AnimalBusiness(ListAnimalBusiness listanimals)throws BDConnexionError,ErrorNull{
         research=new SearchAnimalsBetweenDate();
         allAnimals=new ArrayList<Animal>();
-        dbAcces=new AnimalDBAccess();
+        dbAcces=new AnimalDBAccess(this);
+        listBusiness=listanimals;
         dbAcces.readAllAnimals();
-        listBusiness=ListAnimalBusiness.obtenirAnimalBusiness();
     }
-    public static AnimalBusiness obtenirAnimalBusiness()
+    public static AnimalBusiness obtenirAnimalBusiness(ListAnimalBusiness listanimals)
     throws BDConnexionError,ErrorNull
     {
-        if(instance==null) instance=new AnimalBusiness();
+        if(instance==null)
+        {instance=new AnimalBusiness(listanimals);
+        }
         return instance;
     }
 
@@ -43,6 +46,7 @@ public class AnimalBusiness {
     throws ErrorNull
     {
         Animal newAnimal=new Animal(id,remarque,numCell,race,nom,dateArrivee,dateFin,estDangereux,etatAnimal,remarqueSoin,etatSoin,careGiver);
+        System.out.print(newAnimal+"\nfrom BD");
         if(getAnimal(id.toString())!=null) {
             allAnimals.remove(getAnimal(id.toString()));
             listBusiness.removeAnimal(id.toString());

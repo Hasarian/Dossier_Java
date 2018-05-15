@@ -44,7 +44,7 @@ public class ListEspeceBusiness
        {
            i++;
        }
-       if(i==especes.size()){
+       if(i==races.size()||races.size()==0){
            race=new Race(libelle,traitDeCaractere,tare,caracteristiquesDuMillieuDeVie,espece);
            races.add(race);
        }else race=races.get(i);

@@ -14,7 +14,7 @@ public class ListsControllerAnimal
 
     private ListsControllerAnimal(CareGiverController user) throws BDConnexionError, ErrorNull
     {
-        listAnimalBusiness =ListAnimalBusiness.obtenirAnimalBusiness();
+        listAnimalBusiness =ListAnimalBusiness.obtenirListAnimalBusiness(user);
     }
     public static ListsControllerAnimal obtenirListController(CareGiverController user) throws BDConnexionError,ErrorNull
     {

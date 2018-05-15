@@ -47,6 +47,7 @@ public class CareGiverController
     {
         ArrayList<SoinEffectue> soinsEffectués=business.getSoinsEffectues(mail);
         ArrayList<ArrayList<String>> data=new ArrayList<ArrayList<String>>();
+        if(soinsEffectués!=null)
         for (SoinEffectue soin:soinsEffectués) {
             /*"animal id",
                     "date / heure du soin rendu",
@@ -76,6 +77,13 @@ public class CareGiverController
             row.add(soin.getRemarque());
             data.add(row);
         }
+        else
+        {
+            ArrayList<String> nullrow=new ArrayList<String>();
+            for(int i=0;i<5;i++)
+            nullrow.add("pas de soin effectué");
+            data.add(nullrow);
+        }
         return data;
     }
     public String getOtherTel(String mail)
@@ -93,5 +101,12 @@ public class CareGiverController
     public String codePostal(String mail)
     {
         return business.getUserByMail(mail).getLocalite().getCodePostal()+" "+ business.getUserByMail(mail).getLocalite().getLibelle();
+    }
+    public String[] getallUsers()throws  BDConnexionError
+    {
+        ArrayList<String> allusers=business.getAllUsers();
+        String[] data=new String[allusers.size()];
+        for(int i=0;i<data.length;i++)data[i]=allusers.get(i);
+        return data;
     }
 }

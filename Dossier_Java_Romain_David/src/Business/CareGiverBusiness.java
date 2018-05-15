@@ -21,6 +21,7 @@ public class CareGiverBusiness {
 
     private CareGiverBusiness() throws BDConnexionError{
         setDaoCareGiver();
+        otherUsers=new ArrayList<CareGiver>();
     }
     public static CareGiverBusiness otebnirCareGiverBusiness() throws BDConnexionError
     {
@@ -71,6 +72,7 @@ public class CareGiverBusiness {
     }
     public CareGiver getUserByMail(String mail)
     {
+        if(mail==null)return null;
         if(isKnown(mail))
         {
             for (CareGiver user : otherUsers) {
@@ -98,12 +100,8 @@ public class CareGiverBusiness {
 
     public boolean isKnown(String mail)
     {
-
-        for (CareGiver user:otherUsers
-             )
-        {
-           if( user.getMail().equals(mail)) return true;
-        }
+            for (CareGiver user : otherUsers) {
+                if (user.getMail().equals(mail)) return true; }
         return currentUser.getMail().equals(mail);
     }
 
@@ -114,5 +112,8 @@ public class CareGiverBusiness {
         return acces.searchHistory(mail);
     }
 
+    public ArrayList<String> getAllUsers() throws BDConnexionError {
+        return daoCareGiver.readallMails();
+    }
 }
 

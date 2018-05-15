@@ -2,11 +2,13 @@ package DataAccess;
 
 import Business.AnimalBusiness;
 import Business.CareGiverBusiness;
+import Business.ListAnimalBusiness;
 import Business.ListEspeceBusiness;
 import DataAccess.DAO.DAOAnimal;
 import Model.*;
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
+import uIController.CareGiverController;
 
 import java.sql.*;
 import java.util.GregorianCalendar;
@@ -14,13 +16,14 @@ import java.util.GregorianCalendar;
 public class AnimalDBAccess implements DAOAnimal {
     private Connection connection;
     private AnimalBusiness business;
-    public AnimalDBAccess () throws BDConnexionError,ErrorNull{
+    public AnimalDBAccess (AnimalBusiness business) throws BDConnexionError,ErrorNull{
         connection = SingletonDB.getInstance();
-        business= AnimalBusiness.obtenirAnimalBusiness();
+        this.business=business;
     }
 
     @Override
     public Animal read(int id) throws ErrorNull,BDConnexionError {
+        business= AnimalBusiness.obtenirAnimalBusiness(ListAnimalBusiness.obtenirListAnimalBusiness(new CareGiverController()));
         String sql = "select * from ficheSoin, ficheAnimal, espece, race where ficheSoin = ? " +
                 "and ficheSoin.id = ficheAnimal.id and ficheAnimal.race = race.libelle and race.espece = espece.libelle";
         try{
@@ -37,15 +40,13 @@ public class AnimalDBAccess implements DAOAnimal {
         }
     }
     public void readAllAnimals() throws ErrorNull,BDConnexionError{
-
-
         try{
-            String sql = "select * from ficheSoin, ficheAnimal, espece, race where " +
-                    "ficheSoin.id = ficheAnimal.id and ficheAnimal.race = race.libelle and race.espece = espece.libelle";
+            String sql = "select * from ficheSoin, ficheAnimal, espece, race ";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet data = statement.executeQuery();
             while(data.next()) {
                 dataToAnimal(data);
+                System.out.println("data suivant");
             }
 
         }
@@ -76,29 +77,30 @@ public class AnimalDBAccess implements DAOAnimal {
         try {
             ListEspeceBusiness listEspeceBusiness =ListEspeceBusiness.obtenirEspeceBusiness();
 
-            //System.out.println(data.getString("espece.libelle"));
             String libelleEspece=(data.wasNull())?null:data.getString("espece.libelle");
             Boolean estEnVoieDeDisparition=(data.wasNull())?null:data.getBoolean("espece.estEnVoieDeDisparition");
-            String typeDeplacement=(data.wasNull())?null:data.getString("espece.typeDEDeplacement");
+            String typeDeplacement=(data.wasNull())?null:data.getString("espece.typeDEplacement");
             String milieuDeVie=(data.wasNull())?null:data.getString("espece.milieuDeVie");
             Espece espece= listEspeceBusiness.obtenirEspece(libelleEspece,estEnVoieDeDisparition,typeDeplacement,milieuDeVie);
-
+            System.out.println(libelleEspece);
 
             String libelleRace=(data.wasNull())?null:data.getString("race.libelle");
             String traitDeCaractere=(data.wasNull())?null:data.getString("race.traitDeCaractere");
             String caracteristiqueDuMilieuDeVie = (data.wasNull() ? null : data.getString("race.caracteristiqueDuMilieuDeVie"));
             String tare = (data.wasNull() ? null : data.getString("race.tare"));
             Race race= listEspeceBusiness.obtenirRace(libelleRace,traitDeCaractere,tare,caracteristiqueDuMilieuDeVie,espece);
+            System.out.println(libelleRace);
 
             Integer id = (data.wasNull())?null : data.getInt("ficheAnimal.id");
             String remarque=(data.wasNull())?null:data.getString("ficheAnimal.remarque");
-            Integer numCell = (data.wasNull())?null: data.getInt("ficheAnimal.numCell");
+            Integer numCell = (data.wasNull())?null: data.getInt("ficheAnimal.numCellule");
             String nom=(data.wasNull())?null:data.getString("ficheAnimal.nomAnimal");
             GregorianCalendar dateArrive = new GregorianCalendar();
-            GregorianCalendar dateDesces = new GregorianCalendar();
             dateArrive.setTime(data.getDate("ficheAnimal.dateArrive"));
-            dateDesces.setTime(data.getDate("ficheAnimal.dateDesces"));
-            Boolean estDangereux=(data.wasNull())?null:data.getBoolean("ficheAnimal.estDangereux");
+            GregorianCalendar dateDesces =(data.getDate("ficheAnimal.dateDesces")==null)?null: new GregorianCalendar();
+            if(dateDesces!=null) dateDesces.setTime(data.getDate("ficheAnimal.dateDesces"));
+            Boolean estDangereux=data.getBoolean("ficheAnimal.estDangereux");
+            System.out.println(data.getBoolean("ficheAnimal.estDangereux"));
             Animal.EtatSoin etatSoins = Animal.EtatSoin.values()[data.getInt("ficheSoin.etat")];
             Animal.EtatAnimal etatAnimal=Animal.EtatAnimal.values()[data.getInt("ficheAnimal.etat")];
 
@@ -108,10 +110,12 @@ public class AnimalDBAccess implements DAOAnimal {
             /*(Integer id, String remarque, Integer numCell, String nomAnimal, Race race, GregorianCalendar dateArrivee,
                                GregorianCalendar dateDeces, Boolean estDangereux, Animal.EtatAnimal etatAnimal, Animal.EtatSoin etatSoin,
                                String remarqueSoin, Animal.EtatSoin etatFicheSoin, CareGiver careGiver*/
+            System.out.println(nom);
             business.nouvelAnimalFromDB(id,remarque,numCell,nom,race,dateArrive,dateDesces,estDangereux,etatAnimal,remarqueSoin,etatSoins,userBusiness.getUserByMail(email));
 
         }
         catch(SQLException e){
+            System.out.println(e.getMessage());
             new BDConnexionError();
         }
     }

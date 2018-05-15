@@ -20,7 +20,7 @@ public class AnimalInfoFrame extends JFrame
         setBounds(500,200,500,500);
         setVisible(true);
     }
-    public AnimalInfoFrame()
+    /*public AnimalInfoFrame()
     {
         try {
             infoDisplayer = new AnimalInfoDisplayer();
@@ -35,7 +35,7 @@ public class AnimalInfoFrame extends JFrame
         {
             JOptionPane.showMessageDialog(null,error.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
         }
-    }
+    }*/
 
     private class AnimalInfoPanel extends JPanel
     {
