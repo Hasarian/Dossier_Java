@@ -32,7 +32,7 @@ public class AnimalDBAccess implements DAOAnimal {
             statement.setInt(1, id);
             ResultSet data = statement.executeQuery();
             dataToAnimal(data);
-            return business.getAnimal(data.getString("espece.libelle"));
+            return business.getAnimal(data.getInt("ficheAnimal.id"));
         }
 
         catch(SQLException e){

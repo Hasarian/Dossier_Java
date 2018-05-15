@@ -10,7 +10,7 @@ import java.awt.*;
 public class AnimalInfoFrame extends JFrame
 {
     AnimalInfoDisplayer infoDisplayer;
-    public AnimalInfoFrame(ListsControllerAnimal listControl,String idAnimal)
+    public AnimalInfoFrame(ListsControllerAnimal listControl,Integer idAnimal)
     {
          infoDisplayer=new AnimalInfoDisplayer(idAnimal,listControl);
          setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

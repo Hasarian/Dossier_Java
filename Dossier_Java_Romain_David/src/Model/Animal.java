@@ -117,7 +117,7 @@ public class Animal {
     }
 
     public String getNomAnimal(){return nomAnimal;}
-    public String getId(){return id.toString();}
+    public Integer getId(){return id;}
     public String getCellNumber(){return numCellule.toString();}
     public String getSpecies(){return race.toString();}
     public EtatSoin getEtatSoin(){return etatFicheSoin;}
@@ -148,5 +148,9 @@ public class Animal {
     public String getRemaqueSoin()
     {
         return remaqueSoin;
+    }
+
+    public Race getRace() {
+        return race;
     }
 }

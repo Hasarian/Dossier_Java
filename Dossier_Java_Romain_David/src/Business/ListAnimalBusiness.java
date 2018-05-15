@@ -45,11 +45,11 @@ public class ListAnimalBusiness {
     public ArrayList<Animal> getVetoPersonnalList(){ return vetoPersonnalList; }
 
 
-    public Animal getAnimal(String id)
+    public Animal getAnimal(Integer id)
     {
        return animalBusiness.getAnimal(id);
     }
-    public void removeAnimal(String id)
+    public void removeAnimal(Integer id)
     {
         Animal animal=getAnimal(id);
         if (animal.getEtatAnimal() != Animal.EtatAnimal.ARCHIVE) {

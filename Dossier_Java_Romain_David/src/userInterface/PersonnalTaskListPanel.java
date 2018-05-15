@@ -60,7 +60,7 @@ public class PersonnalTaskListPanel extends TaskListPanel
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                String id=getListController().getSelectedId(getTaskTable().getSelectedRow());
+                Integer id=Integer.parseInt(getListController().getSelectedId(getTaskTable().getSelectedRow()));
                 getParentPanel().getFrame().changePanel(new TaskPanel(id,getUser()));
             }
             catch (Exception error)

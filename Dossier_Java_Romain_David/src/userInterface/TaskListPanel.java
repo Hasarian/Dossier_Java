@@ -100,7 +100,7 @@ public class TaskListPanel extends JPanel
         @Override
         public void actionPerformed(ActionEvent e) {
             //System.out.println(getTaskTable().getValueAt(getTaskTable().getSelectedRow(),0));
-            String id= getTaskTable().getValueAt(getTaskTable().getSelectedRow(),1).toString();
+            Integer id= Integer.parseInt(getTaskTable().getValueAt(getTaskTable().getSelectedRow(),1).toString());
             AnimalInfoFrame info=new AnimalInfoFrame(listController,id);
             getTaskTable().clearSelection();
         }

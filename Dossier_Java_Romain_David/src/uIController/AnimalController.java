@@ -32,28 +32,25 @@ public class AnimalController {
     }
     public ArrayList<ArrayList<String>> getAnimalsBetweenDates(GregorianCalendar dateDebTemp,GregorianCalendar dateFinTemp) throws BDConnexionError,ErrorNull,InexistantCareGiver
     {
-        ArrayList<Vaccination> vaccinations =animalBusiness.getAnimalsBetweenDates(dateDebTemp,dateFinTemp);
+        ArrayList<Animal> animals =animalBusiness.getAnimalsBetweenDates(dateDebTemp,dateFinTemp);
         ArrayList<ArrayList<String>> data=new ArrayList<ArrayList<String>>();
-        for(Vaccination vaccination:vaccinations)
+        for(Animal animal:animals)
         {
+
             ArrayList<String> row=new ArrayList<String>();
-            /*"Nom", "est dangereux", "num cellule", "espece", "vaccin", "date vaccin", "date arrive"*/
-            row.add(vaccination.getAnimal().getNomAnimal());
-            if(vaccination.getAnimal().getEstDangereux()) row.add("oui");
+            /*"Nom", "est dangereux", "num cellule", "espece", "race", "date arrive"*/
+            row.add(animal.getNomAnimal());
+            if(animal.getEstDangereux()) row.add("oui");
             else row.add("non");
-            row.add(vaccination.getAnimal().getCellNumber());
-            row.add(vaccination.getAnimal().getSpecies());
-            row.add(vaccination.getNumVaccin().getLibelle());
+            row.add(animal.getCellNumber());
+            row.add(animal.getSpecies());
+            row.add(animal.getRace().getLibelle());
             String date=new String();
-            date+=vaccination.getDate().get(Calendar.DAY_OF_MONTH)+"/";
-            date+=vaccination.getDate().get(Calendar.MONTH)+"/";
-            date+=vaccination.getDate().get(Calendar.YEAR);
+            date+=animal.getDateArrive().get(Calendar.DAY_OF_MONTH)+"/";
+            date+=animal.getDateArrive().get(Calendar.MONTH)+"/";
+            date+=animal.getDateArrive().get(Calendar.YEAR);
             row.add(date);
-            date=new String();
-            date+=vaccination.getAnimal().getDateArrive().get(Calendar.DAY_OF_MONTH)+"/";
-            date+=vaccination.getAnimal().getDateArrive().get(Calendar.MONTH)+"/";
-            date+=vaccination.getAnimal().getDateArrive().get(Calendar.YEAR);
-            row.add(date);
+
             data.add(row);
         }
         return data;

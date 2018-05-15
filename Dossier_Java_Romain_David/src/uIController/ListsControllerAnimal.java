@@ -29,7 +29,7 @@ public class ListsControllerAnimal
             case 0:
                 return animal.getNomAnimal();
             case 1:
-                return animal.getId();
+                return animal.getId().toString();
             case 2:
                 return animal.getCellNumber();
             case 3:
@@ -57,7 +57,7 @@ public class ListsControllerAnimal
         {
             ArrayList<String> row=new ArrayList<String>();
             row.add(animal.getNomAnimal());
-            row.add(animal.getId());
+            row.add(animal.getId().toString());
             row.add(animal.getCellNumber());
             row.add(animal.getSpecies());
             data.add(row);
@@ -84,43 +84,43 @@ public class ListsControllerAnimal
     }
     public String getAvailbleId(int index)
     {
-        return listAnimalBusiness.getAvailableList().get(index).getId();
+        return listAnimalBusiness.getAvailableList().get(index).getId().toString();
     }
     public String getVetoAvailbleId(int index)
     {
-        return listAnimalBusiness.getVetoAvailableList().get(index).getId();
+        return listAnimalBusiness.getVetoAvailableList().get(index).getId().toString();
     }
     public String getVetoSelectedId(int index)
     {
-        return listAnimalBusiness.getVetoPersonnalList().get(index).getId();
+        return listAnimalBusiness.getVetoPersonnalList().get(index).getId().toString();
     }
     public String getSelectedId(int index)
     {
-        return listAnimalBusiness.getPersonnalList().get(index).getId();
+        return listAnimalBusiness.getPersonnalList().get(index).getId().toString();
     }
     public void selectVetoTask(Integer id) throws ErrorNull
     {
-        Animal selected=listAnimalBusiness.getAnimal(id.toString());
+        Animal selected=listAnimalBusiness.getAnimal(id);
         listAnimalBusiness.updateEtatFicheSoin(selected, Animal.EtatSoin.VETORESERVEE);
     }
     public void selectTask(Integer id) throws ErrorNull
     {
-        Animal selected=listAnimalBusiness.getAnimal(id.toString());
+        Animal selected=listAnimalBusiness.getAnimal(id);
         listAnimalBusiness.updateEtatFicheSoin(selected, Animal.EtatSoin.RESERVEE);
     }
     public void unselectVetoTask(Integer id) throws ErrorNull
     {
-        Animal selected=listAnimalBusiness.getAnimal(id.toString());
+        Animal selected=listAnimalBusiness.getAnimal(id);
         listAnimalBusiness.updateEtatFicheSoin(selected,Animal.EtatSoin.VETODISPO);
         listAnimalBusiness.ajoutAnimal(selected);
     }
     public void unselectTask(Integer id) throws ErrorNull
     {
-        Animal selected=listAnimalBusiness.getAnimal(id.toString());
+        Animal selected=listAnimalBusiness.getAnimal(id);
        listAnimalBusiness.updateEtatFicheSoin(selected,Animal.EtatSoin.DISPONIBLE);
        listAnimalBusiness.ajoutAnimal(selected);
     }
-    public Animal getanimal(String id)
+    public Animal getanimal(Integer id)
     {
         return listAnimalBusiness.getAnimal(id);
     }
