@@ -22,27 +22,25 @@ public class Espece {
         setTypeDeDeplacement("à pattes");
     }
 
-    public void setEstEnVoieDeDisparition(Boolean estEnVoieDeDisparition) throws ErrorNull {
-        if(estEnVoieDeDisparition != null)
-            this.estEnVoieDeDisparition = estEnVoieDeDisparition;
+    public void setEstEnVoieDeDisparition(Boolean estEnVoieDeDisparitionArg) throws ErrorNull {
+        if(estEnVoieDeDisparitionArg != null)
+            this.estEnVoieDeDisparition = estEnVoieDeDisparitionArg;
         else throw new ErrorNull();
     }
 
-    public void setLibelle(String libelle) throws ErrorNull{
-        if(estEnVoieDeDisparition != null)
-            this.libelle = libelle;
+    public void setLibelle(String libelleArg) throws ErrorNull{
+        if(libelleArg != null)
+            this.libelle = libelleArg;
         else throw new ErrorNull("libelle de modele Espece");
     }
 
-    public void setMilieuDeVie(String milieuDeVie) throws ErrorNull {
-        if(estEnVoieDeDisparition != null)
-            this.milieuDeVie = milieuDeVie;
-        else throw new ErrorNull("milieuDeVie du modele Espece");
+    public void setMilieuDeVie(String milieuDeVieArg) throws ErrorNull {
+            this.milieuDeVie = milieuDeVieArg;
     }
 
-    public void setTypeDeDeplacement(String typeDeDeplacement) throws ErrorNull {
-        if(estEnVoieDeDisparition != null)
-            this.typeDeDeplacement = typeDeDeplacement;
+    public void setTypeDeDeplacement(String typeDeDeplacementArg) throws ErrorNull {
+        if(typeDeDeplacementArg != null)
+            this.typeDeDeplacement = typeDeDeplacementArg;
         else throw new ErrorNull("typeDeDeplacement du modele espece");
     }
 

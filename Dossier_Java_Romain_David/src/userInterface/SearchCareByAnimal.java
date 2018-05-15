@@ -42,13 +42,13 @@ public class SearchCareByAnimal extends JPanel
         private class ConfirmeButtonListener implements ActionListener
         {
             public void actionPerformed(ActionEvent e) {
-                try {
+                //try {
                     if(resultat!=null) remove(resultat);
                     String stringAnimal =(String) animals.getSelectedValue();
                     int indexDebId = stringAnimal.indexOf("(") + 1;
                     int indexFinId = stringAnimal.indexOf(")") - 1;
                     int id = Integer.parseInt(stringAnimal.substring(indexDebId, indexFinId));
-                    SearchAnimal.ModelTable model = new SearchAnimal.ModelTable(animalController.getAnimal(id));
+                    /*SearchAnimal.ModelTable model = new SearchAnimal.ModelTable(animalController.getAnimal(id));
                     resultat = new JTable(model);
                     resultat.setBounds(25, 85, 500, 500);
                     add(resultat);
@@ -61,7 +61,7 @@ public class SearchCareByAnimal extends JPanel
                 catch(ErrorNull errorNull)
                 {
                     JOptionPane.showMessageDialog(null, errorNull.getMessage(), "db access error", JOptionPane.ERROR_MESSAGE);
-                }
+                }*/
             }
         }
         private class ModelTable extends AbstractTableModel

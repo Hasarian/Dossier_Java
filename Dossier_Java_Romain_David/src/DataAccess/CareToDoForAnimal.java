@@ -35,13 +35,14 @@ public class CareToDoForAnimal {
           ResultSet data = statement.executeQuery();
 
           while (data.next()){
-              data.getInt("ficheSoin.id")
+              data.getInt("ficheSoin.id");
           }
       }
       catch(SQLException sqlException) {
           JOptionPane.showMessageDialog(null,sqlException.getMessage(),"Attribut obligatoir non rempli",JOptionPane.ERROR_MESSAGE);
           throw new BDConnexionError();
       }
+      return soinMedicals;
     }
 
 

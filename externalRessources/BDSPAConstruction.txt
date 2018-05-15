@@ -193,7 +193,7 @@ values(1,
 str_to_date('01/01/2018','%e/%m/%Y'),
 null,
 false,
-2
+0
 );
 insert into race
 values("pitbull",
@@ -243,10 +243,11 @@ false,
 );
 
 insert into ficheSoin
+values(3,"sert au test",0,null);
+insert into ficheSoin
 values(0000000001,"sert au test",0,null);
 insert into modificationSoin
 values(0000000001, Str_to_date('30-03-1995','%e-%m-%Y'),"demoustiez.romain@spa.be",0000000001);
 
-
-insert into soinEffectue
-values("servais.david@spa.be",Str_to_date('6-01-2017 11:55:23','%d-%m-%Y %H:%i:%s'),0000000001,2);
+insert into fichesoin
+values(2,"sert au test",0,null);
