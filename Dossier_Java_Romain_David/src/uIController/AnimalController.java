@@ -17,6 +17,18 @@ public class AnimalController {
     public  AnimalController()throws BDConnexionError, ErrorNull{
         animalBusiness = AnimalBusiness.obtenirAnimalBusiness(ListAnimalBusiness.obtenirListAnimalBusiness(new CareGiverController()));
     }
+    public String[] getStringAnimals(){
+        String[] animals= new String[animalBusiness.getAllAnimals().size()];
+        int i = 0;
+        for (Animal animal: animalBusiness.getAllAnimals()) {
+            animals[i] = animal.getNomAnimal()+"(id:"+animal.getId()+")";
+            i++;
+        }
+        return animals;
+    }
+    public Animal getAnimal(int id ) throws BDConnexionError, ErrorNull {
+        return animalBusiness.getAnimalFromBD(id);
+    }
     public ArrayList<ArrayList<String>> getAnimalsBetweenDates(GregorianCalendar dateDebTemp,GregorianCalendar dateFinTemp) throws BDConnexionError,ErrorNull
     {
         ArrayList<Vaccination> vaccinations =animalBusiness.getAnimalsBetweenDates(dateDebTemp,dateFinTemp);
