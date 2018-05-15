@@ -9,17 +9,17 @@ import java.util.GregorianCalendar;
 public class AnimalInfoDisplayer
 {
     Animal animal;
-    public AnimalInfoDisplayer(String animalId,ListsControllerAnimal list){this.animal=list.getanimal(animalId);}
-    /*public AnimalInfoDisplayer() throws ErrorNull
-    {
-        animal=new Animal();
-    }*/
+    public AnimalInfoDisplayer(String animalId,ListsControllerAnimal list){
+
+        this.animal=list.getanimal(animalId);
+    }
     public String getNom()
     {
         return animal.getNomAnimal();
     }
     public String getAnimalId()
     {
+       //System.out.println(animal);
         return animal.getId();
     }
     public String getRemarque()
@@ -48,7 +48,7 @@ public class AnimalInfoDisplayer
     {
         GregorianCalendar date=animal.getDateDesces();
         String retour = new String();
-        if(date==null) {
+        if(date!=null) {
 
             retour += date.get(Calendar.DAY_OF_MONTH) + "/";
             retour += date.get(Calendar.MONTH) + "/";
