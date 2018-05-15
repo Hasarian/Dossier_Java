@@ -4,6 +4,7 @@ import Business.ListAnimalBusiness;
 import Model.Animal;
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
+import erreurs.InexistantCareGiver;
 
 import java.util.ArrayList;
 
@@ -12,11 +13,11 @@ public class ListsControllerAnimal
     private static ListsControllerAnimal instance;
     private ListAnimalBusiness listAnimalBusiness;
 
-    private ListsControllerAnimal(CareGiverController user) throws BDConnexionError, ErrorNull
+    private ListsControllerAnimal(CareGiverController user) throws BDConnexionError, ErrorNull, InexistantCareGiver
     {
         listAnimalBusiness =ListAnimalBusiness.obtenirListAnimalBusiness(user);
     }
-    public static ListsControllerAnimal obtenirListController(CareGiverController user) throws BDConnexionError,ErrorNull
+    public static ListsControllerAnimal obtenirListController(CareGiverController user) throws BDConnexionError,ErrorNull,InexistantCareGiver
     {
         if(instance==null)instance=new ListsControllerAnimal(user);
         return instance;

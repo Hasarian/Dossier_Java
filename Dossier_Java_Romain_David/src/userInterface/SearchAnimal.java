@@ -4,6 +4,7 @@ import Model.CareGiver;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
+import erreurs.InexistantCareGiver;
 import uIController.AnimalController;
 
 import javax.swing.*;
@@ -22,7 +23,7 @@ public class SearchAnimal extends JPanel {
     private JButton confirmer;
     private AnimalController animalController;
 
-    public SearchAnimal() throws BDConnexionError,ErrorNull{
+    public SearchAnimal() throws BDConnexionError,ErrorNull, InexistantCareGiver{
         setLayout(null);
         setBackground(Color.WHITE);
         animalController = new AnimalController();
@@ -72,6 +73,10 @@ public class SearchAnimal extends JPanel {
 			catch(ErrorNull errorNull)
             {
                 JOptionPane.showMessageDialog(null, errorNull.getMessage(), "db access error", JOptionPane.ERROR_MESSAGE);
+            }
+            catch(InexistantCareGiver unknown)
+            {
+                JOptionPane.showMessageDialog(null,unknown.getMessage(),"unknown member",JOptionPane.ERROR_MESSAGE);
             }
         }
     }

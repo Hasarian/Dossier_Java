@@ -7,6 +7,7 @@ import Model.CareGiver;
 import Model.Race;
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
+import erreurs.InexistantCareGiver;
 import uIController.CareGiverController;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class ListAnimalBusiness {
     private AnimalBusiness animalBusiness;
     private static ListAnimalBusiness instance;
     private CareGiverController user;
-    private ListAnimalBusiness(CareGiverController user) throws BDConnexionError,ErrorNull {
+    private ListAnimalBusiness(CareGiverController user) throws BDConnexionError,ErrorNull, InexistantCareGiver {
         this.user=user;
         availableList=new ArrayList<Animal>();
         personnalList=new ArrayList<Animal>();
@@ -27,7 +28,7 @@ public class ListAnimalBusiness {
         vetoPersonnalList=(user.isVeto())?new ArrayList<Animal>():null;
         animalBusiness=AnimalBusiness.obtenirAnimalBusiness(this);
     }
-    public static ListAnimalBusiness obtenirListAnimalBusiness(CareGiverController user)throws  BDConnexionError,ErrorNull
+    public static ListAnimalBusiness obtenirListAnimalBusiness(CareGiverController user)throws  BDConnexionError,ErrorNull,InexistantCareGiver
     {
         if(instance==null) instance=new ListAnimalBusiness(user);
         return instance;

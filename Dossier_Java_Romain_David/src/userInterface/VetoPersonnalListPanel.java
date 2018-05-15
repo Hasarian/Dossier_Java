@@ -2,6 +2,7 @@ package userInterface;
 
 import Model.Animal;
 import erreurs.ErrorNull;
+import erreurs.InexistantCareGiver;
 import uIController.CareGiverController;
 
 import javax.swing.*;
@@ -9,7 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class VetoPersonnalListPanel extends TaskListPanel {
-    public VetoPersonnalListPanel(DashBoardPane parentPanel, CareGiverController user) {
+    public VetoPersonnalListPanel(DashBoardPane parentPanel, CareGiverController user) throws InexistantCareGiver{
         super(parentPanel, user);
         TaskTableModel model = new TaskTableModel(Animal.EtatSoin.VETORESERVEE);
         setTaskTable( new JTable(model));

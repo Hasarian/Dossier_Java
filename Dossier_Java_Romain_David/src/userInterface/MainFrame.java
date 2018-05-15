@@ -2,6 +2,7 @@ package userInterface;
 
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
+import erreurs.InexistantCareGiver;
 import uIController.CareGiverController;
 
 import javax.swing.*;
@@ -20,7 +21,7 @@ public class MainFrame extends JFrame
     private MainFrame thisFrame;
     private CareGiverController user;
 
-    public MainFrame(CareGiverController loggedIn) throws BDConnexionError,ErrorNull
+    public MainFrame(CareGiverController loggedIn) throws BDConnexionError,ErrorNull, InexistantCareGiver
     {
         user=loggedIn;
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -111,8 +112,15 @@ public class MainFrame extends JFrame
     {
         public void actionPerformed(ActionEvent e)
         {
+            try {
+
                 SearchCareByAnimal newPanel = new SearchCareByAnimal();
                 changePanel(newPanel);
+            }
+            catch (InexistantCareGiver inexistantCareGiver)
+            {
+                JOptionPane.showMessageDialog(null,inexistantCareGiver.getMessage(),"unkown member",JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
     private class ToTaskSearchListener implements ActionListener
@@ -143,6 +151,10 @@ public class MainFrame extends JFrame
             catch (ErrorNull errorNull)
             {
                 JOptionPane.showMessageDialog(null,errorNull.getMessage(),"argument invalide",JOptionPane.ERROR_MESSAGE);
+            }
+            catch (InexistantCareGiver loginError)
+            {
+                JOptionPane.showMessageDialog(null,loginError.getMessage(),"unknown login",JOptionPane.ERROR_MESSAGE);
             }
         }
     }

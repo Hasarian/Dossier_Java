@@ -2,6 +2,7 @@ package userInterface;
 
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
+import erreurs.InexistantCareGiver;
 import uIController.AnimalController;
 
 import javax.swing.*;
@@ -20,7 +21,7 @@ public class SearchCareByAnimal extends JPanel
     JTable resultat;
     JButton confirmer;
 
-    public SearchCareByAnimal() {
+    public SearchCareByAnimal() throws InexistantCareGiver {
         try {
             animalController = new AnimalController();
             idAnimal = new JLabel("ID de l'animal dont vous voulez voir les soins :");

@@ -3,6 +3,7 @@ package userInterface;
 import Model.Animal;
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
+import erreurs.InexistantCareGiver;
 import uIController.CareGiverController;
 import uIController.ListsControllerAnimal;
 
@@ -56,7 +57,7 @@ public class TaskListPanel extends JPanel
         return openFile;
     }
 
-    public TaskListPanel(DashBoardPane parentPanel, CareGiverController user)
+    public TaskListPanel(DashBoardPane parentPanel, CareGiverController user) throws InexistantCareGiver
     {
         this.user=user;
         try {
@@ -78,12 +79,12 @@ public class TaskListPanel extends JPanel
 
 
         openFile = new JButton("consult");
-        openFile.setBounds(20, this.getY()+this.getHeight()-100, 200, 60);
+        openFile.setBounds(20, 400, 200, 60);
         openFile.addActionListener(new ConsultListener());
         add(openFile);
 
         infoLabel=new JLabel("use click to select then click a button below to act");
-        infoLabel.setBounds(this.getX(),openFile.getY()-(openFile.getHeight()*3),350,15);
+        infoLabel.setBounds(this.getX(),openFile.getY()-(openFile.getHeight()),350,15);
         infoLabel2=new JLabel("use ctrl+click to select multiple tasks");
         infoLabel2.setBounds(infoLabel.getX(),infoLabel.getY()+infoLabel.getHeight(),infoLabel.getWidth(),infoLabel.getHeight());
         infoLabel3=new JLabel("use shift+click to select all the tasks between two selections");

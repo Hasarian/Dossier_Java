@@ -70,7 +70,7 @@ public class CareGiverBusiness {
     {
         return currentUser instanceof Veterinaire ;
     }
-    public CareGiver getUserByMail(String mail)
+    public CareGiver getUserByMail(String mail) throws InexistantCareGiver,BDConnexionError,ErrorNull
     {
         if(mail==null)return null;
         if(isKnown(mail))
@@ -82,7 +82,7 @@ public class CareGiverBusiness {
         }
         else
             {
-                CareGiver user=new CareGiver(mail);
+                CareGiver user= daoCareGiver.read(mail);
                 otherUsers.add(user);
                 return user;
             }

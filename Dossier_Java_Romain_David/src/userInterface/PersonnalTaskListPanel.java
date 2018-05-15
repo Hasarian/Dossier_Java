@@ -2,6 +2,7 @@ package userInterface;
 
 import Model.Animal;
 import erreurs.ErrorNull;
+import erreurs.InexistantCareGiver;
 import uIController.CareGiverController;
 
 import javax.swing.*;
@@ -11,7 +12,7 @@ import java.awt.event.ActionListener;
 public class PersonnalTaskListPanel extends TaskListPanel
 {
     PersonnalTaskListPanel thisPanel;
-    public PersonnalTaskListPanel(DashBoardPane parentPanel, CareGiverController user) {
+    public PersonnalTaskListPanel(DashBoardPane parentPanel, CareGiverController user) throws InexistantCareGiver{
         super(parentPanel, user);
         thisPanel=this;
         TaskTableModel model = new TaskTableModel(Animal.EtatSoin.RESERVEE);

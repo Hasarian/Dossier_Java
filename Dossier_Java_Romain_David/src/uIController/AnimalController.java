@@ -6,6 +6,7 @@ import Model.Animal;
 import Model.Vaccination;
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
+import erreurs.InexistantCareGiver;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -14,7 +15,7 @@ import java.util.GregorianCalendar;
 public class AnimalController {
     private AnimalBusiness animalBusiness;
 
-    public  AnimalController()throws BDConnexionError, ErrorNull{
+    public  AnimalController()throws BDConnexionError, ErrorNull, InexistantCareGiver{
         animalBusiness = AnimalBusiness.obtenirAnimalBusiness(ListAnimalBusiness.obtenirListAnimalBusiness(new CareGiverController()));
     }
     public String[] getStringAnimals(){
@@ -26,10 +27,10 @@ public class AnimalController {
         }
         return animals;
     }
-    public Animal getAnimal(int id ) throws BDConnexionError, ErrorNull {
+    public Animal getAnimal(int id ) throws BDConnexionError, ErrorNull,InexistantCareGiver {
         return animalBusiness.getAnimalFromBD(id);
     }
-    public ArrayList<ArrayList<String>> getAnimalsBetweenDates(GregorianCalendar dateDebTemp,GregorianCalendar dateFinTemp) throws BDConnexionError,ErrorNull
+    public ArrayList<ArrayList<String>> getAnimalsBetweenDates(GregorianCalendar dateDebTemp,GregorianCalendar dateFinTemp) throws BDConnexionError,ErrorNull,InexistantCareGiver
     {
         ArrayList<Vaccination> vaccinations =animalBusiness.getAnimalsBetweenDates(dateDebTemp,dateFinTemp);
         ArrayList<ArrayList<String>> data=new ArrayList<ArrayList<String>>();

@@ -86,19 +86,19 @@ public class CareGiverController
         }
         return data;
     }
-    public String getOtherTel(String mail)
+    public String getOtherTel(String mail) throws InexistantCareGiver,BDConnexionError,ErrorNull
     {
         return business.getUserByMail(mail).getNumTel().toString();
     }
-    public String getOtherName(String mail)
+    public String getOtherName(String mail) throws InexistantCareGiver,ErrorNull,BDConnexionError
     {
         return business.getUserByMail(mail).getFirstName()+" "+business.getUserByMail(mail).getName();
     }
-    public String estBenevole(String mail)
+    public String estBenevole(String mail) throws InexistantCareGiver,ErrorNull,BDConnexionError
     {
         return(business.getUserByMail(mail).getEstBenevole())?"(bénévole)":"(salarié)";
     }
-    public String codePostal(String mail)
+    public String codePostal(String mail) throws InexistantCareGiver,ErrorNull,BDConnexionError
     {
         return business.getUserByMail(mail).getLocalite().getCodePostal()+" "+ business.getUserByMail(mail).getLocalite().getLibelle();
     }

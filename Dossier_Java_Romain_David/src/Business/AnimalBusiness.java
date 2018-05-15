@@ -6,6 +6,7 @@ import DataAccess.SearchAnimalsBetweenDate;
 import Model.*;
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
+import erreurs.InexistantCareGiver;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
@@ -16,7 +17,7 @@ public class AnimalBusiness {
     private ArrayList<Animal> allAnimals;
     private static AnimalBusiness instance;
     private ListAnimalBusiness listBusiness;
-    private AnimalBusiness(ListAnimalBusiness listanimals)throws BDConnexionError,ErrorNull{
+    private AnimalBusiness(ListAnimalBusiness listanimals)throws BDConnexionError,ErrorNull, InexistantCareGiver{
         research=new SearchAnimalsBetweenDate();
         allAnimals=new ArrayList<Animal>();
         dbAcces=new AnimalDBAccess(this);
@@ -24,7 +25,7 @@ public class AnimalBusiness {
         dbAcces.readAllAnimals();
     }
     public static AnimalBusiness obtenirAnimalBusiness(ListAnimalBusiness listanimals)
-    throws BDConnexionError,ErrorNull
+    throws BDConnexionError,ErrorNull,InexistantCareGiver
     {
         if(instance==null)
         {instance=new AnimalBusiness(listanimals);
@@ -40,7 +41,7 @@ public class AnimalBusiness {
         }
         return null;
     }
-    public Animal getAnimalFromBD(Integer id) throws ErrorNull, BDConnexionError{
+    public Animal getAnimalFromBD(Integer id) throws ErrorNull, BDConnexionError,InexistantCareGiver{
         return dbAcces.read(id);
     }
     public void nouvelAnimalFromDB(Integer id, String remarque, Integer numCell, String nom, Race race, GregorianCalendar dateArrivee, GregorianCalendar dateFin,
@@ -83,7 +84,7 @@ public class AnimalBusiness {
     {
         dbAcces.update(animal);
     }
-    public ArrayList<Vaccination> getAnimalsBetweenDates(GregorianCalendar dateDebut,GregorianCalendar dateFin) throws BDConnexionError,ErrorNull
+    public ArrayList<Vaccination> getAnimalsBetweenDates(GregorianCalendar dateDebut,GregorianCalendar dateFin) throws BDConnexionError,ErrorNull,InexistantCareGiver
     {
         return (new SearchAnimalsBetweenDate()).readAnimalsbetweenDates(dateDebut,dateFin);
     }

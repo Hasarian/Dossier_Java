@@ -7,6 +7,7 @@ import Business.ListEspeceBusiness;
 import Model.*;
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
+import erreurs.InexistantCareGiver;
 import uIController.CareGiverController;
 
 import javax.tools.JavaCompiler;
@@ -24,7 +25,7 @@ public class SearchAnimalsBetweenDate {
         connection = SingletonDB.getInstance();
     }
 
-    public ArrayList<Vaccination> readAnimalsbetweenDates(GregorianCalendar dateDeb, GregorianCalendar dateFin) throws ErrorNull,BDConnexionError {
+    public ArrayList<Vaccination> readAnimalsbetweenDates(GregorianCalendar dateDeb, GregorianCalendar dateFin) throws ErrorNull,BDConnexionError,InexistantCareGiver {
         ArrayList<Vaccination> resultSearch = new ArrayList<Vaccination>();
         try {
             //changer la date recherchée
@@ -50,7 +51,7 @@ public class SearchAnimalsBetweenDate {
         return resultSearch;
     }
 
-    public Vaccination traductionSQL(ResultSet data) throws SQLException, ErrorNull,BDConnexionError
+    public Vaccination traductionSQL(ResultSet data) throws SQLException, ErrorNull,BDConnexionError, InexistantCareGiver
     {
         listeEspece = ListEspeceBusiness.obtenirEspeceBusiness();
         careGiverBusiness = CareGiverBusiness.otebnirCareGiverBusiness();

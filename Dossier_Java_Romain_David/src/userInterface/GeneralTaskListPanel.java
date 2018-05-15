@@ -2,6 +2,7 @@ package userInterface;
 
 import Model.Animal;
 import erreurs.ErrorNull;
+import erreurs.InexistantCareGiver;
 import sun.security.util.Length;
 import uIController.CareGiverController;
 
@@ -10,8 +11,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class GeneralTaskListPanel extends TaskListPanel {
-    public GeneralTaskListPanel(DashBoardPane parentPanel, CareGiverController user) {
+public class GeneralTaskListPanel extends TaskListPanel
+{
+    public GeneralTaskListPanel(DashBoardPane parentPanel, CareGiverController user) throws InexistantCareGiver {
         super(parentPanel,user);
 
         TaskTableModel model = new TaskTableModel(Animal.EtatSoin.DISPONIBLE);
@@ -34,13 +36,19 @@ public class GeneralTaskListPanel extends TaskListPanel {
     private class SelectListener implements ActionListener {
 
         @Override
-        public void actionPerformed(ActionEvent e) {
-            if(getListController().personnalListIsNull())getParentPanel().insertTab(new PersonnalTaskListPanel(getParentPanel(),getUser()),"personnal list");
-            int[] selectedRows=getTaskTable().getSelectedRows();
+        public void actionPerformed(ActionEvent e)
+        {
+
             try {
+                if(getListController().personnalListIsNull())getParentPanel().insertTab(new PersonnalTaskListPanel(getParentPanel(),getUser()),"personnal list");
+                int[] selectedRows=getTaskTable().getSelectedRows();
                 for (int i : selectedRows) {
                     getListController().selectTask(new Integer(getListController().getAvailbleId(i)));
                 }
+            }
+            catch(InexistantCareGiver notFoundError)
+            {
+                JOptionPane.showMessageDialog(null,notFoundError.getMessage(),"member not found",JOptionPane.ERROR_MESSAGE);
             }
             catch (ErrorNull error)
             {

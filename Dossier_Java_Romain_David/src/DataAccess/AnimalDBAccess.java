@@ -8,6 +8,7 @@ import DataAccess.DAO.DAOAnimal;
 import Model.*;
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
+import erreurs.InexistantCareGiver;
 import uIController.CareGiverController;
 
 import java.sql.*;
@@ -22,7 +23,7 @@ public class AnimalDBAccess implements DAOAnimal {
     }
 
     @Override
-    public Animal read(int id) throws ErrorNull,BDConnexionError {
+    public Animal read(int id) throws ErrorNull,BDConnexionError,InexistantCareGiver {
         business= AnimalBusiness.obtenirAnimalBusiness(ListAnimalBusiness.obtenirListAnimalBusiness(new CareGiverController()));
         String sql = "select * from ficheSoin, ficheAnimal, espece, race where ficheSoin = ? " +
                 "and ficheSoin.id = ficheAnimal.id and ficheAnimal.race = race.libelle and race.espece = espece.libelle";
@@ -39,7 +40,7 @@ public class AnimalDBAccess implements DAOAnimal {
             return null;
         }
     }
-    public void readAllAnimals() throws ErrorNull,BDConnexionError{
+    public void readAllAnimals() throws ErrorNull,BDConnexionError, InexistantCareGiver{
         try{
             String sql = "select * from ficheanimal,fichesoin,race,espece\n" +
                     "where fichesoin.id=ficheanimal.id and ficheanimal.race=race.libelle and ficheanimal.race=race.libelle and espece.libelle=race.espece; ";
@@ -73,7 +74,7 @@ public class AnimalDBAccess implements DAOAnimal {
 
     }
 
-    private void dataToAnimal(ResultSet data)throws ErrorNull,BDConnexionError{
+    private void dataToAnimal(ResultSet data)throws ErrorNull,BDConnexionError, InexistantCareGiver{
         CareGiverBusiness userBusiness=CareGiverBusiness.otebnirCareGiverBusiness();
         try {
                 ListEspeceBusiness listEspeceBusiness = ListEspeceBusiness.obtenirEspeceBusiness();

@@ -2,6 +2,7 @@ package userInterface;
 
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
+import erreurs.InexistantCareGiver;
 import uIController.CareGiverController;
 import uIController.ListsControllerAnimal;
 
@@ -20,7 +21,7 @@ public class DashBoardPane extends JPanel {
     }
     public MainFrame getFrame(){return frame;}
 
-    public DashBoardPane(MainFrame frame, CareGiverController user) throws ErrorNull, BDConnexionError {
+    public DashBoardPane(MainFrame frame, CareGiverController user) throws ErrorNull, BDConnexionError, InexistantCareGiver {
         setLayout(null);
         //setBounds(0,400,500,500);
         this.frame = frame;

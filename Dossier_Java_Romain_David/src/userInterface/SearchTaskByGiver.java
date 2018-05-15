@@ -2,6 +2,8 @@ package userInterface;
 
 import Model.CareGiver;
 import erreurs.BDConnexionError;
+import erreurs.ErrorNull;
+import erreurs.InexistantCareGiver;
 import uIController.CareGiverController;
 
 import javax.swing.*;
@@ -53,34 +55,41 @@ public class SearchTaskByGiver extends JPanel {
     }
     private class SearchListener implements ActionListener
     {
-        public void actionPerformed(ActionEvent e)
-        {
-            if(tablePane!=null)remove(tablePane);
-            String mail=idGiver.getSelectedValue().toString();
-            JLabel nom,numTel,estbenevole,codePosal;
-            nom=new JLabel(careGiverControl.getOtherName(mail));
-            nom.setBounds(searchButton.getX()+searchButton.getWidth()+50,15,150,20);
-            add(nom);
-            numTel=new JLabel(careGiverControl.getOtherTel(mail));
-            numTel.setBounds(nom.getX(),nom.getY()+nom.getHeight()+5,25,nom.getHeight());
-            add(numTel);
-            estbenevole=new JLabel(careGiverControl.estBenevole(mail));
-            estbenevole.setBounds(nom.getX()+nom.getWidth(),nom.getY(),nom.getWidth(),nom.getHeight());
-            add(estbenevole);
-            codePosal=new JLabel(careGiverControl.codePostal(mail));
-            codePosal.setBounds(numTel.getX()+numTel.getWidth()+15,numTel.getY(),50,20);
-            add(codePosal);
-
+        public void actionPerformed(ActionEvent e) {
             try {
+
+                if (tablePane != null) remove(tablePane);
+                String mail = idGiver.getSelectedValue().toString();
+                JLabel nom, numTel, estbenevole, codePosal;
+                nom = new JLabel(careGiverControl.getOtherName(mail));
+                nom.setBounds(searchButton.getX() + searchButton.getWidth() + 50, 15, 150, 20);
+                add(nom);
+                numTel = new JLabel(careGiverControl.getOtherTel(mail));
+                numTel.setBounds(nom.getX(), nom.getY() + nom.getHeight() + 5, 25, nom.getHeight());
+                add(numTel);
+                estbenevole = new JLabel(careGiverControl.estBenevole(mail));
+                estbenevole.setBounds(nom.getX() + nom.getWidth(), nom.getY(), nom.getWidth(), nom.getHeight());
+                add(estbenevole);
+                codePosal = new JLabel(careGiverControl.codePostal(mail));
+                codePosal.setBounds(numTel.getX() + numTel.getWidth() + 15, numTel.getY(), 50, 20);
+                add(codePosal);
                 ModelTable model = new ModelTable(careGiverControl.careDoneBy(mail));
                 JTable careTable = new JTable(model);
                 tablePane = new JScrollPane(careTable);
                 tablePane.setBounds(getX() + 15, searchButton.getY() + codePosal.getHeight() + 20, getWidth() - 30, 300);
                 add(tablePane);
-            } catch (BDConnexionError connexionError)
-            {
+            } catch (BDConnexionError connexionError) {
                 JOptionPane.showMessageDialog(null, connexionError.getMessage(), "accès BD", JOptionPane.ERROR_MESSAGE);
             }
+            catch (InexistantCareGiver inexistantCareGiver)
+            {
+                JOptionPane.showMessageDialog(null,inexistantCareGiver.getMessage(), "utlisateur inexistant", JOptionPane.ERROR_MESSAGE);
+            }
+            catch (ErrorNull nullerr)
+            {
+                JOptionPane.showMessageDialog(null, nullerr.getMessage(), "invalid data", JOptionPane.ERROR_MESSAGE);
+            }
+
             revalidate();
         }
     }
