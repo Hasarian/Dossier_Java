@@ -12,7 +12,7 @@ import java.util.GregorianCalendar;
 
 public class AnimalBusiness {
     private SearchAnimalsBetweenDate research;
-    private AnimalDBAccess dbAcces;
+    private DAOAnimal dbAcces;
     private ArrayList<Animal> allAnimals;
     private static AnimalBusiness instance;
     private ListAnimalBusiness listBusiness;
@@ -37,6 +37,9 @@ public class AnimalBusiness {
             if(animal.getId().compareTo(id)==0) return animal;
         }
         return null;
+    }
+    public Animal getAnimalFromBD(Integer id) throws ErrorNull, BDConnexionError{
+        return dbAcces.read(id);
     }
     public void nouvelAnimalFromDB(Integer id, String remarque, Integer numCell, String nom, Race race, GregorianCalendar dateArrivee, GregorianCalendar dateFin,
                              Boolean estDangereux, Animal.EtatAnimal etatAnimal, String remarqueSoin,Animal.EtatSoin etatSoin,CareGiver careGiver)
