@@ -19,7 +19,7 @@ import java.util.GregorianCalendar;
 public class SearchAnimal extends JPanel {
     private JLabel dateDebutLabel, dateFinLabel;
     private JSpinner dateDebut, dateFin;
-    private JTable resultat;
+    private JScrollPane resultat;
     private JButton confirmer;
     private AnimalController animalController;
 
@@ -61,10 +61,13 @@ public class SearchAnimal extends JPanel {
                 GregorianCalendar dateFinTemp = new GregorianCalendar();
                 dateFinTemp.setTime((Date) dateFin.getValue());
                 ModelTable model = new ModelTable(animalController.getAnimalsBetweenDates(dateDebTemp, dateFinTemp));
-                resultat = new JTable(model);
+                JTable animalTable = new JTable(model);
+                resultat = new JScrollPane(animalTable);
                 resultat.setBounds(25, 85, 500, 500);
                 add(resultat);
-                //repaint();
+                repaint();
+                revalidate();
+
             }
         catch(BDConnexionError connexionError)
             {
