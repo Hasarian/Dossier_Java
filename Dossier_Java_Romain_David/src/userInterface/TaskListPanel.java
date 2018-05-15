@@ -76,8 +76,6 @@ public class TaskListPanel extends JPanel
             setBackground(Color.WHITE);
             //add(tablePane);
 
-
-
         openFile = new JButton("consult");
         openFile.setBounds(20, 400, 200, 60);
         openFile.addActionListener(new ConsultListener());
@@ -101,8 +99,10 @@ public class TaskListPanel extends JPanel
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            String id= getTaskTable().getValueAt(getTaskTable().getSelectedRow(),0).toString();
+            //System.out.println(getTaskTable().getValueAt(getTaskTable().getSelectedRow(),0));
+            String id= getTaskTable().getValueAt(getTaskTable().getSelectedRow(),1).toString();
             AnimalInfoFrame info=new AnimalInfoFrame(listController,id);
+            getTaskTable().clearSelection();
         }
     }
 

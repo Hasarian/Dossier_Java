@@ -37,6 +37,7 @@ public class AnimalBusiness {
     {
         for(Animal animal:allAnimals)
         {
+            System.out.println(id+"\t"+animal.getId());
             if(animal.getId().compareTo(id)==0) return animal;
         }
         return null;
