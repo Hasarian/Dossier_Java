@@ -20,28 +20,32 @@ public class SearchAnimalsBetweenDate {
     AnimalBusiness animalBusiness;
     ListEspeceBusiness listeEspece;
     CareGiverBusiness careGiverBusiness;
+    ListAnimalBusiness listAnimalBusiness;
 
     public SearchAnimalsBetweenDate() throws BDConnexionError,ErrorNull {
         connection = SingletonDB.getInstance();
     }
 
-    public ArrayList<Vaccination> readAnimalsbetweenDates(GregorianCalendar dateDeb, GregorianCalendar dateFin) throws ErrorNull,BDConnexionError,InexistantCareGiver {
-        ArrayList<Vaccination> resultSearch = new ArrayList<Vaccination>();
+    public ArrayList<Animal> readAnimalsbetweenDates(GregorianCalendar dateDeb, GregorianCalendar dateFin) throws ErrorNull,BDConnexionError,InexistantCareGiver {
+        ArrayList<Animal> resultSearch = new ArrayList<Animal>();
         try {
-            //changer la date recherchée
-            String sql = "select*\n" +
-                    "    from ficheAnimal, vaccination, vaccin, fichesoin\n" +
-                    "    where ficheAnimal.dateArrive > ? and ficheAnimal.dateArrive < ? and fichesoin.id = ficheanimal.id " +
-                    "and vaccination.id = ficheanimal.id " +
-                    "and vaccination.numVaccin = vaccin.numVaccin;";
+
+            String sql = "select*" +
+                    "    from ficheAnimal, race, espece, fichesoin" +
+                    "    where  fichesoin.id = ficheanimal.id " +
+                    "and race.libelle = ficheanimal.race " +
+                    "and race.espece = espece.libelle;";
+            //ficheAnimal.dateArrive > ? and ficheAnimal.dateArrive < ? and
             PreparedStatement statement = connection.prepareStatement(sql);
-            java.sql.Date sqlDate = new Date(dateDeb.getTimeInMillis());
-            statement.setDate(1, sqlDate);
-            sqlDate = new Date(dateFin.getTimeInMillis());
-            statement.setDate(2, sqlDate);
+            java.sql.Date dateSQL1 = new java.sql.Date(dateDeb.getTimeInMillis());
+
+            /*statement.setDate(1, dateSQL1);
+            java.sql.Date dateSQL2 = new java.sql.Date(dateFin.getTimeInMillis());
+            statement.setDate(2, dateSQL2);*/
             ResultSet data = statement.executeQuery();
 
             while (data.next()) {
+                System.out.println("0-");
                     resultSearch.add(traductionSQL(data));
             }
 
@@ -51,52 +55,49 @@ public class SearchAnimalsBetweenDate {
         return resultSearch;
     }
 
-    public Vaccination traductionSQL(ResultSet data) throws SQLException, ErrorNull,BDConnexionError, InexistantCareGiver
+    public Animal traductionSQL(ResultSet data) throws SQLException, ErrorNull,BDConnexionError, InexistantCareGiver
     {
+        System.out.println("ici");
+        AnimalBusiness business = AnimalBusiness.obtenirAnimalBusiness(listAnimalBusiness);
         listeEspece = ListEspeceBusiness.obtenirEspeceBusiness();
         careGiverBusiness = CareGiverBusiness.otebnirCareGiverBusiness();
         animalBusiness = AnimalBusiness.obtenirAnimalBusiness(ListAnimalBusiness.obtenirListAnimalBusiness(new CareGiverController()));
-        String libelleEspece = (data.wasNull()) ? null : data.getString("espece.libelle");
-        Boolean estEnVoieDeDisparition = (data.wasNull()) ? null : data.getBoolean("espece.estEnVoieDeDisparition");
-        String typeDeplacement = (data.wasNull()) ? null : data.getString("espece.typeDeDeplacement");
-        String milieuDeVie = (data.wasNull()) ? null : data.getString("espece.milieuDeVie");
+        String libelleEspece =  data.getString("espece.libelle");
+        Boolean estEnVoieDeDisparition =  data.getBoolean("espece.estEnVoieDeDisparition");
+        String typeDeplacement =  data.getString("espece.typeDeplacement");
+        String milieuDeVie =  data.getString("espece.milieuDeVie");
         Espece espece = listeEspece.obtenirEspece(libelleEspece, estEnVoieDeDisparition, typeDeplacement, milieuDeVie);
 
 
-        String libelleRace = (data.wasNull()) ? null : data.getString("race.libelle");
-        String traitDeCaractere = (data.wasNull()) ? null : data.getString("race.traitDeCaractere");
-        String caracteristiqueDuMilieuDeVie = (data.wasNull() ? null : data.getString("race.caracteristiqueDuMilieuDeVie"));
+        String libelleRace =  data.getString("race.libelle");
+        String traitDeCaractere =  data.getString("race.traitDeCaractere");
+        String caracteristiqueDuMilieuDeVie = data.getString("race.caracteristiqueDuMilieuDeVie");
         String tare = (data.wasNull() ? null : data.getString("race.tare"));
         Race race = listeEspece.obtenirRace(libelleRace, traitDeCaractere, tare, caracteristiqueDuMilieuDeVie, espece);
 
-        Integer id = (data.wasNull()) ? null : data.getInt("ficheAnimal.id");
+        Integer id =  data.getInt("ficheAnimal.id");
         String remarque = (data.wasNull()) ? null : data.getString("ficheAnimal.remarque");
-        Integer numCell = (data.wasNull()) ? null : data.getInt("ficheAnimal.numCell");
-        String nom = (data.wasNull()) ? null : data.getString("ficheAnimal.nomAnimal");
+        Integer numCell =  data.getInt("ficheAnimal.numCellule");
+        String nom = data.getString("ficheAnimal.nomAnimal");
         GregorianCalendar dateArrive = new GregorianCalendar();
-        GregorianCalendar dateDeces = new GregorianCalendar();
         dateArrive.setTime(data.getDate("ficheAnimal.dateArrive"));
-        dateDeces.setTime(data.getDate("ficheAnimal.dateDesces"));
-        Boolean estDangereux = (data.wasNull()) ? null : data.getBoolean("ficheAnimal.estDangereux");
+        GregorianCalendar dateDesces = (data.getDate("ficheAnimal.dateDesces") == null) ? null : new GregorianCalendar();
+        if (dateDesces != null) dateDesces.setTime(data.getDate("ficheAnimal.dateDesces"));
+        Boolean estDangereux = data.getBoolean("ficheAnimal.estDangereux");
         Animal.EtatAnimal[] etatsAnimal = Animal.EtatAnimal.values();
         Animal.EtatSoin[] etatSoins = Animal.EtatSoin.values();
-        Integer etat = (data.wasNull() ? null : data.getInt("ficheAnimal.etat"));
+        Integer etat = data.getInt("ficheAnimal.etat");
         Animal.EtatAnimal etatAnimal = etatsAnimal[etat];
-        etat = (data.wasNull() ? null : data.getInt("ficheSoin.etat"));
+        etat = data.getInt("ficheSoin.etat");
         Animal.EtatSoin etatSoin = etatSoins[etat];
-        String remarqueSoin = (data.wasNull()) ? null : data.getString("ficheSoin.remarque");
-        CareGiver careGiver = careGiverBusiness.getUserByMail(data.getString("fichesoin.mail"));
+        String remarqueSoin = (data.wasNull() ? null : data.getString("ficheSoin.remarque"));
+        CareGiver careGiver = careGiverBusiness.getUserByMail(data.getString("fichesoin.email"));
 
-        animalBusiness.nouvelAnimalFromDB(id, remarque, numCell, nom, race, dateArrive, dateDeces, estDangereux, etatAnimal, remarqueSoin, etatSoin, careGiver);
-        Animal animal = animalBusiness.getAnimal(id.toString());
-        Integer numVaccin = (data.wasNull() ? null : data.getInt("vaccin.numVaccin"));
-        String libelle = (data.wasNull() ? null : data.getString("vaccin.libelle"));
-        Vaccin vaccin = animalBusiness.getVaccin(libelle, numVaccin);
-        GregorianCalendar dateVaccination = new GregorianCalendar();
-        dateVaccination.setTime(data.getDate("vaccination.date"));
-        Integer numVaccination = (data.wasNull() ? null : data.getInt("vaccination.idVaccination"));
+        animalBusiness.nouvelAnimalFromDB(id, remarque, numCell, nom, race, dateArrive, dateDesces, estDangereux, etatAnimal, remarqueSoin, etatSoin, careGiver);
+        Animal animal = animalBusiness.getAnimal(id);
+        System.out.println(animal);
+        return animal;
 
-        return animalBusiness.getVaccination(animal, vaccin, dateVaccination, numVaccination);
     }
 
 

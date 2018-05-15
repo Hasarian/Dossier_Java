@@ -10,7 +10,7 @@ import erreurs.InexistantCareGiver;
 public class TaskController
 {
     Animal animal;
-    public TaskController(String id) throws BDConnexionError, ErrorNull, InexistantCareGiver
+    public TaskController(Integer id) throws BDConnexionError, ErrorNull, InexistantCareGiver
     {
         ListAnimalBusiness business=ListAnimalBusiness.obtenirListAnimalBusiness(new CareGiverController());
         animal=business.getAnimal(id);

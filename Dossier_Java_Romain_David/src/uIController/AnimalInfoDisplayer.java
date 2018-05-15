@@ -9,7 +9,7 @@ import java.util.GregorianCalendar;
 public class AnimalInfoDisplayer
 {
     Animal animal;
-    public AnimalInfoDisplayer(String animalId,ListsControllerAnimal list){
+    public AnimalInfoDisplayer(Integer animalId,ListsControllerAnimal list){
 
         this.animal=list.getanimal(animalId);
     }
@@ -17,7 +17,7 @@ public class AnimalInfoDisplayer
     {
         return animal.getNomAnimal();
     }
-    public String getAnimalId()
+    public Integer getAnimalId()
     {
        //System.out.println(animal);
         return animal.getId();

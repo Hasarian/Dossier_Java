@@ -33,12 +33,12 @@ public class AnimalBusiness {
         return instance;
     }
 
-    public Animal getAnimal(String id)
+    public Animal getAnimal(Integer id)
     {
         for(Animal animal:allAnimals)
         {
             System.out.println(id+"\t"+animal.getId());
-            if(animal.getId().compareTo(id)==0) return animal;
+            if(animal.getId() == id) return animal;
         }
         return null;
     }
@@ -50,9 +50,9 @@ public class AnimalBusiness {
     throws ErrorNull
     {
         Animal newAnimal=new Animal(id,remarque,numCell,race,nom,dateArrivee,dateFin,estDangereux,etatAnimal,remarqueSoin,etatSoin,careGiver);
-        if(getAnimal(id.toString())!=null) {
-            allAnimals.remove(getAnimal(id.toString()));
-            listBusiness.removeAnimal(id.toString());
+        if(getAnimal(id)!=null) {
+            allAnimals.remove(getAnimal(id));
+            listBusiness.removeAnimal(id);
         }
         allAnimals.add(newAnimal);
         listBusiness.ajoutAnimal(newAnimal);
@@ -73,7 +73,7 @@ public class AnimalBusiness {
     }
     public boolean existeDeja(Animal nouvelAnimal)
     {
-        String id=nouvelAnimal.getId();
+        Integer id=nouvelAnimal.getId();
         int i=0;
         while(i<allAnimals.size()&&allAnimals.get(i).getId().compareTo(id)==0)
         {
@@ -85,8 +85,8 @@ public class AnimalBusiness {
     {
         dbAcces.update(animal);
     }
-    public ArrayList<Vaccination> getAnimalsBetweenDates(GregorianCalendar dateDebut,GregorianCalendar dateFin) throws BDConnexionError,ErrorNull,InexistantCareGiver
+    public ArrayList<Animal> getAnimalsBetweenDates(GregorianCalendar dateDebut,GregorianCalendar dateFin) throws BDConnexionError,ErrorNull,InexistantCareGiver
     {
-        return (new SearchAnimalsBetweenDate()).readAnimalsbetweenDates(dateDebut,dateFin);
+        return research.readAnimalsbetweenDates(dateDebut,dateFin);
     }
 }

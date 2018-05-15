@@ -54,7 +54,7 @@ public class CareGiverController
                     "soin médical: heure prévue",
                     "remarque sur le soin"*/
             ArrayList<String>row=new ArrayList<String>();
-            row.add(soin.getFicheSoin().getFicheSoin().getId());
+            row.add(soin.getFicheSoin().getFicheSoin().getId().toString());
             String date=new String();
             date+= soin.getDateHeure().get(Calendar.DAY_OF_MONTH)+"/";
             date+= soin.getDateHeure().get(Calendar.MONTH)+"/";

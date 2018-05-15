@@ -88,13 +88,7 @@ public class SearchAnimal extends JPanel {
         private ArrayList<ArrayList<String>> data;
         private String [] columnNames=
                 {
-                        "Nom",
-                        "est dangereux",
-                        "num cellule",
-                        "race",
-                        "vaccin",
-                        "date vaccin",
-                        "date arrive"
+                        "Nom", "est dangereux", "num cellule", "espece", "race", "date arrive"
                 };
 
         public ModelTable(ArrayList<ArrayList<String>> data)

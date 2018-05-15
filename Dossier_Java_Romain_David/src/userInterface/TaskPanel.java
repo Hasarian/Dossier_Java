@@ -13,7 +13,7 @@ public class TaskPanel extends JPanel
 {
     private TaskController controller;
     private ListsControllerAnimal listControl;
-    public TaskPanel(String id, CareGiverController user) throws BDConnexionError, ErrorNull, InexistantCareGiver
+    public TaskPanel(Integer id, CareGiverController user) throws BDConnexionError, ErrorNull, InexistantCareGiver
     {
         listControl=ListsControllerAnimal.obtenirListController(user);
         controller=new TaskController(id);
