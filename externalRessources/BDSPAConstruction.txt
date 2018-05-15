@@ -1,10 +1,10 @@
 drop table  vaccination;
 drop table vaccin;
 drop table alimentation;
+drop table soineffectue;
 drop table soinMedical;
 drop table  ordonnance;
 drop table  modificationSoin;
-drop table soinEffectue;
 drop table ficheSoin;
 drop table ficheAnimal;
 drop table  race;
@@ -107,7 +107,7 @@ constraint veto_mailVeto_fk foreign key (mailVeto) references veto(mail)
 create table soinMedical(
 numDossier integer(10),
 dateSoinMedical date not null,
-heureSoinMediacl time,
+heureSoinMediacl date,
 remarque varchar(150) not null,
 mailVeto varchar(50) not null,
 numOrdonnance integer(10) not null,
@@ -242,12 +242,28 @@ false,
 1
 );
 
+insert into ordonnance
+values(1,"test","demoustiez.romain@spa.be");
 insert into ficheSoin
-values(3,"sert au test",0,null);
+values(3,"sert au test",4,null);
 insert into ficheSoin
 values(0000000001,"sert au test",0,null);
 insert into modificationSoin
 values(0000000001, Str_to_date('30-03-1995','%e-%m-%Y'),"demoustiez.romain@spa.be",0000000001);
-
 insert into fichesoin
 values(2,"sert au test",0,null);
+
+insert into soinMedical
+values(3,str_to_date('24-3-2005','%e-%m-%Y'),str_to_date('12:30','%H:%i'),"du bambou","demoustiez.romain@spa.be",1,1);
+
+insert into soineffectue
+values("servais.david@spa.be",str_to_date('24-3-2005','%e-%m-%Y'),1,1);
+
+insert into soinMedical
+values(3,str_to_date('25-3-2005','%e-%m-%Y'),str_to_date('12:30','%H:%i'),"du bambou","demoustiez.romain@spa.be",1,2);
+
+insert into soineffectue
+values("servais.david@spa.be",str_to_date('24-3-2005','%e-%m-%Y'),2,2);
+
+insert into soineffectue
+values("demoustiez.romain@spa.be",str_to_date('26-8-2005','%e-%m-%Y'),2,3);

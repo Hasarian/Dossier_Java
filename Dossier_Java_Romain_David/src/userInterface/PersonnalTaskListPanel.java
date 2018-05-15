@@ -25,13 +25,13 @@ public class PersonnalTaskListPanel extends TaskListPanel
 
 
         JButton start = new JButton("start care");
-        start.setBounds(760, openFile.getY(), 200, 60);
+        start.setBounds(760, openFile.getY(), 200, 30);
         start.addActionListener(new StartListener());
         //commencer les soins
 
         JButton unselect=new JButton("abandon task");
         unselect.addActionListener(new AbandonListener());
-        unselect.setBounds(start.getX(),start.getY()+start.getHeight()+15,150,50);
+        unselect.setBounds(start.getX(),start.getY()+start.getHeight(),150,30);
 
         add(start);
         add(unselect);

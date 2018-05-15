@@ -106,7 +106,7 @@ public class CareGiverBusiness {
     }
 
 
-    public ArrayList<SoinEffectue> getSoinsEffectues(String mail) throws BDConnexionError
+    public ArrayList<SoinEffectue> getSoinsEffectues(String mail) throws BDConnexionError,ErrorNull,InexistantCareGiver
     {
         CareByCareGiver acces=new CareByCareGiver();
         return acces.searchHistory(mail);

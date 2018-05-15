@@ -43,7 +43,7 @@ public class CareGiverController
         return business.getCurrentUser();
     }
 
-    public ArrayList<ArrayList<String>> careDoneBy(String mail) throws BDConnexionError
+    public ArrayList<ArrayList<String>> careDoneBy(String mail) throws BDConnexionError,ErrorNull,InexistantCareGiver
     {
         ArrayList<SoinEffectue> soinsEffectués=business.getSoinsEffectues(mail);
         ArrayList<ArrayList<String>> data=new ArrayList<ArrayList<String>>();

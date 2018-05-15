@@ -48,7 +48,7 @@ public class AnimalDBAccess implements DAOAnimal {
             ResultSet data = statement.executeQuery();
             while(data.next()) {
                 dataToAnimal(data);
-                System.out.println("data suivant");
+                //System.out.println("data suivant");
             }
 
         }
@@ -113,7 +113,7 @@ public class AnimalDBAccess implements DAOAnimal {
             /*(Integer id, String remarque, Integer numCell, String nomAnimal, Race race, GregorianCalendar dateArrivee,
                                GregorianCalendar dateDeces, Boolean estDangereux, Animal.EtatAnimal etatAnimal, Animal.EtatSoin etatSoin,
                                String remarqueSoin, Animal.EtatSoin etatFicheSoin, CareGiver careGiver*/
-                System.out.println(nom);
+                //System.out.println(nom);
                 business.nouvelAnimalFromDB(id, remarque, numCell, nom, race, dateArrive, dateDesces, estDangereux, etatAnimal, remarqueSoin, etatSoins, userBusiness.getUserByMail(email));
 
         }
