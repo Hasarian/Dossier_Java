@@ -6,7 +6,6 @@ import DataAccess.SearchAnimalsBetweenDate;
 import Model.*;
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
-import uIController.CareGiverController;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
@@ -46,7 +45,6 @@ public class AnimalBusiness {
     throws ErrorNull
     {
         Animal newAnimal=new Animal(id,remarque,numCell,race,nom,dateArrivee,dateFin,estDangereux,etatAnimal,remarqueSoin,etatSoin,careGiver);
-        System.out.print(newAnimal+"\nfrom BD");
         if(getAnimal(id.toString())!=null) {
             allAnimals.remove(getAnimal(id.toString()));
             listBusiness.removeAnimal(id.toString());

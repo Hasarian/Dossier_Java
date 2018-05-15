@@ -7,22 +7,6 @@
     <list default="true" id="e633ca09-66ed-4f9a-b57c-daa42bf763d4" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/AnimalBusiness.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/AnimalBusiness.java" />
-      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/CareGiverBusiness.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/CareGiverBusiness.java" />
-      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/ListAnimalBusiness.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/ListAnimalBusiness.java" />
-      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/ListEspeceBusiness.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/ListEspeceBusiness.java" />
-      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/DataAccess/AnimalDBAccess.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/DataAccess/AnimalDBAccess.java" />
-      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/DataAccess/CaraGiverDataAccess.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/DataAccess/CaraGiverDataAccess.java" />
-      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/DataAccess/DAO/DAOCareGiver.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/DataAccess/DAO/DAOCareGiver.java" />
-      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/DataAccess/SearchAnimalsBetweenDate.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/DataAccess/SearchAnimalsBetweenDate.java" />
-      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Model/Animal.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Model/Animal.java" />
-      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Model/Race.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Model/Race.java" />
-      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/AnimalController.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/AnimalController.java" />
-      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/AnimalInfoDisplayer.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/AnimalInfoDisplayer.java" />
-      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/CareGiverController.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/CareGiverController.java" />
-      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/ListsControllerAnimal.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/ListsControllerAnimal.java" />
-      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/TaskController.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/TaskController.java" />
-      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/AnimalInfoFrame.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/AnimalInfoFrame.java" />
-      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/SearchTaskByGiver.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/SearchTaskByGiver.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -62,7 +46,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AnimalDBAccess.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AnimalDBAccess.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/DataAccess/AnimalDBAccess.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
@@ -126,11 +110,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AnimalBusiness.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AnimalBusiness.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/AnimalBusiness.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state relative-caret-position="119">
+              <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -225,7 +209,6 @@
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/DataAccess/CaraGiverDataAccess.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/CareGiverController.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/SearchTaskByGiver.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/AnimalBusiness.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/ListEspeceBusiness.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Model/Race.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/AnimalInfoDisplayer.java" />
@@ -234,6 +217,7 @@
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Model/Animal.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/ListAnimalBusiness.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/DataAccess/AnimalDBAccess.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/AnimalBusiness.java" />
       </list>
     </option>
   </component>
@@ -535,7 +519,7 @@
       <workItem from="1526038295627" duration="13314000" />
       <workItem from="1526129980953" duration="19963000" />
       <workItem from="1526315574558" duration="20637000" />
-      <workItem from="1526369101999" duration="9556000" />
+      <workItem from="1526369101999" duration="10066000" />
     </task>
     <task id="LOCAL-00001" summary="login frame sans les events">
       <created>1522594410214</created>
@@ -747,11 +731,18 @@
       <option name="project" value="LOCAL" />
       <updated>1526328535048</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="pleins de trucs fonctionnent">
+      <created>1526378710925</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1526378710925</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="204779000" />
+    <option name="totallyTimeSpent" value="205289000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1874" height="1096" extended-state="6" />
@@ -769,7 +760,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15823466" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15823466" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299866" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24966533" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -823,7 +814,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="animal Folder&#10;CareFolrder&#10;CareState (enum)&#10;DoneCare&#10;Food&#10;StandardUser&#10;ToDo&#10;ToDoCare&#10;&#10;&#10;--&gt; classes créées" />
     <MESSAGE value="avancée dans la liste des tâches" />
     <MESSAGE value="avancée dans la liste des tâches&#10;-mettre à jour certaines fonctions, continuer" />
     <MESSAGE value="-animal panel&#10;&#10;ajouter et retirer les tasks" />
@@ -848,7 +838,8 @@
     <MESSAGE value="les boutons vont qqpart" />
     <MESSAGE value="rationalisation" />
     <MESSAGE value="correction erreur" />
-    <option name="LAST_COMMIT_MESSAGE" value="correction erreur" />
+    <MESSAGE value="pleins de trucs fonctionnent" />
+    <option name="LAST_COMMIT_MESSAGE" value="pleins de trucs fonctionnent" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -873,6 +864,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-204">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1347,14 +1339,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/AnimalBusiness.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/DataAccess/AnimalDBAccess.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -1364,6 +1348,14 @@
             <marker date="1526378367256" expanded="true" signature="1604:1654" ph="select * fro... ficheSoin" />
             <marker date="1526378367256" expanded="true" signature="1604:1655" ph="select * fro... ficheSoin" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/AnimalBusiness.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
