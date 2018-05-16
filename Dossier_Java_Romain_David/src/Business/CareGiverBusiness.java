@@ -5,11 +5,8 @@ import DataAccess.DAO.DAOCareGiver;
 import DataAccess.CaraGiverDataAccess;
 import Model.SoinEffectue;
 import Model.Veterinaire;
-import erreurs.BDConnexionError;
-import erreurs.ErreurInsertCareGiver;
+import erreurs.*;
 import Model.CareGiver;
-import erreurs.ErrorNull;
-import erreurs.InexistantCareGiver;
 
 import java.util.ArrayList;
 
@@ -125,6 +122,19 @@ public class CareGiverBusiness {
         currentUser.setRemarque(noteTexte);
         currentUser.setStreet(streetTexte);
         daoCareGiver.update(currentUser);
+    }
+    public void supprimerUtilisateur(String mail) throws SuppressionCurrentUser,InexistantCareGiver,ErrorNull,BDConnexionError
+    {
+        if(mail.equals(currentUser.getMail())) throw new SuppressionCurrentUser();
+        else
+        {
+            if (isKnown(mail))otherUsers.remove(getUserByMail(mail));
+            daoCareGiver.delete(mail);
+        }
+    }
+    public void supprimerUtilisateurCourant() throws BDConnexionError
+    {
+        daoCareGiver.delete(currentUser.getMail());
     }
 }
 

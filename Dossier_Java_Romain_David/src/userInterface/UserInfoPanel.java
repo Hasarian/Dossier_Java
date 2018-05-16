@@ -22,7 +22,7 @@ public class UserInfoPanel extends RegistrationFormCareGiver
             super(frame);
             userControl=user;
             setInfos(user.getUSerFirstName(),user.getUserName(),user.getUserEmail(),user.getUserStreet(),user.getUserHouseNumber(),user.getTelNumer(),
-                    user.getUserNote(),user.isVolontaire(),user.getLocalite());
+                    user.getUserNote(),user.isVolontaire(),user.getLocalite(),user.getDateEmbauche());
             getMailTextField().setEditable(false);
         /*private JTextField name, lastName, mail, street, houseNumber, telNumber;
         private JTextArea note;
@@ -51,7 +51,7 @@ public class UserInfoPanel extends RegistrationFormCareGiver
                 String noteTexte = getNoteText();
                 String streetTexte = getStreetInfo();
 
-                int accord = JOptionPane.showConfirmDialog(null, "êtes vous sûr de sauvegarder les changements ?", "confirmation d'inscription", JOptionPane.INFORMATION_MESSAGE);
+                int accord = JOptionPane.showConfirmDialog(null, "êtes vous sûr de sauvegarder les changements ?", "confirmation d'inscription", JOptionPane.YES_NO_CANCEL_OPTION);
                 if (accord == JOptionPane.YES_OPTION) {
                     userControl.updateCurrentUser(nameTexte,lastNameTexte,tel,house,noteTexte,streetTexte);
                     JOptionPane.showMessageDialog(null, "vos informations ont été mises à jour", "confirmation", JOptionPane.INFORMATION_MESSAGE);

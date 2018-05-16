@@ -15,12 +15,12 @@ public class CareGiver {
     private Integer numTel;
     private String remarque;
     private Boolean estBenevole;
-    private Calendar dateEmbauche;
+    private GregorianCalendar dateEmbauche;
     private Localite localite;
     public CareGiver(String mail, String firstName, String name,
               String street, Integer numMaison, Integer numTel,
               String remarque, Boolean estBenevole,
-              Calendar dateEmbauche, Localite localite)throws ErrorNull {
+              GregorianCalendar dateEmbauche, Localite localite)throws ErrorNull {
         setDateEmbauche(dateEmbauche);
         setEstBenevole(estBenevole);
         setFirstName(firstName);
@@ -32,7 +32,7 @@ public class CareGiver {
         setRemarque(remarque);
         setStreet(street);
     }
-    public CareGiver() throws ErrorNull
+    /*public CareGiver() throws ErrorNull
     {
         setDateEmbauche(new GregorianCalendar());
         setEstBenevole(false);
@@ -44,7 +44,7 @@ public class CareGiver {
         setNumTel(new Integer(658462));
         setRemarque("grand et fort");
         setStreet("fin du capitalisme.com");
-    }
+    }*/
     public CareGiver(String email)
     {
         mail=email;
@@ -54,7 +54,7 @@ public class CareGiver {
         return estBenevole;
     }
 
-    public Calendar getDateEmbauche() {
+    public GregorianCalendar getDateEmbauche() {
         return dateEmbauche;
     }
 
@@ -90,7 +90,7 @@ public class CareGiver {
         return street;
     }
 
-    public void setDateEmbauche(Calendar dateEmbauche) throws ErrorNull {
+    public void setDateEmbauche(GregorianCalendar dateEmbauche) throws ErrorNull {
         if(dateEmbauche != null)this.dateEmbauche = dateEmbauche;
         else throw new ErrorNull("dateEmbauche");
     }

@@ -15,8 +15,8 @@ public class MainFrame extends JFrame
     private MainPanel mainPanel;
     private DashBoardPane basePanel;
     private JMenuBar menuBar;
-    private JMenu account,administration,newFile,search;
-    private JMenuItem logout,newCareGiver,searchTask,searchAnimal,searchCare,personnalInfo;
+    private JMenu account,administration,newFile,search,suppression;
+    private JMenuItem logout,newCareGiver,searchTask,searchAnimal,searchCare,personnalInfo,suppressionSoignant;
     private Container container;
     private MainFrame thisFrame;
     private CareGiverController user;
@@ -44,9 +44,15 @@ public class MainFrame extends JFrame
 
         newFile=new  JMenu("nouveau...");
         administration.add(newFile);
-        newCareGiver= new JMenuItem("care giver");
+        newCareGiver= new JMenuItem("soignant");
         newFile.add(newCareGiver);
         newCareGiver.addActionListener(new ToCareFormListener());
+
+        suppression=new JMenu("supprimer...");
+        administration.add(administration);
+        suppressionSoignant=new JMenuItem("soignant");
+        suppression.add(suppressionSoignant);
+        suppressionSoignant.addActionListener(new ToSupprimerSoignant());
 
         search=new JMenu("recherche");
         searchAnimal=new JMenuItem("animal");
@@ -60,12 +66,12 @@ public class MainFrame extends JFrame
         searchTask.addActionListener(new ToTaskSearchListener());
         administration.add(search);
 
-        account=new JMenu("account");
+        account=new JMenu("votre compte");
         menuBar.add(account);
-        logout=new JMenuItem("logout");
+        logout=new JMenuItem("déconnexion");
         logout.addActionListener(new LogoutListener());
         account.add(logout);
-        personnalInfo=new JMenuItem("personnal informations");
+        personnalInfo=new JMenuItem("informations personnelles");
         personnalInfo.addActionListener(new ToPersonnalInfoListener());
         account.add(personnalInfo);
 
@@ -80,7 +86,7 @@ public class MainFrame extends JFrame
     public void changePanel()
     {
         changePanel(basePanel);
-        System.out.println(basePanel.getPersonnelPanel());
+        //System.out.println(basePanel.getPersonnelPanel());
     }
     private class ToCareFormListener implements ActionListener
     {
@@ -173,6 +179,19 @@ public class MainFrame extends JFrame
             catch (ErrorNull errorNull)
             {
                 JOptionPane.showMessageDialog(null,errorNull.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+    private class ToSupprimerSoignant implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            try {
+                changePanel(new SuppressionCareGiver(thisFrame));
+            }
+            catch (BDConnexionError connexionError)
+            {
+                JOptionPane.showMessageDialog(null, connexionError.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
             }
         }
     }

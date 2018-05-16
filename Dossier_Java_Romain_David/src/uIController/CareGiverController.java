@@ -8,6 +8,7 @@ import erreurs.*;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class CareGiverController
 {
@@ -44,6 +45,7 @@ public class CareGiverController
     public String getUserNote(){return business.getCurrentUser().getRemarque();}
     public boolean isVolontaire(){return business.getCurrentUser().getEstBenevole();}
     public Localite getLocalite(){return business.getCurrentUser().getLocalite();}
+    public GregorianCalendar getDateEmbauche(){return business.getCurrentUser().getDateEmbauche();}
     public CareGiver getCareGiver()
     {
         return business.getCurrentUser();
@@ -119,6 +121,14 @@ public class CareGiverController
     throws ErrorNull,BDConnexionError
     {
         business.updateCurrentUserInBD(nameTexte,lastNameTexte,tel,houseNumber,noteTexte,streetTexte);
+    }
+    public void supprimerCareGiver(String mail) throws SuppressionCurrentUser,InexistantCareGiver,ErrorNull,BDConnexionError
+    {
+        business.supprimerUtilisateur(mail);
+    }
+    public void supprimerUtilsiateurActuel() throws BDConnexionError
+    {
+        business.supprimerUtilisateurCourant();
     }
 
 }

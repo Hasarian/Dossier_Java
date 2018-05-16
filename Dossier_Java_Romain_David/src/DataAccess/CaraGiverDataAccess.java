@@ -47,8 +47,18 @@ public class CaraGiverDataAccess implements DAOCareGiver {
 
 
 
-    public void delete(String id) {
-
+    public void delete(String id) throws BDConnexionError{
+        String sql="delete from soignant where mail=?";
+        try{
+            PreparedStatement statement=singletonDBAcces.prepareStatement(sql);
+            statement.setString(1,id);
+            statement.executeQuery();
+        }
+        catch (SQLException sqlException)
+        {
+            JOptionPane.showMessageDialog(null,sqlException.getMessage(),"Attribut obligatoir non rempli",JOptionPane.ERROR_MESSAGE);
+            throw new BDConnexionError();
+        }
     }
 
 

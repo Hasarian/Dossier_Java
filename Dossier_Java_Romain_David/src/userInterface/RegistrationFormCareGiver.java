@@ -163,7 +163,7 @@ public class RegistrationFormCareGiver extends JPanel{
 		constraints.insets = new Insets(0,10,50,0);*/
 		GregorianCalendar date = new GregorianCalendar();
 
-	 hireDate = new JLabel(date.get(Calendar.DATE)+"/"+date.get(Calendar.MONTH)+"/"+date.get(Calendar.YEAR));
+	    hireDate = new JLabel(date.get(Calendar.DATE)+"/"+date.get(Calendar.MONTH)+"/"+date.get(Calendar.YEAR));
 		constraints.gridx = 2;
 		constraints.gridy = 9;
 		constraints.gridwidth = GridBagConstraints.REMAINDER;
@@ -270,7 +270,7 @@ public class RegistrationFormCareGiver extends JPanel{
 	public Integer getHouseNumberInfo(){return (houseNumber.getText().equals("")? null : Integer.parseInt(houseNumber.getText()));}
 	public Integer getNumTel(){return telNumber.getText().equals("")? null : Integer.parseInt(telNumber.getText());}
 	public String getNoteText(){return note.getText().equals("")? null : note.getText();}
-	public void setInfos(String name,String lastName,String mail,String street,String houseNumber,String telNumber,String note,boolean isVolunteer,Localite locality)
+	public void setInfos(String name,String lastName,String mail,String street,String houseNumber,String telNumber,String note,boolean isVolunteer,Localite locality,GregorianCalendar dateInscription)
 	{
 		this.name.setText(name);
 		this.lastName.setText(lastName);
@@ -280,6 +280,7 @@ public class RegistrationFormCareGiver extends JPanel{
 		this.telNumber.setText(telNumber);
 		this.note.setText(note);
 		this.isVolunteer.setEnabled(isVolunteer);
+		this.hireDate.setText(dateInscription.get(Calendar.DAY_OF_MONTH)+"/"+(dateInscription.get(Calendar.MONTH)+1)+"/"+dateInscription.get(Calendar.YEAR));
 		try {
             this.locality.setSelectedIndex(localiteController.getAllLocalite().indexOf(locality));
         }
