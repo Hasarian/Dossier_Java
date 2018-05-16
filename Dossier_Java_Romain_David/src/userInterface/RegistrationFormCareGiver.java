@@ -1,12 +1,9 @@
 package userInterface;
 
 import Business.CareGiverBusiness;
-import erreurs.BDConnexionError;
-import erreurs.ErreurInsertCareGiver;
+import erreurs.*;
 import Model.CareGiver;
 import Model.Localite;
-import erreurs.ErrorNull;
-import erreurs.NumberExpection;
 import uIController.CareGiverController;
 import uIController.LocaliteController;
 
@@ -68,7 +65,7 @@ public class RegistrationFormCareGiver extends JPanel{
 		//constraints.insets = new Insets(0,20,0,0);
 		this.add(lastName, constraints);
 
-		mailLabel = new JLabel("Votre E-mail :");
+		mailLabel = new JLabel("Votre E-mail (doit prendre la forme minuscules.minuscules[.][nombre]@spa.be) :");
 		constraints.gridx = 0;
 		constraints.gridy = 2;
 
@@ -103,7 +100,7 @@ public class RegistrationFormCareGiver extends JPanel{
 		constraints.gridwidth = GridBagConstraints.REMAINDER;
 		//constraints.insets = new Insets(0,20,0,0);
 		this.add(houseNumber, constraints);
-		telNumberLabel = new JLabel("Votre numéro de téléphone :");
+		telNumberLabel = new JLabel("Votre numéro de téléphone [non obligatoire] :");
 		constraints.gridx = 0;
 		constraints.gridy = 5;
 		//constraints.insets = new Insets(0,20,0,0);
@@ -115,7 +112,7 @@ public class RegistrationFormCareGiver extends JPanel{
 		//constraints.insets = new Insets(0,20,0,0);
 		this.add(telNumber,constraints);
 
-		noteLabel = new JLabel("Remarque(s) :");
+		noteLabel = new JLabel("Remarque(s) [non obligatoire] :");
 		constraints.gridx = 0;
 		constraints.gridy = 6;
 		//constraints.insets = new Insets(0,20,0,0);
@@ -141,18 +138,20 @@ public class RegistrationFormCareGiver extends JPanel{
 		constraints.gridx = 0;
 		constraints.gridy = 8;
 		//constraints.insets = new Insets(0,20,0,0);
-		this.add(localityLabel, constraints);
-		locality = new JList(iULocatilte());
-		locality.setVisibleRowCount(2);
-		locality.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		locality.setSelectedIndex(0);
+        if(frame!=null) {
+            this.add(localityLabel, constraints);
+            locality = new JList(iULocatilte());
+            locality.setVisibleRowCount(2);
+            locality.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+            locality.setSelectedIndex(0);
+        }
 
 		constraints.gridx = 2;
 		constraints.gridy = 8;
 		constraints.gridwidth = GridBagConstraints.REMAINDER;
 		constraints.insets = new Insets(0,20,0,0);
 		this.add(new JScrollPane(locality), constraints);
-		hireDateLabel = new JLabel("Votre date D'embauche:");
+		hireDateLabel = new JLabel("Votre date d'embauche:");
 		constraints.gridx = 0;
 		constraints.gridy = 9;
 		constraints.insets = new Insets(0,10,50,90);
@@ -171,22 +170,23 @@ public class RegistrationFormCareGiver extends JPanel{
 
 
 		this.add(hireDate, constraints);
-
-		inscription = new JButton("Confirmer l'inscription");
-		confirmListener=new ConfirmButtonListener();
-		inscription.addActionListener(confirmListener);
-		constraints.gridx = 1;
-		constraints.gridy = 12;
-		constraints.gridwidth = GridBagConstraints.REMAINDER;
-		constraints.insets = new Insets(0,20,5,0);
-		constraints.anchor = GridBagConstraints.LINE_END;
-		this.add(inscription, constraints);
-		annuler = new JButton("Annuler");
-		annuler.addActionListener(new CancelButtonListener());
-		constraints.gridx = 1;
-		constraints.gridy = 13;
-		constraints.gridwidth = GridBagConstraints.REMAINDER;
-		this.add(annuler, constraints);
+        if(frame!=null) {
+            inscription = new JButton("Confirmer l'inscription");
+            confirmListener = new ConfirmButtonListener();
+            inscription.addActionListener(confirmListener);
+            constraints.gridx = 1;
+            constraints.gridy = 12;
+            constraints.gridwidth = GridBagConstraints.REMAINDER;
+            constraints.insets = new Insets(0, 20, 5, 0);
+            constraints.anchor = GridBagConstraints.LINE_END;
+            this.add(inscription, constraints);
+            annuler = new JButton("Annuler");
+            annuler.addActionListener(new CancelButtonListener());
+            constraints.gridx = 1;
+            constraints.gridy = 13;
+            constraints.gridwidth = GridBagConstraints.REMAINDER;
+            this.add(annuler, constraints);
+        }
 		//TextListener listener = new TextListener();
 		//mail.addActionListener(listener);
 
@@ -216,8 +216,7 @@ public class RegistrationFormCareGiver extends JPanel{
 				Matcher NANHouse = notNumber.matcher(houseNumber.getText());
 				if(NANHouse.matches())throw new NumberExpection(houseNumberLabel.getText());
 				if(NANTel.matches())throw new NumberExpection(telNumberLabel.getText());
-
-				String mailTexte = (mail.getText().equals("") ? null : mail.getText());
+                String mailTexte = getMailInfo();
 				String nameTexte = (name.getText().equals("") ? null : name.getText());
 				String lastNameTexte = (lastName.getText().equals("")? null : lastName.getText());
 				Integer tel = (telNumber.getText().equals("")? null : Integer.parseInt(telNumber.getText()));
@@ -232,7 +231,6 @@ public class RegistrationFormCareGiver extends JPanel{
 							, house, tel, noteTexte, isVolunteer.isSelected(), date,
 							localiteController.getAllLocalite().get(locality.getSelectedIndex()));
 					careGiverController.setCareGiverData(careGiver);
-
 					frame.changePanel();
 				}
 			}
@@ -245,12 +243,16 @@ public class RegistrationFormCareGiver extends JPanel{
 			}
 			catch (ErrorNull errorNull)
 			{
-				JOptionPane.showMessageDialog(null,errorNull.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null,errorNull.getMessage(),"argument invalide",JOptionPane.ERROR_MESSAGE);
 			}
 			catch (NumberExpection numberExpection)
 			{
-				JOptionPane.showMessageDialog(null,numberExpection.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null,numberExpection.getMessage(),"argument invalide",JOptionPane.ERROR_MESSAGE);
 			}
+			catch (EmailRegexErreur emailErreur)
+            {
+                JOptionPane.showMessageDialog(null,emailErreur.getMessage(),"argument invalide",JOptionPane.ERROR_MESSAGE);
+            }
 		}
 	}
 	private class CancelButtonListener implements ActionListener
@@ -273,9 +275,27 @@ public class RegistrationFormCareGiver extends JPanel{
 	public String getNameInfo(){return name.getText().equals("") ? null : name.getText();}
 	public String getLastNameInfo(){return lastName.getText().equals("")? null : lastName.getText();}
 	public JTextField getMailTextField(){return mail;}
+	public String getMailInfo() throws EmailRegexErreur
+    {
+        Pattern mailCompatible = Pattern.compile("[a-z]+\\.[a-z]+\\.?\\d*@spa\\.be");
+        Matcher isMail=mailCompatible.matcher(mail.getText());
+        if(isMail.matches()) return mail.getText();
+        else throw new EmailRegexErreur();
+    }
 	public String getStreetInfo(){return street.getText().equals("")? null : street.getText();}
-	public Integer getHouseNumberInfo(){return (houseNumber.getText().equals("")? null : Integer.parseInt(houseNumber.getText()));}
-	public Integer getNumTel(){return telNumber.getText().equals("")? null : Integer.parseInt(telNumber.getText());}
+	public Integer getHouseNumberInfo() throws NumberExpection {
+        Pattern notNumber = Pattern.compile("\\d*\\D+\\d*");
+        Matcher NANHouse = notNumber.matcher(houseNumber.getText());
+        if(NANHouse.matches())throw new NumberExpection(houseNumberLabel.getText());
+	    else return  Integer.parseInt(houseNumber.getText());
+	}
+	public Integer getNumTel() throws NumberExpection
+    {
+        Pattern notNumber = Pattern.compile("\\d*\\D+\\d*");
+        Matcher NANTel = notNumber.matcher(telNumber.getText());
+	    if(NANTel.matches())throw  new NumberExpection(telNumber.getText());
+	    else return  Integer.parseInt(telNumber.getText());
+	}
 	public String getNoteText(){return note.getText().equals("")? null : note.getText();}
 	public void setInfos(String name,String lastName,String mail,String street,String houseNumber,String telNumber,String note,boolean isVolunteer,Localite locality,GregorianCalendar dateInscription)
 	{
@@ -285,20 +305,19 @@ public class RegistrationFormCareGiver extends JPanel{
 		this.street.setText(street);
 		this.houseNumber.setText(houseNumber);
 		this.telNumber.setText(telNumber);
-		this.note.setText(note);
+        if(note==null) this.note.setText("non précisé"); else this.note.setText(note);
 		this.isVolunteer.setEnabled(isVolunteer);
 		this.hireDate.setText(dateInscription.get(Calendar.DAY_OF_MONTH)+"/"+(dateInscription.get(Calendar.MONTH)+1)+"/"+dateInscription.get(Calendar.YEAR));
-		this.inscription.setText("Modification");
-		try {
-            this.locality.setSelectedIndex(localiteController.getAllLocalite().indexOf(locality));
+		if(frame!=null) {
+            this.inscription.setText("Modification");
+            try {
+                this.locality.setSelectedIndex(localiteController.getAllLocalite().indexOf(locality));
+            } catch (BDConnexionError connectError) {
+                JOptionPane.showMessageDialog(null, "unable to connect to the BD", "connexion error", JOptionPane.ERROR_MESSAGE);
+            } catch (ErrorNull errorNull) {
+                JOptionPane.showMessageDialog(null, errorNull.getMessage(), "db access error", JOptionPane.ERROR_MESSAGE);
+            }
         }
-        catch(BDConnexionError connectError)
-        {
-            JOptionPane.showMessageDialog(null,"unable to connect to the BD","connexion error",JOptionPane.ERROR_MESSAGE);
-        }
-        catch (ErrorNull errorNull) {
-			JOptionPane.showMessageDialog(null, errorNull.getMessage(), "db access error", JOptionPane.ERROR_MESSAGE);
-		}
 	}
 	public JButton getConfirmButton()
 	{
