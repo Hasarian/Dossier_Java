@@ -9,15 +9,13 @@ public class SoinEffectue {
     private GregorianCalendar dateHeure;
     private Integer idSoinEffectue;
     private SoinMedical soinMedical;
-    private String remarque;
 
     public SoinEffectue(CareGiver careGiver, GregorianCalendar dateHeure,
-                        SoinMedical soinMedical, Integer idSoinEffectue,String remarque) throws ErrorNull{
+                        SoinMedical soinMedical, Integer idSoinEffectue) throws ErrorNull{
         setCareGiver(careGiver);
         setDateHeure(dateHeure);
         setFicheSoin(soinMedical);
         setIdSoinEffectue(idSoinEffectue);
-        this.remarque=remarque;
 
     }
 
@@ -48,7 +46,8 @@ public class SoinEffectue {
     public SoinMedical getFicheSoin() {
         return soinMedical;
     }
-    public String getRemarque(){
-        return remarque;
+
+    public SoinMedical getSoinMedical() {
+        return soinMedical;
     }
 }

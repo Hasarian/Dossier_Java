@@ -16,10 +16,12 @@ import java.util.regex.Pattern;
 
 public class UserInfoPanel extends RegistrationFormCareGiver
 {
+    BannerPanel bannerPanel;
     CareGiverController userControl;
-    public UserInfoPanel(CareGiverController user,MainFrame frame) throws BDConnexionError,ErrorNull
+    public UserInfoPanel(CareGiverController user,MainFrame frame, BannerPanel bannerPanel) throws BDConnexionError,ErrorNull
     {
             super(frame);
+            this.bannerPanel = bannerPanel;
             userControl=user;
             setInfos(user.getUSerFirstName(),user.getUserName(),user.getUserEmail(),user.getUserStreet(),user.getUserHouseNumber(),user.getTelNumer(),
                     user.getUserNote(),user.isVolontaire(),user.getLocalite(),user.getDateEmbauche());
@@ -55,6 +57,7 @@ public class UserInfoPanel extends RegistrationFormCareGiver
                 if (accord == JOptionPane.YES_OPTION) {
                     userControl.updateCurrentUser(nameTexte,lastNameTexte,tel,house,noteTexte,streetTexte);
                     JOptionPane.showMessageDialog(null, "vos informations ont été mises à jour", "confirmation", JOptionPane.INFORMATION_MESSAGE);
+                    bannerPanel.actualisation();
                 }
             }
             catch (BDConnexionError connexionError)

@@ -42,7 +42,7 @@ public class AnimalBusiness {
         for(Animal animal:allAnimals)
         {
             System.out.println(id+"\t"+animal.getId());
-            if(animal.getId() == id) return animal;
+            if(animal.getId().equals(id)) return animal;
         }
         return null;
     }

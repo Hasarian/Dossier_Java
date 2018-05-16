@@ -52,7 +52,7 @@ public class CaraGiverDataAccess implements DAOCareGiver {
         try{
             PreparedStatement statement=singletonDBAcces.prepareStatement(sql);
             statement.setString(1,id);
-            statement.executeQuery();
+            statement.execute();
         }
         catch (SQLException sqlException)
         {

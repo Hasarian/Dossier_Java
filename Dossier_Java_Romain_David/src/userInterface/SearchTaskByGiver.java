@@ -17,15 +17,17 @@ public class SearchTaskByGiver extends JPanel {
     private MainFrame mainFrame;
     private JList idGiver;
     private JButton searchButton;
+    private JButton backButton;
     private CareGiverController careGiverControl;
     private JScrollPane tablePane;
+    private JLabel idGiverLabel;
     public SearchTaskByGiver(MainFrame mainFrame) throws BDConnexionError
     {
         careGiverControl=new CareGiverController();
         this.mainFrame=mainFrame;
         setBackground(Color.WHITE);
         setLayout(null);
-        JLabel idGiverLabel= new JLabel("mail du soignant:");
+        idGiverLabel= new JLabel("mail du soignant:");
         idGiverLabel.setBounds(50,getY(),125,20);
         idGiver=new JList(careGiverControl.getallUsers());
         idGiver.setVisibleRowCount(1);
@@ -40,7 +42,7 @@ public class SearchTaskByGiver extends JPanel {
         searchButton.addActionListener(new SearchListener());
         add(searchButton);
 
-        JButton backButton=new JButton("back");
+        backButton = new JButton("back");
         backButton.setBounds(getX()+getWidth()-50,idGiverLabel.getY(),35,idGiverLabel.getHeight());
         backButton.addActionListener(new BackListener());
         add(backButton);
@@ -58,7 +60,14 @@ public class SearchTaskByGiver extends JPanel {
         public void actionPerformed(ActionEvent e) {
             try {
 
-                if (tablePane != null) remove(tablePane);
+                if (tablePane != null){
+                    //remove(tablePane);
+                    removeAll();
+                    add(idGiverLabel);
+                    add(idGiver);
+                    add(searchButton);
+                    add(backButton);
+                }
                 String mail = idGiver.getSelectedValue().toString();
                 JLabel nom, numTel, estbenevole, codePosal;
                 nom = new JLabel(careGiverControl.getOtherName(mail));
@@ -78,6 +87,8 @@ public class SearchTaskByGiver extends JPanel {
                 tablePane = new JScrollPane(careTable);
                 tablePane.setBounds(getX() + 15, searchButton.getY() + codePosal.getHeight() + 20, getWidth() - 30, 300);
                 add(tablePane);
+                repaint();
+                revalidate();
             } catch (BDConnexionError connexionError) {
                 JOptionPane.showMessageDialog(null, connexionError.getMessage(), "accès BD", JOptionPane.ERROR_MESSAGE);
             }
@@ -106,7 +117,6 @@ public class SearchTaskByGiver extends JPanel {
                         "animal id",
                         "date / heure du soin rendu",
                         "soin médical: heure prévue",
-                        "remarque sur le soin",
                         "remarque par le soignant"
                 };
 

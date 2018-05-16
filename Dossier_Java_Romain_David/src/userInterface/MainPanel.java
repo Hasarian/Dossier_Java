@@ -33,4 +33,7 @@ public class MainPanel extends JSplitPane
         setDividerLocation(0.2);
     }
 
+    public JPanel getBanner() {
+        return banner;
+    }
 }

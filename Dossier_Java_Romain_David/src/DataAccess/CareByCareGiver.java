@@ -37,6 +37,7 @@ implements DAOsoinEffectue
                 "and soineffectue.mail = soignant.mail and soineffectue.numSoinMedical = soinmedical.idSoinMedical; ";
         try{
             PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, mail);
             ResultSet data = statement.executeQuery();
             ArrayList<SoinEffectue> soinsEffectués=new ArrayList<SoinEffectue>();
             while(data.next())
@@ -65,22 +66,21 @@ implements DAOsoinEffectue
             /*GregorianCalendar dateArrive = new GregorianCalendar();
                 dateArrive.setTime(data.getDate("ficheAnimal.dateArrive"));*/
             GregorianCalendar dateSoin=new GregorianCalendar();
-            dateSoin.setTime(data.getTime("soinEffectue.dateSoin"));
+            dateSoin.setTime(data.getDate("soinEffectue.dateSoin"));
             Integer idSoineffectue=new Integer(data.getInt("soinEffectue.idSoinEffectue"));
-            String remarque=data.getString("soinEffectue.remarque");
 
             Integer idSoinMedical=new Integer(data.getInt("soinMedical.idSoinMedical"));
-            Animal animal=animalBusiness.getAnimalFromBD(new Integer(data.getInt("soinmedical.numdossier")));
+            Animal animal=animalBusiness.getAnimal(data.getInt("soinMedical.numDossier"));
             GregorianCalendar dateSoinMedical=new GregorianCalendar();
             dateSoinMedical.setTime(data.getDate("soinMedical.dateSoinMedical"));//data.getDate("soinMdecial.dateSoinMedical")
             GregorianCalendar heureSoin=new GregorianCalendar();
-            heureSoin.setTime(data.getDate("soinMedical.heureSoinMediacl"));
+            heureSoin.setTime(data.getTime("soinMedical.heureSoinMediacl"));
             String remarqueSoin=data.getString("soinMedical.remarque");
             Integer numOrdonnance=new Integer(data.getInt("soinMedical.numOrdonnance"));
             String mailVeto = data.getString("soinMedical.mailVeto");
             SoinMedical soinMedical=new SoinMedical(idSoinMedical,animal,dateSoin,heureSoin,remarqueSoin,numOrdonnance, mailVeto);
 
-            return new SoinEffectue(giverBusiness.getUserByMail(mail),dateSoin,soinMedical,idSoineffectue,remarque);
+            return new SoinEffectue(giverBusiness.getUserByMail(mail),dateSoin,soinMedical,idSoineffectue);
         }
         catch(SQLException e)
         {

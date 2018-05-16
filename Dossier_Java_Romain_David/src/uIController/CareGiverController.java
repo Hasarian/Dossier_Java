@@ -72,17 +72,16 @@ public class CareGiverController
             row.add(date);
             date= new String();
             if(soin.getFicheSoin().getDate()!=null) {
-                date += soin.getFicheSoin().getDate().get(Calendar.DAY_OF_MONTH) + "/";
-                date += soin.getFicheSoin().getDate().get(Calendar.MONTH) + "/";
-                date += soin.getFicheSoin().getDate().get(Calendar.YEAR) + "  ";
-                date += soin.getFicheSoin().getDate().get(Calendar.HOUR) + ":";
-                date += soin.getFicheSoin().getDate().get(Calendar.MINUTE);
+                date += soin.getSoinMedical().getDate().get(Calendar.DAY_OF_MONTH) + "/";
+                date += soin.getSoinMedical().getDate().get(Calendar.MONTH)  + "/";
+                date += soin.getSoinMedical().getDate().get(Calendar.YEAR) + "  ";
+                date += soin.getSoinMedical().getHeure().get(Calendar.HOUR) + ":";
+                date += soin.getSoinMedical().getHeure().get(Calendar.MINUTE);
             }else{
                 date="nom spécifié";
             }
             row.add(date);
             row.add(soin.getFicheSoin().getRemarque());
-            row.add(soin.getRemarque());
             data.add(row);
         }
         else

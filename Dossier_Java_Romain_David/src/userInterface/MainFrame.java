@@ -3,6 +3,7 @@ package userInterface;
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
 import erreurs.InexistantCareGiver;
+
 import uIController.CareGiverController;
 
 import javax.swing.*;
@@ -170,7 +171,7 @@ public class MainFrame extends JFrame
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                changePanel(new UserInfoPanel(user,thisFrame));
+                changePanel(new UserInfoPanel(user,thisFrame,(BannerPanel) mainPanel.getBanner()));
             }
             catch (BDConnexionError connexionError)
             {
