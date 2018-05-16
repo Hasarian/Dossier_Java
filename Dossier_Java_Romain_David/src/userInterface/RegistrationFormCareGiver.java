@@ -32,6 +32,7 @@ public class RegistrationFormCareGiver extends JPanel{
     private MainFrame frame;
     private CareGiverBusiness careGiverBusiness;
     private LocaliteController localiteController;
+    private ActionListener confirmListener;
 
     RegistrationFormCareGiver(MainFrame frame) throws BDConnexionError, ErrorNull{
 		setBounds(0,0,1000,750);
@@ -172,7 +173,8 @@ public class RegistrationFormCareGiver extends JPanel{
 		this.add(hireDate, constraints);
 
 		inscription = new JButton("Confirmer l'inscription");
-		inscription.addActionListener(new ConfirmButtonListener());
+		confirmListener=new ConfirmButtonListener();
+		inscription.addActionListener(confirmListener);
 		constraints.gridx = 1;
 		constraints.gridy = 12;
 		constraints.gridwidth = GridBagConstraints.REMAINDER;
@@ -189,6 +191,7 @@ public class RegistrationFormCareGiver extends JPanel{
 		//mail.addActionListener(listener);
 
 	}
+	public ActionListener getConfirmListener(){return confirmListener;}
 	private String[] iULocatilte()throws ErrorNull,BDConnexionError{
 		localiteController = new LocaliteController();
 		String [] localitesTexte = new String [localiteController.getAllLocalite().size()];

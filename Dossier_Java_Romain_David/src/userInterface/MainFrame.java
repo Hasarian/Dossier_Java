@@ -50,7 +50,6 @@ public class MainFrame extends JFrame
 
         suppression=new JMenu("supprimer...");
         administration.add(suppression);
-
         suppressionSoignant=new JMenuItem("soignant");
         suppression.add(suppressionSoignant);
         suppressionSoignant.addActionListener(new ToSupprimerSoignant());

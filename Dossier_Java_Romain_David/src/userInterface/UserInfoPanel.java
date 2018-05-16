@@ -29,7 +29,7 @@ public class UserInfoPanel extends RegistrationFormCareGiver
         private JCheckBox isVolunteer;
         private JList locality;
         private JButton inscription*/
-            getConfirmButton().removeAll();
+            getConfirmButton().removeActionListener(getConfirmListener());
             repaint();
             getConfirmButton().addActionListener(new MajListener());
     }
