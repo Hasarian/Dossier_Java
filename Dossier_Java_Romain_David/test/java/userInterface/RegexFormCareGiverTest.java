@@ -18,7 +18,7 @@ public class RegexFormCareGiverTest {
     public void setUp() throws Exception {
             form=new RegistrationFormCareGiver(null);
             form.setInfos("jean-jacques","goldman","yolo","grande vue","je ne le dirai pas",
-                    "0458621","sert au test",true,new Localite(),new GregorianCalendar());
+                    "0458621","",true,new Localite(),new GregorianCalendar());
     }
 
     @Test
@@ -49,5 +49,10 @@ public class RegexFormCareGiverTest {
     @org.junit.Test
     public void getNumTel() throws NumberExpection {
         Assert.assertEquals(new Integer(458621),form.getNumTel());
+    }
+    @Test
+    public void getNote()
+    {
+        Assert.assertEquals(null,form.getNoteText());
     }
 }
