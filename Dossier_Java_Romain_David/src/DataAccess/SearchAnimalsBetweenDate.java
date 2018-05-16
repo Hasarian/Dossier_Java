@@ -32,20 +32,18 @@ public class SearchAnimalsBetweenDate {
 
             String sql = "select*" +
                     "    from ficheAnimal, race, espece, fichesoin" +
-                    "    where  fichesoin.id = ficheanimal.id " +
+                    "    where ficheAnimal.dateArrive > ? and ficheAnimal.dateArrive < ? and fichesoin.id = ficheanimal.id " +
                     "and race.libelle = ficheanimal.race " +
                     "and race.espece = espece.libelle;";
-            //ficheAnimal.dateArrive > ? and ficheAnimal.dateArrive < ? and
             PreparedStatement statement = connection.prepareStatement(sql);
             java.sql.Date dateSQL1 = new java.sql.Date(dateDeb.getTimeInMillis());
 
-            /*statement.setDate(1, dateSQL1);
+            statement.setDate(1, dateSQL1);
             java.sql.Date dateSQL2 = new java.sql.Date(dateFin.getTimeInMillis());
-            statement.setDate(2, dateSQL2);*/
+            statement.setDate(2, dateSQL2);
             ResultSet data = statement.executeQuery();
 
             while (data.next()) {
-                System.out.println("0-");
                     resultSearch.add(traductionSQL(data));
             }
 

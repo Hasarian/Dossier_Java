@@ -51,8 +51,9 @@ public class AnimalBusiness {
     {
         Animal newAnimal=new Animal(id,remarque,numCell,race,nom,dateArrivee,dateFin,estDangereux,etatAnimal,remarqueSoin,etatSoin,careGiver);
         if(getAnimal(id)!=null) {
-            allAnimals.remove(getAnimal(id));
             listBusiness.removeAnimal(id);
+            allAnimals.remove(getAnimal(id));
+
         }
         allAnimals.add(newAnimal);
         listBusiness.ajoutAnimal(newAnimal);
