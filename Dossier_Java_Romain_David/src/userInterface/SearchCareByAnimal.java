@@ -18,7 +18,7 @@ public class SearchCareByAnimal extends JPanel
     AnimalController animalController;
     JLabel idAnimal, resultats;
     JList animals;
-    JTable resultat;
+    JScrollPane resultat;
     JButton confirmer;
 
     public SearchCareByAnimal() throws InexistantCareGiver {
@@ -31,7 +31,12 @@ public class SearchCareByAnimal extends JPanel
             animals.setVisibleRowCount(2);
             animals.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
             animals.setSelectedIndex(0);
+            animals.setBounds(idAnimal.getX()+idAnimal.getWidth()+5,idAnimal.getY(),idAnimal.getWidth()+2,idAnimal.getHeight());
             this.add(animals);
+            confirmer = new JButton("Rechercher");
+            confirmer.addActionListener(new ConfirmeButtonListener());
+            confirmer.setBounds(animals.getX()+animals.getWidth()+5,animals.getY(),animals.getWidth()+2,animals.getHeight());
+            add(confirmer);
 
         } catch (BDConnexionError connexionError) {
             JOptionPane.showMessageDialog(null, connexionError.getMessage(), "accès BD", JOptionPane.ERROR_MESSAGE);
@@ -42,18 +47,20 @@ public class SearchCareByAnimal extends JPanel
 
         private class ConfirmeButtonListener implements ActionListener
         {
-            public void actionPerformed(ActionEvent e) {
-                //try {
+            public void actionPerformed(ActionEvent e)  {
+                try {
                     if(resultat!=null) remove(resultat);
                     String stringAnimal =(String) animals.getSelectedValue();
-                    int indexDebId = stringAnimal.indexOf("(") + 1;
-                    int indexFinId = stringAnimal.indexOf(")") - 1;
-                    int id = Integer.parseInt(stringAnimal.substring(indexDebId, indexFinId));
-                    /*SearchAnimal.ModelTable model = new SearchAnimal.ModelTable(animalController.getAnimal(id));
-                    resultat = new JTable(model);
+                    int id = Integer.parseInt(stringAnimal.substring(0, stringAnimal.indexOf(":")));
+                    System.out.println(id);
+                    ModelTable model = new ModelTable(animalController.getCareByAnimal(id));
+                    JTable animalTable = new JTable(model);
+                    resultat = new JScrollPane(animalTable);
                     resultat.setBounds(25, 85, 500, 500);
                     add(resultat);
-                    //repaint();
+
+                    repaint();
+                    revalidate();
                 }
                 catch(BDConnexionError connexionError)
                 {
@@ -62,7 +69,7 @@ public class SearchCareByAnimal extends JPanel
                 catch(ErrorNull errorNull)
                 {
                     JOptionPane.showMessageDialog(null, errorNull.getMessage(), "db access error", JOptionPane.ERROR_MESSAGE);
-                }*/
+                }
             }
         }
         private class ModelTable extends AbstractTableModel
@@ -70,13 +77,11 @@ public class SearchCareByAnimal extends JPanel
             private ArrayList<ArrayList<String>> data;
             private String [] columnNames=
                     {
-                            "Nom",
-                            "est dangereux",
-                            "num cellule",
-                            "race",
-                            "vaccin",
-                            "date vaccin",
-                            "date arrive"
+                            "NumOrdonnance",
+                            "idSoinMedical",
+                            "remarque",
+                            "mailVeto",
+                            "date",
                     };
 
             public ModelTable(ArrayList<ArrayList<String>> data)

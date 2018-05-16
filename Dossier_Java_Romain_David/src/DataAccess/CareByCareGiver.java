@@ -77,7 +77,8 @@ implements DAOsoinEffectue
             heureSoin.setTime(data.getDate("soinMedical.heureSoinMediacl"));
             String remarqueSoin=data.getString("soinMedical.remarque");
             Integer numOrdonnance=new Integer(data.getInt("soinMedical.numOrdonnance"));
-            SoinMedical soinMedical=new SoinMedical(idSoinMedical,animal,dateSoin,heureSoin,remarqueSoin,numOrdonnance);
+            String mailVeto = data.getString("soinMedical.mailVeto");
+            SoinMedical soinMedical=new SoinMedical(idSoinMedical,animal,dateSoin,heureSoin,remarqueSoin,numOrdonnance, mailVeto);
 
             return new SoinEffectue(giverBusiness.getUserByMail(mail),dateSoin,soinMedical,idSoineffectue,remarque);
         }

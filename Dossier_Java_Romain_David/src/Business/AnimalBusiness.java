@@ -1,18 +1,21 @@
 package Business;
 
 import DataAccess.AnimalDBAccess;
+import DataAccess.CareToDoForAnimal;
 import DataAccess.DAO.DAOAnimal;
 import DataAccess.SearchAnimalsBetweenDate;
 import Model.*;
 import erreurs.BDConnexionError;
 import erreurs.ErrorNull;
 import erreurs.InexistantCareGiver;
+import userInterface.SearchCareByAnimal;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 public class AnimalBusiness {
     private SearchAnimalsBetweenDate research;
+    private CareToDoForAnimal searchCareByAnimal;
     private DAOAnimal dbAcces;
     private ArrayList<Animal> allAnimals;
     private static AnimalBusiness instance;
@@ -23,6 +26,7 @@ public class AnimalBusiness {
         dbAcces=new AnimalDBAccess(this);
         listBusiness=listanimals;
         dbAcces.readAllAnimals();
+        searchCareByAnimal = new CareToDoForAnimal(this);
     }
     public static AnimalBusiness obtenirAnimalBusiness(ListAnimalBusiness listanimals)
     throws BDConnexionError,ErrorNull,InexistantCareGiver
@@ -44,6 +48,9 @@ public class AnimalBusiness {
     }
     public Animal getAnimalFromBD(Integer id) throws ErrorNull, BDConnexionError,InexistantCareGiver{
         return dbAcces.read(id);
+    }
+    public ArrayList<SoinMedical> getCareByAnimal(Integer id) throws BDConnexionError, ErrorNull{
+        return searchCareByAnimal.readCareToAnimal(id);
     }
     public void nouvelAnimalFromDB(Integer id, String remarque, Integer numCell, String nom, Race race, GregorianCalendar dateArrivee, GregorianCalendar dateFin,
                              Boolean estDangereux, Animal.EtatAnimal etatAnimal, String remarqueSoin,Animal.EtatSoin etatSoin,CareGiver careGiver)

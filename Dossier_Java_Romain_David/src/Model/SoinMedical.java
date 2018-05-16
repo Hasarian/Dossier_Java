@@ -14,14 +14,17 @@ public class SoinMedical {
     private GregorianCalendar heure;
     private String remarque;
     private Integer numOrdonnance;
+    private String mailVeto;
 
-    public SoinMedical(Integer idSoinMedical, Animal ficheSoin, GregorianCalendar date,GregorianCalendar heure,String remarque, Integer numOrdonnance) throws ErrorNull{
+    public SoinMedical(Integer idSoinMedical, Animal ficheSoin, GregorianCalendar date,GregorianCalendar heure,String remarque, Integer numOrdonnance, String veterinaire) throws ErrorNull{
         setDate(date);
         setFicheSoin(ficheSoin);
         setIdSoinMedical(idSoinMedical);
         setNumOrdonnance(numOrdonnance);
         setRemarque(remarque);
         this.heure=heure;
+        setMailVeto(veterinaire);
+
 
     }
 
@@ -54,6 +57,12 @@ public class SoinMedical {
         if(numOrdonnance == null) throw new ErrorNull();
         this.numOrdonnance = numOrdonnance;
     }
+
+    public void setMailVeto(String mailVeto) throws ErrorNull {
+        if(numOrdonnance == null) throw new ErrorNull();
+        this.mailVeto = mailVeto;
+    }
+
     public Animal getFicheSoin(){
         return ficheSoin;
     }
@@ -64,5 +73,21 @@ public class SoinMedical {
 
     public String getRemarque() {
         return remarque;
+    }
+
+    public GregorianCalendar getHeure() {
+        return heure;
+    }
+
+    public Integer getIdSoinMedical() {
+        return idSoinMedical;
+    }
+
+    public Integer getNumOrdonnance() {
+        return numOrdonnance;
+    }
+
+    public String getMailVeto() {
+        return mailVeto;
     }
 }

@@ -51,7 +51,7 @@ public class UserInfoPanel extends RegistrationFormCareGiver
                 String noteTexte = getNoteText();
                 String streetTexte = getStreetInfo();
 
-                int accord = JOptionPane.showConfirmDialog(null, "êtes vous sûr de sauvegarder les changements ?", "confirmation d'inscription", JOptionPane.YES_NO_CANCEL_OPTION);
+                int accord = JOptionPane.showConfirmDialog(null, "êtes vous sûr de sauvegarder les changements ?", "confirmation de modification", JOptionPane.YES_NO_CANCEL_OPTION);
                 if (accord == JOptionPane.YES_OPTION) {
                     userControl.updateCurrentUser(nameTexte,lastNameTexte,tel,house,noteTexte,streetTexte);
                     JOptionPane.showMessageDialog(null, "vos informations ont été mises à jour", "confirmation", JOptionPane.INFORMATION_MESSAGE);

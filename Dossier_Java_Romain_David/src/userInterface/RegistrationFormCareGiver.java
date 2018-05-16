@@ -207,6 +207,7 @@ public class RegistrationFormCareGiver extends JPanel{
 
 
 			try {
+
 				Pattern notNumber = Pattern.compile("\\d*\\D+\\d*");
 				Matcher NANTel = notNumber.matcher(telNumber.getText());
 				Matcher NANHouse = notNumber.matcher(houseNumber.getText());
@@ -220,14 +221,17 @@ public class RegistrationFormCareGiver extends JPanel{
 				Integer house = (houseNumber.getText().equals("")? null : Integer.parseInt(houseNumber.getText()));
 				String noteTexte = (note.getText().equals("")? null : note.getText());
 				String streetTexte = (street.getText().equals("")? null : street.getText());
-				CareGiverController careGiverController = new CareGiverController();
+				int accord = JOptionPane.showConfirmDialog(null,"Etes vous sur de vouloir vous inscrir ?","confirmation d'inscription",JOptionPane.INFORMATION_MESSAGE);
+				if(accord == JOptionPane.YES_OPTION) {
+					CareGiverController careGiverController = new CareGiverController();
 
-				CareGiver careGiver = new CareGiver(mailTexte,nameTexte, lastNameTexte, streetTexte
-						, house, tel, noteTexte, isVolunteer.isSelected(), date,
-						localiteController.getAllLocalite().get(locality.getSelectedIndex()));
-				careGiverController.setCareGiverData(careGiver);
-				JOptionPane.showMessageDialog(null,"vous avez été inscrit(e)!","confirmation d'inscription",JOptionPane.INFORMATION_MESSAGE);
-				frame.changePanel();
+					CareGiver careGiver = new CareGiver(mailTexte, nameTexte, lastNameTexte, streetTexte
+							, house, tel, noteTexte, isVolunteer.isSelected(), date,
+							localiteController.getAllLocalite().get(locality.getSelectedIndex()));
+					careGiverController.setCareGiverData(careGiver);
+
+					frame.changePanel();
+				}
 			}
 			catch (ErreurInsertCareGiver error){
 				JOptionPane.showMessageDialog(null, error.getMessage(),"Erreur dans la Création du soigneur",JOptionPane.ERROR_MESSAGE);
@@ -281,6 +285,7 @@ public class RegistrationFormCareGiver extends JPanel{
 		this.note.setText(note);
 		this.isVolunteer.setEnabled(isVolunteer);
 		this.hireDate.setText(dateInscription.get(Calendar.DAY_OF_MONTH)+"/"+(dateInscription.get(Calendar.MONTH)+1)+"/"+dateInscription.get(Calendar.YEAR));
+		this.inscription.setText("Modification");
 		try {
             this.locality.setSelectedIndex(localiteController.getAllLocalite().indexOf(locality));
         }

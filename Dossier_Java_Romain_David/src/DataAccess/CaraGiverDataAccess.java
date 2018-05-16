@@ -90,7 +90,8 @@ public class CaraGiverDataAccess implements DAOCareGiver {
             statement.setInt(4, careGiver.getNumMaison());
             statement.setBoolean(7, careGiver.getEstBenevole());
             statement.setInt(8, careGiver.getLocalite().getIdLocalite());
-            statement.executeQuery();
+            statement.setString(9, careGiver.getMail());
+            statement.executeUpdate();
         }
         catch (SQLException sqlException)
         {

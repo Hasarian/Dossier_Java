@@ -43,7 +43,7 @@ public class AnimalDBAccess implements DAOAnimal {
     public void readAllAnimals() throws ErrorNull,BDConnexionError, InexistantCareGiver{
         try{
             String sql = "select * from ficheanimal,fichesoin,race,espece\n" +
-                    "where fichesoin.id=ficheanimal.id and ficheanimal.race=race.libelle and ficheanimal.race=race.libelle and espece.libelle=race.espece; ";
+                    "where fichesoin.id=ficheanimal.id and ficheanimal.race=race.libelle and espece.libelle=race.espece; ";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet data = statement.executeQuery();
             while(data.next()) {

@@ -49,7 +49,8 @@ public class MainFrame extends JFrame
         newCareGiver.addActionListener(new ToCareFormListener());
 
         suppression=new JMenu("supprimer...");
-        administration.add(administration);
+        administration.add(suppression);
+
         suppressionSoignant=new JMenuItem("soignant");
         suppression.add(suppressionSoignant);
         suppressionSoignant.addActionListener(new ToSupprimerSoignant());
