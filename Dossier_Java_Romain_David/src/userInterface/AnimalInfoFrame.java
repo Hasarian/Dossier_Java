@@ -13,7 +13,7 @@ public class AnimalInfoFrame extends JFrame
     public AnimalInfoFrame(ListsControllerAnimal listControl,Integer idAnimal)
     {
          infoDisplayer=new AnimalInfoDisplayer(idAnimal,listControl);
-         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         Container container=getContentPane();
         //container.setBackground(Color.white);
         container.add(new AnimalInfoPanel());
