@@ -115,5 +115,16 @@ public class CareGiverBusiness {
     public ArrayList<String> getAllUsers() throws BDConnexionError {
         return daoCareGiver.readallMails();
     }
+    public void updateCurrentUserInBD(String nameTexte,String lastNameTexte, Integer tel,Integer houseNumber, String noteTexte, String streetTexte)
+    throws ErrorNull,BDConnexionError
+    {
+        currentUser.setFirstName(nameTexte);
+        currentUser.setName(lastNameTexte);
+        currentUser.setNumTel(tel);
+        currentUser.setNumMaison(houseNumber);
+        currentUser.setRemarque(noteTexte);
+        currentUser.setStreet(streetTexte);
+        daoCareGiver.update(currentUser);
+    }
 }
 

@@ -2,6 +2,7 @@ package uIController;
 
 import Business.CareGiverBusiness;
 import Model.CareGiver;
+import Model.Localite;
 import Model.SoinEffectue;
 import erreurs.*;
 
@@ -37,7 +38,12 @@ public class CareGiverController
         return business.getUserEmail();
     }
     public boolean isVeto(){return business.isVeto();}
-
+    public String getUserStreet(){return business.getCurrentUser().getStreet();}
+    public String getUserHouseNumber(){return business.getCurrentUser().getNumMaison().toString();}
+    public String getTelNumer(){return business.getCurrentUser().getNumTel().toString();}
+    public String getUserNote(){return business.getCurrentUser().getRemarque();}
+    public boolean isVolontaire(){return business.getCurrentUser().getEstBenevole();}
+    public Localite getLocalite(){return business.getCurrentUser().getLocalite();}
     public CareGiver getCareGiver()
     {
         return business.getCurrentUser();
@@ -109,4 +115,10 @@ public class CareGiverController
         for(int i=0;i<data.length;i++)data[i]=allusers.get(i);
         return data;
     }
+    public void updateCurrentUser(String nameTexte,String lastNameTexte, Integer tel,Integer houseNumber, String noteTexte, String streetTexte)
+    throws ErrorNull,BDConnexionError
+    {
+        business.updateCurrentUserInBD(nameTexte,lastNameTexte,tel,houseNumber,noteTexte,streetTexte);
+    }
+
 }

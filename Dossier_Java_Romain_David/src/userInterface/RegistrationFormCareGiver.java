@@ -263,6 +263,13 @@ public class RegistrationFormCareGiver extends JPanel{
     private JList locality;
 
 	*/
+	public String getNameInfo(){return name.getText().equals("") ? null : name.getText();}
+	public String getLastNameInfo(){return lastName.getText().equals("")? null : lastName.getText();}
+	public JTextField getMailTextField(){return mail;}
+	public String getStreetInfo(){return street.getText().equals("")? null : street.getText();}
+	public Integer getHouseNumberInfo(){return (houseNumber.getText().equals("")? null : Integer.parseInt(houseNumber.getText()));}
+	public Integer getNumTel(){return telNumber.getText().equals("")? null : Integer.parseInt(telNumber.getText());}
+	public String getNoteText(){return note.getText().equals("")? null : note.getText();}
 	public void setInfos(String name,String lastName,String mail,String street,String houseNumber,String telNumber,String note,boolean isVolunteer,Localite locality)
 	{
 		this.name.setText(name);
@@ -280,10 +287,13 @@ public class RegistrationFormCareGiver extends JPanel{
         {
             JOptionPane.showMessageDialog(null,"unable to connect to the BD","connexion error",JOptionPane.ERROR_MESSAGE);
         }
-        catch (ErrorNull errorNull)
-        {
-            JOptionPane.showMessageDialog(null,errorNull.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
-        }
+        catch (ErrorNull errorNull) {
+			JOptionPane.showMessageDialog(null, errorNull.getMessage(), "db access error", JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	public JButton getConfirmButton()
+	{
+		return inscription;
 	}
 
 	//attention: pas terminé:localité n'est pas sélectionné !

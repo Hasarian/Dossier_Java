@@ -163,8 +163,17 @@ public class MainFrame extends JFrame
 
         @Override
         public void actionPerformed(ActionEvent e) {
-
-            changePanel(new UserInfoPanel(user));
+            try {
+                changePanel(new UserInfoPanel(user,thisFrame));
+            }
+            catch (BDConnexionError connexionError)
+            {
+                JOptionPane.showMessageDialog(null, connexionError.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
+            }
+            catch (ErrorNull errorNull)
+            {
+                JOptionPane.showMessageDialog(null,errorNull.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 }
