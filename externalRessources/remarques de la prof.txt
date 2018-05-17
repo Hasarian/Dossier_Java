@@ -1,6 +1,6 @@
 listing soignant
 repasser sur les insertions: valeurs obligatoires
-ordre mesqsgaes confirmaation
+ordre messages confirmaation
 messages pas clairs
 affichage
 
@@ -18,5 +18,8 @@ plus de donn?es sur les soins
 terminer la t?che m?tier
 
 orthographe
+
+
+SQL avec join ?
 
 clean code
