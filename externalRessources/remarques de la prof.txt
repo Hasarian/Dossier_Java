@@ -1,0 +1,22 @@
+listing soignant
+repasser sur les insertions: valeurs obligatoires
+ordre mesqsgaes confirmaation
+messages pas clairs
+affichage
+
+
+suppression: ne fonctionne pas (liens)
+
+modification: n'importe quelle ligne
+attention localit?
+
+
+affichage table model: classes des colonnes
+
+plus de donn?es sur les soins
+
+terminer la t?che m?tier
+
+orthographe
+
+clean code
