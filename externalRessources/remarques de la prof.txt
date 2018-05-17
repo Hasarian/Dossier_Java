@@ -1,6 +1,6 @@
 listing soignant
 repasser sur les insertions: valeurs obligatoires
-ordre messages confirmaation
+ordre messages confirmation
 messages pas clairs
 affichage
 
@@ -24,3 +24,5 @@ orthographe
 SQL avec join ?
 
 clean code
+
+venir avec le pc le jour de la d?mo (c'est mieux d'utiliser le m?me pc pour les deux ?tudiants du groupe)
