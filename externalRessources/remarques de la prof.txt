@@ -8,6 +8,7 @@ affichage
 suppression: ne fonctionne pas (liens)
 
 modification: n'importe quelle ligne
+m?me la date et le mail
 attention localit?
 
 
