@@ -1,17 +1,10 @@
 package userInterface;
 
-import uIController.AnimalInfoDisplayer;
-
-import javax.swing.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
 public class Main
 {
     public static void main(String[] args)
     {
-        LoginFrame frame=new LoginFrame();
+        ConnexionFrame frame=new ConnexionFrame();
         //AnimalInfoFrame frame=new AnimalInfoFrame();
     }
 }

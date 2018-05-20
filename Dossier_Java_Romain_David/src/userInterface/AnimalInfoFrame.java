@@ -1,8 +1,7 @@
 package userInterface;
 
-import erreurs.ErrorNull;
 import uIController.AnimalInfoDisplayer;
-import uIController.ListsControllerAnimal;
+import uIController.ListesAnimauxController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +9,7 @@ import java.awt.*;
 public class AnimalInfoFrame extends JFrame
 {
     AnimalInfoDisplayer infoDisplayer;
-    public AnimalInfoFrame(ListsControllerAnimal listControl,Integer idAnimal)
+    public AnimalInfoFrame(ListesAnimauxController listControl, Integer idAnimal)
     {
          infoDisplayer=new AnimalInfoDisplayer(idAnimal,listControl);
          setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -31,7 +30,7 @@ public class AnimalInfoFrame extends JFrame
             setBounds(500, 200, 500, 500);
             setVisible(true);
         }
-        catch (ErrorNull error)
+        catch (ErreurrNull error)
         {
             JOptionPane.showMessageDialog(null,error.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
         }

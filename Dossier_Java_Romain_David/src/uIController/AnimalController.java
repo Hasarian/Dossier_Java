@@ -1,14 +1,12 @@
 package uIController;
 
 import Business.AnimalBusiness;
-import Business.ListAnimalBusiness;
+import Business.ListeAnimalBusiness;
 import Model.Animal;
-import Model.SoinEffectue;
 import Model.SoinMedical;
-import Model.Vaccination;
-import erreurs.BDConnexionError;
-import erreurs.ErrorNull;
-import erreurs.InexistantCareGiver;
+import erreurs.BDConnexionErreur;
+import erreurs.ErreurrNull;
+import erreurs.SoignantInexistant;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -17,21 +15,21 @@ import java.util.GregorianCalendar;
 public class AnimalController {
     private AnimalBusiness animalBusiness;
 
-    public  AnimalController()throws BDConnexionError, ErrorNull, InexistantCareGiver{
-        animalBusiness = AnimalBusiness.obtenirAnimalBusiness(ListAnimalBusiness.obtenirListAnimalBusiness(new CareGiverController()));
+    public  AnimalController()throws BDConnexionErreur, ErreurrNull, SoignantInexistant {
+        animalBusiness = AnimalBusiness.obtenirAnimalBusiness(ListeAnimalBusiness.obtenirListAnimalBusiness(new SoignantController()));
     }
-    public String[] getStringAnimals(){
-        String[] animals= new String[animalBusiness.getAllAnimals().size()];
+    public String[] getTableauStringAnimaux(){
+        String[] animals= new String[animalBusiness.getTousLesAnimaux().size()];
         int i = 0;
-        for (Animal animal: animalBusiness.getAllAnimals()) {
+        for (Animal animal: animalBusiness.getTousLesAnimaux()) {
             animals[i] = animal.getId()+":"+animal.getNomAnimal();
             i++;
         }
         return animals;
     }
-    public ArrayList<ArrayList<String >> getCareByAnimal(Integer id) throws BDConnexionError, ErrorNull{
+    public ArrayList<ArrayList<String >> getSoinParAnimal(Integer id) throws BDConnexionErreur, ErreurrNull {
         ArrayList<ArrayList<String>> soinMedicals = new ArrayList<ArrayList<String>>();
-        for (SoinMedical soinMedical: animalBusiness.getCareByAnimal(id)) {
+        for (SoinMedical soinMedical: animalBusiness.getSoinPourUnAnimal(id)) {
             ArrayList<String> row = new ArrayList<String>();
             row.add(soinMedical.getNumOrdonnance().toString());
             row.add(soinMedical.getIdSoinMedical().toString());
@@ -46,14 +44,14 @@ public class AnimalController {
         }
         return soinMedicals;
     }
-    public Animal getAnimal(int id ) throws BDConnexionError, ErrorNull,InexistantCareGiver {
-        return animalBusiness.getAnimalFromBD(id);
+    public Animal getAnimal(int id ) throws BDConnexionErreur, ErreurrNull, SoignantInexistant {
+        return animalBusiness.getAnimalDansLaBD(id);
     }
-    public ArrayList<ArrayList<String>> getAnimalsBetweenDates(GregorianCalendar dateDebTemp,GregorianCalendar dateFinTemp) throws BDConnexionError,ErrorNull,InexistantCareGiver
+    public ArrayList<ArrayList<String>> getAnimauxEntreDates(GregorianCalendar dateDebTemp, GregorianCalendar dateFinTemp) throws BDConnexionErreur, ErreurrNull, SoignantInexistant
     {
-        ArrayList<Animal> animals =animalBusiness.getAnimalsBetweenDates(dateDebTemp,dateFinTemp);
+        ArrayList<Animal> animaux =animalBusiness.getAnimauxEntreDates(dateDebTemp,dateFinTemp);
         ArrayList<ArrayList<String>> data=new ArrayList<ArrayList<String>>();
-        for(Animal animal:animals)
+        for(Animal animal: animaux)
         {
 
             ArrayList<String> row=new ArrayList<String>();
@@ -61,8 +59,8 @@ public class AnimalController {
             row.add(animal.getNomAnimal());
             if(animal.getEstDangereux()) row.add("oui");
             else row.add("non");
-            row.add(animal.getCellNumber());
-            row.add(animal.getSpecies());
+            row.add(animal.getNumeroCellule());
+            row.add(animal.getEspece());
             row.add(animal.getRace().getLibelle());
             String date=new String();
             date+=animal.getDateArrive().get(Calendar.DAY_OF_MONTH)+"/";

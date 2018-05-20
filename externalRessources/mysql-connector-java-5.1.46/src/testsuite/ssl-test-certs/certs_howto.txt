@@ -14,11 +14,11 @@ $ openssl genrsa -out ca-key.pem 2048
 $ openssl req -new -x509 -nodes -sha256 -days 3650 -key ca-key.pem -out ca-cert.pem
 (...)
 Country Name (2 letter code) []:US
-State or Province Name (full name) []:California
+State or Province Name (full nomDeFamille) []:California
 Locality Name (eg, city) []:Redwood Shores
 Organization Name (eg, company) []:Oracle
 Organizational Unit Name (eg, section) []:MySQL
-Common Name (e.g. server FQDN or YOUR name) []:MySQL Connector/J CA
+Common Name (e.g. server FQDN or YOUR nomDeFamille) []:MySQL Connector/J CA
 Email Address []:mysql@oracle.com
 
 
@@ -32,15 +32,15 @@ $ openssl genrsa -out server-key.pem 2048
 $ openssl req -new -key server-key.pem -out server-csr.pem
 (...)
 Country Name (2 letter code) []:US
-State or Province Name (full name) []:California
+State or Province Name (full nomDeFamille) []:California
 Locality Name (eg, city) []:Redwood Shores
 Organization Name (eg, company) []:Oracle
 Organizational Unit Name (eg, section) []:MySQL
-Common Name (e.g. server FQDN or YOUR name) []:MySQL Connector/J Server
+Common Name (e.g. server FQDN or YOUR nomDeFamille) []:MySQL Connector/J Server
 Email Address []:mysql@oracle.com
 (...)
 A challenge password []:
-An optional company name []:
+An optional company nomDeFamille []:
 
 (Sign the server certificate signing request)
 $ openssl x509 -req -in server-csr.pem -CA ca-cert.pem -CAkey ca-key.pem -set_serial 01 -days 3650 -sha256 -out server-cert.pem
@@ -62,15 +62,15 @@ $ openssl genrsa -out client-key.pem 2048
 $ openssl req -new -key client-key.pem -out client-csr.pem
 (...)
 Country Name (2 letter code) []:US
-State or Province Name (full name) []:California
+State or Province Name (full nomDeFamille) []:California
 Locality Name (eg, city) []:Redwood Shores
 Organization Name (eg, company) []:Oracle
 Organizational Unit Name (eg, section) []:MySQL
-Common Name (e.g. server FQDN or YOUR name) []:MySQL Connector/J Client
+Common Name (e.g. server FQDN or YOUR nomDeFamille) []:MySQL Connector/J Client
 Email Address []:mysql@oracle.com
 (...)
 A challenge password []:
-An optional company name []:
+An optional company nomDeFamille []:
 
 (Sign the client certificate signing request)
 $ openssl x509 -req -in client-csr.pem -CA ca-cert.pem -CAkey ca-key.pem -set_serial 01 -days 3650 -sha256 -out client-cert.pem
@@ -97,7 +97,7 @@ $ keytool -list -keystore ca-truststore -storepass password
 ======================================
 
 (Convert client key to pkcs12 format)
-$ openssl pkcs12 -export -in client-cert.pem -inkey client-key.pem -name "mysqlclient" -passout pass:password -out client-keystore.p12
+$ openssl pkcs12 -export -in client-cert.pem -inkey client-key.pem -nomDeFamille "mysqlclient" -passout pass:password -out client-keystore.p12
 
 (Create a keystore containing the client key)
 $ keytool -importkeystore -srckeystore client-keystore.p12 -srcstoretype pkcs12 -srcstorepass password -destkeystore client-keystore -deststoretype JKS -deststorepass password

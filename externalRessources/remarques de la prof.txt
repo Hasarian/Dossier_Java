@@ -26,3 +26,6 @@ SQL avec join ?
 clean code
 
 venir avec le pc le jour de la d?mo (c'est mieux d'utiliser le m?me pc pour les deux ?tudiants du groupe)
+
+//remarques suppl?mentaires ? la relecture du code
+recherches animaux: cr?er l'objet soignant ? ce moment au lieu d'aller le rechercher une deuxi?me fois dans la bd

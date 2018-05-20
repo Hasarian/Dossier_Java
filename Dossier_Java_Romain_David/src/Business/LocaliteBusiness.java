@@ -3,19 +3,19 @@ package Business;
 import DataAccess.DAO.DAOLocalite;
 import DataAccess.LocaliteBDAccess;
 import Model.Localite;
-import erreurs.BDConnexionError;
-import erreurs.ErrorNull;
+import erreurs.BDConnexionErreur;
+import erreurs.ErreurrNull;
 
 import java.util.ArrayList;
 
 public class LocaliteBusiness {
     private DAOLocalite daoLocalite;
 
-    public LocaliteBusiness()throws BDConnexionError {
+    public LocaliteBusiness()throws BDConnexionErreur {
         daoLocalite = new LocaliteBDAccess();
     }
-    public ArrayList<Localite> getAllLocalite() throws BDConnexionError, ErrorNull{
-        return daoLocalite.readAllLocalite();
+    public ArrayList<Localite> getToutesLesLocalites() throws BDConnexionErreur, ErreurrNull {
+        return daoLocalite.readToutesLesLocalites();
     }
 
     //êut être éviter de recharger les localités que l'on a déjà + créer un moyen d'aller les chercher une par une

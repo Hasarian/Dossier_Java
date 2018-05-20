@@ -1,6 +1,6 @@
 package Model;
 
-import erreurs.ErrorNull;
+import erreurs.ErreurrNull;
 
 import java.util.GregorianCalendar;
 
@@ -10,31 +10,31 @@ public class Vaccination {
     private GregorianCalendar date;
     private Integer idVaccination;
 
-    public Vaccination(Animal animal, Vaccin numVaccin, GregorianCalendar date, Integer idVaccination) throws ErrorNull{
+    public Vaccination(Animal animal, Vaccin numVaccin, GregorianCalendar date, Integer idVaccination) throws ErreurrNull {
         setAnimal(animal);
         setDate(date);
         setIdVaccination(idVaccination);
         setNumVaccin(numVaccin);
     }
 
-    public void setAnimal(Animal animal) throws ErrorNull {
+    public void setAnimal(Animal animal) throws ErreurrNull {
         if(animal != null) this.animal = animal;
-        else throw new ErrorNull("animal");
+        else throw new ErreurrNull("animal");
     }
 
-    public void setDate(GregorianCalendar date) throws ErrorNull{
+    public void setDate(GregorianCalendar date) throws ErreurrNull {
         if(date != null) this.date = date;
-        else throw new ErrorNull("date");
+        else throw new ErreurrNull("date");
     }
 
-    public void setIdVaccination(Integer idVaccination) throws ErrorNull {
+    public void setIdVaccination(Integer idVaccination) throws ErreurrNull {
         if(idVaccination != null) this.idVaccination = idVaccination;
-        else throw new ErrorNull("idVaccination");
+        else throw new ErreurrNull("idVaccination");
     }
 
-    public void setNumVaccin(Vaccin numVaccin) throws ErrorNull {
+    public void setNumVaccin(Vaccin numVaccin) throws ErreurrNull {
         if(numVaccin != null) this.numVaccin = numVaccin;
-        else throw new ErrorNull("numVaccin");
+        else throw new ErreurrNull("numVaccin");
     }
     public Animal getAnimal(){return animal;}
 

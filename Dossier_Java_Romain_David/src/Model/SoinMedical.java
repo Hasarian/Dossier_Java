@@ -1,11 +1,8 @@
 package Model;
 
-import erreurs.ErrorNull;
+import erreurs.ErreurrNull;
 
-import java.sql.Time;
-import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.Timer;
 
 public class SoinMedical {
     private Integer idSoinMedical;
@@ -16,7 +13,7 @@ public class SoinMedical {
     private Integer numOrdonnance;
     private String mailVeto;
 
-    public SoinMedical(Integer idSoinMedical, Animal ficheSoin, GregorianCalendar date,GregorianCalendar heure,String remarque, Integer numOrdonnance, String veterinaire) throws ErrorNull{
+    public SoinMedical(Integer idSoinMedical, Animal ficheSoin, GregorianCalendar date,GregorianCalendar heure,String remarque, Integer numOrdonnance, String veterinaire) throws ErreurrNull {
         setDate(date);
         setFicheSoin(ficheSoin);
         setIdSoinMedical(idSoinMedical);
@@ -28,38 +25,38 @@ public class SoinMedical {
 
     }
 
-    public void setDate(GregorianCalendar date) throws ErrorNull {
-        if(date == null) throw new ErrorNull();
+    public void setDate(GregorianCalendar date) throws ErreurrNull {
+        if(date == null) throw new ErreurrNull();
         this.date = date;
     }
 
-   /* public void setCareGiver(CareGiver careGiver) throws ErrorNull {
-        if(careGiver == null) throw new ErrorNull();
+   /* public void setSoignant(Soignant careGiver) throws ErreurrNull {
+        if(careGiver == null) throw new ErreurrNull();
         this.careGiver = careGiver;
     }*/
 
-    public void setRemarque(String remarque) throws ErrorNull {
-        if(remarque == null) throw new ErrorNull();
+    public void setRemarque(String remarque) throws ErreurrNull {
+        if(remarque == null) throw new ErreurrNull();
         this.remarque = remarque;
     }
 
-    public void setFicheSoin(Animal ficheSoin) throws ErrorNull {
-        if(ficheSoin == null) throw new ErrorNull();
+    public void setFicheSoin(Animal ficheSoin) throws ErreurrNull {
+        if(ficheSoin == null) throw new ErreurrNull();
         this.ficheSoin = ficheSoin;
     }
 
-    public void setIdSoinMedical(Integer idSoinMedical) throws ErrorNull {
-        if(idSoinMedical == null) throw new ErrorNull();
+    public void setIdSoinMedical(Integer idSoinMedical) throws ErreurrNull {
+        if(idSoinMedical == null) throw new ErreurrNull();
         this.idSoinMedical = idSoinMedical;
     }
 
-    public void setNumOrdonnance(Integer numOrdonnance) throws ErrorNull {
-        if(numOrdonnance == null) throw new ErrorNull();
+    public void setNumOrdonnance(Integer numOrdonnance) throws ErreurrNull {
+        if(numOrdonnance == null) throw new ErreurrNull();
         this.numOrdonnance = numOrdonnance;
     }
 
-    public void setMailVeto(String mailVeto) throws ErrorNull {
-        if(numOrdonnance == null) throw new ErrorNull();
+    public void setMailVeto(String mailVeto) throws ErreurrNull {
+        if(numOrdonnance == null) throw new ErreurrNull();
         this.mailVeto = mailVeto;
     }
 

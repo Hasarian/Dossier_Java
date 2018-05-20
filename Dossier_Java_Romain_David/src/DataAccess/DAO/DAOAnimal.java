@@ -1,17 +1,14 @@
 package DataAccess.DAO;
 
 import Model.Animal;
-import erreurs.BDConnexionError;
-import erreurs.ErrorNull;
-import erreurs.InexistantCareGiver;
-
-import java.util.ArrayList;
-import java.util.GregorianCalendar;
+import erreurs.BDConnexionErreur;
+import erreurs.ErreurrNull;
+import erreurs.SoignantInexistant;
 
 public interface DAOAnimal {
     void create(Animal animal);
-    Animal read(int id) throws ErrorNull, BDConnexionError,InexistantCareGiver;
-    void readAllAnimals() throws ErrorNull, BDConnexionError, InexistantCareGiver;
+    Animal read(int id) throws ErreurrNull, BDConnexionErreur, SoignantInexistant;
+    void readTousLesAnimaux() throws ErreurrNull, BDConnexionErreur, SoignantInexistant;
     void update(Animal animal);
     void delete(int id);
 }

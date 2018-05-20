@@ -21,7 +21,7 @@ constraint localite_codePostal_idLocalite_unique unique (libelle, codePostal)
 );
 
 create table soignant(
-mail varchar (50),
+ mail varchar (50),
  nom varchar(50) not null,
  prenom varchar(50) not null,
  rue varchar(100) not null,
@@ -68,7 +68,7 @@ poids integer(5),
 nomAnimal varchar(50) not null,
 race varchar(50) not null,
 dateArrive date not null,
-datedesces date,
+dateDeces date,
 estDangereux boolean not null,
 etat integer(2) not null,
 constraint ficheAnimal_id_pk primary key(id),

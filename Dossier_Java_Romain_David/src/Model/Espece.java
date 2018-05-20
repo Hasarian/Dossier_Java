@@ -1,6 +1,6 @@
 package Model;
 
-import erreurs.ErrorNull;
+import erreurs.ErreurrNull;
 
 public class Espece {
     private String libelle;
@@ -8,13 +8,13 @@ public class Espece {
     private String typeDeDeplacement;
     private String milieuDeVie;
 
-    public Espece(String libelle, Boolean estEnVoieDeDisparition, String typeDeDeplacement, String milieuDeVie)throws ErrorNull {
+    public Espece(String libelle, Boolean estEnVoieDeDisparition, String typeDeDeplacement, String milieuDeVie)throws ErreurrNull {
         setEstEnVoieDeDisparition(estEnVoieDeDisparition);
         setLibelle(libelle);
         setMilieuDeVie(milieuDeVie);
         setTypeDeDeplacement(typeDeDeplacement);
     }
-    public Espece() throws ErrorNull
+    public Espece() throws ErreurrNull
     {
         setEstEnVoieDeDisparition(true);
         setLibelle("chien");
@@ -22,26 +22,27 @@ public class Espece {
         setTypeDeDeplacement("à pattes");
     }
 
-    public void setEstEnVoieDeDisparition(Boolean estEnVoieDeDisparitionArg) throws ErrorNull {
+    public void setEstEnVoieDeDisparition(Boolean estEnVoieDeDisparitionArg) throws ErreurrNull {
         if(estEnVoieDeDisparitionArg != null)
             this.estEnVoieDeDisparition = estEnVoieDeDisparitionArg;
-        else throw new ErrorNull();
+        else throw new ErreurrNull();
     }
 
-    public void setLibelle(String libelleArg) throws ErrorNull{
+    public void setLibelle(String libelleArg) throws ErreurrNull {
         if(libelleArg != null)
             this.libelle = libelleArg;
-        else throw new ErrorNull("libelle de modele Espece");
+        else throw new ErreurrNull("libelle de modele Espece");
     }
 
-    public void setMilieuDeVie(String milieuDeVieArg) throws ErrorNull {
-            this.milieuDeVie = milieuDeVieArg;
+    public void setMilieuDeVie(String milieuDeVieArg) throws ErreurrNull {
+        if(milieuDeVieArg==null) throw new ErreurrNull("milieu de vie dans l'objet modele \"espece\"");
+        this.milieuDeVie = milieuDeVieArg;
     }
 
-    public void setTypeDeDeplacement(String typeDeDeplacementArg) throws ErrorNull {
+    public void setTypeDeDeplacement(String typeDeDeplacementArg) throws ErreurrNull {
         if(typeDeDeplacementArg != null)
             this.typeDeDeplacement = typeDeDeplacementArg;
-        else throw new ErrorNull("typeDeDeplacement du modele espece");
+        else throw new ErreurrNull("typeDeDeplacement du modele espece");
     }
 
     @Override
@@ -49,6 +50,7 @@ public class Espece {
         return (estEnVoieDeDisparition)?libelle+" [en voie de disparition]":libelle;
     }
     public String getLibelle(){return libelle;}
+    public String getEspeceLibelle(){return getEspeceLibelle();}
 }
 
 

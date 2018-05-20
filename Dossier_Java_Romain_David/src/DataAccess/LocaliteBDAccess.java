@@ -2,8 +2,8 @@ package DataAccess;
 
 import DataAccess.DAO.DAOLocalite;
 import Model.Localite;
-import erreurs.BDConnexionError;
-import erreurs.ErrorNull;
+import erreurs.BDConnexionErreur;
+import erreurs.ErreurrNull;
 
 import javax.swing.*;
 import java.sql.Connection;
@@ -13,39 +13,39 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class LocaliteBDAccess implements DAOLocalite {
-    private Connection connection;
+    private Connection connexion;
 
-    public LocaliteBDAccess() throws BDConnexionError {
-        connection = SingletonDB.getInstance();
+    public LocaliteBDAccess() throws BDConnexionErreur {
+        connexion = SingletonDB.getInstance();
     }
 
     @Override
-    public ArrayList<Localite> readAllLocalite() throws BDConnexionError, ErrorNull{
+    public ArrayList<Localite> readToutesLesLocalites() throws BDConnexionErreur, ErreurrNull {
         ArrayList<Localite> localites = new ArrayList<Localite>();
 
         try {
             String sql = "select * from localite";
-            PreparedStatement statement = connection.prepareStatement(sql);
+            PreparedStatement statement = connexion.prepareStatement(sql);
 
             ResultSet data = statement.executeQuery();
             while (data.next()) {
-                localites.add(dataToLocalite(data));
+                localites.add(resultatVersLocalite(data));
             }
         }
         catch(SQLException e){
-            JOptionPane.showMessageDialog(null, e.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
-            new BDConnexionError();
+            //JOptionPane.showMessageDialog(null, e.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
+             throw new BDConnexionErreur(e.getMessage());
         }
         return localites;
     }
 
-    private Localite dataToLocalite(ResultSet data)throws BDConnexionError, ErrorNull{
+    private Localite resultatVersLocalite(ResultSet data)throws ErreurrNull {
         Localite localite = null;
         try{
-            localite = new Localite(data.getInt("idLocalite"), data.getInt("codePostal"), data.getString("libelle"));
+            localite = new Localite(data.getInt("idLocalite"), data.getInt("getCodePostalAutreUtilisateur"), data.getString("libelle"));
         }
         catch(SQLException e){
-            new BDConnexionError();
+            new BDConnexionErreur(e.getMessage());
         }
         return localite;
     }

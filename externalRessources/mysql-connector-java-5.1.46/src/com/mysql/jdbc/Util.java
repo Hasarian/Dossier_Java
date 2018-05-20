@@ -702,7 +702,7 @@ public class Util {
 
     /**
      * Returns the package name of the given class.
-     * Using clazz.getPackage().getName() is not an alternative because under some class loaders the method getPackage() just returns null.
+     * Using clazz.getPackage().getNomDeFamille() is not an alternative because under some class loaders the method getPackage() just returns null.
      * 
      * @param clazz
      *            the Class from which to get the package name

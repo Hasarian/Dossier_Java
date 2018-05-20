@@ -1,6 +1,6 @@
 package Model;
 
-import erreurs.ErrorNull;
+import erreurs.ErreurrNull;
 
 //setter des String pour empecher les texte trop long
 public class Race {
@@ -10,14 +10,14 @@ public class Race {
     private String CaracteristiqueDuMilieuDeVie;
     private Espece espece;
 
-    public Race(String libelle, String traitDeCaractere, String tare, String caracteristiqueDuMilieuDeVie, Espece espece) throws ErrorNull {
+    public Race(String libelle, String traitDeCaractere, String tare, String caracteristiqueDuMilieuDeVie, Espece espece) throws ErreurrNull {
         setCaracteristiqueDuMilieuDeVie(caracteristiqueDuMilieuDeVie);
         setEspece(espece);
         setLibelle(libelle);
         setTare(tare);
         setTraitDeCaractere(traitDeCaractere);
     }
-    /*public Race() throws ErrorNull
+    /*public Race() throws ErreurrNull
     {
         setLibelle("labrador");
         setTraitDeCaractere("joyeux");
@@ -26,31 +26,29 @@ public class Race {
         setEspece(new Espece());
     }*/
 
-    public void setLibelle(String libelle) throws ErrorNull {
+    public void setLibelle(String libelle) throws ErreurrNull {
         if(libelle != null) this.libelle = libelle;
-        else throw new ErrorNull("libelle du modele Race");
+        else throw new ErreurrNull("libelle de l'objet modele \"Race\"");
     }
 
     public void setCaracteristiqueDuMilieuDeVie(String caracteristiqueDuMilieuDeVie) {
         CaracteristiqueDuMilieuDeVie = caracteristiqueDuMilieuDeVie;//varchar(75)
     }
 
-    public void setEspece(Espece espece) throws ErrorNull {
+    public void setEspece(Espece espece) throws ErreurrNull {
         if(espece!= null) this.espece = espece;//varchar(50)
-        else throw new ErrorNull("espece du modele Race");
+        else throw new ErreurrNull("espece de l'objet modele \"Race\"");
     }
 
     public void setTare(String tare) {
         this.tare = tare;//varchar(50)
     }
 
-    public void setTraitDeCaractere(String traitDeCaractere) {
+    public void setTraitDeCaractere(String traitDeCaractere) throws ErreurrNull {
+        if(traitDeCaractere==null) throw  new ErreurrNull("trait de caractere de l'objet modele \"Race\"");
         this.traitDeCaractere = traitDeCaractere;//varchar(50)
     }
-    public String toString()
-    {
-        return libelle+"-("+espece.toString()+")";
-    }
+    public String getEspeceLibelle(){return espece.getLibelle();}
     public String getLibelle(){return libelle;}
 }
    /* create table race(

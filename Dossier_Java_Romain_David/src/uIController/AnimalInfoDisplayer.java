@@ -1,7 +1,6 @@
 package uIController;
 
 import Model.Animal;
-import erreurs.ErrorNull;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -9,7 +8,7 @@ import java.util.GregorianCalendar;
 public class AnimalInfoDisplayer
 {
     Animal animal;
-    public AnimalInfoDisplayer(Integer animalId,ListsControllerAnimal list){
+    public AnimalInfoDisplayer(Integer animalId, ListesAnimauxController list){
 
         this.animal=list.getanimal(animalId);
     }
@@ -28,11 +27,11 @@ public class AnimalInfoDisplayer
     }
     public String getNumCell()
     {
-        return animal.getCellNumber();
+        return animal.getNumeroCellule();
     }
     public String getRace()
     {
-        return animal.getSpecies();
+        return animal.getEspece();
     }
 
     public String getDateArrivee()
@@ -46,7 +45,7 @@ public class AnimalInfoDisplayer
     }
     public String getDatDeces()
     {
-        GregorianCalendar date=animal.getDateDesces();
+        GregorianCalendar date=animal.getDateDeces();
         String retour = new String();
         if(date!=null) {
 
@@ -67,7 +66,7 @@ public class AnimalInfoDisplayer
          switch(animal.getEtatFicheSoin())
          {
              case VETORESERVEE:case RESERVEE:
-                 return "soignant actuel: "+animal.getCareGiver().toString();
+                 return "soignant actuel: "+animal.getSoignant().toString();
              case VETODISPO:case DISPONIBLE:
                  return "les soins de cet animal n'ont pas encore été effectués";
              case ARCHIVEE:default:

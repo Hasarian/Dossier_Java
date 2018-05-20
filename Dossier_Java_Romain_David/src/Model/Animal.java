@@ -1,6 +1,6 @@
 package Model;
 
-import erreurs.ErrorNull;
+import erreurs.ErreurrNull;
 
 import java.util.GregorianCalendar;
 
@@ -22,14 +22,14 @@ public class Animal {
     private EtatAnimal etatFicheAnimal;
     private String remaqueSoin;
     private EtatSoin etatFicheSoin;
-    private CareGiver careGiver;
+    private Soignant soignant;
 
     public Animal(Integer id, String remarqueAnimal, Integer numCellule, Race race, String nomAnimal, GregorianCalendar dateArrive, GregorianCalendar dateDesces,
-                  Boolean estDangereux, EtatAnimal etatAnimal, String remarqueSoin, EtatSoin etatFicheSoin, CareGiver careGiver)throws ErrorNull{
+                  Boolean estDangereux, EtatAnimal etatAnimal, String remarqueSoin, EtatSoin etatFicheSoin, Soignant soignant)throws ErreurrNull {
         //System.out.print("model animal: créé");
         setId(id);
         setDateArrive(dateArrive);
-        setDateDesces(dateDesces);
+        setDateDeces(dateDesces);
         setEstDangereux(estDangereux);
         setEtatAnimal(etatAnimal);
         setEtatFicheSoin(etatFicheSoin);
@@ -38,13 +38,13 @@ public class Animal {
         setRace(race);
         setRemarqueAnimal(remarqueAnimal);
         setRemaqueSoin(remarqueSoin);
-        setCareGiver(careGiver);
+        setSoignant(soignant);
     }
-    /*public Animal() throws ErrorNull
+    /*public Animal() throws ErreurrNull
     {
         setId(new Integer(1));
         setDateArrive(new GregorianCalendar());
-        setDateDesces(new GregorianCalendar());
+        setDateDeces(new GregorianCalendar());
         setEstDangereux(false);
         setEtatAnimal(EtatAnimal.NORMAL);
         setEtatFicheSoin(EtatSoin.RESERVEE);
@@ -53,36 +53,36 @@ public class Animal {
         setRace(new Race());
         setRemarqueAnimal("grand et fort, aime les radis");
         setRemaqueSoin("il faut lui donner de l'aspirine avec sa nourriture");
-        setCareGiver(new Veterinaire());
+        setSoignant(new Veterinaire());
     }*/
 
-    public void setDateArrive(GregorianCalendar dateArrive) throws ErrorNull {
-        if(dateArrive == null) throw new ErrorNull();
+    public void setDateArrive(GregorianCalendar dateArrive) throws ErreurrNull {
+        if(dateArrive == null) throw new ErreurrNull();
         this.dateArrive = dateArrive;
     }
 
-    public void setNomAnimal(String nomAnimal) throws ErrorNull {
-        if(nomAnimal == null) throw new ErrorNull();
+    public void setNomAnimal(String nomAnimal) throws ErreurrNull {
+        if(nomAnimal == null) throw new ErreurrNull();
         this.nomAnimal = nomAnimal;
     }
 
-    public void setEtatFicheSoin(EtatSoin etatFicheSoin) throws ErrorNull {
-        if(etatFicheSoin == null) throw new ErrorNull();
+    public void setEtatFicheSoin(EtatSoin etatFicheSoin) throws ErreurrNull {
+        if(etatFicheSoin == null) throw new ErreurrNull();
         this.etatFicheSoin = etatFicheSoin;
     }
 
-    public void setRace(Race race) throws ErrorNull {
-        if(race == null) throw new ErrorNull();
+    public void setRace(Race race) throws ErreurrNull {
+        if(race == null) throw new ErreurrNull();
         this.race = race;
     }
 
-    public void setEtatAnimal(EtatAnimal etatAnimal) throws ErrorNull {
+    public void setEtatAnimal(EtatAnimal etatAnimal) throws ErreurrNull {
         if(etatAnimal == null)
         this.etatFicheAnimal = etatAnimal;
     }
 
-    public void setEstDangereux(Boolean estDangereux) throws ErrorNull {
-        if(estDangereux == null) throw new ErrorNull();
+    public void setEstDangereux(Boolean estDangereux) throws ErreurrNull {
+        if(estDangereux == null) throw new ErreurrNull();
         this.estDangereux = estDangereux;
     }
 
@@ -94,17 +94,17 @@ public class Animal {
         this.remaqueSoin = remaqueSoin;
     }
 
-    public void setNumCellule(Integer numCellule) throws ErrorNull {
-        if(numCellule == null) throw new ErrorNull();
+    public void setNumCellule(Integer numCellule) throws ErreurrNull {
+        if(numCellule == null) throw new ErreurrNull();
         this.numCellule = numCellule;
     }
 
-    public void setId(Integer id) throws ErrorNull {
-        if(id == null) throw new ErrorNull();
+    public void setId(Integer id) throws ErreurrNull {
+        if(id == null) throw new ErreurrNull();
         this.id = id;
     }
 
-    public void setDateDesces(GregorianCalendar dateDesces) {
+    public void setDateDeces(GregorianCalendar dateDesces) {
         this.dateDesces = dateDesces;
     }
 
@@ -118,23 +118,23 @@ public class Animal {
 
     public String getNomAnimal(){return nomAnimal;}
     public Integer getId(){return id;}
-    public String getCellNumber(){return numCellule.toString();}
-    public String getSpecies(){return race.toString();}
+    public String getNumeroCellule(){return numCellule.toString();}
+    public String getEspece(){return race.toString();}
     public EtatSoin getEtatSoin(){return etatFicheSoin;}
     public String getRemarqueAnimal(){return remarqueAnimal;}
-    public void setCareGiver(CareGiver careGiver){
-        this.careGiver = careGiver;
+    public void setSoignant(Soignant soignant){
+        this.soignant = soignant;
     }
-    public boolean isReservedByUser(String mailReservation)
+    public boolean estReserveParlUtilisateurCourant(String mailReservation)
     {
-        return mailReservation.compareTo(careGiver.getMail())==0;
+        return mailReservation.compareTo(soignant.getMail())==0;
     }
 
     public GregorianCalendar getDateArrive() {
         return dateArrive;
     }
 
-    public GregorianCalendar getDateDesces() {
+    public GregorianCalendar getDateDeces() {
         return dateDesces;
     }
 
@@ -142,8 +142,8 @@ public class Animal {
         return estDangereux;
     }
 
-    public CareGiver getCareGiver() {
-        return careGiver;
+    public Soignant getSoignant() {
+        return soignant;
     }
     public String getRemaqueSoin()
     {

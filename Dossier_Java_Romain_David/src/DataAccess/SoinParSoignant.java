@@ -1,0 +1,93 @@
+package DataAccess;
+
+import Business.AnimalBusiness;
+import Business.SoignantBusiness;
+import Business.ListeAnimalBusiness;
+import DataAccess.DAO.DAOsoinEffectue;
+import Model.Animal;
+import Model.SoinEffectue;
+import Model.SoinMedical;
+import erreurs.BDConnexionErreur;
+import erreurs.ErreurrNull;
+import erreurs.SoignantInexistant;
+import uIController.SoignantController;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.GregorianCalendar;
+
+public class SoinParSoignant
+implements DAOsoinEffectue
+{
+    private Connection connection;
+    private SoignantBusiness giverBusiness;
+    public SoinParSoignant() throws BDConnexionErreur
+    {
+        connection=SingletonDB.getInstance();
+        giverBusiness= SoignantBusiness.otebnirSoignantBusiness();
+    }
+    @Override
+    public ArrayList<SoinEffectue> searchHistory(String mail) throws BDConnexionErreur, ErreurrNull, SoignantInexistant {
+        String sql = "select *from soignant, localite, soineffectue, soinmedical\n" +
+                "where soignant.mail = ? and soignant.localite = localite.idLocalite\n" +
+                "and soineffectue.mail = soignant.mail and soineffectue.numSoinMedical = soinmedical.idSoinMedical; ";
+        try{
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, mail);
+            ResultSet data = statement.executeQuery();
+            ArrayList<SoinEffectue> soinsEffectués=new ArrayList<SoinEffectue>();
+            while(data.next())
+            {
+                soinsEffectués.add(traductionSQL(data));
+            }
+            return soinsEffectués;
+        }
+
+        catch(SQLException e){
+            new BDConnexionErreur(e.getMessage());
+            return null;
+        }
+    }
+
+    @Override
+    public void create(String mailSoignant, GregorianCalendar heureEffectuee, Integer soinMedical, String remarque) {
+
+    }
+
+    public SoinEffectue traductionSQL(ResultSet data) throws ErreurrNull, BDConnexionErreur, SoignantInexistant
+    {
+        try {
+            AnimalBusiness animalBusiness=AnimalBusiness.obtenirAnimalBusiness(ListeAnimalBusiness.obtenirListAnimalBusiness(new SoignantController()));
+            String mail = data.getString("soignant.mail");
+            /*GregorianCalendar dateArrive = new GregorianCalendar();
+                dateArrive.setTime(data.getDate("ficheAnimal.dateArrive"));*/
+            GregorianCalendar dateSoin=new GregorianCalendar();
+            dateSoin.setTime((data.wasNull())?null : data.getDate("soinEffectue.dateSoin"));
+            Integer idSoineffectue=(data.wasNull())?null : new Integer(data.getInt("soinEffectue.idSoinEffectue"));
+
+            Integer idSoinMedical=(data.wasNull())?null : new Integer(data.getInt("soinMedical.idSoinMedical"));
+            Animal animal=animalBusiness.getAnimal((data.wasNull())?null : data.getInt("soinMedical.numDossier"));
+            GregorianCalendar dateSoinMedical=new GregorianCalendar();
+            dateSoinMedical.setTime((data.wasNull())?null : data.getDate("soinMedical.dateSoinMedical"));//data.getDate("soinMdecial.dateSoinMedical")
+            GregorianCalendar heureSoin=new GregorianCalendar();
+            heureSoin.setTime((data.wasNull())?null : data.getTime("soinMedical.heureSoinMediacl"));
+            String remarqueSoin=(data.wasNull())?null : data.getString("soinMedical.remarque");
+            Integer numOrdonnance=(data.wasNull())?null : new Integer(data.getInt("soinMedical.numOrdonnance"));
+            String mailVeto =(data.wasNull())?null :  data.getString("soinMedical.mailVeto");
+            SoinMedical soinMedical=new SoinMedical(idSoinMedical,animal,dateSoin,heureSoin,remarqueSoin,numOrdonnance, mailVeto);
+
+            return new SoinEffectue(giverBusiness.getUtilisateurParMail(mail),dateSoin,soinMedical,idSoineffectue);
+        }
+        catch(SQLException e)
+        {
+            new BDConnexionErreur(e.getMessage());
+            return null;
+        }
+    }
+/*
+
+ */
+}

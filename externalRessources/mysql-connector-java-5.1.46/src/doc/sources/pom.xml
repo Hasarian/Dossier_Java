@@ -5,12 +5,12 @@
   <version>@MYSQL_CJ_VERSION@</version>
   <packaging>jar</packaging>
 
-  <name>MySQL Connector/J</name>
+  <nomDeFamille>MySQL Connector/J</nomDeFamille>
   <description>MySQL JDBC Type 4 driver</description>
 
   <licenses>
     <license>
-      <name>The GNU General Public License, Version 2</name>
+      <nomDeFamille>The GNU General Public License, Version 2</nomDeFamille>
       <url>http://www.gnu.org/licenses/old-licenses/gpl-2.0.html</url>
       <distribution>repo</distribution>
       <comments>MySQL Connector/J contains exceptions to GPL requirements when linking with other components
@@ -27,7 +27,7 @@ in this distribution for more details.</comments>
   </scm>
 
   <organization>
-    <name>Oracle Corporation</name>
+    <nomDeFamille>Oracle Corporation</nomDeFamille>
     <url>http://www.oracle.com</url>
   </organization>
 </project>

@@ -1,41 +1,41 @@
 package Model;
 
-import erreurs.ErrorNull;
+import erreurs.ErreurrNull;
 
 import java.util.GregorianCalendar;
 
 public class SoinEffectue {
-    private CareGiver careGiver;
+    private Soignant soignant;
     private GregorianCalendar dateHeure;
     private Integer idSoinEffectue;
     private SoinMedical soinMedical;
 
-    public SoinEffectue(CareGiver careGiver, GregorianCalendar dateHeure,
-                        SoinMedical soinMedical, Integer idSoinEffectue) throws ErrorNull{
-        setCareGiver(careGiver);
+    public SoinEffectue(Soignant soignant, GregorianCalendar dateHeure,
+                        SoinMedical soinMedical, Integer idSoinEffectue) throws ErreurrNull {
+        setSoignant(soignant);
         setDateHeure(dateHeure);
         setFicheSoin(soinMedical);
         setIdSoinEffectue(idSoinEffectue);
 
     }
 
-    public void setFicheSoin(SoinMedical ficheSoin) throws ErrorNull {
-        if(ficheSoin == null) throw new ErrorNull();
+    public void setFicheSoin(SoinMedical ficheSoin) throws ErreurrNull {
+        if(ficheSoin == null) throw new ErreurrNull();
         this.soinMedical = ficheSoin;
     }
 
-    public void setCareGiver(CareGiver careGiver) throws ErrorNull {
-        if(careGiver == null) throw new ErrorNull();
-        this.careGiver = careGiver;
+    public void setSoignant(Soignant soignant) throws ErreurrNull {
+        if(soignant == null) throw new ErreurrNull();
+        this.soignant = soignant;
     }
 
-    public void setDateHeure(GregorianCalendar dateHeure) throws ErrorNull {
-        if(dateHeure == null) throw new ErrorNull();
+    public void setDateHeure(GregorianCalendar dateHeure) throws ErreurrNull {
+        if(dateHeure == null) throw new ErreurrNull();
         this.dateHeure = dateHeure;
     }
 
-    public void setIdSoinEffectue(Integer idSoinEffectue) throws ErrorNull {
-        if(idSoinEffectue == null) throw new ErrorNull();
+    public void setIdSoinEffectue(Integer idSoinEffectue) throws ErreurrNull {
+        if(idSoinEffectue == null) throw new ErreurrNull();
         this.idSoinEffectue = idSoinEffectue;
     }
 

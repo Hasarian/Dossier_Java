@@ -1,16 +1,16 @@
 package DataAccess.DAO;
 
 import Model.Localite;
-import erreurs.BDConnexionError;
-import erreurs.ErreurInsertCareGiver;
-import erreurs.ErrorNull;
+import erreurs.BDConnexionErreur;
+import erreurs.ErreurInsertionSoignant;
+import erreurs.ErreurrNull;
 
 import java.util.ArrayList;
 
 public interface DAOLocalite {
-    void create(Localite localite)throws ErreurInsertCareGiver;
-    Localite read(String libelle) throws BDConnexionError, ErrorNull;
-    ArrayList<Localite> readAllLocalite() throws BDConnexionError, ErrorNull;
+    void create(Localite localite)throws ErreurInsertionSoignant;
+    Localite read(String libelle) throws BDConnexionErreur, ErreurrNull;
+    ArrayList<Localite> readToutesLesLocalites() throws BDConnexionErreur, ErreurrNull;
     void update(Localite localite);
     void delete(String libelle);
 }

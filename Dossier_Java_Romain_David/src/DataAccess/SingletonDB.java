@@ -1,8 +1,7 @@
 package DataAccess;
 
-import erreurs.BDConnexionError;
+import erreurs.BDConnexionErreur;
 
-import javax.swing.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -12,14 +11,14 @@ public class SingletonDB {
 
     private SingletonDB(){
     }
-    public static Connection getInstance()throws BDConnexionError{
+    public static Connection getInstance()throws BDConnexionErreur {
         if(connectionSingleton == null){
             try {
                 connectionSingleton = DriverManager.getConnection("jdbc:mysql://localhost:3306/spa?useSSL=false", "root", "pwMySQLie2017");
                 //pwMySQLie2017
             } catch (SQLException SQLE) {
-               // System.out.println(SQLE.getMessage());
-               throw  new BDConnexionError();
+               //System.out.println(SQLE.getMessage());
+               throw  new BDConnexionErreur(SQLE.getMessage());
             }
         }
         return  connectionSingleton;
