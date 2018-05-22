@@ -108,8 +108,8 @@ public class SoignantDataAccess implements DAOSoignant {
             if (!data.next()) throw new SoignantInexistant();
             //recherche arraylist localoite sur l'id
             Localite localite = new Localite((data.wasNull())?null : data.getInt("idLocalite"),
-                    (data.wasNull())?null : data.getInt("getCodePostalAutreUtilisateur"),
-                    (data.wasNull())?null : data.getString("libelle"));
+                    (data.wasNull())?null : data.getInt("localite.CodePostal"),
+                    (data.wasNull())?null : data.getString("localite.libelle"));
             //if(!Business.arrayListLocalite.containt(localite))Business.arrayListLocalite.add(localite);
             //ResultSetMetaData meta = data.getMetaData();
             GregorianCalendar dateEmbauche = new GregorianCalendar();
@@ -122,7 +122,7 @@ public class SoignantDataAccess implements DAOSoignant {
                     (data.wasNull())?null : data.getString("nom"),
                     (data.wasNull())?null : data.getString("rue"),
                     (data.wasNull())?null : data.getInt("numMAison"), numTel, remarque,
-                    (data.wasNull())?null : data.getBoolean("AutreUtilisateurEstBenevole"),
+                    (data.wasNull())?null : data.getBoolean("EstBenevole"),
                     dateEmbauche, localite );
         }
         catch(SQLException sqlException) {

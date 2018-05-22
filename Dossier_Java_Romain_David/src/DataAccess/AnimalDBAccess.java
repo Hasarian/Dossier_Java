@@ -79,36 +79,43 @@ public class AnimalDBAccess implements DAOAnimal {
         try {
                 ListeEspecebusiness listeEspecebusiness = ListeEspecebusiness.obtenirEspeceBusiness();
                 //System.out.println("il est rentré dans le bloc de tracution dans l'animal db access");
-                String libelleEspece = (data.wasNull())?null :data.getString("espece.libelle");
-                Boolean estEnVoieDeDisparition = (data.wasNull())?null :data.getBoolean("espece.estEnVoieDeDisparition");
-                String typeDeplacement = (data.wasNull())?null : data.getString("espece.typeDEplacement");
-                String milieuDeVie = (data.wasNull())?null : data.getString("espece.milieuDeVie");
+                String libelleEspece = data.getString("espece.libelle");
+                Boolean estEnVoieDeDisparition = data.getBoolean("espece.estEnVoieDeDisparition");
+                String typeDeplacement =  data.getString("espece.typeDEplacement");
+                String milieuDeVie = data.getString("espece.milieuDeVie");
                 //System.out.println(libelleEspece+" "+estEnVoieDeDisparition+" "+typeDeplacement+milieuDeVie);
-                Espece espece =(data.wasNull())?null : listeEspecebusiness.obtenirEspece(libelleEspece, estEnVoieDeDisparition, typeDeplacement, milieuDeVie);
+                Espece espece =listeEspecebusiness.obtenirEspece(libelleEspece, estEnVoieDeDisparition, typeDeplacement, milieuDeVie);
                 //System.out.println(libelleEspece);
 
-                String libelleRace = (data.wasNull()) ? null : data.getString("race.libelle");
-                String traitDeCaractere = (data.wasNull()) ? null : data.getString("race.traitDeCaractere");
+                String libelleRace =  data.getString("race.libelle");
+                String traitDeCaractere = data.getString("race.traitDeCaractere");
                 String caracteristiqueDuMilieuDeVie = (data.wasNull() ? null : data.getString("race.caracteristiqueDuMilieuDeVie"));
                 String tare = (data.wasNull() ? null : data.getString("race.tare"));
                 Race race = listeEspecebusiness.obtenirRace(libelleRace, traitDeCaractere, tare, caracteristiqueDuMilieuDeVie, espece);
                 //System.out.println(libelleRace+" "+traitDeCaractere+" "+tare+" "+caracteristiqueDuMilieuDeVie+" "+espece);
 
-                Integer id = (data.wasNull())?null :  data.getInt("ficheAnimal.id");
+                Integer id =  data.getInt("ficheAnimal.id");
                 String remarque = (data.wasNull())?null : data.getString("ficheAnimal.remarque");
                 Integer numCell = (data.wasNull())?null : data.getInt("ficheAnimal.numCellule");
-                String nom = (data.wasNull())?null : data.getString("ficheAnimal.nomAnimal");
+                String nom = data.getString("ficheAnimal.nomAnimal");
                 GregorianCalendar dateArrive = new GregorianCalendar();
                 dateArrive.setTime((data.wasNull())?null :data.getDate("ficheAnimal.dateArrive"));
-                GregorianCalendar dateDeces = (data.wasNull()) ? null : new GregorianCalendar();
-                if (dateDeces != null) dateDeces.setTime(data.getDate("ficheAnimal.dateDeces"));
-                Boolean estDangereux = (data.wasNull())?null :data.getBoolean("ficheAnimal.estDangereux");
+                GregorianCalendar dateDeces = null;
+                Object tempDate = data.getDate("ficheAnimal.dateDeces");
+
+                if(tempDate != null){
+
+
+                    dateDeces = new GregorianCalendar();
+                    dateDeces.setTime(data.getDate("ficheAnimal.dateDeces"));
+                }
+                Boolean estDangereux = data.getBoolean("ficheAnimal.estDangereux");
                 //System.out.println(data.getBoolean("ficheAnimal.estDangereux"));
-                Animal.EtatSoin etatSoins = Animal.EtatSoin.values()[(data.wasNull())?null :data.getInt("ficheSoin.etat")];
-                Animal.EtatAnimal etatAnimal = Animal.EtatAnimal.values()[(data.wasNull())?null :data.getInt("ficheAnimal.etat")];
+                Animal.EtatSoin etatSoins = Animal.EtatSoin.values()[data.getInt("ficheSoin.etat")];
+                Animal.EtatAnimal etatAnimal = Animal.EtatAnimal.values()[data.getInt("ficheAnimal.etat")];
 
                 String remarqueSoin = (data.wasNull()) ? null : data.getString("ficheSoin.remarque");
-                String email = (data.wasNull()) ? null : data.getString("ficheSoin.email");
+                String email = data.getString("ficheSoin.email");
 
             /*(Integer id, String remarque, Integer numCell, String nomAnimal, Race race, GregorianCalendar dateArrivee,
                                GregorianCalendar dateDeces, Boolean estDangereux, Animal.EtatAnimal etatAnimal, Animal.EtatSoin etatSoin,

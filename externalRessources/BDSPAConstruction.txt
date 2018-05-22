@@ -1,10 +1,10 @@
 drop table  vaccination;
 drop table vaccin;
 drop table alimentation;
-drop table soineffectue;
+drop table  modificationSoin;
+drop table soinEffectue;
 drop table soinMedical;
 drop table  ordonnance;
-drop table  modificationSoin;
 drop table ficheSoin;
 drop table ficheAnimal;
 drop table  race;
