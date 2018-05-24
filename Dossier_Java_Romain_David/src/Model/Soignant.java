@@ -30,7 +30,7 @@ public class Soignant {
         setRemarque(remarque);
         setRue(rue);
     }
-    /*public Soignant() throws ErreurrNull
+    public Soignant() throws ErreurrNull
     {
         setDateEmbauche(new GregorianCalendar());
         setEstBenevole(false);
@@ -42,7 +42,7 @@ public class Soignant {
         setNumTel(new Integer(658462));
         setRemarque("grand et fort");
         setRue("fin du capitalisme.com");
-    }*/
+    }
     public Soignant(String email) throws ErreurrNull
     {
         setMail(email);

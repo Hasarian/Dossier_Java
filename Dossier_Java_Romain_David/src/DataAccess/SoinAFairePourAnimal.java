@@ -2,14 +2,10 @@ package DataAccess;
 
 import Business.AnimalBusiness;
 import Model.Animal;
-import Model.Soignant;
 import Model.SoinMedical;
-import Model.Veterinaire;
 import erreurs.BDConnexionErreur;
 import erreurs.ErreurrNull;
-import erreurs.SoignantInexistant;
 
-import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -33,7 +29,7 @@ public class SoinAFairePourAnimal {
               "from soignant, ficheAnimal, veto, soinMedical, ficheSoin, race, espece " +
               "where ficheAnimal.id = ? and ficheAnimal.id = ficheSoin.id and ficheSoin.email = soignant.mail and" +
               "  soinmedical.numDossier = fichesoin.id and soinmedical.mailVeto = veto.mail and ficheanimal.race=race.libelle and espece.libelle=race.espece";
-      ArrayList<SoinMedical> soinMedicals = new ArrayList<SoinMedical>();
+      ArrayList<SoinMedical> soinsMedicaux = new ArrayList<SoinMedical>();
       try{
           PreparedStatement statement = connection.prepareStatement(sql);
           statement.setInt(1, id);
@@ -50,16 +46,17 @@ public class SoinAFairePourAnimal {
               date.setTime((data.wasNull())?null : data.getDate("soinMedical.dateSoinMedical"));
               GregorianCalendar heure = (data.wasNull())?null :  new GregorianCalendar();
               if (heure != null) heure.setTime(data.getDate("soinMedical.heureSoinMediacl"));
+              String description=(data.wasNull())?null:data.getString("soinMedical.description");
               String remarque = (data.wasNull())?null : data.getString("soinMedical.remarque");
               Integer numOrdonnance = (data.wasNull())?null : data.getInt("soinMedical.numOrdonnance");
               String mailVeto =(data.wasNull())?null :  data.getString("soinMedical.mailVeto");
-              soinMedicals.add(new SoinMedical(idSoinMedical,ficheSoin,date,heure,remarque,numOrdonnance,mailVeto));
+              soinsMedicaux.add(new SoinMedical(idSoinMedical,ficheSoin,date,heure,description,remarque,numOrdonnance,mailVeto));
           }
       }
       catch(SQLException sqlException) {
           throw new BDConnexionErreur(sqlException.getMessage());
       }
-      return soinMedicals;
+      return soinsMedicaux;
     }
 
 

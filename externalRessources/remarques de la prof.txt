@@ -2,7 +2,7 @@ listing soignant
 repasser sur les insertions: valeurs obligatoires
 ordre messages confirmation
 messages pas clairs
-affichage
+affichage dans les formulaires
 
 
 suppression: ne fonctionne pas (liens)
@@ -20,8 +20,6 @@ terminer la t?che m?tier
 
 orthographe
 
-
-SQL avec join ?
 
 clean code
 

@@ -5,11 +5,11 @@ import uIController.SoignantController;
 import javax.swing.*;
 import java.awt.*;
 
-public class conteneurPanel extends JSplitPane
+public class ConteneurPanel extends JSplitPane
 {
     private JPanel banner;
 
-    public conteneurPanel(SoignantController user, JPanel bottomPanel)
+    public ConteneurPanel(SoignantController user, JPanel bottomPanel)
     {
         super(JSplitPane.VERTICAL_SPLIT);
         setBackground(Color.WHITE);

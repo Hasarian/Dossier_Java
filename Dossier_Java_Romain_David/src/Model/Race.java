@@ -17,14 +17,14 @@ public class Race {
         setTare(tare);
         setTraitDeCaractere(traitDeCaractere);
     }
-    /*public Race() throws ErreurrNull
+    public Race() throws ErreurrNull
     {
         setLibelle("labrador");
         setTraitDeCaractere("joyeux");
         setCaracteristiqueDuMilieuDeVie("urbain");
         setTare("sale");
         setEspece(new Espece());
-    }*/
+    }
 
     public void setLibelle(String libelle) throws ErreurrNull {
         if(libelle != null) this.libelle = libelle;

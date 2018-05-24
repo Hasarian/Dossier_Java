@@ -40,7 +40,7 @@ public class Animal {
         setRemaqueSoin(remarqueSoin);
         setSoignant(soignant);
     }
-    /*public Animal() throws ErreurrNull
+    public Animal() throws ErreurrNull
     {
         setId(new Integer(1));
         setDateArrive(new GregorianCalendar());
@@ -54,7 +54,7 @@ public class Animal {
         setRemarqueAnimal("grand et fort, aime les radis");
         setRemaqueSoin("il faut lui donner de l'aspirine avec sa nourriture");
         setSoignant(new Veterinaire());
-    }*/
+    }
 
     public void setDateArrive(GregorianCalendar dateArrive) throws ErreurrNull {
         if(dateArrive == null) throw new ErreurrNull();

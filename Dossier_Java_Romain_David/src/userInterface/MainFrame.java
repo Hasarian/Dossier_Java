@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 
 public class MainFrame extends JFrame
 {
-    private conteneurPanel conteneurPanel;
+    private ConteneurPanel conteneurPanel;
     private EcranPrincipalPanel basePanel;
     private JMenuBar menuBar;
     private JMenu account,administration,newFile,search,suppression;
@@ -34,7 +34,7 @@ public class MainFrame extends JFrame
         thisFrame=this;
 
         basePanel=new EcranPrincipalPanel(this,loggedIn);
-        conteneurPanel =new conteneurPanel(loggedIn,basePanel);
+        conteneurPanel =new ConteneurPanel(loggedIn,basePanel);
         container.add(conteneurPanel);
 
 

@@ -89,7 +89,7 @@ public class ListeDeTachesPanel extends JPanel
         public void actionPerformed(ActionEvent e) {
             //System.out.println(getTaskTable().getValueAt(getTaskTable().getSelectedRow(),0));
             Integer id= Integer.parseInt(getTaskTable().getValueAt(getTaskTable().getSelectedRow(),1).toString());
-            AnimalInfoFrame info=new AnimalInfoFrame(listController,id);
+            InfoAnimalFrame info=new InfoAnimalFrame(listController,id);
             getTaskTable().clearSelection();
         }
     }

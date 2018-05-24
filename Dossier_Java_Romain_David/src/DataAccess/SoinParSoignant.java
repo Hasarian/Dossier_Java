@@ -74,10 +74,11 @@ implements DAOsoinEffectue
             dateSoinMedical.setTime((data.wasNull())?null : data.getDate("soinMedical.dateSoinMedical"));//data.getDate("soinMdecial.dateSoinMedical")
             GregorianCalendar heureSoin=new GregorianCalendar();
             heureSoin.setTime((data.wasNull())?null : data.getTime("soinMedical.heureSoinMediacl"));
+            String description=(data.wasNull())?null:data.getString("soinMedical.description");
             String remarqueSoin=(data.wasNull())?null : data.getString("soinMedical.remarque");
             Integer numOrdonnance=(data.wasNull())?null : new Integer(data.getInt("soinMedical.numOrdonnance"));
             String mailVeto =(data.wasNull())?null :  data.getString("soinMedical.mailVeto");
-            SoinMedical soinMedical=new SoinMedical(idSoinMedical,animal,dateSoin,heureSoin,remarqueSoin,numOrdonnance, mailVeto);
+            SoinMedical soinMedical=new SoinMedical(idSoinMedical,animal,dateSoin,heureSoin,description,remarqueSoin,numOrdonnance, mailVeto);
 
             return new SoinEffectue(giverBusiness.getUtilisateurParMail(mail),dateSoin,soinMedical,idSoineffectue);
         }

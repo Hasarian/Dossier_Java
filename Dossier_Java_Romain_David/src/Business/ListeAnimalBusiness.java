@@ -1,6 +1,8 @@
 package Business;
 
 import Model.Animal;
+import Model.SoinMedical;
+import com.mysql.fabric.xmlrpc.base.Array;
 import erreurs.BDConnexionErreur;
 import erreurs.ErreurrNull;
 import erreurs.SoignantInexistant;
@@ -64,6 +66,7 @@ public class ListeAnimalBusiness {
     }
     public void ajoutAnimal(Animal animal)
     {
+        if(animalBusiness.existeDeja(animal)) retirerAnimal(animal.getId());
             if (animal.getEtatAnimal() != Animal.EtatAnimal.ARCHIVE) {
                 switch (animal.getEtatFicheSoin()) {
                     case DISPONIBLE:
@@ -86,11 +89,24 @@ public class ListeAnimalBusiness {
 
     public void updateEtatFicheSoin(Animal animal, Animal.EtatSoin nouvelEtat) throws ErreurrNull
     {
-        retirerAnimal(animal.getId());
+        //retirerAnimal(animal.getId());
         animal.setEtatFicheSoin(nouvelEtat);
         if(nouvelEtat== Animal.EtatSoin.RESERVEE||nouvelEtat==Animal.EtatSoin.VETORESERVEE) animal.setSoignant(controlleurUtilisateur.getSoignant());
         else if(nouvelEtat==Animal.EtatSoin.DISPONIBLE||nouvelEtat== Animal.EtatSoin.VETODISPO) animal.setSoignant(null);
         animalBusiness.animalUpdate(animal);
         ajoutAnimal(animal);
+    }
+    public ArrayList<SoinMedical> obtenirSoinParAnimal(Integer id) throws BDConnexionErreur,ErreurrNull
+    {
+        return animalBusiness.getSoinPourUnAnimal(id);
+    }
+    public static ArrayList<SoinMedical> obtenirListTachesTest() throws ErreurrNull
+    {
+        ArrayList<SoinMedical> testArray=new ArrayList<SoinMedical>();
+        for(int i=0;i<5;i++)
+        {
+            testArray.add(new SoinMedical(i));
+        }
+        return testArray;
     }
 }

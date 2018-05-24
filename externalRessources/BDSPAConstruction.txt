@@ -108,7 +108,8 @@ create table soinMedical(
 numDossier integer(10),
 dateSoinMedical date not null,
 heureSoinMediacl date,
-remarque varchar(150) not null,
+description varchar(70) not null,
+remarque varchar(150),
 mailVeto varchar(50) not null,
 numOrdonnance integer(10) not null,
 idSoinMedical integer(10) auto_increment,
@@ -258,13 +259,13 @@ insert into fichesoin
 values(2,"sert au test",0,null);
 
 insert into soinMedical
-values(3,str_to_date('24-3-2005','%e-%m-%Y'),str_to_date('12:30','%H:%i'),"du bambou","demoustiez.romain@spa.be",1,1);
+values(3,str_to_date('24-3-2005','%e-%m-%Y'),str_to_date('12:30','%H:%i'),"3kg de bambou","pas trop","demoustiez.romain@spa.be",1,1);
 
 insert into soineffectue
 values("servais.david@spa.be",str_to_date('24-3-2005','%e-%m-%Y'),1,1);
 
 insert into soinMedical
-values(3,str_to_date('25-3-2005','%e-%m-%Y'),str_to_date('12:30','%H:%i'),"du bambou","demoustiez.romain@spa.be",1,2);
+values(3,str_to_date('25-3-2005','%e-%m-%Y'),str_to_date('12:30','%H:%i'),"2kg de bambou","il est au regime","demoustiez.romain@spa.be",1,2);
 
 insert into soineffectue
 values("servais.david@spa.be",str_to_date('24-3-2005','%e-%m-%Y'),2,2);

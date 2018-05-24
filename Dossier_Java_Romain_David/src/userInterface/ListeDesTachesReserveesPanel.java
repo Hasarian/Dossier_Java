@@ -61,7 +61,7 @@ public class ListeDesTachesReserveesPanel extends ListeDeTachesPanel
         public void actionPerformed(ActionEvent e) {
             try {
                 Integer id=Integer.parseInt(getListController().getIdDansLaListeReservee(getTaskTable().getSelectedRow()));
-                getParentPanel().getFrame().changePanel(new InfoTachePanel(id,getUser()));
+                getParentPanel().getFrame().changePanel(new InfoTachePanel(id,getParentPanel()));
             }
             catch (Exception error)
             {

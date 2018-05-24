@@ -6,10 +6,10 @@ import uIController.ListesAnimauxController;
 import javax.swing.*;
 import java.awt.*;
 
-public class AnimalInfoFrame extends JFrame
+public class InfoAnimalFrame extends JFrame
 {
     AnimalInfoDisplayer infoDisplayer;
-    public AnimalInfoFrame(ListesAnimauxController listControl, Integer idAnimal)
+    public InfoAnimalFrame(ListesAnimauxController listControl, Integer idAnimal)
     {
          infoDisplayer=new AnimalInfoDisplayer(idAnimal,listControl);
          setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -19,7 +19,7 @@ public class AnimalInfoFrame extends JFrame
         setBounds(500,200,500,500);
         setVisible(true);
     }
-    /*public AnimalInfoFrame()
+    /*public InfoAnimalFrame()
     {
         try {
             infoDisplayer = new AnimalInfoDisplayer();

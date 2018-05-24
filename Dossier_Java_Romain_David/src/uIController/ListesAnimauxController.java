@@ -118,7 +118,7 @@ public class ListesAnimauxController
     {
         Animal selected= listeAnimalBusiness.getAnimal(id);
        listeAnimalBusiness.updateEtatFicheSoin(selected,Animal.EtatSoin.DISPONIBLE);
-       listeAnimalBusiness.ajoutAnimal(selected);
+       //listeAnimalBusiness.ajoutAnimal(selected);
     }
     public Animal getanimal(Integer id)
     {
