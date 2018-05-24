@@ -6,7 +6,7 @@ import erreurs.NombreInvalideException;
 import javax.swing.*;
 import java.awt.*;
 
-import static com.sun.glass.ui.Cursor.setVisible;
+
 
 public class TestFrame extends JFrame
 {

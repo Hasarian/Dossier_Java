@@ -19,13 +19,17 @@ public class AnimalBusiness {
     private ArrayList<Animal> listeAnimaux;
     private static AnimalBusiness instance;
     private ListeAnimalBusiness listesBusiness;
-    private AnimalBusiness(ListeAnimalBusiness businessListes)throws BDConnexionErreur, ErreurrNull, SoignantInexistant {
-        rechercheEntreDates =new RechercheAnimauxEntreDates();
+    private AnimalBusiness(ListeAnimalBusiness businessListes)throws BDConnexionErreur, ErreurrNull {
+
         listeAnimaux =new ArrayList<Animal>();
-        dbAcces=new AnimalDBAccess(this);
         listesBusiness = businessListes;
-        dbAcces.readTousLesAnimaux();
+        dbAcces=new AnimalDBAccess(this);
+
+        rechercheEntreDates =new RechercheAnimauxEntreDates();
         rechercheDeSoinParAnimal = new SoinAFairePourAnimal(this);
+    }
+    public void init()throws ErreurrNull, BDConnexionErreur, SoignantInexistant{
+        dbAcces.readTousLesAnimaux();
     }
     public static AnimalBusiness obtenirAnimalBusiness(ListeAnimalBusiness listanimals)
     throws BDConnexionErreur, ErreurrNull, SoignantInexistant
@@ -86,7 +90,8 @@ public class AnimalBusiness {
         {
             i++;
         }
-        return listeAnimaux.get(i).getId().compareTo(id)==0;
+        Boolean extisteDeja = (i == listeAnimaux.size()? false : listeAnimaux.get(i).getId().compareTo(id)==0);
+        return  extisteDeja;
     }
     public void animalUpdate(Animal animal)
     {

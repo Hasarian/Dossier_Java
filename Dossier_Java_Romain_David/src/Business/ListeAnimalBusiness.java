@@ -16,12 +16,15 @@ public class ListeAnimalBusiness {
     private static ListeAnimalBusiness instance;
     private SoignantController controlleurUtilisateur;
     private ListeAnimalBusiness(SoignantController controlleurUtilisateur) throws BDConnexionErreur, ErreurrNull, SoignantInexistant {
+
         this.controlleurUtilisateur = controlleurUtilisateur;
         listeDisponible =new ArrayList<Animal>();
         listePersonnelle =new ArrayList<Animal>();
         listeDisponibleVeto =(controlleurUtilisateur.estVeterinaire())?new ArrayList<Animal>():null;
         listePersonnelleVeto =(controlleurUtilisateur.estVeterinaire())?new ArrayList<Animal>():null;
         animalBusiness=AnimalBusiness.obtenirAnimalBusiness(this);
+        animalBusiness.init();
+
     }
     public static ListeAnimalBusiness obtenirListAnimalBusiness(SoignantController user)throws BDConnexionErreur, ErreurrNull, SoignantInexistant
     {
@@ -66,6 +69,7 @@ public class ListeAnimalBusiness {
     }
     public void ajoutAnimal(Animal animal)
     {
+
         if(animalBusiness.existeDeja(animal)) retirerAnimal(animal.getId());
             if (animal.getEtatAnimal() != Animal.EtatAnimal.ARCHIVE) {
                 switch (animal.getEtatFicheSoin()) {
