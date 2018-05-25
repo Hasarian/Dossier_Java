@@ -17,7 +17,7 @@ public class MainFrame extends JFrame
     private EcranPrincipalPanel basePanel;
     private JMenuBar menuBar;
     private JMenu account,administration,newFile,search,suppression;
-    private JMenuItem logout,newCareGiver,searchTask,searchAnimal,searchCare,personnalInfo,suppressionSoignant;
+    private JMenuItem logout,newCareGiver,searchTask,searchAnimal,searchCare,personnalInfo,suppressionSoignant,listeSoignant;
     private Container container;
     private MainFrame thisFrame;
     private SoignantController user;
@@ -66,6 +66,7 @@ public class MainFrame extends JFrame
         search.add(searchTask);
         searchTask.addActionListener(new ToTaskSearchListener());
         administration.add(search);
+        listeSoignant=new JMenuItem("soignant");
 
         account=new JMenu("votre compte");
         menuBar.add(account);

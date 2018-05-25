@@ -24,7 +24,7 @@ public class AnimalDBAccess implements DAOAnimal {
 
     @Override
     public Animal read(int id) throws ErreurrNull, BDConnexionErreur, SoignantInexistant {
-        business= AnimalBusiness.obtenirAnimalBusiness(ListeAnimalBusiness.obtenirListAnimalBusiness(new SoignantController()));
+        //business= AnimalBusiness.obtenirAnimalBusiness(ListeAnimalBusiness.obtenirListAnimalBusiness(new SoignantController()));
         String sql = "select * from ficheSoin, ficheAnimal, espece, race where ficheSoin.id = ? " +
                 "and ficheSoin.id = ficheAnimal.id and ficheAnimal.race = race.libelle and race.espece = espece.libelle";
         try{

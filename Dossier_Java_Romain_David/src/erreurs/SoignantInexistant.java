@@ -6,7 +6,7 @@ public class SoignantInexistant extends Exception
 
     public SoignantInexistant()
     {
-        msg="login incorrect";
+        msg="email incorrect";
     }
     @Override
     public String getMessage() {
