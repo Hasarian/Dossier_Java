@@ -1,10 +1,8 @@
 package userInterface;
 
+import Model.Soignant;
 import com.mysql.fabric.xmlrpc.base.Array;
-import erreurs.BDConnexionErreur;
-import erreurs.ErreurrNull;
-import erreurs.NombreInvalideException;
-import erreurs.SoignantInexistant;
+import erreurs.*;
 import uIController.SoignantController;
 import uIController.ListesAnimauxController;
 import uIController.TacheController;
@@ -23,12 +21,14 @@ import java.util.ArrayList;
 
 public class InfoTachePanel extends JPanel
 {
+    private MainFrame mainFrame;
     private TacheController controller;
     private ArrayList<JTextArea> remarques;
     private ArrayList<JCheckBox> soinsFaits;
     private JCheckBox pourLeVeto,estDangereux;
-    public InfoTachePanel(Integer id,JPanel parentPanel) throws BDConnexionErreur, ErreurrNull, SoignantInexistant,NombreInvalideException
+    public InfoTachePanel(Integer id,JPanel parentPanel,MainFrame mainFrame) throws BDConnexionErreur, ErreurrNull, SoignantInexistant,NombreInvalideException
     {
+        this.mainFrame=mainFrame;
         setLayout(null);
         setBounds(2,2,parentPanel.getWidth()-15,parentPanel.getHeight()-15);
         remarques=new ArrayList<JTextArea>();
@@ -226,7 +226,6 @@ public class InfoTachePanel extends JPanel
             remarqueLabel.setBounds(remarqueSoin.getX()-150,remarqueSoin.getY(),145,20);
             JLabel conditionLabel=new JLabel("obligatoire uniquement si le soin n'est pas effectué");
             conditionLabel.setBounds(remarqueSoin.getX()-300,remarqueLabel.getY()+remarqueLabel.getHeight()+5,300,20);
-
             add(remarqueLabel);
             add(conditionLabel);
             //System.out.println("remarque soin: "+remarqueSoin.getX()+" "+remarqueSoin.getY()+" "+remarqueSoin.getWidth()+" "+remarqueSoin.getHeight());
@@ -234,10 +233,44 @@ public class InfoTachePanel extends JPanel
     }
     private class SuivantListener implements ActionListener
     {
-
         @Override
-        public void actionPerformed(ActionEvent e) {
-
+        public void actionPerformed(ActionEvent e)
+        {
+            try {
+                ArrayList<Boolean> sontFaits = new ArrayList<Boolean>();
+                ArrayList<String> remarquesFaites = new ArrayList<String>();
+                for(int i=0;i<controller.nbTaches();i++)
+                {
+                    sontFaits.add(soinsFaits.get(i).isSelected());
+                    remarquesFaites.add(remarques.get(i).getText());
+                }
+                int choix=JOptionPane.showConfirmDialog(null,"confirmez-vous les soins ?","confirmation",JOptionPane.YES_NO_OPTION);
+                if(choix==JOptionPane.YES_OPTION) {
+                    controller.faireSoin(sontFaits, remarquesFaites, pourLeVeto.isSelected());
+                    mainFrame.setPanelActuel(null);
+                    mainFrame.changePanel();
+                }
+            }
+            catch (BDConnexionErreur connexion)
+            {
+                JOptionPane.showMessageDialog(null,connexion.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
+            }
+            catch (SoinsNonEffectues problemeSoin)
+            {
+                JOptionPane.showMessageDialog(null,problemeSoin.getMessage(),"soins incomplets",JOptionPane.ERROR_MESSAGE);
+            }
+            catch (MauvaiseTailleString mauvaiseTailleString)
+            {
+                JOptionPane.showMessageDialog(null,mauvaiseTailleString.getMessage(),"remarque trop longue",JOptionPane.ERROR_MESSAGE);
+            }
+            catch (ErreurrNull erreurrNull)
+            {
+                JOptionPane.showMessageDialog(null,erreurrNull.getMessage(),"argument invalide",JOptionPane.ERROR_MESSAGE);
+            }
+            catch (SoignantInexistant existePas)
+            {
+                JOptionPane.showMessageDialog(null,existePas.getMessage(),"soignant inconnu",JOptionPane.ERROR_MESSAGE);
+            }
 
         }
     }

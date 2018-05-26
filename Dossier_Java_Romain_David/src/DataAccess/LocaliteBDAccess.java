@@ -50,23 +50,4 @@ public class LocaliteBDAccess implements DAOLocalite {
         return localite;
     }
 
-    @Override
-    public Localite read(String libelle) {
-        return null;
-    }
-
-    @Override
-    public void create(Localite localite) {
-
-    }
-
-    @Override
-    public void update(Localite localite) {
-
-    }
-
-    @Override
-    public void delete(String libelle) {
-
-    }
 }

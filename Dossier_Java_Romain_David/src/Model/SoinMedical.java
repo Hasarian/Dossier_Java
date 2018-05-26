@@ -164,4 +164,5 @@ public class SoinMedical {
         return mailVeto;
     }
     public String getDescriptionSoin(){return descriptionSoin;}
+    public Integer getId(){return idSoinMedical;}
 }

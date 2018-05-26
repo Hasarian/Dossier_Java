@@ -91,7 +91,7 @@ public class ListeAnimalBusiness {
         }
     }
 
-    public void updateEtatFicheSoin(Animal animal, Animal.EtatSoin nouvelEtat) throws ErreurrNull
+    public void updateEtatFicheSoin(Animal animal, Animal.EtatSoin nouvelEtat) throws ErreurrNull,BDConnexionErreur
     {
         //retirerAnimal(animal.getId());
         animal.setEtatFicheSoin(nouvelEtat);

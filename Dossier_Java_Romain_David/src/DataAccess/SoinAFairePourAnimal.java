@@ -1,6 +1,7 @@
 package DataAccess;
 
 import Business.AnimalBusiness;
+import DataAccess.DAO.DAORechercheSoinAFaire;
 import Model.Animal;
 import Model.SoinMedical;
 import erreurs.BDConnexionErreur;
@@ -13,7 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
-public class SoinAFairePourAnimal {
+public class SoinAFairePourAnimal implements DAORechercheSoinAFaire{
    /* private Soignant soignant;
     private Animal animal;
     private Veterinaire veterinaire;

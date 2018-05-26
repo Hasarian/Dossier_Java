@@ -3,7 +3,7 @@ package DataAccess;
 import Business.AnimalBusiness;
 import Business.SoignantBusiness;
 import Business.ListeAnimalBusiness;
-import DataAccess.DAO.DAOsoinEffectue;
+import DataAccess.DAO.DAORechercheSoinEffectue;
 import Model.Animal;
 import Model.SoinEffectue;
 import Model.SoinMedical;
@@ -13,15 +13,12 @@ import erreurs.MauvaiseTailleString;
 import erreurs.SoignantInexistant;
 import uIController.SoignantController;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 public class SoinParSoignant
-implements DAOsoinEffectue
+implements DAORechercheSoinEffectue
 {
     private Connection connection;
     private SoignantBusiness giverBusiness;
@@ -53,7 +50,26 @@ implements DAOsoinEffectue
     }
 
     @Override
-    public void create(String mailSoignant, GregorianCalendar heureEffectuee, Integer soinMedical, String remarque) {
+    public void create(String mailSoignant, GregorianCalendar heureEffectuee, Integer soinMedical, String remarque)
+            throws BDConnexionErreur
+    {
+        /*mail varchar(50) not null,
+dateSoin dateTime not null,
+numSoinMedical integer(10) not null,
+idSoinEffectue integer(10) auto_increment,
+remarque varchar(140),*/
+        String sql="insert into soinEffectue(mail,dateSoin,numSoinMedical) values(?,?,?)";
+        /*                                   1      2          3 */
+
+        try {
+            PreparedStatement instruction = connection.prepareStatement(sql);
+            instruction.setString(1,mailSoignant);
+            instruction.setTime(2,new java.sql.Time(heureEffectuee.getTimeInMillis()));
+            instruction.setInt(3,soinMedical);
+        }catch (SQLException bdConnexionErreur)
+        {
+            throw new BDConnexionErreur(bdConnexionErreur.getMessage());
+        }
 
     }
 

@@ -1,6 +1,8 @@
 package Business;
 
 import DataAccess.AnimalDBAccess;
+import DataAccess.DAO.DAORechercheAnimalDates;
+import DataAccess.DAO.DAORechercheSoinAFaire;
 import DataAccess.SoinAFairePourAnimal;
 import DataAccess.DAO.DAOAnimal;
 import DataAccess.RechercheAnimauxEntreDates;
@@ -13,8 +15,8 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 public class AnimalBusiness {
-    private RechercheAnimauxEntreDates rechercheEntreDates;
-    private SoinAFairePourAnimal rechercheDeSoinParAnimal;
+    private DAORechercheAnimalDates rechercheEntreDates;
+    private DAORechercheSoinAFaire rechercheDeSoinParAnimal;
     private DAOAnimal dbAcces;
     private ArrayList<Animal> listeAnimaux;
     private static AnimalBusiness instance;
@@ -93,9 +95,9 @@ public class AnimalBusiness {
         Boolean extisteDeja = (i == listeAnimaux.size()? false : listeAnimaux.get(i).getId().compareTo(id)==0);
         return  extisteDeja;
     }
-    public void animalUpdate(Animal animal)
+    public void animalUpdate(Animal animal) throws BDConnexionErreur
     {
-        dbAcces.update(animal);
+        dbAcces.updateEtat(animal);
     }
     public ArrayList<Animal> getAnimauxEntreDates(GregorianCalendar dateDebut, GregorianCalendar dateFin) throws BDConnexionErreur, ErreurrNull, SoignantInexistant
     {

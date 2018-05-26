@@ -4,6 +4,7 @@ import Business.AnimalBusiness;
 import Business.SoignantBusiness;
 import Business.ListeAnimalBusiness;
 import Business.ListeEspecebusiness;
+import DataAccess.DAO.DAORechercheAnimalDates;
 import Model.*;
 import erreurs.BDConnexionErreur;
 import erreurs.ErreurrNull;
@@ -14,7 +15,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
-public class RechercheAnimauxEntreDates {
+public class RechercheAnimauxEntreDates implements DAORechercheAnimalDates {
     Connection connection;
     AnimalBusiness animalBusiness;
     ListeEspecebusiness listeEspece;

@@ -12,9 +12,11 @@ import java.awt.event.ActionListener;
 public class ListeDesTachesReserveesPanel extends ListeDeTachesPanel
 {
     ListeDesTachesReserveesPanel thisPanel;
-    public ListeDesTachesReserveesPanel(EcranPrincipalPanel parentPanel, SoignantController user) throws SoignantInexistant {
+    MainFrame frame;
+    public ListeDesTachesReserveesPanel(EcranPrincipalPanel parentPanel, SoignantController user,MainFrame frame) throws SoignantInexistant {
         super(parentPanel, user);
         thisPanel=this;
+        this.frame=frame;
         TaskTableModel model = new TaskTableModel(Animal.EtatSoin.RESERVEE);
         setTaskTable( new JTable(model));
         JScrollPane tablePane = new JScrollPane(getTaskTable());
@@ -60,8 +62,13 @@ public class ListeDesTachesReserveesPanel extends ListeDeTachesPanel
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                Integer id=Integer.parseInt(getListController().getIdDansLaListeReservee(getTaskTable().getSelectedRow()));
-                getParentPanel().getFrame().changePanel(new InfoTachePanel(id,getParentPanel()));
+                int choix=JOptionPane.showConfirmDialog(null,"vous ne pourrez plus revenir en arrière avant d'avoir fini. Continuer ?","confirmation",JOptionPane.YES_NO_OPTION);
+                if(choix==JOptionPane.YES_OPTION) {
+                    Integer id = Integer.parseInt(getListController().getIdDansLaListeReservee(getTaskTable().getSelectedRow()));
+                    InfoTachePanel tache = new InfoTachePanel(id, getParentPanel(), frame);
+                    getParentPanel().getFrame().changePanel(tache);
+                    frame.setPanelActuel(tache);
+                }
             }
             catch (Exception error)
             {

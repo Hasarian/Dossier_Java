@@ -56,21 +56,21 @@ public class AnimalDBAccess implements DAOAnimal {
             new BDConnexionErreur(e.getMessage());
         }
     }
-
-
-
     @Override
-    public void create(Animal animal) {
-
-    }
-
-    @Override
-    public void update(Animal animal) {
-
-    }
-
-    @Override
-    public void delete(int id) {
+    public void updateEtat(Animal animal) throws BDConnexionErreur {
+            String sql="update ficheSoin set etat=?,mail=? where id=?";
+            try{
+                PreparedStatement statement=connection.prepareStatement(sql);
+                int etat=animal.getEtatFicheSoin().ordinal();
+                statement.setInt(1,etat);
+                String mail=(animal.getSoignant()!=null)?animal.getSoignant().getMail():null;
+                statement.setString(2,mail);
+                statement.setInt(3,animal.getId());
+            }
+            catch (SQLException excpt)
+            {
+                throw new BDConnexionErreur(excpt.getMessage());
+            }
 
     }
 

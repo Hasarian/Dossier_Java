@@ -15,6 +15,7 @@ public class MainFrame extends JFrame
 {
     private ConteneurPanel conteneurPanel;
     private EcranPrincipalPanel basePanel;
+    private InfoTachePanel panelActuel;
     private JMenuBar menuBar;
     private JMenu account,administration,newFile,search,suppression;
     private JMenuItem logout,newCareGiver,searchTask,searchAnimal,searchCare,personnalInfo,suppressionSoignant,listeSoignant;
@@ -87,8 +88,13 @@ public class MainFrame extends JFrame
     }
     public void changePanel()
     {
-        changePanel(basePanel);
+        if(panelActuel!=null) changePanel(panelActuel);
+        else changePanel(basePanel);
         //System.out.println(basePanel.getPersonnelPanel());
+    }
+    public void setPanelActuel(InfoTachePanel nouveauPanel)
+    {
+        this.panelActuel=nouveauPanel;
     }
     private class ToCareFormListener implements ActionListener
     {

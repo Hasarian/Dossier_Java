@@ -1,5 +1,6 @@
 package Business;
 
+import DataAccess.DAO.DAORechercheSoinEffectue;
 import DataAccess.DAO.DAOSoignant;
 import DataAccess.SoignantDataAccess;
 import DataAccess.SoinParSoignant;
@@ -17,7 +18,7 @@ public class SoignantBusiness {
     private DAOSoignant daoSoignant;
     private ArrayList<Soignant> autresUtilisateurs;
     private static SoignantBusiness instance;
-    private SoinParSoignant accesSoins;
+    private DAORechercheSoinEffectue accesSoins;
 
     private SoignantBusiness() throws BDConnexionErreur {
         setDaoSoignant();
@@ -140,7 +141,7 @@ public class SoignantBusiness {
         daoSoignant.delete(utilisateurCourant.getMail());
     }
 
-    public void creerSoin(GregorianCalendar dateHeure, SoinMedical soinEffectue,String remarque)
+    public void creerSoin(GregorianCalendar dateHeure, SoinMedical soinEffectue,String remarque) throws BDConnexionErreur
     {
         accesSoins.create(utilisateurCourant.getMail(),dateHeure,soinEffectue.getIdSoinMedical(),remarque);
     }
