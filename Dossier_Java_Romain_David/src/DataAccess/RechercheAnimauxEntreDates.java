@@ -57,38 +57,38 @@ public class RechercheAnimauxEntreDates {
         listeEspece = ListeEspecebusiness.obtenirEspeceBusiness();
         soignantBusiness = SoignantBusiness.otebnirSoignantBusiness();
         animalBusiness = AnimalBusiness.obtenirAnimalBusiness(ListeAnimalBusiness.obtenirListAnimalBusiness(new SoignantController()));
-        String libelleEspece =(data.wasNull())?null :  data.getString("espece.libelle");
-        Boolean estEnVoieDeDisparition = (data.wasNull())?null : data.getBoolean("espece.estEnVoieDeDisparition");
+        String libelleEspece =  data.getString("espece.libelle");
+        Boolean estEnVoieDeDisparition =  data.getBoolean("espece.estEnVoieDeDisparition");
         String typeDeplacement = (data.wasNull())?null : data.getString("espece.typeDeplacement");
-        String milieuDeVie =(data.wasNull())?null :  data.getString("espece.milieuDeVie");
+        String milieuDeVie = data.getString("espece.milieuDeVie");
         Espece espece = listeEspece.obtenirEspece(libelleEspece, estEnVoieDeDisparition, typeDeplacement, milieuDeVie);
 
 
-        String libelleRace = (data.wasNull())?null : data.getString("race.libelle");
-        String traitDeCaractere = (data.wasNull())?null : data.getString("race.traitDeCaractere");
+        String libelleRace = data.getString("race.libelle");
+        String traitDeCaractere = data.getString("race.traitDeCaractere");
         String caracteristiqueDuMilieuDeVie = (data.wasNull())?null : data.getString("race.caracteristiqueDuMilieuDeVie");
         String tare = (data.wasNull() ? null : data.getString("race.tare"));
         Race race = listeEspece.obtenirRace(libelleRace, traitDeCaractere, tare, caracteristiqueDuMilieuDeVie, espece);
 
-        Integer id = (data.wasNull())?null : data.getInt("ficheAnimal.id");
-        String remarque = (data.wasNull()) ? null : data.getString("ficheAnimal.remarque");
-        Integer numCell = (data.wasNull())?null : data.getInt("ficheAnimal.numCellule");
-        String nom = (data.wasNull())?null : data.getString("ficheAnimal.nomAnimal");
+        Integer id =  data.getInt("ficheAnimal.id");
+        String remarque = (data.wasNull() ? null : data.getString("ficheAnimal.remarque"));
+        Integer numCell =  data.getInt("ficheAnimal.numCellule");
+        String nom =  data.getString("ficheAnimal.nomAnimal");
         GregorianCalendar dateArrive = new GregorianCalendar();
-        dateArrive.setTime((data.wasNull())?null :data.getDate("ficheAnimal.dateArrive"));
-        GregorianCalendar dateDeces = (data.wasNull())?null  : new GregorianCalendar();
+        dateArrive.setTime(data.getDate("ficheAnimal.dateArrive"));
+        GregorianCalendar dateDeces = (data.getDate("ficheAnimal.dateDeces") == null)?null  : new GregorianCalendar();
         if (dateDeces != null) dateDeces.setTime(data.getDate("ficheAnimal.dateDeces"));
-        Boolean estDangereux =(data.wasNull())?null : data.getBoolean("ficheAnimal.estDangereux");
+        Boolean estDangereux = data.getBoolean("ficheAnimal.estDangereux");
         Animal.EtatAnimal[] etatsAnimal = Animal.EtatAnimal.values();
         Animal.EtatSoin[] etatSoins = Animal.EtatSoin.values();
-        Integer etat =(data.wasNull())?null : data.getInt("ficheAnimal.etat");
-        Animal.EtatAnimal etatAnimal =(etat==null)?null: etatsAnimal[etat];
-        etat =(data.wasNull())?null :  data.getInt("ficheSoin.etat");
-        Animal.EtatSoin etatSoin =(etat==null)?null: etatSoins[etat];
+        Integer etat = data.getInt("ficheAnimal.etat");
+        Animal.EtatAnimal etatAnimal = etatsAnimal[etat];
+        etat = data.getInt("ficheSoin.etat");
+        Animal.EtatSoin etatSoin = etatSoins[etat];
         String remarqueSoin = (data.wasNull() ? null : data.getString("ficheSoin.remarque"));
 
         //ici, l'objet doit être refait(fais toi pas chier, hein, crée le direct)
-        Soignant soignant = soignantBusiness.getUtilisateurParMail((data.wasNull())?null : data.getString("fichesoin.email"));
+        Soignant soignant = soignantBusiness.getUtilisateurParMail(data.wasNull()?null : data.getString("fichesoin.email"));
 
         animalBusiness.nouvelAnimalDeLaDB(id, remarque, numCell, nom, race, dateArrive, dateDeces, estDangereux, etatAnimal, remarqueSoin, etatSoin, soignant);
         Animal animal = animalBusiness.getAnimal(id);

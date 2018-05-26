@@ -29,7 +29,7 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
     private LocaliteController localiteController;
     private ActionListener confirmListener;
 
-    FormulaireInscriptionSoignantPanel(MainFrame frame) throws BDConnexionErreur, ErreurrNull {
+    FormulaireInscriptionSoignantPanel(MainFrame frame) throws ErreurrNull, BDConnexionErreur{
 		setBounds(0,0,1000,750);
 		//frame.super("Formulaire d'inscription pour les Soignants");
 		this.setLayout(new GridBagLayout());
@@ -63,22 +63,28 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 		//constraints.insets = new Insets(0,20,0,0);
 		this.add(lastName, constraints);
 
-		mailLabel = new JLabel("E-mail (doit prendre la forme minuscules.minuscules[.][nombre]@spa.be) :");
+		mailLabel = new JLabel("E-mail  :");
 		constraints.gridx = 0;
 		constraints.gridy = 2;
-
+		//(doit prendre la forme minuscules.minuscules[.][nombre]@spa.be)
 		//constraints.insets = new Insets(0,20,0,0);
 		this.add(mailLabel, constraints);
 		mail = new JTextField(20);
 		constraints.gridx = 2;
 		constraints.gridy = 2;
-		constraints.gridwidth = GridBagConstraints.REMAINDER;
-		//constraints.insets = new Insets(0,20,0,0);
+
+		//constraints.insets = new Insets(0,10,0,90);
 		this.add(mail,constraints);
+		JLabel mailContrainte = new JLabel("(doit prendre la forme minuscules.minuscules[.][nombre]@spa.be)");
+		constraints.insets = new Insets(0,250,0,0);
+		constraints.gridx = 4;
+		constraints.gridy = 2;
+		constraints.gridwidth = GridBagConstraints.REMAINDER;
+		this.add(mailContrainte, constraints);
 		streetLabel = new JLabel("rue : ");
 		constraints.gridx = 0;
 		constraints.gridy = 3;
-		//constraints.insets = new Insets(0,20,0,0);
+		constraints.insets = new Insets(0,10,0,90);
 		this.add(streetLabel,constraints);
 		street = new JTextField(20);
 		constraints.gridx = 2;
@@ -98,7 +104,7 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 		constraints.gridwidth = GridBagConstraints.REMAINDER;
 		//constraints.insets = new Insets(0,20,0,0);
 		this.add(houseNumber, constraints);
-		telNumberLabel = new JLabel("numéro de téléphone [non obligatoire] :");
+		telNumberLabel = new JLabel("numéro de téléphone");
 		constraints.gridx = 0;
 		constraints.gridy = 5;
 		//constraints.insets = new Insets(0,20,0,0);
@@ -106,14 +112,19 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 		telNumber = new JTextField(20);
 		constraints.gridx = 2;
 		constraints.gridy = 5;
-		constraints.gridwidth = GridBagConstraints.REMAINDER;
 		//constraints.insets = new Insets(0,20,0,0);
 		this.add(telNumber,constraints);
+		JLabel telNumberConstraints = new JLabel("[non obligatoire]");
+		constraints.gridx = 4;
+		constraints.gridy = 5;
+		constraints.insets = new Insets(0,250,0,0);
+		constraints.gridwidth = GridBagConstraints.REMAINDER;
+		this.add(telNumberConstraints, constraints);
 
-		noteLabel = new JLabel("Remarque(s) [non obligatoire] :");
+		noteLabel = new JLabel("Remarque(s)");
 		constraints.gridx = 0;
 		constraints.gridy = 6;
-		//constraints.insets = new Insets(0,20,0,0);
+		constraints.insets = new Insets(0,10,0,0);
 		this.add(noteLabel, constraints);
 		note = new JTextArea(15,40);
 		constraints.gridx = 2;
@@ -121,10 +132,16 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 		constraints.gridwidth = GridBagConstraints.REMAINDER;
 		//constraints.insets = new Insets(0,20,0,0);
 		this.add(new JScrollPane(note), constraints);
+		JLabel noteLabelConstraints = new JLabel("[non obligatoire]");
+		constraints.gridx = 4;
+		constraints.gridy = 6;
+		constraints.insets = new Insets(0, 435,0,0);
+		constraints.gridwidth = GridBagConstraints.REMAINDER;
+		this.add(noteLabelConstraints, constraints);
 		isVolunteerLabel = new JLabel("Volontaire ?");
 		constraints.gridx = 0;
 		constraints.gridy = 7;
-		//constraints.insets = new Insets(0,20,0,0);;
+		constraints.insets = new Insets(0,10,0,0);;
 		this.add(isVolunteerLabel, constraints);
 		isVolunteer = new JCheckBox();
 		constraints.gridx = 2;
@@ -137,11 +154,13 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 		constraints.gridy = 8;
 		//constraints.insets = new Insets(0,20,0,0);
         if(frame!=null) {
-            this.add(localityLabel, constraints);
-            locality = new JList(iULocatilte());
-            locality.setVisibleRowCount(2);
-            locality.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-            locality.setSelectedIndex(0);
+
+        	this.add(localityLabel, constraints);
+        	locality = new JList(iULocatilte());
+        	locality.setVisibleRowCount(2);
+        	locality.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        	locality.setSelectedIndex(0);
+
         }
 
 		constraints.gridx = 2;
@@ -221,13 +240,14 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 				Integer house = (houseNumber.getText().equals("")? null : Integer.parseInt(houseNumber.getText()));
 				String noteTexte = (note.getText().equals("")? null : note.getText());
 				String streetTexte = (street.getText().equals("")? null : street.getText());
+
+				SoignantController soignantController = new SoignantController();
+
+				Soignant soignant = new Soignant(mailTexte, nameTexte, lastNameTexte, streetTexte
+						, house, tel, noteTexte, isVolunteer.isSelected(), date,
+						localiteController.getToutesLesLocalites().get(locality.getSelectedIndex()));
 				int accord = JOptionPane.showConfirmDialog(null,"Etes vous sur de vouloir vous inscrire ?","confirmation d'inscription",JOptionPane.INFORMATION_MESSAGE);
 				if(accord == JOptionPane.YES_OPTION) {
-					SoignantController soignantController = new SoignantController();
-
-					Soignant soignant = new Soignant(mailTexte, nameTexte, lastNameTexte, streetTexte
-							, house, tel, noteTexte, isVolunteer.isSelected(), date,
-							localiteController.getToutesLesLocalites().get(locality.getSelectedIndex()));
 					soignantController.setSoignantData(soignant);
 					frame.changePanel();
 				}

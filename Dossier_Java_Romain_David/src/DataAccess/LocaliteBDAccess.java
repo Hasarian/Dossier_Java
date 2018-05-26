@@ -42,7 +42,7 @@ public class LocaliteBDAccess implements DAOLocalite {
     private Localite resultatVersLocalite(ResultSet data)throws ErreurrNull {
         Localite localite = null;
         try{
-            localite = new Localite(data.getInt("idLocalite"), data.getInt("getCodePostalAutreUtilisateur"), data.getString("libelle"));
+            localite = new Localite(data.getInt("idLocalite"), data.getInt("CodePostal"), data.getString("libelle"));
         }
         catch(SQLException e){
             new BDConnexionErreur(e.getMessage());

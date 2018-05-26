@@ -90,12 +90,12 @@ public class Soignant {
 
     public void setDateEmbauche(GregorianCalendar dateEmbauche) throws ErreurrNull {
         if(dateEmbauche != null)this.dateEmbauche = dateEmbauche;
-        else throw new ErreurrNull("dateEmbauche");
+        else throw new ErreurrNull("votre date Embauche");
     }
 
     public void setEstBenevole(Boolean estBenevole) throws ErreurrNull {
         if(estBenevole != null)this.estBenevole = estBenevole;
-        else throw new ErreurrNull("AutreUtilisateurEstBenevole");
+        else throw new ErreurrNull("etes vous bénévol");
     }
 
     public void setPrenom(String prenom) throws ErreurrNull {
@@ -109,17 +109,17 @@ public class Soignant {
     }
 
     public void setMail(String mail) throws ErreurrNull {
-        if(mail == null) throw new ErreurrNull();
+        if(mail == null) throw new ErreurrNull("l'email");
         this.mail = mail;
     }
 
     public void setNomDeFamille(String nomDeFamille) throws ErreurrNull {
-        if(nomDeFamille == null) throw new ErreurrNull();
+        if(nomDeFamille == null) throw new ErreurrNull("votre nom de famille");
         this.nomDeFamille = nomDeFamille;
     }
 
     public void setNumMaison(Integer numMaison) throws ErreurrNull {
-        if(localite == null) throw new ErreurrNull();
+        if(numMaison == null) throw new ErreurrNull("votre numero de maison");
         this.numMaison = numMaison;
     }
 
@@ -132,7 +132,7 @@ public class Soignant {
     }
 
     public void setRue(String rue) throws ErreurrNull {
-        if(localite == null) throw new ErreurrNull();
+        if(rue == null) throw new ErreurrNull("votre rue");
         this.rue = rue;
     }
 
