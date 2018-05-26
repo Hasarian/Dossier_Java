@@ -11,11 +11,14 @@ import uIController.TacheController;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.lang.annotation.Documented;
 import java.util.ArrayList;
 
 public class InfoTachePanel extends JPanel
@@ -211,10 +214,14 @@ public class InfoTachePanel extends JPanel
             //System.out.println("check box: "+soinEffectue.getX()+" "+soinEffectue.getY()+" "+soinEffectue.getWidth()+" "+soinEffectue.getHeight());
 
             remarqueSoin=new JTextArea();
+            JLabel nbCaractere= new JLabel("restant: 140 caractères");
+            remarqueSoin.getDocument().addDocumentListener(new NbCaracteresListener(remarqueSoin,nbCaractere));
             remarques.add(remarqueSoin);
             remarqueSoin.setBorder(BorderFactory.createMatteBorder(1,5,1,1,Color.black));
+            nbCaractere.setBounds(300,25,150,25);
             remarqueSoin.setBounds(300,50,500, 40);
             add(remarqueSoin);
+            add(nbCaractere);
             JLabel remarqueLabel=new JLabel("remarque à ajouter");
             remarqueLabel.setBounds(remarqueSoin.getX()-150,remarqueSoin.getY(),145,20);
             JLabel conditionLabel=new JLabel("obligatoire uniquement si le soin n'est pas effectué");
@@ -231,6 +238,7 @@ public class InfoTachePanel extends JPanel
         @Override
         public void actionPerformed(ActionEvent e) {
 
+
         }
     }
     private class LockedBoxListener implements ItemListener
@@ -239,6 +247,36 @@ public class InfoTachePanel extends JPanel
         @Override
         public void itemStateChanged(ItemEvent e) {
                 estDangereux.setSelected(controller.getDanger());
+        }
+    }
+    private class NbCaracteresListener implements DocumentListener
+    {
+        public JTextArea zone;
+        public JLabel nbCaracLabel;
+
+        public NbCaracteresListener(JTextArea aVerifier,JLabel aModifier)
+        {
+            zone=aVerifier;
+            nbCaracLabel=aModifier;
+        }
+
+        @Override
+        public void insertUpdate(DocumentEvent e) {
+            int caracteresRestant=140-zone.getText().length();
+            nbCaracLabel.setText("restant: "+caracteresRestant+" caractères");
+            if(caracteresRestant<0) nbCaracLabel.setForeground(Color.RED);
+        }
+
+        @Override
+        public void removeUpdate(DocumentEvent e) {
+            int caracteresRestant=140-zone.getText().length();
+            nbCaracLabel.setText("restant: "+caracteresRestant+" caractères");
+            if(caracteresRestant>=0)nbCaracLabel.setForeground(Color.BLACK);
+        }
+
+        @Override
+        public void changedUpdate(DocumentEvent e) {
+
         }
     }
 

@@ -125,6 +125,7 @@ mail varchar(50) not null,
 dateSoin dateTime not null,
 numSoinMedical integer(10) not null,
 idSoinEffectue integer(10) auto_increment,
+remarque varchar(140),
 constraint idSoinEffectue_id_pk primary key(idSoinEffectue),
 constraint soignant_mail_fk foreign key (mail) references soignant(mail) on delete cascade,
 constraint soinEffectue_soinMedical_idSoinMediacal_fk foreign key (numSoinMedical) references soinMedical(idSoinMedical)

@@ -9,6 +9,7 @@ import Model.SoinEffectue;
 import Model.SoinMedical;
 import erreurs.BDConnexionErreur;
 import erreurs.ErreurrNull;
+import erreurs.MauvaiseTailleString;
 import erreurs.SoignantInexistant;
 import uIController.SoignantController;
 
@@ -29,8 +30,7 @@ implements DAOsoinEffectue
         connection=SingletonDB.getInstance();
         giverBusiness= SoignantBusiness.otebnirSoignantBusiness();
     }
-    @Override
-    public ArrayList<SoinEffectue> searchHistory(String mail) throws BDConnexionErreur, ErreurrNull, SoignantInexistant {
+    public ArrayList<SoinEffectue> searchHistory(String mail) throws BDConnexionErreur, ErreurrNull, SoignantInexistant,MauvaiseTailleString {
         String sql = "select *from soignant, localite, soineffectue, soinmedical\n" +
                 "where soignant.mail = ? and soignant.localite = localite.idLocalite\n" +
                 "and soineffectue.mail = soignant.mail and soineffectue.numSoinMedical = soinmedical.idSoinMedical; ";
@@ -57,7 +57,7 @@ implements DAOsoinEffectue
 
     }
 
-    public SoinEffectue traductionSQL(ResultSet data) throws ErreurrNull, BDConnexionErreur, SoignantInexistant
+    public SoinEffectue traductionSQL(ResultSet data) throws ErreurrNull, BDConnexionErreur, SoignantInexistant, MauvaiseTailleString
     {
         try {
             AnimalBusiness animalBusiness=AnimalBusiness.obtenirAnimalBusiness(ListeAnimalBusiness.obtenirListAnimalBusiness(new SoignantController()));
@@ -80,7 +80,9 @@ implements DAOsoinEffectue
             String mailVeto =(data.wasNull())?null :  data.getString("soinMedical.mailVeto");
             SoinMedical soinMedical=new SoinMedical(idSoinMedical,animal,dateSoin,heureSoin,description,remarqueSoin,numOrdonnance, mailVeto);
 
-            return new SoinEffectue(giverBusiness.getUtilisateurParMail(mail),dateSoin,soinMedical,idSoineffectue);
+            String remarque=(data.wasNull())?null:data.getString("soinEffectue.remarque");
+
+            return new SoinEffectue(giverBusiness.getUtilisateurParMail(mail),dateSoin,soinMedical,idSoineffectue,remarque);
         }
         catch(SQLException e)
         {

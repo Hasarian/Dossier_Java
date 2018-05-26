@@ -51,7 +51,7 @@ public class SoignantController
         return business.getUtilisateurCourant();
     }
 
-    public ArrayList<ArrayList<String>> soinsFaitsPar(String mail) throws BDConnexionErreur, ErreurrNull, SoignantInexistant
+    public ArrayList<ArrayList<String>> soinsFaitsPar(String mail) throws BDConnexionErreur, ErreurrNull, SoignantInexistant,MauvaiseTailleString
     {
         ArrayList<SoinEffectue> soinsEffectués=business.getSoinsEffectues(mail);
         ArrayList<ArrayList<String>> data=new ArrayList<ArrayList<String>>();

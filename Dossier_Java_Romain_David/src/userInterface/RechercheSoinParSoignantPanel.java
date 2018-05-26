@@ -2,6 +2,7 @@ package userInterface;
 
 import erreurs.BDConnexionErreur;
 import erreurs.ErreurrNull;
+import erreurs.MauvaiseTailleString;
 import erreurs.SoignantInexistant;
 import uIController.SoignantController;
 
@@ -59,35 +60,36 @@ public class RechercheSoinParSoignantPanel extends JPanel {
         public void actionPerformed(ActionEvent e) {
             try {
 
-                if (tablePane != null){
+                if (tablePane != null) {
                     //remove(tablePane);
                     removeAll();
                     add(idGiverLabel);
                     add(idGiver);
                     add(searchButton);
                     add(backButton);
+
+                    String mail = idGiver.getSelectedValue().toString();
+                    JLabel nom, numTel, estbenevole, codePosal;
+                    nom = new JLabel(careGiverControl.getNomDeFamilleAutreUtilisateur(mail));
+                    nom.setBounds(searchButton.getX() + searchButton.getWidth() + 50, 15, 150, 20);
+                    add(nom);
+                    numTel = new JLabel(careGiverControl.getTelAutreUtilisateur(mail));
+                    numTel.setBounds(nom.getX(), nom.getY() + nom.getHeight() + 5, 25, nom.getHeight());
+                    add(numTel);
+                    estbenevole = new JLabel(careGiverControl.AutreUtilisateurEstBenevole(mail));
+                    estbenevole.setBounds(nom.getX() + nom.getWidth(), nom.getY(), nom.getWidth(), nom.getHeight());
+                    add(estbenevole);
+                    codePosal = new JLabel(careGiverControl.getCodePostalAutreUtilisateur(mail));
+                    codePosal.setBounds(numTel.getX() + numTel.getWidth() + 15, numTel.getY(), 50, 20);
+                    add(codePosal);
+                    ModelTable model = new ModelTable(careGiverControl.soinsFaitsPar(mail));
+                    JTable careTable = new JTable(model);
+                    tablePane = new JScrollPane(careTable);
+                    tablePane.setBounds(getX() + 15, searchButton.getY() + codePosal.getHeight() + 20, getWidth() - 30, 300);
+                    add(tablePane);
+                    repaint();
+                    revalidate();
                 }
-                String mail = idGiver.getSelectedValue().toString();
-                JLabel nom, numTel, estbenevole, codePosal;
-                nom = new JLabel(careGiverControl.getNomDeFamilleAutreUtilisateur(mail));
-                nom.setBounds(searchButton.getX() + searchButton.getWidth() + 50, 15, 150, 20);
-                add(nom);
-                numTel = new JLabel(careGiverControl.getTelAutreUtilisateur(mail));
-                numTel.setBounds(nom.getX(), nom.getY() + nom.getHeight() + 5, 25, nom.getHeight());
-                add(numTel);
-                estbenevole = new JLabel(careGiverControl.AutreUtilisateurEstBenevole(mail));
-                estbenevole.setBounds(nom.getX() + nom.getWidth(), nom.getY(), nom.getWidth(), nom.getHeight());
-                add(estbenevole);
-                codePosal = new JLabel(careGiverControl.getCodePostalAutreUtilisateur(mail));
-                codePosal.setBounds(numTel.getX() + numTel.getWidth() + 15, numTel.getY(), 50, 20);
-                add(codePosal);
-                ModelTable model = new ModelTable(careGiverControl.soinsFaitsPar(mail));
-                JTable careTable = new JTable(model);
-                tablePane = new JScrollPane(careTable);
-                tablePane.setBounds(getX() + 15, searchButton.getY() + codePosal.getHeight() + 20, getWidth() - 30, 300);
-                add(tablePane);
-                repaint();
-                revalidate();
             } catch (BDConnexionErreur connexionError) {
                 JOptionPane.showMessageDialog(null, connexionError.getMessage(), "accès BD", JOptionPane.ERROR_MESSAGE);
             }
@@ -98,6 +100,10 @@ public class RechercheSoinParSoignantPanel extends JPanel {
             catch (ErreurrNull nullerr)
             {
                 JOptionPane.showMessageDialog(null, nullerr.getMessage(), "invalid data", JOptionPane.ERROR_MESSAGE);
+            }
+            catch (MauvaiseTailleString stringErr)
+            {
+                JOptionPane.showMessageDialog(null, stringErr.getMessage(), "chaine de caractère invalide", JOptionPane.ERROR_MESSAGE);
             }
 
             revalidate();

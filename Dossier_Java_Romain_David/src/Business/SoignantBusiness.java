@@ -4,20 +4,24 @@ import DataAccess.DAO.DAOSoignant;
 import DataAccess.SoignantDataAccess;
 import DataAccess.SoinParSoignant;
 import Model.SoinEffectue;
+import Model.SoinMedical;
 import Model.Veterinaire;
 import erreurs.*;
 import Model.Soignant;
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 
 public class SoignantBusiness {
     private Soignant utilisateurCourant;
     private DAOSoignant daoSoignant;
     private ArrayList<Soignant> autresUtilisateurs;
     private static SoignantBusiness instance;
+    private SoinParSoignant accesSoins;
 
     private SoignantBusiness() throws BDConnexionErreur {
         setDaoSoignant();
+        accesSoins =new SoinParSoignant ();
         autresUtilisateurs =new ArrayList<Soignant>();
     }
     public static SoignantBusiness otebnirSoignantBusiness() throws BDConnexionErreur
@@ -103,10 +107,9 @@ public class SoignantBusiness {
     }
 
 
-    public ArrayList<SoinEffectue> getSoinsEffectues(String mail) throws BDConnexionErreur, ErreurrNull,SoignantInexistant
+    public ArrayList<SoinEffectue> getSoinsEffectues(String mail) throws BDConnexionErreur, ErreurrNull,SoignantInexistant,MauvaiseTailleString
     {
-        SoinParSoignant acces=new SoinParSoignant ();
-        return acces.searchHistory(mail);
+        return accesSoins.searchHistory(mail);
     }
 
     public ArrayList<String> getTousLesUtilisateurs() throws BDConnexionErreur {
@@ -135,6 +138,11 @@ public class SoignantBusiness {
     public void supprimerUtilisateurCourant() throws BDConnexionErreur
     {
         daoSoignant.delete(utilisateurCourant.getMail());
+    }
+
+    public void creerSoin(GregorianCalendar dateHeure, SoinMedical soinEffectue,String remarque)
+    {
+        accesSoins.create(utilisateurCourant.getMail(),dateHeure,soinEffectue.getIdSoinMedical(),remarque);
     }
 }
 

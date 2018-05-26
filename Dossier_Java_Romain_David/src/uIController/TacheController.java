@@ -1,8 +1,11 @@
 package uIController;
 
 import Business.ListeAnimalBusiness;
+import Business.SoignantBusiness;
 import Model.Animal;
+import Model.SoinEffectue;
 import Model.SoinMedical;
+import com.mysql.fabric.xmlrpc.base.Array;
 import erreurs.*;
 
 import java.util.ArrayList;
@@ -90,5 +93,26 @@ public class TacheController {
     public String getId(){return animal.getId().toString();}
     public String getEspece(){return animal.getRace().getEspeceLibelle();}
     public String getRace(){return animal.getRace().getLibelle();}
+
+    public void faireSoin(ArrayList<Boolean> ontEteEffectues,ArrayList<String> remarques,Boolean pourVeto)
+            throws BDConnexionErreur,SoinsNonEffectues,ErreurrNull,MauvaiseTailleString,SoignantInexistant
+    {
+        int nbSoinNonEffectués=0;
+        for(int i=0;i<listeTaches.size();i++)
+        {
+            if(!ontEteEffectues.get(i)&&remarques.get(i).isEmpty()) nbSoinNonEffectués++;
+            if(remarques.get(i).length()>140) throw new MauvaiseTailleString("une remarque ajoutée",remarques.get(i).length(),150);
+        }
+        if(nbSoinNonEffectués>0) throw new SoinsNonEffectues(nbSoinNonEffectués);
+        else
+        {
+            for(int i=0;i<listeTaches.size();i++) {
+                SoignantBusiness userBusiness = SoignantBusiness.otebnirSoignantBusiness();
+                userBusiness.creerSoin(new GregorianCalendar(),listeTaches.get(i),remarques.get(i));
+            }
+            ListeAnimalBusiness listes=ListeAnimalBusiness.obtenirListAnimalBusiness(null);
+            listes.updateEtatFicheSoin(animal,(pourVeto)? Animal.EtatSoin.VETODISPO: Animal.EtatSoin.DISPONIBLE);
+        }
+    }
 
 }
