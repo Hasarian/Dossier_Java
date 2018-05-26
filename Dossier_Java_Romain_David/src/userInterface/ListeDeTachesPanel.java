@@ -104,6 +104,8 @@ public class ListeDeTachesPanel extends JPanel
                         "id de l'animal",
                         "numéro de cellule",
                         "espece",
+                        "race",
+                        "dangerosité"
                 };
 
         public TaskTableModel(Animal.EtatSoin etat)
@@ -129,7 +131,7 @@ public class ListeDeTachesPanel extends JPanel
             return columnNames.length;
         }
 
-        public String getValueAt(int rowIndex, int columnIndex) {
+        public Object getValueAt(int rowIndex, int columnIndex) {
             switch (etat) {
                 case DISPONIBLE:
                     return listController.getDonneeDansListeDisponible(rowIndex,columnIndex);
@@ -152,5 +154,17 @@ public class ListeDeTachesPanel extends JPanel
             return false;
         }
 
+        @Override
+        public Class<?> getColumnClass(int columnIndex) {
+            switch (columnIndex)
+            {
+
+                case 1:  case 2:
+                    return int.class ;
+                case 5:
+                    return Boolean.class;
+                default: return String.class;
+            }
+        }
     }
 }

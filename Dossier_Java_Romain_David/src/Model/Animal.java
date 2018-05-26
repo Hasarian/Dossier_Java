@@ -119,7 +119,7 @@ public class Animal {
     public String getNomAnimal(){return nomAnimal;}
     public Integer getId(){return id;}
     public String getNumeroCellule(){return numCellule.toString();}
-    public String getEspece(){return race.toString();}
+    public String getEspece(){return race.getEspeceLibelle();}
     public EtatSoin getEtatSoin(){return etatFicheSoin;}
     public String getRemarqueAnimal(){return remarqueAnimal;}
     public void setSoignant(Soignant soignant){

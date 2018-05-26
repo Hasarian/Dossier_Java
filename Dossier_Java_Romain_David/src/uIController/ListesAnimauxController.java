@@ -23,36 +23,40 @@ public class ListesAnimauxController
         if(instance==null)instance=new ListesAnimauxController(user);
         return instance;
     }
-    public String getColumn(int column,Animal animal)
+    public Object getColumn(int column,Animal animal)
     {
         switch(column)
         {
             case 0:
                 return animal.getNomAnimal();
             case 1:
-                return animal.getId().toString();
+                return animal.getId();
             case 2:
                 return animal.getNumeroCellule();
             case 3:
                 return animal.getEspece();
+            case 4:
+                return animal.getRace().getLibelle();
+            case 5:
+                return animal.getEstDangereux();
             default:
                 return "unkown data";
         }
     }
-    public String getDonneeDansListeDisponible(int row, int column)
+    public Object getDonneeDansListeDisponible(int row, int column)
     {
         Animal animal= listeAnimalBusiness.getListeDisponible().get(row);
         return getColumn(column,animal);
     }
     public int nombreDeLignesListeDisponible(){return listeAnimalBusiness.getListeDisponible().size();}
 
-    public String getDonneeDansListeReservee(int row, int column)
+    public Object getDonneeDansListeReservee(int row, int column)
     {
         return getColumn(column, listeAnimalBusiness.getListePersonnelle().get(row));
     }
     public int nombreDeLignesListeReservee(){return listeAnimalBusiness.getListePersonnelle().size();}
 
-    public void remplirData(ArrayList<Animal> listeAnimal,ArrayList<ArrayList<String>> data)
+    /*public void remplirData(ArrayList<Animal> listeAnimal,ArrayList<ArrayList<String>> data)
     {
         for(Animal animal:listeAnimal)
         {
@@ -63,18 +67,18 @@ public class ListesAnimauxController
             row.add(animal.getEspece());
             data.add(row);
         }
-    }
+    }*/
     public boolean aucunAnimalReserve()
     {
         return listeAnimalBusiness.getListePersonnelle().size()==0;
     }
-    public String getDonneeListeVetoDispo(int row, int column)
+    public Object getDonneeListeVetoDispo(int row, int column)
     {
         return getColumn(column, listeAnimalBusiness.getListeDisponibleVeto().get(row));
     }
     public int nombreLignesListeVetoDispo(){return listeAnimalBusiness.getListeDisponibleVeto().size();}
 
-    public String getDonneeListVetoReservee(int row, int column)
+    public Object getDonneeListVetoReservee(int row, int column)
     {
         return getColumn(column, listeAnimalBusiness.getListePersonnelleVeto().get(row));
     }
