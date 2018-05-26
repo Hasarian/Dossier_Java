@@ -1,6 +1,7 @@
 package userInterface;
 
 import Model.Animal;
+import erreurs.BDConnexionErreur;
 import erreurs.ErreurrNull;
 import erreurs.SoignantInexistant;
 import uIController.SoignantController;
@@ -10,8 +11,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ListeDesTachesReserveesVetoPanel extends ListeDeTachesPanel {
-    public ListeDesTachesReserveesVetoPanel(EcranPrincipalPanel parentPanel, SoignantController user) throws SoignantInexistant {
+    MainFrame frame;
+    public ListeDesTachesReserveesVetoPanel(EcranPrincipalPanel parentPanel, SoignantController user, MainFrame frame) throws SoignantInexistant {
         super(parentPanel, user);
+        this.frame = frame;
         TaskTableModel model = new TaskTableModel(Animal.EtatSoin.VETORESERVEE);
         setTaskTable( new JTable(model));
         JScrollPane tablePane = new JScrollPane(getTaskTable());
@@ -44,7 +47,10 @@ public class ListeDesTachesReserveesVetoPanel extends ListeDeTachesPanel {
             }
             catch (ErreurrNull error)
             {
-                JOptionPane.showMessageDialog(null,error.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null,error.getMessage(),"Attribut obligatoir à nullr",JOptionPane.ERROR_MESSAGE);
+            }
+            catch (BDConnexionErreur bdConnexionErreur){
+                JOptionPane.showMessageDialog(null,bdConnexionErreur.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
             }
             getTaskTable().clearSelection();
             getTablePane().repaint();
@@ -56,7 +62,7 @@ public class ListeDesTachesReserveesVetoPanel extends ListeDeTachesPanel {
         public void actionPerformed(ActionEvent e) {
             try {
                 Integer id=Integer.parseInt(getListController().getIdDansLaListeReservee(getTaskTable().getSelectedRow()));
-                getParentPanel().getFrame().changePanel(new InfoTachePanel(id,getParentPanel()));
+                getParentPanel().getFrame().changePanel(new InfoTachePanel(id,getParentPanel(), frame));
             }
             catch (Exception error)
             {

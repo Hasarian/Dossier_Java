@@ -35,13 +35,14 @@ public class SuppressionSoignant extends JPanel
         add(mails);
 
         JButton retour=new JButton("écran principal");
-        retour.setBounds(getX()+15,getY()+getHeight()-50,50,30);
+        retour.setBounds(getX()+50,getY()+getHeight()-50,100,30);
         retour.addActionListener(new ToMainMenuListener());
         add(retour);
 
         JButton supprimer=new JButton("supprimer sélection");
-        supprimer.setBounds(getX()+getWidth()-retour.getWidth()-30,retour.getY(),retour.getWidth(),retour.getHeight());
-        retour.addActionListener(new SupressListener());
+        supprimer.setBounds(getX()+getWidth()-retour.getWidth()-50,retour.getY(),retour.getWidth(),retour.getHeight());
+        supprimer.addActionListener(new SupressListener());
+        add(supprimer);
     }
     private class ToMainMenuListener implements ActionListener
     {

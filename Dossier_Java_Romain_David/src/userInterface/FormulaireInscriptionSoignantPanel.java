@@ -30,13 +30,13 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
     private ActionListener confirmListener;
 
     FormulaireInscriptionSoignantPanel(MainFrame frame) throws ErreurrNull, BDConnexionErreur{
-		setBounds(0,0,1000,750);
+		setBounds(0,0,1000,800);
 		//frame.super("Formulaire d'inscription pour les Soignants");
 		this.setLayout(new GridBagLayout());
 		setBackground(Color.WHITE);
 		GridBagConstraints constraints = new GridBagConstraints();
 		this.frame=frame;
-		nameLabel = new JLabel("nom de famille :");
+		nameLabel = new JLabel("Prénom :");
 		constraints.gridx = 0;
 		constraints.gridy = 0;
 		constraints.gridheight = 1;
@@ -50,7 +50,7 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 		//constraints.insets = new Insets(0,20,0,0);
 		this.add(name, constraints);
 
-		lastNameLabel = new JLabel("prénom :");
+		lastNameLabel = new JLabel("Nom de Famille :");
 		constraints.gridx = 0;
 		constraints.gridy = 1;
 

@@ -1,6 +1,7 @@
 package userInterface;
 
 import Model.Animal;
+import erreurs.BDConnexionErreur;
 import erreurs.ErreurrNull;
 import erreurs.SoignantInexistant;
 import uIController.SoignantController;
@@ -11,9 +12,10 @@ import java.awt.event.ActionListener;
 
 public class ListeDesTachesDisponiblesPanel extends ListeDeTachesPanel
 {
-    public ListeDesTachesDisponiblesPanel(EcranPrincipalPanel parentPanel, SoignantController user) throws SoignantInexistant {
+    MainFrame frame;
+    public ListeDesTachesDisponiblesPanel(EcranPrincipalPanel parentPanel, SoignantController user, MainFrame frame) throws SoignantInexistant {
         super(parentPanel,user);
-
+        this.frame = frame;
         TaskTableModel model = new TaskTableModel(Animal.EtatSoin.DISPONIBLE);
         setTaskTable( new JTable(model));
         JScrollPane tablePane = new JScrollPane(getTaskTable());
@@ -38,7 +40,7 @@ public class ListeDesTachesDisponiblesPanel extends ListeDeTachesPanel
         {
 
             try {
-                if(getListController().aucunAnimalReserve())getParentPanel().insertTab(new ListeDesTachesReserveesPanel(getParentPanel(),getUser()),"personnal list");
+                if(getListController().aucunAnimalReserve())getParentPanel().insertTab(new ListeDesTachesReserveesPanel(getParentPanel(),getUser(),frame ),"personnal list");
                 int[] selectedRows=getTaskTable().getSelectedRows();
                 for (int i : selectedRows) {
                     getListController().selectionnerAnimal(new Integer(getListController().getIdDansLaListeDispo(i)));
@@ -50,6 +52,9 @@ public class ListeDesTachesDisponiblesPanel extends ListeDeTachesPanel
             }
             catch (ErreurrNull error)
             {
+                JOptionPane.showMessageDialog(null,error.getMessage(),"Attribut obligatoir a null",JOptionPane.ERROR_MESSAGE);
+            }
+            catch (BDConnexionErreur error){
                 JOptionPane.showMessageDialog(null,error.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
             }
             getTaskTable().clearSelection();

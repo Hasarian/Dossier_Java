@@ -27,8 +27,8 @@ public class SoinAFairePourAnimal implements DAORechercheSoinAFaire{
     }
     public ArrayList<SoinMedical> readCareToAnimal(int id)throws BDConnexionErreur, ErreurrNull {
       String sql = "select*" +
-              "from soignant, ficheAnimal, veto, soinMedical, ficheSoin, race, espece " +
-              "where ficheAnimal.id = ? and ficheAnimal.id = ficheSoin.id and ficheSoin.email = soignant.mail and" +
+              "from ficheAnimal, veto, soinMedical, ficheSoin, race, espece " +
+              "where ficheAnimal.id = ? and ficheAnimal.id = ficheSoin.id and" +
               "  soinmedical.numDossier = fichesoin.id and soinmedical.mailVeto = veto.mail and ficheanimal.race=race.libelle and espece.libelle=race.espece";
       ArrayList<SoinMedical> soinsMedicaux = new ArrayList<SoinMedical>();
       try{

@@ -50,7 +50,6 @@ public class RechercheSoinParAnimalPanel extends JPanel
                     if(resultat!=null) remove(resultat);
                     String stringAnimal =(String) animals.getSelectedValue();
                     int id = Integer.parseInt(stringAnimal.substring(0, stringAnimal.indexOf(":")));
-                    System.out.println(id);
                     ModelTable model = new ModelTable(animalController.getSoinParAnimal(id));
                     JTable animalTable = new JTable(model);
                     resultat = new JScrollPane(animalTable);

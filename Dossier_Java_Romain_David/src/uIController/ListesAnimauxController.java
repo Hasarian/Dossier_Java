@@ -5,6 +5,7 @@ import Model.Animal;
 import erreurs.BDConnexionErreur;
 import erreurs.ErreurrNull;
 import erreurs.SoignantInexistant;
+import sun.awt.image.BadDepthException;
 
 import java.util.ArrayList;
 
@@ -98,23 +99,23 @@ public class ListesAnimauxController
     {
         return listeAnimalBusiness.getListePersonnelle().get(index).getId().toString();
     }
-    public void selectionnerAnimalVeto(Integer id) throws ErreurrNull
+    public void selectionnerAnimalVeto(Integer id) throws ErreurrNull, BDConnexionErreur
     {
         Animal selected= listeAnimalBusiness.getAnimal(id);
         listeAnimalBusiness.updateEtatFicheSoin(selected, Animal.EtatSoin.VETORESERVEE);
     }
-    public void selectionnerAnimal(Integer id) throws ErreurrNull
+    public void selectionnerAnimal(Integer id) throws ErreurrNull, BDConnexionErreur
     {
         Animal selected= listeAnimalBusiness.getAnimal(id);
         listeAnimalBusiness.updateEtatFicheSoin(selected, Animal.EtatSoin.RESERVEE);
     }
-    public void abandonnerAnimalVeto(Integer id) throws ErreurrNull
+    public void abandonnerAnimalVeto(Integer id) throws ErreurrNull, BDConnexionErreur
     {
         Animal selected= listeAnimalBusiness.getAnimal(id);
         listeAnimalBusiness.updateEtatFicheSoin(selected,Animal.EtatSoin.VETODISPO);
         listeAnimalBusiness.ajoutAnimal(selected);
     }
-    public void abandonnerAnimal(Integer id) throws ErreurrNull
+    public void abandonnerAnimal(Integer id) throws ErreurrNull, BDConnexionErreur
     {
         Animal selected= listeAnimalBusiness.getAnimal(id);
        listeAnimalBusiness.updateEtatFicheSoin(selected,Animal.EtatSoin.DISPONIBLE);

@@ -22,6 +22,7 @@ public class SoignantBusiness {
 
     private SoignantBusiness() throws BDConnexionErreur {
         setDaoSoignant();
+        instance = this;
         accesSoins =new SoinParSoignant ();
         autresUtilisateurs =new ArrayList<Soignant>();
     }

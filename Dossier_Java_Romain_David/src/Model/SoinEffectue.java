@@ -27,7 +27,8 @@ public class SoinEffectue {
     }
     public void setRemarque(String remarque) throws MauvaiseTailleString
     {
-        if(remarque.length()>140) throw new MauvaiseTailleString("une remarque ajoutée ",remarque.length(),150);
+
+        if( remarque != null && remarque.length()>140) throw new MauvaiseTailleString("une remarque ajoutée ",remarque.length(),150);
         this.remarque=remarque;
     }
     public void setSoignant(Soignant soignant) throws ErreurrNull {

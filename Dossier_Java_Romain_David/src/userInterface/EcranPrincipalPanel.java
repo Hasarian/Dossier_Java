@@ -27,16 +27,16 @@ public class EcranPrincipalPanel extends JPanel {
         listController= ListesAnimauxController.obtenirListController(user);
         setBackground(Color.WHITE);
         tabbedPane = new JTabbedPane();
-        tabbedPane.insertTab("liste de taches", null, new ListeDesTachesDisponiblesPanel(this,user), "", 0);
+        tabbedPane.insertTab("liste de taches", null, new ListeDesTachesDisponiblesPanel(this,user,frame), "", 0);
        tabbedPane.setBounds(0,0,frame.getWidth()-20,500);
         if(!listController.aucunAnimalReserve())
         {
-            tabbedPane.insertTab("liste personnelle", null, new ListeDesTachesReserveesPanel(this,user), "", 1);
+            tabbedPane.insertTab("liste personnelle", null, new ListeDesTachesReserveesPanel(this,user, frame), "", 1);
         }
         if(user.estVeterinaire())
         {
-            tabbedPane.insertTab("liste veterinaire", null, new ListeDesTachesDisponiblesVetoPanel(this,user), "", 1);
-            if(!listController.aucunAniumalReserveDansLaListeVeto())  tabbedPane.insertTab("liste personnelle (veterinaire)", null, new ListeDesTachesReserveesVetoPanel(this,user), "", 1);
+            tabbedPane.insertTab("liste veterinaire", null, new ListeDesTachesDisponiblesVetoPanel(this,user, frame), "", 1);
+            if(!listController.aucunAniumalReserveDansLaListeVeto())  tabbedPane.insertTab("liste personnelle (veterinaire)", null, new ListeDesTachesReserveesVetoPanel(this,user, frame), "", 1);
         }
 
        add(tabbedPane);
