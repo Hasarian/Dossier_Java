@@ -100,7 +100,7 @@ public class ListeAnimalBusiness {
 
     public void updateEtatFicheSoin(Animal animal, Animal.EtatSoin nouvelEtat) throws ErreurrNull,BDConnexionErreur
     {
-        //retirerAnimal(animal);
+        retirerAnimal(animal);
         animal.setEtatFicheSoin(nouvelEtat);
         if(nouvelEtat== Animal.EtatSoin.RESERVEE||nouvelEtat==Animal.EtatSoin.VETORESERVEE)
             animal.setSoignant(controlleurUtilisateur.getSoignant());

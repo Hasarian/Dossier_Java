@@ -2,6 +2,7 @@ package userInterface;
 
 import Business.SoignantBusiness;
 import Model.Soignant;
+import com.mysql.fabric.xmlrpc.base.Data;
 import erreurs.*;
 import Model.Localite;
 import uIController.SoignantController;
@@ -12,6 +13,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -185,14 +187,15 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 
         SpinnerDateModel dateModel=new SpinnerDateModel();
 	    hireDate = new JSpinner(dateModel);
+		hireDate.setEditor(new JSpinner.DateEditor(hireDate, "dd/MM/yyyy"));
         GregorianCalendar startDate=new GregorianCalendar();
         startDate.set(Calendar.YEAR,1980);
         startDate.set(Calendar.MONTH,0);
         startDate.set(Calendar.DAY_OF_MONTH,1);
-	    dateModel.setStart(startDate);
+	    dateModel.setStart(startDate.getTime());
 	    GregorianCalendar endDate=new GregorianCalendar();
-	    dateModel.setEnd(endDate);
-	    dateModel.setValue(endDate);
+	    dateModel.setEnd(endDate.getTime());
+	    dateModel.setValue(endDate.getTime());
 		constraints.gridx = 2;
 		constraints.gridy = 9;
 		constraints.gridwidth = GridBagConstraints.REMAINDER;
@@ -348,7 +351,7 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 		this.telNumber.setText(telNumber);
         if(note==null) this.note.setText("non précisé"); else this.note.setText(note);
 		this.isVolunteer.setSelected(isVolunteer);
-		this.hireDate.setValue(dateInscription);
+		this.hireDate.setValue(dateInscription.getTime());
 		if(frame!=null) {
 		    try {
                 this.inscription.setText("Modification");
@@ -371,6 +374,8 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
     public Boolean estVolontaire(){return isVolunteer.isSelected();}
 	public GregorianCalendar getDateEmbauche()
     {
-        return (GregorianCalendar) hireDate.getValue();
+    	GregorianCalendar date = new GregorianCalendar() ;
+    	date.setTime((Date) hireDate.getValue());
+        return  date;
     }
 }

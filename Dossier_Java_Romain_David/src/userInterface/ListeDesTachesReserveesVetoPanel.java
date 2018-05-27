@@ -12,8 +12,10 @@ import java.awt.event.ActionListener;
 
 public class ListeDesTachesReserveesVetoPanel extends ListeDeTachesPanel {
     MainFrame frame;
+    ListeDeTachesPanel listeDeTachesPanel;
     public ListeDesTachesReserveesVetoPanel(EcranPrincipalPanel parentPanel, SoignantController user, MainFrame frame) throws SoignantInexistant {
         super(parentPanel, user);
+        this.listeDeTachesPanel = this;
         this.frame = frame;
         TaskTableModel model = new TaskTableModel(Animal.EtatSoin.VETORESERVEE);
         setTaskTable( new JTable(model));
@@ -62,7 +64,7 @@ public class ListeDesTachesReserveesVetoPanel extends ListeDeTachesPanel {
         public void actionPerformed(ActionEvent e) {
             try {
                 Integer id=Integer.parseInt(getListController().getIdDansLaListeReservee(getTaskTable().getSelectedRow()));
-                getParentPanel().getFrame().changePanel(new InfoTachePanel(id,getParentPanel(), frame));
+                getParentPanel().getFrame().changePanel(new InfoTachePanel(id,getParentPanel(), frame, listeDeTachesPanel));
             }
             catch (Exception error)
             {

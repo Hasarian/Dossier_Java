@@ -64,7 +64,7 @@ remarque varchar(140),*/
         try {
             PreparedStatement instruction = connection.prepareStatement(sql);
             instruction.setString(1,mailSoignant);
-            instruction.setTime(2,new java.sql.Time(heureEffectuee.getTimeInMillis()));
+            instruction.setDate(2,new java.sql.Date(heureEffectuee.getTimeInMillis()));
             instruction.setInt(3,soinMedical);
             instruction.execute();
         }catch (SQLException bdConnexionErreur)

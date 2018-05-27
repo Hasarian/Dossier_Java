@@ -72,7 +72,7 @@ public class ListeDesTachesReserveesPanel extends ListeDeTachesPanel
                 int choix=JOptionPane.showConfirmDialog(null,"vous ne pourrez plus revenir en arrière avant d'avoir fini. Continuer ?","confirmation",JOptionPane.YES_NO_OPTION);
                 if(choix==JOptionPane.YES_OPTION) {
                     Integer id = Integer.parseInt(getListController().getIdDansLaListeReservee(getTaskTable().getSelectedRow()));
-                    InfoTachePanel tache = new InfoTachePanel(id, getParentPanel(), frame);
+                    InfoTachePanel tache = new InfoTachePanel(id, getParentPanel(), frame, thisPanel);
                     getParentPanel().getFrame().changePanel(tache);
                     frame.setPanelActuel(tache);
                 }

@@ -111,8 +111,10 @@ public class TacheController {
                 userBusiness.creerSoin(new GregorianCalendar(),listeTaches.get(i),remarques.get(i));
             }
             ListeAnimalBusiness listes=ListeAnimalBusiness.obtenirListAnimalBusiness(null);
+            //listes.retirerAnimal(animal);
             listes.updateEtatFicheSoin(animal,(pourVeto)? Animal.EtatSoin.VETODISPO: Animal.EtatSoin.DISPONIBLE);
         }
+
     }
 
 }

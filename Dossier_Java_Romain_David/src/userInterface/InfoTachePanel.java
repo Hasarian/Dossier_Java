@@ -26,8 +26,10 @@ public class InfoTachePanel extends JPanel
     private ArrayList<JTextArea> remarques;
     private ArrayList<JCheckBox> soinsFaits;
     private JCheckBox pourLeVeto,estDangereux;
-    public InfoTachePanel(Integer id,JPanel parentPanel,MainFrame mainFrame) throws BDConnexionErreur, ErreurrNull, SoignantInexistant,NombreInvalideException
+    private ListeDeTachesPanel listeDeTachesPanel;
+    public InfoTachePanel(Integer id,JPanel parentPanel,MainFrame mainFrame, ListeDeTachesPanel listeDeTachesPanel) throws BDConnexionErreur, ErreurrNull, SoignantInexistant,NombreInvalideException
     {
+        this.listeDeTachesPanel = listeDeTachesPanel;
         this.mainFrame=mainFrame;
         setLayout(null);
         setBounds(2,2,parentPanel.getWidth()-15,parentPanel.getHeight()-15);
@@ -250,6 +252,8 @@ public class InfoTachePanel extends JPanel
                     controller.faireSoin(sontFaits, remarquesFaites, pourLeVeto.isSelected());
                     mainFrame.setPanelActuel(null);
                     mainFrame.changePanel();
+                    ListesAnimauxController listesAnimauxController = ListesAnimauxController.obtenirListController(null);
+                    if(listesAnimauxController.aucunAnimalReserve())mainFrame.getBasePanel().removeTab(listeDeTachesPanel);
                 }
             }
             catch (BDConnexionErreur connexion)

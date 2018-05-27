@@ -89,6 +89,11 @@ public class MainFrame extends JFrame
     {
         return conteneurPanel.getBanner();
     }
+
+    public EcranPrincipalPanel getBasePanel() {
+        return basePanel;
+    }
+
     public void changePanel(JPanel newPanel)
     {
         conteneurPanel.changePanel(newPanel);

@@ -106,9 +106,6 @@ public class SoignantBusiness {
                 if (utilisateur.getMail().equals(mail)) return true; }
         return utilisateurCourant.getMail().equals(mail);
     }
-    public void dispose(){
-        instance = null;
-    }
 
     public ArrayList<SoinEffectue> getSoinsEffectues(String mail) throws BDConnexionErreur, ErreurrNull,SoignantInexistant,MauvaiseTailleString
     {

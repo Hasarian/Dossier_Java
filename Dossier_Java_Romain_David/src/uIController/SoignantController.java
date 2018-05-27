@@ -24,7 +24,7 @@ public class SoignantController
 
     public void setSoignantConnexion(String login) throws BDConnexionErreur, SoignantInexistant, ErreurrNull
     {
-            business.setUtilisateurCourant(business.getUtilisateurCourantDansLaBD(login));
+            business.setUtilisateurCourant(business.getSoignantansLaBD(login));
     }
     public void setSoignantData(Soignant soignant) throws ErreurInsertionSoignant {
         business.setSoignantData(soignant);

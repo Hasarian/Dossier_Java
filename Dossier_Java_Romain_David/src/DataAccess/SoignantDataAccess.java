@@ -90,7 +90,7 @@ public class SoignantDataAccess implements DAOSoignant {
             statement.setBoolean(7, soignant.getEstBenevole());
             statement.setInt(8, soignant.getLocalite().getIdLocalite());
             statement.setString(9,soignant.getMail());
-            statement.setTime(10,new java.sql.Time(soignant.getDateEmbauche().getTimeInMillis()));
+            statement.setDate(10,new java.sql.Date(soignant.getDateEmbauche().getTimeInMillis()));
             statement.setString(11, ancianMail);
             statement.executeUpdate();
         }
