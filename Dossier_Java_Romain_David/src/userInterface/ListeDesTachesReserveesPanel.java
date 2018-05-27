@@ -44,9 +44,12 @@ public class ListeDesTachesReserveesPanel extends ListeDeTachesPanel
         @Override
         public void actionPerformed(ActionEvent e) {
             int[] selectedRows=getTaskTable().getSelectedRows();
+            int nbRetrait = 0;
             try {
                 for (int i : selectedRows) {
-                    getListController().abandonnerAnimal(new Integer(getListController().getIdDansLaListeReservee(i)));
+
+                    getListController().abandonnerAnimal(new Integer(getListController().getIdDansLaListeReservee(i - nbRetrait)));
+                    nbRetrait++;
                 }
             }
             catch (ErreurrNull error)

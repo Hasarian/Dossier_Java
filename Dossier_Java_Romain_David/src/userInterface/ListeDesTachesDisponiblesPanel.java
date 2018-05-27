@@ -42,8 +42,10 @@ public class ListeDesTachesDisponiblesPanel extends ListeDeTachesPanel
             try {
                 if(getListController().aucunAnimalReserve())getParentPanel().insertTab(new ListeDesTachesReserveesPanel(getParentPanel(),getUser(),frame ),"personnal list");
                 int[] selectedRows=getTaskTable().getSelectedRows();
+                int nbRetrait = 0;
                 for (int i : selectedRows) {
-                    getListController().selectionnerAnimal(new Integer(getListController().getIdDansLaListeDispo(i)));
+                    getListController().selectionnerAnimal(new Integer(getListController().getIdDansLaListeDispo(i - nbRetrait)));
+                    nbRetrait++;
                 }
             }
             catch(SoignantInexistant notFoundError)

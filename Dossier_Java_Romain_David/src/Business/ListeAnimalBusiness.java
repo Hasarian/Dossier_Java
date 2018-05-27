@@ -67,6 +67,7 @@ public class ListeAnimalBusiness {
             }
         }
     }
+
     public void ajoutAnimal(Animal animal)
     {
 
@@ -95,7 +96,8 @@ public class ListeAnimalBusiness {
     {
         //retirerAnimal(animal.getId());
         animal.setEtatFicheSoin(nouvelEtat);
-        if(nouvelEtat== Animal.EtatSoin.RESERVEE||nouvelEtat==Animal.EtatSoin.VETORESERVEE) animal.setSoignant(controlleurUtilisateur.getSoignant());
+        if(nouvelEtat== Animal.EtatSoin.RESERVEE||nouvelEtat==Animal.EtatSoin.VETORESERVEE)
+            animal.setSoignant(controlleurUtilisateur.getSoignant());
         else if(nouvelEtat==Animal.EtatSoin.DISPONIBLE||nouvelEtat== Animal.EtatSoin.VETODISPO) animal.setSoignant(null);
         animalBusiness.animalUpdate(animal);
         ajoutAnimal(animal);

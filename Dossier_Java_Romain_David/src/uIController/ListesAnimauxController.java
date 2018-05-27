@@ -111,7 +111,9 @@ public class ListesAnimauxController
     public void selectionnerAnimal(Integer id) throws ErreurrNull, BDConnexionErreur
     {
         Animal selected= listeAnimalBusiness.getAnimal(id);
+        listeAnimalBusiness.retirerAnimal(id);
         listeAnimalBusiness.updateEtatFicheSoin(selected, Animal.EtatSoin.RESERVEE);
+        //trouvemoi listeAnimalBusiness.ajoutAnimal(selected);
     }
     public void abandonnerAnimalVeto(Integer id) throws ErreurrNull, BDConnexionErreur
     {
@@ -121,6 +123,7 @@ public class ListesAnimauxController
     }
     public void abandonnerAnimal(Integer id) throws ErreurrNull, BDConnexionErreur
     {
+        listeAnimalBusiness.retirerAnimal(id);
         Animal selected= listeAnimalBusiness.getAnimal(id);
        listeAnimalBusiness.updateEtatFicheSoin(selected,Animal.EtatSoin.DISPONIBLE);
        //listeAnimalBusiness.ajoutAnimal(selected);

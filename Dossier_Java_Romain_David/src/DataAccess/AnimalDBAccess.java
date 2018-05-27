@@ -58,7 +58,7 @@ public class AnimalDBAccess implements DAOAnimal {
     }
     @Override
     public void updateEtat(Animal animal) throws BDConnexionErreur {
-            String sql="update ficheSoin set etat=?,mail=? where id=?";
+            String sql="update ficheSoin set etat=?,email=? where id=?";
             try{
                 PreparedStatement statement=connection.prepareStatement(sql);
                 int etat=animal.getEtatFicheSoin().ordinal();

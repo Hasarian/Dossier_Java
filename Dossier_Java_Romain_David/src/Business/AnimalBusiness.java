@@ -46,7 +46,6 @@ public class AnimalBusiness {
     {
         for(Animal animal: listeAnimaux)
         {
-            System.out.println(id+"\t"+animal.getId());
             if(animal.getId().equals(id)) return animal;
         }
         return null;
