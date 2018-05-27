@@ -20,20 +20,22 @@ public class RechercheAnimalPanel extends JPanel {
     private JScrollPane resultat;
     private JButton confirmer;
     private AnimalController animalController;
+    private MainFrame frame;
 
-    public RechercheAnimalPanel() throws BDConnexionErreur, ErreurrNull, SoignantInexistant {
+    public RechercheAnimalPanel(MainFrame frame) throws BDConnexionErreur, ErreurrNull, SoignantInexistant {
+        this.frame=frame;
         setLayout(null);
         setBackground(Color.WHITE);
         animalController = new AnimalController();
-        dateDebutLabel = new JLabel("Date qui servira de borne inférieure à la recherche");
-        dateDebutLabel.setBounds(50,0,300,20);
+        dateDebutLabel = new JLabel("Date d'arrivée qui servira de borne inférieure à la recherche");
+        dateDebutLabel.setBounds(50,0,350,20);
         this.add(dateDebutLabel);
         dateDebut = new JSpinner(new SpinnerDateModel());
 		dateDebut.setEditor(new JSpinner.DateEditor(dateDebut, "dd/MM/yyyy"));
 		dateDebut.setBounds(dateDebutLabel.getX()+dateDebutLabel.getWidth()+5,dateDebutLabel.getY(),100,dateDebutLabel.getHeight());
 		this.add(dateDebut);
 
-		dateFinLabel = new JLabel("Date qui servira de borne suppérieure à la recherche");
+		dateFinLabel = new JLabel("Date d'arrivée qui servira de borne suppérieure à la recherche");
 		dateFinLabel.setBounds(dateDebutLabel.getX(),dateDebutLabel.getY()+dateDebutLabel.getHeight()+5,dateDebutLabel.getWidth(),dateDebutLabel.getHeight());
 		this.add(dateFinLabel);
         dateFin = new JSpinner(new SpinnerDateModel());
@@ -46,8 +48,20 @@ public class RechercheAnimalPanel extends JPanel {
         confirmer.addActionListener(new ConfirmeButtonListener());
         confirmer.setBounds(dateFin.getX()+dateFin.getWidth()+5,dateFin.getY(),dateFin.getWidth()+2,dateFin.getHeight());
         add(confirmer);
-    }
 
+
+        JButton retour=new JButton("retour");
+        retour.addActionListener(new CancelButtonListener());
+        retour.setBounds(5,600,50,30);
+        add(retour);
+    }
+    private class CancelButtonListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            frame.changePanel();
+        }
+    }
 
     private class ConfirmeButtonListener implements ActionListener
     {

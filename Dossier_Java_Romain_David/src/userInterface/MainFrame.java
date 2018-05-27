@@ -143,7 +143,7 @@ public class MainFrame extends JFrame
         {
             try {
 
-                RechercheSoinParAnimalPanel newPanel = new RechercheSoinParAnimalPanel();
+                RechercheSoinParAnimalPanel newPanel = new RechercheSoinParAnimalPanel(thisFrame);
                 changePanel(newPanel);
             }
             catch (SoignantInexistant soignantInexistant)
@@ -171,7 +171,7 @@ public class MainFrame extends JFrame
         public void actionPerformed(ActionEvent e)
         {
             try {
-                RechercheAnimalPanel newPanel = new RechercheAnimalPanel();
+                RechercheAnimalPanel newPanel = new RechercheAnimalPanel(thisFrame);
                 changePanel(newPanel);
             } catch (BDConnexionErreur connexionError)
             {

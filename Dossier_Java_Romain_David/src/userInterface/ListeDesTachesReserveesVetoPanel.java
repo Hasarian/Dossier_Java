@@ -27,6 +27,7 @@ public class ListeDesTachesReserveesVetoPanel extends ListeDeTachesPanel {
 
 
         JButton start = new JButton("commencer les soins");
+        start.addActionListener(new StartListener());
         start.setBounds(760, openFile.getY(), 200, 60);
 
 
