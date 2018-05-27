@@ -132,7 +132,7 @@ public class SoignantBusiness {
         soignant.setRemarque(noteTexte);
         soignant.setRue(streetTexte);
         soignant.setLocalite(localite);
-        daoSoignant.update(soignant);
+        daoSoignant.update(ancienmail,soignant);
     }
     public void supprimerUtilisateur(String mail) throws SuppressionUtilisateurCourant,SoignantInexistant, ErreurrNull, BDConnexionErreur
     {
@@ -164,8 +164,9 @@ public class SoignantBusiness {
         for(Soignant soignant:soignants)
         {
             if(utilisateurCourant.getMail().equals(soignant.getMail())) setUtilisateurCourant(soignant);
-            else if (estConnu(soignant.getMail())) autresUtilisateurs.remove(getUtilisateurParMail(soignant.getMail()));
-            else autresUtilisateurs.add(soignant);
+            else
+            {if (estConnu(soignant.getMail())) autresUtilisateurs.remove(getUtilisateurParMail(soignant.getMail()));
+            autresUtilisateurs.add(soignant);}
         }
         /*utilisateurCourant=new Soignant();
         for(int i=0;i<15;i++) autresUtilisateurs.add(new Soignant());*/

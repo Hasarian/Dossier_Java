@@ -242,6 +242,7 @@ public class InfoTachePanel extends JPanel
                 for(int i=0;i<controller.nbTaches();i++)
                 {
                     sontFaits.add(soinsFaits.get(i).isSelected());
+                    if(remarques.get(i).getText()!=null&&remarques.get(i).getText().length()>140) throw new MauvaiseTailleString("remarque n°"+i,remarques.get(i).getText().length(),140);
                     remarquesFaites.add(remarques.get(i).getText());
                 }
                 int choix=JOptionPane.showConfirmDialog(null,"confirmez-vous les soins ?","confirmation",JOptionPane.YES_NO_OPTION);

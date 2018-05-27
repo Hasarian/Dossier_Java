@@ -16,6 +16,8 @@ import java.util.GregorianCalendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.sym.error;
+
 public class FormulaireInscriptionSoignantPanel extends JPanel{
     private JLabel nameLabel, lastNameLabel, mailLabel, streetLabel, houseNumberLabel,
 			telNumberLabel, noteLabel, isVolunteerLabel, localityLabel, hireDateLabel, hireDate;
@@ -227,7 +229,6 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 
 
 			try {
-
 				Pattern notNumber = Pattern.compile("\\d*\\D+\\d*");
 				Matcher NANTel = notNumber.matcher(telNumber.getText());
 				Matcher NANHouse = notNumber.matcher(houseNumber.getText());
@@ -253,6 +254,10 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 					frame.changePanel();
 				}
 			}
+			catch (MauvaiseTailleString tailleString)
+            {
+                JOptionPane.showMessageDialog(null, tailleString.getMessage(),"chaîne de caractère trop longue",JOptionPane.ERROR_MESSAGE);
+            }
 			catch (ErreurInsertionSoignant error){
 				JOptionPane.showMessageDialog(null, error.getMessage(),"Erreur dans la Création du soigneur",JOptionPane.ERROR_MESSAGE);
 			}
@@ -283,25 +288,31 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 	}
 
 	/*
-	private JLabel nameLabel, lastNameLabel, mailLabel, streetLabel, houseNumberLabel,
-			telNumberLabel, noteLabel, isVolunteerLabel, localityLabel, hireDateLabel, hireDate;
-    private JTextField name, lastName, mail, street, houseNumber, telNumber;
-    private JTextArea note;
-    private JCheckBox isVolunteer;
-    private JList locality;
+	/*mail varchar (50),
+ nom varchar(50) not null,
+ prenom varchar(50) not null,*/
 
-	*/
-	public String getNameInfo(){return name.getText().equals("") ? null : name.getText();}
-	public String getLastNameInfo(){return lastName.getText().equals("")? null : lastName.getText();}
-	public JTextField getMailTextField(){return mail;}
-	public String getMailInfo() throws EmailRegexErreur
+	public String getNameInfo() throws MauvaiseTailleString{
+	    if(name.getText()!=null&&name.getText().length()>50) throw new MauvaiseTailleString("prénom",name.getText().length(),50);
+	    return name.getText().equals("") ? null : name.getText();}
+	public String getLastNameInfo()throws MauvaiseTailleString{
+        if(lastName.getText()!=null&&lastName.getText().length()>50) throw new MauvaiseTailleString("nom de famille",name.getText().length(),50);
+	    return lastName.getText().equals("")? null : lastName.getText();}
+	    /* rue varchar(100) not null,
+    numMaison integer(4) not null,
+    numTel integer(9),
+    remarque varchar(150),*/
+	public String getMailInfo() throws EmailRegexErreur,MauvaiseTailleString
     {
+        if(mail.getText()!=null&&mail.getText().length()>50) throw new MauvaiseTailleString("mail",name.getText().length(),50);
         Pattern mailCompatible = Pattern.compile("[a-z]+\\.[a-z]+\\.?\\d*@spa\\.be");
         Matcher isMail=mailCompatible.matcher(mail.getText());
         if(isMail.matches()) return mail.getText();
         else throw new EmailRegexErreur();
     }
-	public String getStreetInfo(){return street.getText().equals("")? null : street.getText();}
+	public String getStreetInfo()throws MauvaiseTailleString{
+        if(street.getText()!=null&&street.getText().length()>100) throw new MauvaiseTailleString("nom de rue",name.getText().length(),100);
+	    return street.getText().equals("")? null : street.getText();}
 	public Integer getHouseNumberInfo() throws NombreExpection {
         Pattern notNumber = Pattern.compile("\\d*\\D+\\d*");
         Matcher NANHouse = notNumber.matcher(houseNumber.getText());
@@ -315,7 +326,9 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 	    if(NANTel.matches())throw  new NombreExpection(telNumber.getText());
 	    else return  Integer.parseInt(telNumber.getText());
 	}
-	public String getNoteText(){return note.getText().equals("")? null : note.getText();}
+	public String getNoteText()throws MauvaiseTailleString{
+        if(note.getText()!=null&&note.getText().length()>150) throw new MauvaiseTailleString("remarque",name.getText().length(),150);
+	    return note.getText().equals("")? null : note.getText();}
 	public void setInfos(String name,String lastName,String mail,String street,String houseNumber,String telNumber,String note,boolean isVolunteer,Localite locality,GregorianCalendar dateInscription)
 	{
 		this.name.setText(name);

@@ -57,7 +57,6 @@ public class InfoUtilisateurPanel extends FormulaireInscriptionSoignantPanel
                 if (NANTel.matches()) throw new NombreExpection(getNumTel().toString());
 
                 String argumentsIncorrects="";
-
                 String mailTexte= getMailInfo();
                 String nameTexte = getNameInfo();
                 if(nameTexte.equals("")||nameTexte==null)argumentsIncorrects+="prénom \n";
@@ -69,16 +68,19 @@ public class InfoUtilisateurPanel extends FormulaireInscriptionSoignantPanel
                 String noteTexte = getNoteText();
                 String streetTexte = getStreetInfo();
                 if(streetTexte.equals("")||streetTexte==null)argumentsIncorrects+="nom de rue";
-                Localite localite=getLocalite();
 
                 if(!argumentsIncorrects.equals("")) throw new ErreurrNull(argumentsIncorrects);
 
-                int accord = JOptionPane.showConfirmDialog(null, "êtes vous sûr de sauvegarder les changements ?", "confirmation de modification", JOptionPane.YES_NO_CANCEL_OPTION);
+                int accord = JOptionPane.showConfirmDialog(null, "êtes vous sûr de sauvegarder les changements ?", "confirmation de modification", JOptionPane.YES_NO_OPTION);
                 if (accord == JOptionPane.YES_OPTION) {
-                    userControl.updateUtilisateur(ancienMail,mailTexte,nameTexte,lastNameTexte,tel,estVolontaire(),house,noteTexte,streetTexte,localite);
+                    userControl.updateUtilisateur(ancienMail,mailTexte,nameTexte,lastNameTexte,tel,estVolontaire(),house,noteTexte,streetTexte,getLocalite());
                     JOptionPane.showMessageDialog(null, "vos informations ont été mises à jour", "confirmation", JOptionPane.INFORMATION_MESSAGE);
                     bannierePanel.actualisation();
                 }
+            }
+            catch (MauvaiseTailleString tailleString)
+            {
+                JOptionPane.showMessageDialog(null, tailleString.getMessage(),"chaîne de caractère trop longue",JOptionPane.ERROR_MESSAGE);
             }
             catch (SoignantInexistant inexistant)
             {

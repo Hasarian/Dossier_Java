@@ -27,7 +27,7 @@ public class MainFrame extends JFrame
     {
         user=loggedIn;
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(15,15,1000,800);
+        setBounds(15,15,1000,850);
         setResizable(false);
         container=getContentPane();
         container.setBackground(Color.white);
