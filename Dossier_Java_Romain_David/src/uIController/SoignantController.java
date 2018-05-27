@@ -129,7 +129,7 @@ public class SoignantController
     {
         business.supprimerUtilisateurCourant();
     }
-    public Object obtenirInfo(int row, int column) //throws BDConnexionErreur,SoignantInexistant,ErreurrNull
+    public Object obtenirInfo(int row, int column)
     {
         Soignant soignant;
         soignant=business.getSoignantParIndex(row);
@@ -138,13 +138,17 @@ public class SoignantController
             case 0: return soignant.getPrenom()+" "+soignant.getNomDeFamille();
             case 1: return soignant.getMail();
             case 2: return soignant.getNumTel();
-            case 3: return soignant.getDateEmbauche();
+            case 3: String date=new String();
+            date+=soignant.getDateEmbauche().get(Calendar.DAY_OF_MONTH);
+            date+=soignant.getDateEmbauche().get(Calendar.MONTH);
+            date+=soignant.getDateEmbauche().get(Calendar.YEAR);
+                return date;
             case 4: return soignant.getEstBenevole();
             case 5: return soignant.getRemarque();
             default: return "données inexistantes";
         }
     }
-    public void initSoignant() throws BDConnexionErreur,ErreurrNull,SoignantInexistant
+    public void initSoignant() throws ErreurrNull,BDConnexionErreur,SoignantInexistant
     {
         business.initTousLesSoignants();
     }

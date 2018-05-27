@@ -35,7 +35,8 @@ public class InfoUtilisateurPanel extends FormulaireInscriptionSoignantPanel
     public InfoUtilisateurPanel(Soignant soignant,MainFrame frame) throws BDConnexionErreur,ErreurrNull
     {
         super(frame);
-
+        bannierePanel=frame.obtenirBanierePanel();
+        userControl=new SoignantController();
         setInfos(soignant.getPrenom(),soignant.getNomDeFamille(),soignant.getMail(),soignant.getRue(),soignant.getNumMaison().toString(),
                 soignant.getNumTel().toString(),soignant.getRemarque(),soignant.getEstBenevole(),soignant.getLocalite(),soignant.getDateEmbauche());
         getConfirmButton().removeActionListener(getConfirmListener());
@@ -53,12 +54,20 @@ public class InfoUtilisateurPanel extends FormulaireInscriptionSoignantPanel
                 if (NANHouse.matches()) throw new NombreExpection(getHouseNumberInfo().toString());
                 if (NANTel.matches()) throw new NombreExpection(getNumTel().toString());
 
+                String argumentsIncorrects="";
+
                 String nameTexte = getNameInfo();
+                if(nameTexte.equals("")||nameTexte==null)argumentsIncorrects+="prénom\n";
                 String lastNameTexte = getLastNameInfo();
+                if(lastNameTexte.equals("")||lastNameTexte==null) argumentsIncorrects+="nom de famille\n";
                 Integer tel = getNumTel();
                 Integer house = getHouseNumberInfo();
+                if(house<0||house==null) argumentsIncorrects+="numéro de maison\n";
                 String noteTexte = getNoteText();
                 String streetTexte = getStreetInfo();
+                if(streetTexte.equals("")||streetTexte==null)argumentsIncorrects+="nom de rue";
+
+                if(!argumentsIncorrects.equals("")) throw new ErreurrNull(argumentsIncorrects);
 
                 int accord = JOptionPane.showConfirmDialog(null, "êtes vous sûr de sauvegarder les changements ?", "confirmation de modification", JOptionPane.YES_NO_CANCEL_OPTION);
                 if (accord == JOptionPane.YES_OPTION) {
@@ -73,11 +82,11 @@ public class InfoUtilisateurPanel extends FormulaireInscriptionSoignantPanel
             }
             catch (ErreurrNull erreurrNull)
             {
-                JOptionPane.showMessageDialog(null, erreurrNull.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, erreurrNull.getMessage(),"attribut invalide",JOptionPane.ERROR_MESSAGE);
             }
             catch (NombreExpection nombreExpection)
             {
-                JOptionPane.showMessageDialog(null, nombreExpection.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, nombreExpection.getMessage(),"nombre invalide",JOptionPane.ERROR_MESSAGE);
             }
         }
     }

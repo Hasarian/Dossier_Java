@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class ConteneurPanel extends JSplitPane
 {
-    private JPanel banner;
+    private BannierePanel banner;
 
     public ConteneurPanel(SoignantController user, JPanel bottomPanel)
     {
@@ -32,7 +32,7 @@ public class ConteneurPanel extends JSplitPane
         setDividerLocation(0.2);
     }
 
-    public JPanel getBanner() {
+    public BannierePanel getBanner() {
         return banner;
     }
 }

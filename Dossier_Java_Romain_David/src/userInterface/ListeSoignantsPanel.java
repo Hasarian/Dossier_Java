@@ -11,7 +11,6 @@ import javax.swing.table.AbstractTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.GregorianCalendar;
 
 public class ListeSoignantsPanel extends JPanel
 {
@@ -19,7 +18,7 @@ public class ListeSoignantsPanel extends JPanel
     private MainFrame mainFrame;
     private JTable table;
     private ListeSoignantsPanel cePanneau;
-    public ListeSoignantsPanel(MainFrame mainFrame) throws BDConnexionErreur,ErreurrNull,SoignantInexistant
+    public ListeSoignantsPanel(MainFrame mainFrame) throws ErreurrNull,BDConnexionErreur,SoignantInexistant
     {
         cePanneau=this;
         setBackground(Color.white);
@@ -29,15 +28,15 @@ public class ListeSoignantsPanel extends JPanel
         ListingSoignantTableModel model=new ListingSoignantTableModel();
         table=new JTable(model);
         JScrollPane scrollPane=new JScrollPane(table);
-        scrollPane.setBounds(0,0,950,500);
+        scrollPane.setBounds(5,0,990,200);
         add(scrollPane);
 
         JButton modifier=new JButton("modifier");
         modifier.addActionListener(new ModifierListener());
-        modifier.setBounds(900,530,50,30);
+        modifier.setBounds(889,230,100,30);
         JButton retour= new JButton("retour");
         retour.addActionListener(new RetourListener());
-        retour.setBounds(5,530,50,30);
+        retour.setBounds(5,230,100,30);
         add(modifier);
         add(retour);
     }
@@ -78,7 +77,7 @@ public class ListeSoignantsPanel extends JPanel
 
                 };
         public ListingSoignantTableModel()
-                throws BDConnexionErreur, ErreurrNull, SoignantInexistant
+                throws ErreurrNull, BDConnexionErreur, SoignantInexistant
         { controller.initSoignant();}
         public int getRowCount() {
                 return controller.nbSoignants();
@@ -103,7 +102,6 @@ public class ListeSoignantsPanel extends JPanel
             switch (columnIndex)
             {
                 case 2: return int.class;
-                case 3: return GregorianCalendar.class;
                 case 4: return Boolean.class;
                 default: return String.class;
             }

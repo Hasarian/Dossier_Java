@@ -21,10 +21,12 @@ public class SoignantBusiness {
     private static SoignantBusiness instance;
     private DAORechercheSoinEffectue accesSoins;
 
-    private SoignantBusiness() throws BDConnexionErreur {
-        setDaoSoignant();
+    private SoignantBusiness()
+    throws BDConnexionErreur
+    {
+        //setDaoSoignant();
         instance = this;
-        accesSoins =new SoinParSoignant ();
+        //accesSoins =new SoinParSoignant ();
         autresUtilisateurs =new ArrayList<Soignant>();
     }
     public static SoignantBusiness otebnirSoignantBusiness() throws BDConnexionErreur
@@ -152,7 +154,8 @@ public class SoignantBusiness {
         if(row==0) return utilisateurCourant;
         return autresUtilisateurs.get(row-1);
     }
-    public void initTousLesSoignants() throws BDConnexionErreur,ErreurrNull,SoignantInexistant
+    public void initTousLesSoignants()
+            throws ErreurrNull,BDConnexionErreur,SoignantInexistant
     {
         ArrayList<Soignant> soignants=daoSoignant.readTousLesSoignants();
         for(Soignant soignant:soignants)
@@ -161,6 +164,8 @@ public class SoignantBusiness {
             else if (estConnu(soignant.getMail())) autresUtilisateurs.remove(getUtilisateurParMail(soignant.getMail()));
             else autresUtilisateurs.add(soignant);
         }
+        /*utilisateurCourant=new Soignant();
+        for(int i=0;i<15;i++) autresUtilisateurs.add(new Soignant());*/
     }
     public int getNbSoignants()
     {

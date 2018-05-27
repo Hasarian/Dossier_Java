@@ -85,6 +85,10 @@ public class MainFrame extends JFrame
 
         setVisible(true);
     }
+    public BannierePanel obtenirBanierePanel()
+    {
+        return conteneurPanel.getBanner();
+    }
     public void changePanel(JPanel newPanel)
     {
         conteneurPanel.changePanel(newPanel);
