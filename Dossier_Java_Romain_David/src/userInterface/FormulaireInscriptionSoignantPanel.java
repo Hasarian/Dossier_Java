@@ -341,13 +341,13 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 		this.isVolunteer.setSelected(isVolunteer);
 		this.hireDate.setText(dateInscription.get(Calendar.DAY_OF_MONTH)+"/"+(dateInscription.get(Calendar.MONTH)+1)+"/"+dateInscription.get(Calendar.YEAR));
 		if(frame!=null) {
-            this.inscription.setText("Modification");
-            try {
-                this.locality.setSelectedIndex(localiteController.getToutesLesLocalites().indexOf(locality));
-            } catch (BDConnexionErreur connectError) {
-                JOptionPane.showMessageDialog(null, "unable to connect to the BD", "connexion error", JOptionPane.ERROR_MESSAGE);
-            } catch (ErreurrNull erreurrNull) {
-                JOptionPane.showMessageDialog(null, erreurrNull.getMessage(), "db access error", JOptionPane.ERROR_MESSAGE);
+		    try {
+                this.inscription.setText("Modification");
+                this.locality.setSelectedIndex(localiteController.getIndexLocalite(locality));
+            }
+            catch (LocaliteInexistante inexistante)
+            {
+                JOptionPane.showMessageDialog(null,inexistante.getMessage(),"localité non trouvée",JOptionPane.ERROR_MESSAGE);
             }
         }
 	}
