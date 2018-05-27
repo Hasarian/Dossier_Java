@@ -107,7 +107,7 @@ constraint veto_mailVeto_fk foreign key (mailVeto) references veto(mail) on upda
 create table soinMedical(
 numDossier integer(10),
 dateSoinMedical date not null,
-heureSoinMediacl date,
+heureSoinMedical date,
 description varchar(70) not null,
 remarque varchar(150),
 mailVeto varchar(50),

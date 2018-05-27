@@ -63,10 +63,10 @@ public class SoignantDataAccess implements DAOSoignant {
 
     public void update(String ancianMail,Soignant soignant) throws BDConnexionErreur {
         String sql="update soignant" +
-                " set prenom=?,nom=?,rue=?,numMaison=?,numTel=?,remarque=?,estBenevole=?,localite=?, mail=? " +
+                " set prenom=?,nom=?,rue=?,numMaison=?,numTel=?,remarque=?,estBenevole=?,localite=?, mail=?, dateEmbauche=?" +
                 "where mail=?";
-                    /*9 10*/
-        /*               1       2    3         4         5          6           7             8       9*/
+                    /*11*/
+        /*               1       2    3         4         5          6           7             8       9             10*/
         /*mail varchar (50),
                 nom varchar(50) not null,
                 prenom varchar(50) not null,
@@ -90,7 +90,8 @@ public class SoignantDataAccess implements DAOSoignant {
             statement.setBoolean(7, soignant.getEstBenevole());
             statement.setInt(8, soignant.getLocalite().getIdLocalite());
             statement.setString(9,soignant.getMail());
-            statement.setString(10, ancianMail);
+            statement.setTime(10,new java.sql.Time(soignant.getDateEmbauche().getTimeInMillis()));
+            statement.setString(11, ancianMail);
             statement.executeUpdate();
         }
         catch (SQLException sqlException)

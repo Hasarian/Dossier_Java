@@ -20,7 +20,8 @@ import static com.sun.org.apache.xalan.internal.xsltc.compiler.sym.error;
 
 public class FormulaireInscriptionSoignantPanel extends JPanel{
     private JLabel nameLabel, lastNameLabel, mailLabel, streetLabel, houseNumberLabel,
-			telNumberLabel, noteLabel, isVolunteerLabel, localityLabel, hireDateLabel, hireDate;
+			telNumberLabel, noteLabel, isVolunteerLabel, localityLabel, hireDateLabel;
+    private JSpinner hireDate;
     private JTextField name, lastName, mail, street, houseNumber, telNumber;
     private JTextArea note;
     private JCheckBox isVolunteer;
@@ -182,13 +183,21 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 		constraints.insets = new Insets(0,10,50,0);*/
 		GregorianCalendar date = new GregorianCalendar();
 
-	    hireDate = new JLabel(date.get(Calendar.DATE)+"/"+date.get(Calendar.MONTH)+"/"+date.get(Calendar.YEAR));
+        SpinnerDateModel dateModel=new SpinnerDateModel();
+	    hireDate = new JSpinner(dateModel);
+        GregorianCalendar startDate=new GregorianCalendar();
+        startDate.set(Calendar.YEAR,1980);
+        startDate.set(Calendar.MONTH,0);
+        startDate.set(Calendar.DAY_OF_MONTH,1);
+	    dateModel.setStart(startDate);
+	    GregorianCalendar endDate=new GregorianCalendar();
+	    dateModel.setEnd(endDate);
+	    dateModel.setValue(endDate);
 		constraints.gridx = 2;
 		constraints.gridy = 9;
 		constraints.gridwidth = GridBagConstraints.REMAINDER;
-
-
 		this.add(hireDate, constraints);
+
         if(frame!=null) {
             inscription = new JButton("Confirmer l'inscription");
             confirmListener = new ConfirmButtonListener();
@@ -225,7 +234,7 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 
 	private class ConfirmButtonListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			GregorianCalendar date = new GregorianCalendar();
+			GregorianCalendar date = getDateEmbauche();
 
 
 			try {
@@ -339,7 +348,7 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 		this.telNumber.setText(telNumber);
         if(note==null) this.note.setText("non précisé"); else this.note.setText(note);
 		this.isVolunteer.setSelected(isVolunteer);
-		this.hireDate.setText(dateInscription.get(Calendar.DAY_OF_MONTH)+"/"+(dateInscription.get(Calendar.MONTH)+1)+"/"+dateInscription.get(Calendar.YEAR));
+		this.hireDate.setValue(dateInscription);
 		if(frame!=null) {
 		    try {
                 this.inscription.setText("Modification");
@@ -360,5 +369,8 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
         return localiteController.getToutesLesLocalites().get(locality.getSelectedIndex());
     }
     public Boolean estVolontaire(){return isVolunteer.isSelected();}
-	//attention: pas terminé:localité n'est pas sélectionné !
+	public GregorianCalendar getDateEmbauche()
+    {
+        return (GregorianCalendar) hireDate.getValue();
+    }
 }
