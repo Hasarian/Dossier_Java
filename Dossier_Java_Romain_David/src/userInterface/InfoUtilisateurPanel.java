@@ -1,9 +1,7 @@
 package userInterface;
 
 import Model.Soignant;
-import erreurs.BDConnexionErreur;
-import erreurs.ErreurrNull;
-import erreurs.NombreExpection;
+import erreurs.*;
 import uIController.SoignantController;
 
 import javax.swing.*;
@@ -16,11 +14,13 @@ public class InfoUtilisateurPanel extends FormulaireInscriptionSoignantPanel
 {
     BannierePanel bannierePanel;
     SoignantController userControl;
+    String ancienMail;
     public InfoUtilisateurPanel(SoignantController user, MainFrame frame, BannierePanel bannierePanel) throws BDConnexionErreur, ErreurrNull
     {
             super(frame);
             this.bannierePanel = bannierePanel;
             userControl=user;
+            ancienMail=user.getMailUtilisateurCourant();
             setInfos(user.getPrenomUtilisateurCourant(),user.getNomDeFamilleUtilisateurCourant(),user.getMailUtilisateurCourant(),user.getRueUtilisateurCourant(),user.getNumeroMaisonUtilisateurCourant(),user.getNumTelUtilisateurCourant(),
                     user.getRemarqueUtilisateurCourant(),user.estVolontaire(),user.getLocalite(),user.getDateEmbauche());
         /*private JTextField name, lastName, mail, street, houseNumber, telNumber;
@@ -40,6 +40,7 @@ public class InfoUtilisateurPanel extends FormulaireInscriptionSoignantPanel
         setInfos(soignant.getPrenom(),soignant.getNomDeFamille(),soignant.getMail(),soignant.getRue(),soignant.getNumMaison().toString(),
                 soignant.getNumTel().toString(),soignant.getRemarque(),soignant.getEstBenevole(),soignant.getLocalite(),soignant.getDateEmbauche());
         getConfirmButton().removeActionListener(getConfirmListener());
+        ancienMail=soignant.getMail();
         repaint();
         getConfirmButton().addActionListener(new MajListener());
     }
@@ -56,13 +57,14 @@ public class InfoUtilisateurPanel extends FormulaireInscriptionSoignantPanel
 
                 String argumentsIncorrects="";
 
+                String mailTexte= getMailInfo();
                 String nameTexte = getNameInfo();
-                if(nameTexte.equals("")||nameTexte==null)argumentsIncorrects+="prénom\n";
+                if(nameTexte.equals("")||nameTexte==null)argumentsIncorrects+="prénom \n";
                 String lastNameTexte = getLastNameInfo();
-                if(lastNameTexte.equals("")||lastNameTexte==null) argumentsIncorrects+="nom de famille\n";
+                if(lastNameTexte.equals("")||lastNameTexte==null) argumentsIncorrects+="nom de famille \n";
                 Integer tel = getNumTel();
                 Integer house = getHouseNumberInfo();
-                if(house<0||house==null) argumentsIncorrects+="numéro de maison\n";
+                if(house<0||house==null) argumentsIncorrects+="numéro de maison \n";
                 String noteTexte = getNoteText();
                 String streetTexte = getStreetInfo();
                 if(streetTexte.equals("")||streetTexte==null)argumentsIncorrects+="nom de rue";
@@ -71,10 +73,18 @@ public class InfoUtilisateurPanel extends FormulaireInscriptionSoignantPanel
 
                 int accord = JOptionPane.showConfirmDialog(null, "êtes vous sûr de sauvegarder les changements ?", "confirmation de modification", JOptionPane.YES_NO_CANCEL_OPTION);
                 if (accord == JOptionPane.YES_OPTION) {
-                    userControl.updateUtilisateurCourant(nameTexte,lastNameTexte,tel,house,noteTexte,streetTexte);
+                    userControl.updateUtilisateur(ancienMail,mailTexte,nameTexte,lastNameTexte,tel,house,noteTexte,streetTexte);
                     JOptionPane.showMessageDialog(null, "vos informations ont été mises à jour", "confirmation", JOptionPane.INFORMATION_MESSAGE);
                     bannierePanel.actualisation();
                 }
+            }
+            catch (SoignantInexistant inexistant)
+            {
+                JOptionPane.showMessageDialog(null, inexistant.getMessage(),"le soignant inexistant",JOptionPane.ERROR_MESSAGE);
+            }
+            catch (EmailRegexErreur regexErreur)
+            {
+                JOptionPane.showMessageDialog(null, regexErreur.getMessage(),"attribut invalide",JOptionPane.ERROR_MESSAGE);
             }
             catch (BDConnexionErreur connexionError)
             {

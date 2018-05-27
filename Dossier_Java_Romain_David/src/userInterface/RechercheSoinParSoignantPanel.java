@@ -123,6 +123,7 @@ public class RechercheSoinParSoignantPanel extends JPanel {
         private String [] columnNames=
                 {
                         "animal id",
+                        "description",
                         "date / heure du soin rendu",
                         "soin médical: heure prévue",
                         "remarque par le soignant"

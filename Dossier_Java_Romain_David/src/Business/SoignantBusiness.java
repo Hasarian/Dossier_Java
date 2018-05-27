@@ -120,16 +120,20 @@ public class SoignantBusiness {
     public ArrayList<String> getTousLesMails() throws BDConnexionErreur {
         return daoSoignant.readallMails();
     }
-    public void updateUtilisateurCourantDansLaBD(String nameTexte, String lastNameTexte, Integer tel, Integer houseNumber, String noteTexte, String streetTexte)
-    throws ErreurrNull, BDConnexionErreur
+    public void updateUtilisateurDansLaBD(String ancienmail,String nouveauMail,String nameTexte, String lastNameTexte, Integer tel, Integer houseNumber, String noteTexte, String streetTexte)
+    throws ErreurrNull, BDConnexionErreur,SoignantInexistant
     {
-        utilisateurCourant.setPrenom(nameTexte);
-        utilisateurCourant.setNomDeFamille(lastNameTexte);
-        utilisateurCourant.setNumTel(tel);
-        utilisateurCourant.setNumMaison(houseNumber);
-        utilisateurCourant.setRemarque(noteTexte);
-        utilisateurCourant.setRue(streetTexte);
-        daoSoignant.update(utilisateurCourant);
+        Soignant soignant;
+        if(utilisateurCourant.getMail().equals(ancienmail)) soignant=utilisateurCourant;
+        else soignant=getUtilisateurParMail(ancienmail);
+        soignant.setMail(nouveauMail);
+        soignant.setPrenom(nameTexte);
+        soignant.setNomDeFamille(lastNameTexte);
+        soignant.setNumTel(tel);
+        soignant.setNumMaison(houseNumber);
+        soignant.setRemarque(noteTexte);
+        soignant.setRue(streetTexte);
+        daoSoignant.update(soignant);
     }
     public void supprimerUtilisateur(String mail) throws SuppressionUtilisateurCourant,SoignantInexistant, ErreurrNull, BDConnexionErreur
     {

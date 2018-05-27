@@ -234,8 +234,8 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 				if(NANHouse.matches())throw new NombreExpection(houseNumberLabel.getText());
 				if(NANTel.matches())throw new NombreExpection(telNumberLabel.getText());
                 String mailTexte = getMailInfo();
-				String nameTexte = (name.getText().equals("") ? null : name.getText());
-				String lastNameTexte = (lastName.getText().equals("")? null : lastName.getText());
+				String prenomTexte = (name.getText().equals("") ? null : name.getText());
+				String nomDeFamilleTexte = (lastName.getText().equals("")? null : lastName.getText());
 				Integer tel = (telNumber.getText().equals("")? null : Integer.parseInt(telNumber.getText()));
 				Integer house = (houseNumber.getText().equals("")? null : Integer.parseInt(houseNumber.getText()));
 				String noteTexte = (note.getText().equals("")? null : note.getText());
@@ -243,12 +243,13 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 
 				SoignantController soignantController = new SoignantController();
 
-				Soignant soignant = new Soignant(mailTexte, nameTexte, lastNameTexte, streetTexte
+				Soignant soignant = new Soignant(mailTexte, prenomTexte, nomDeFamilleTexte, streetTexte
 						, house, tel, noteTexte, isVolunteer.isSelected(), date,
 						localiteController.getToutesLesLocalites().get(locality.getSelectedIndex()));
-				int accord = JOptionPane.showConfirmDialog(null,"Etes vous sur de vouloir vous inscrire ?","confirmation d'inscription",JOptionPane.INFORMATION_MESSAGE);
+				int accord = JOptionPane.showConfirmDialog(null,"Etes vous sur de vouloir vous inscrire ?","validation d'inscription",JOptionPane.YES_NO_OPTION);
 				if(accord == JOptionPane.YES_OPTION) {
 					soignantController.setSoignantData(soignant);
+					JOptionPane.showConfirmDialog(null,prenomTexte+" "+nomDeFamilleTexte+" a bien été inscrit","confirmation d'inscription",JOptionPane.YES_OPTION);
 					frame.changePanel();
 				}
 			}
