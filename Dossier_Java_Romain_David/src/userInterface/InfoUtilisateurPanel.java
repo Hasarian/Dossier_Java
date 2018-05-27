@@ -1,5 +1,6 @@
 package userInterface;
 
+import Model.Soignant;
 import erreurs.BDConnexionErreur;
 import erreurs.ErreurrNull;
 import erreurs.NombreExpection;
@@ -31,6 +32,16 @@ public class InfoUtilisateurPanel extends FormulaireInscriptionSoignantPanel
             getConfirmButton().removeActionListener(getConfirmListener());
             repaint();
             getConfirmButton().addActionListener(new MajListener());
+    }
+    public InfoUtilisateurPanel(Soignant soignant,MainFrame frame) throws BDConnexionErreur,ErreurrNull
+    {
+        super(frame);
+
+        setInfos(soignant.getPrenom(),soignant.getNomDeFamille(),soignant.getMail(),soignant.getRue(),soignant.getNumMaison().toString(),
+                soignant.getNumTel().toString(),soignant.getRemarque(),soignant.getEstBenevole(),soignant.getLocalite(),soignant.getDateEmbauche());
+        getConfirmButton().removeActionListener(getConfirmListener());
+        repaint();
+        getConfirmButton().addActionListener(new MajListener());
     }
     public class MajListener implements ActionListener
     {

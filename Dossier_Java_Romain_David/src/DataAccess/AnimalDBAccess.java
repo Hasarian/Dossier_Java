@@ -66,6 +66,7 @@ public class AnimalDBAccess implements DAOAnimal {
                 String mail=(animal.getSoignant()!=null)?animal.getSoignant().getMail():null;
                 statement.setString(2,mail);
                 statement.setInt(3,animal.getId());
+                statement.execute();
             }
             catch (SQLException excpt)
             {

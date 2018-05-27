@@ -15,9 +15,9 @@ public class MainFrame extends JFrame
 {
     private ConteneurPanel conteneurPanel;
     private EcranPrincipalPanel basePanel;
-    private InfoTachePanel panelActuel;
+    private JPanel panelActuel;
     private JMenuBar menuBar;
-    private JMenu account,administration,newFile,search,suppression;
+    private JMenu account,administration,newFile,search,suppression,modification;
     private JMenuItem logout,newCareGiver,searchTask,searchAnimal,searchCare,personnalInfo,suppressionSoignant,listeSoignant;
     private Container container;
     private MainFrame thisFrame;
@@ -67,7 +67,11 @@ public class MainFrame extends JFrame
         search.add(searchTask);
         searchTask.addActionListener(new ToTaskSearchListener());
         administration.add(search);
+
+        modification=new JMenu("modifier...");
+        administration.add(modification);
         listeSoignant=new JMenuItem("soignant");
+        modification.add(listeSoignant);
 
         account=new JMenu("votre compte");
         menuBar.add(account);
@@ -92,7 +96,7 @@ public class MainFrame extends JFrame
         else changePanel(basePanel);
         //System.out.println(basePanel.getPersonnelPanel());
     }
-    public void setPanelActuel(InfoTachePanel nouveauPanel)
+    public void setPanelActuel(JPanel nouveauPanel)
     {
         this.panelActuel=nouveauPanel;
     }

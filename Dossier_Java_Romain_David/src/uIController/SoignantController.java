@@ -111,7 +111,7 @@ public class SoignantController
     }
     public String[] getTousLesUtilisateurs()throws BDConnexionErreur
     {
-        ArrayList<String> utilisateurs=business.getTousLesUtilisateurs();
+        ArrayList<String> utilisateurs=business.getTousLesMails();
         String[] data=new String[utilisateurs.size()];
         for(int i=0;i<data.length;i++)data[i]=utilisateurs.get(i);
         return data;
@@ -129,5 +129,31 @@ public class SoignantController
     {
         business.supprimerUtilisateurCourant();
     }
-
+    public Object obtenirInfo(int row, int column) //throws BDConnexionErreur,SoignantInexistant,ErreurrNull
+    {
+        Soignant soignant;
+        soignant=business.getSoignantParIndex(row);
+        switch(column)
+        {
+            case 0: return soignant.getPrenom()+" "+soignant.getNomDeFamille();
+            case 1: return soignant.getMail();
+            case 2: return soignant.getNumTel();
+            case 3: return soignant.getDateEmbauche();
+            case 4: return soignant.getEstBenevole();
+            case 5: return soignant.getRemarque();
+            default: return "données inexistantes";
+        }
+    }
+    public void initSoignant() throws BDConnexionErreur,ErreurrNull,SoignantInexistant
+    {
+        business.initTousLesSoignants();
+    }
+    public int nbSoignants()
+    {
+        return business.getNbSoignants();
+    }
+    public Soignant getSoignantParIndex(int index)
+    {
+        return business.getSoignantParIndex(index);
+    }
 }

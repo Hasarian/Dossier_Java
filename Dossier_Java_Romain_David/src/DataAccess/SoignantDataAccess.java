@@ -3,6 +3,7 @@ package DataAccess;
 
 import DataAccess.DAO.DAOSoignant;
 import Model.Soignant;
+import com.mysql.fabric.xmlrpc.base.Array;
 import erreurs.BDConnexionErreur;
 import erreurs.ErreurInsertionSoignant;
 import Model.Localite;
@@ -107,23 +108,7 @@ public class SoignantDataAccess implements DAOSoignant {
             ResultSet data = statement.executeQuery();
             if (!data.next()) throw new SoignantInexistant();
             //recherche arraylist localoite sur l'id
-            Localite localite = new Localite((data.wasNull())?null : data.getInt("idLocalite"),
-                    (data.wasNull())?null : data.getInt("localite.CodePostal"),
-                    (data.wasNull())?null : data.getString("localite.libelle"));
-            //if(!Business.arrayListLocalite.containt(localite))Business.arrayListLocalite.add(localite);
-            //ResultSetMetaData meta = data.getMetaData();
-            GregorianCalendar dateEmbauche = new GregorianCalendar();
-            dateEmbauche.setTime((data.wasNull())?null : data.getDate("dateEmbauche"));
-            Integer numTel = (data.wasNull() ? null : data.getInt("numTel"));
-            String remarque = (data.wasNull() ? null : data.getString("remarque"));
-
-            return new Soignant(data.getString("mail"),
-                    (data.wasNull())?null : data.getString("prenom"),
-                    (data.wasNull())?null : data.getString("nom"),
-                    (data.wasNull())?null : data.getString("rue"),
-                    (data.wasNull())?null : data.getInt("numMAison"), numTel, remarque,
-                    (data.wasNull())?null : data.getBoolean("EstBenevole"),
-                    dateEmbauche, localite );
+            return traductionSQL(data);
         }
         catch(SQLException sqlException) {
             //System.out.println(sqlException.getMessage());
@@ -149,5 +134,44 @@ public class SoignantDataAccess implements DAOSoignant {
         {
             throw new BDConnexionErreur(sqlException.getMessage());
         }
+    }
+    public ArrayList<Soignant> readTousLesSoignants() throws BDConnexionErreur,ErreurrNull
+    {
+        String sql="select * from soignant";
+        try {
+            PreparedStatement requete = singletonDBAcces.prepareStatement(sql);
+            ResultSet data=requete.executeQuery();
+            ArrayList<Soignant> array=new ArrayList<Soignant>();
+            while (data.next())
+            {
+                array.add(traductionSQL(data));
+            }
+            return array;
+        }
+        catch (SQLException sqlE)
+        {
+            throw new BDConnexionErreur(sqlE.getMessage());
+        }
+    }
+
+    public Soignant traductionSQL(ResultSet data) throws SQLException,ErreurrNull
+    {
+        Localite localite = new Localite((data.wasNull())?null : data.getInt("idLocalite"),
+                (data.wasNull())?null : data.getInt("localite.CodePostal"),
+                (data.wasNull())?null : data.getString("localite.libelle"));
+        //if(!Business.arrayListLocalite.containt(localite))Business.arrayListLocalite.add(localite);
+        //ResultSetMetaData meta = data.getMetaData();
+        GregorianCalendar dateEmbauche = new GregorianCalendar();
+        dateEmbauche.setTime((data.wasNull())?null : data.getDate("dateEmbauche"));
+        Integer numTel = (data.wasNull() ? null : data.getInt("numTel"));
+        String remarque = (data.wasNull() ? null : data.getString("remarque"));
+
+        return new Soignant(data.getString("mail"),
+                (data.wasNull())?null : data.getString("prenom"),
+                (data.wasNull())?null : data.getString("nom"),
+                (data.wasNull())?null : data.getString("rue"),
+                (data.wasNull())?null : data.getInt("numMAison"), numTel, remarque,
+                (data.wasNull())?null : data.getBoolean("EstBenevole"),
+                dateEmbauche, localite );
     }
 }

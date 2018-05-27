@@ -14,4 +14,5 @@ public interface DAOSoignant {
     void update(Soignant soignant) throws BDConnexionErreur;
     void delete(String id) throws BDConnexionErreur;
     ArrayList<String> readallMails() throws BDConnexionErreur;
+    ArrayList<Soignant> readTousLesSoignants() throws BDConnexionErreur,ErreurrNull;
 }

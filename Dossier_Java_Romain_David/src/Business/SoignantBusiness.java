@@ -7,6 +7,7 @@ import DataAccess.SoinParSoignant;
 import Model.SoinEffectue;
 import Model.SoinMedical;
 import Model.Veterinaire;
+import com.mysql.fabric.xmlrpc.base.Array;
 import erreurs.*;
 import Model.Soignant;
 
@@ -114,7 +115,7 @@ public class SoignantBusiness {
         return accesSoins.searchHistory(mail);
     }
 
-    public ArrayList<String> getTousLesUtilisateurs() throws BDConnexionErreur {
+    public ArrayList<String> getTousLesMails() throws BDConnexionErreur {
         return daoSoignant.readallMails();
     }
     public void updateUtilisateurCourantDansLaBD(String nameTexte, String lastNameTexte, Integer tel, Integer houseNumber, String noteTexte, String streetTexte)
@@ -145,6 +146,25 @@ public class SoignantBusiness {
     public void creerSoin(GregorianCalendar dateHeure, SoinMedical soinEffectue,String remarque) throws BDConnexionErreur
     {
         accesSoins.create(utilisateurCourant.getMail(),dateHeure,soinEffectue.getIdSoinMedical(),remarque);
+    }
+    public Soignant getSoignantParIndex(int row)
+    {
+        if(row==0) return utilisateurCourant;
+        return autresUtilisateurs.get(row-1);
+    }
+    public void initTousLesSoignants() throws BDConnexionErreur,ErreurrNull,SoignantInexistant
+    {
+        ArrayList<Soignant> soignants=daoSoignant.readTousLesSoignants();
+        for(Soignant soignant:soignants)
+        {
+            if(utilisateurCourant.getMail().equals(soignant.getMail())) setUtilisateurCourant(soignant);
+            else if (estConnu(soignant.getMail())) autresUtilisateurs.remove(getUtilisateurParMail(soignant.getMail()));
+            else autresUtilisateurs.add(soignant);
+        }
+    }
+    public int getNbSoignants()
+    {
+        return 1+autresUtilisateurs.size();
     }
 }
 
