@@ -138,7 +138,7 @@ public class SoignantDataAccess implements DAOSoignant {
     }
     public ArrayList<Soignant> readTousLesSoignants() throws BDConnexionErreur,ErreurrNull
     {
-        String sql="select * from soignant, localite where soignant.localie=localite.idlocalite";
+        String sql="select * from soignant, localite where soignant.localite=localite.idlocalite";
         try {
             PreparedStatement requete = singletonDBAcces.prepareStatement(sql);
             ResultSet data=requete.executeQuery();
@@ -157,7 +157,7 @@ public class SoignantDataAccess implements DAOSoignant {
 
     public Soignant traductionSQL(ResultSet data) throws SQLException,ErreurrNull
     {
-        Localite localite = new Localite(data.getInt("idLocalite"),
+        Localite localite = new Localite(data.getInt("localite.idLocalite"),
                 data.getInt("localite.CodePostal"),
                 data.getString("localite.libelle"));
         //if(!Business.arrayListLocalite.containt(localite))Business.arrayListLocalite.add(localite);
