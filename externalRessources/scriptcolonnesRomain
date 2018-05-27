@@ -1,3 +1,180 @@
+drop table  vaccination;
+drop table vaccin;
+drop table alimentation;
+drop table  modificationSoin;
+drop table soinEffectue;
+drop table soinMedical;
+drop table  ordonnance;
+drop table ficheSoin;
+drop table ficheAnimal;
+drop table  race;
+drop table  espece;
+drop table  veto;
+drop table soignant;
+drop table  localite;
+
+create table localite(
+libelle varchar(100) not null,
+codePostal integer(4) not null,
+idLocalite integer(10) auto_increment, constraint localite_id_pk primary key(idlocalite),
+constraint localite_codePostal_idLocalite_unique unique (libelle, codePostal)
+);
+
+create table soignant(
+ mail varchar (50),
+ nom varchar(50) not null,
+ prenom varchar(50) not null,
+ rue varchar(100) not null,
+ numMaison integer(4) not null,
+ numTel integer(9),
+ remarque varchar(150),
+ estBenevole boolean not null,
+ dateEmbauche date not null,
+localite integer(10) not null,
+constraint mail_id_pk primary key(mail),
+constraint localite_fk foreign key (localite) references localite(idLocalite)
+)engine = InnoDB;
+
+create table veto(
+mail varchar (50),
+numContact integer(9) not null,
+constraint mail_id_pk primary key(mail),
+constraint mail_fk foreign key (mail) references soignant(mail) on delete cascade
+);
+
+create table espece(
+libelle varchar(50),
+estEnVoieDeDisparition boolean not null,
+typeDEplacement varchar(50) not null,
+milieuDeVie varchar(50) not null,
+constraint espece_libelle_pk primary key(libelle)
+);
+
+create table race(
+libelle varchar(50),
+traitDeCaractere varchar(50) not null,
+tare varchar(50),
+CaracteristiqueDuMilieuDeVie varchar(75),
+espece varchar(50) not null,
+constraint race_libelle_pk primary key(libelle),
+constraint espece_libelle_fk foreign key (espece) references espece(libelle)
+)engine = InnoDB;
+
+create table ficheAnimal(
+id integer(10) auto_increment,
+remarque varchar(150),
+numCellule integer(5),
+poids integer(5),
+nomAnimal varchar(50) not null,
+race varchar(50) not null,
+dateArrive date not null,
+dateDeces date,
+estDangereux boolean not null,
+etat integer(2) not null,
+constraint ficheAnimal_id_pk primary key(id),
+constraint race_fk foreign key (race) references race(libelle)
+)engine = InnoDB;
+
+create table ficheSoin(
+id integer(10),
+remarque varchar(250),
+etat integer(2) not null,
+email varchar(50),
+constraint ficheSoin_id_pk primary key(id) ,
+constraint ficheAnimal_fk foreign key (id) references ficheAnimal(id),
+constraint ficheSoin_soignant_email_fk foreign key(email) references soignant(mail) on delete set null
+)engine = InnoDB;
+
+create table modificationSoin(
+numDossier integer(10) not null,
+dateModification date not null,
+mail varchar(50),
+idModification integer(10) auto_increment,
+constraint modificationSoin_idModification_pk primary key(idModification),
+constraint modificationSoin_numDossier_fk foreign key (numDossier) references ficheSoin(id),
+constraint modificationSoin_mail_fk foreign key (mail) references veto(mail) on delete set null,
+constraint localite_numDossier_dateModification_mail_unique unique (numDossier, mail, dateModification)
+)engine = InnoDB;
+
+create table ordonnance(
+numOrdonnance integer(50) auto_increment,
+description varchar(150) not null,
+mailveto varchar(50) not null,
+constraint ordonnance_numOrdance_pk primary key(numOrdonnance),
+constraint veto_mailVeto_fk foreign key (mailVeto) references veto(mail) on delete cascade
+)engine = InnoDB;
+
+create table soinMedical(
+numDossier integer(10),
+dateSoinMedical date not null,
+heureSoinMedical date,
+description varchar(70) not null,
+remarque varchar(150),
+mailVeto varchar(50) not null,
+numOrdonnance integer(10) not null,
+idSoinMedical integer(10) auto_increment,
+constraint soinMedical_idSoinMedical_pk primary key(idSoinMedical),
+constraint ficheSoin_numDossier_fk foreign key (numDossier) references ficheSoin(id),
+constraint ordonnance_numOrdonnance_fk foreign key (numOrdonnance) references ordonnance(numOrdonnance) on delete cascade,
+constraint ordonnance_mailVeto_fk foreign key (mailVeto) references ordonnance(mailVeto) on delete cascade,
+constraint soinMedical_numDossier_dateSoin_unique unique (numDossier, dateSoinMedical)
+)engine= InnoDB;
+
+create table soinEffectue(
+mail varchar(50) not null,
+dateSoin dateTime not null,
+numSoinMedical integer(10) not null,
+idSoinEffectue integer(10) auto_increment,
+remarque varchar(140),
+constraint idSoinEffectue_id_pk primary key(idSoinEffectue),
+constraint soignant_mail_fk foreign key (mail) references soignant(mail) on delete cascade,
+constraint soinEffectue_soinMedical_idSoinMediacal_fk foreign key (numSoinMedical) references soinMedical(idSoinMedical) on delete cascade
+)engine = InnoDB;
+
+create table alimentation(
+numDossier integer(10),
+nature varchar(50) not null,
+qantite integer(10)not null,
+remarque varchar(150),
+constraint alimentation_numDossier_pk primary key(numDossier) ,
+constraint alimentation_fichesoin_numDossier_fk foreign key (numDossier) references ficheSoin(id)
+)engine = InnoDB;
+
+create table vaccin(
+numVaccin integer(10) auto_increment,
+libelle varchar(50),
+constraint vaccin_numVaccin_pk primary key(numVaccin)
+);
+
+create table vaccination(
+id integer not null,
+numVaccin integer(10) not null,
+dateVaccination date not null,
+idVaccination integer(10) auto_increment,
+constraint vaccination_idVaccination_pk primary key(idVaccination) ,
+constraint ficheAnimal_id_fk foreign key (id) references ficheAnimal(id),
+constraint vaccin_numVaccin_fk foreign key (numVaccin) references vaccin(numVaccin),
+constraint vaccination_numVaccin_id_unique unique (numVaccin, id)
+)engine = InnoDB;
+
+insert into localite
+values("libin", 6890, 1);
+insert into localite
+values("mons",7000,2);
+insert into localite
+values("namur",5000,3);
+
+insert into soignant
+values("servais.david@spa.be","Servais","David","rue de smuid", 6,049814565," idiot de temps a autre", true,Str_to_date('30-03-1995','%e-%m-%Y'),1);
+insert into soignant
+values("demoustiez.romain@spa.be","Demoustiez","Romain","rue du retard", 612,049816598," anarco-communiste de temps à autre", false,Str_to_date('6-01-1995','%e-%m-%Y'),1);
+insert into soignant
+values("fronceles.sourcils@spa.be","Fronce","Lessourcis","avenue du champ de Mars", 48,049814565,"plutôt belliqueux", false,Str_to_date('31-12-1965','%e-%m-%Y'),3);
+insert into soignant
+values("mauvais.Email@spa.be","email","mauvais","chemin détourné", 1,0468141265,"a tendance à ne pas marcher droit", true,Str_to_date('15-07-2001','%e-%m-%Y'),1);
+
+insert into veto
+values("demoustiez.romain@spa.be",04926232);
 insert into espece
 values("chien",
 false,
@@ -8,22 +185,34 @@ insert into race
 values("labrador",
 "amical",
 "jaloux",
-"des calins, il en veut tous les jours"
+"des calins, il en veut tous les jours",
 "chien"
 );
 
 insert into ficheanimal
-values(0000000001,
+values(1,
 "",
 45,
+25,
 "Rex",
 "labrador",
 str_to_date('01/01/2018','%e/%m/%Y'),
 null,
 false,
-"premiereVisite"
+0
 );
-
+insert into ficheanimal
+values(4,
+"",
+20,
+23,
+"Luna",
+"labrador",
+str_to_date('11/06/2014','%e/%m/%Y'),
+null,
+false,
+0
+);
 insert into race
 values("pitbull",
 "intelligent",
@@ -32,19 +221,20 @@ values("pitbull",
 "chien");
 
 insert into ficheanimal
-values(0000000002,
+values(2,
 "a subi une triste enfance",
 18,
+15,
 "bichou",
 "pitbull",
 str_to_date('29/02/2012','%e/%m/%Y'),
 null,
 true,
-"ras"
+0
 );
 insert into espece
 values(
-"panda";
+"panda",
 true,
 "il ne bouge pas",
 "foret de bamboo");
@@ -58,13 +248,47 @@ null,
 );
 
 insert into ficheAnimal
-values(0000000003,
+values(3,
 "cause de la mort: diabète",
+2,
 115,
 "Mao",
 "panda geant",
 str_to_date('23/3/2005','%e/%m/%Y'),
 str_to_date('20/1/2018','%e/%m/%Y'),
 false,
-"archive"
+1
 );
+
+insert into ordonnance
+values(1,"test","demoustiez.romain@spa.be");
+insert into ordonnance
+values(2,"ordonnance a rex","demoustiez.romain@spa.be");
+insert into ficheSoin
+values(3,"sert au test",4,null);
+insert into ficheSoin
+values(4,"Soin pour Luna",0,null);
+insert into ficheSoin
+values(0000000001,"sert au test",0,null);
+insert into modificationSoin
+values(0000000001, Str_to_date('30-03-1995','%e-%m-%Y'),"demoustiez.romain@spa.be",0000000001);
+insert into fichesoin
+values(2,"sert au test",0,null);
+
+insert into soinMedical
+values(3,str_to_date('24-3-2005','%e-%m-%Y'),str_to_date('25/10/2006 14:27:39', '%d/%m/%Y %T'),"3kg de bambou","pas trop","demoustiez.romain@spa.be",1,1);
+insert into soinMedical
+values(1,str_to_date('30-7-2018','%e-%m-%Y'),str_to_date('30-7-2018 12:30','%d-%m-%Y %T'),"2 bonbons","boite","demoustiez.romain@spa.be",2,3);
+
+insert into soineffectue
+values("servais.david@spa.be",str_to_date('24-3-2005','%e-%m-%Y'),1,1,"il est 22.03");
+
+insert into soinMedical
+values(3,str_to_date('25-3-2007','%e-%m-%Y'),str_to_date('12:30','%T'),"2kg de bambou","il est au regime","demoustiez.romain@spa.be",1,4);
+
+insert into soineffectue
+values("servais.david@spa.be",str_to_date('24-3-2005','%e-%m-%Y'),4,2,"remarque teste");
+
+insert into soineffectue
+values("demoustiez.romain@spa.be",str_to_date('26-8-2005','%d-%m-%Y'),3,3, null);
+
