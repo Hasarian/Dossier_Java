@@ -138,7 +138,7 @@ public class SoignantDataAccess implements DAOSoignant {
     }
     public ArrayList<Soignant> readTousLesSoignants() throws BDConnexionErreur,ErreurrNull
     {
-        String sql="select * from soignant";
+        String sql="select * from soignant, localite where soignant.localie=localite.idlocalite";
         try {
             PreparedStatement requete = singletonDBAcces.prepareStatement(sql);
             ResultSet data=requete.executeQuery();
