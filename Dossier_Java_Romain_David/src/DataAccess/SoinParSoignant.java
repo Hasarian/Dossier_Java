@@ -83,7 +83,7 @@ remarque varchar(140),*/
                 dateArrive.setTime(data.getDate("ficheAnimal.dateArrive"));*/
             GregorianCalendar dateSoin=new GregorianCalendar();
             dateSoin.setTime((data.wasNull())?null : data.getDate("soinEffectue.dateSoin"));
-            Integer idSoineffectue=(data.wasNull())?null : new Integer(data.getInt("soinEffectue.idSoinEffectue"));
+            Integer idSoineffectue=new Integer(data.getInt("soinEffectue.idSoinEffectue"));
 
             Integer idSoinMedical=(data.wasNull())?null : new Integer(data.getInt("soinMedical.idSoinMedical"));
             Animal animal=animalBusiness.getAnimal((data.wasNull())?null : data.getInt("soinMedical.numDossier"));

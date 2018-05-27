@@ -21,7 +21,7 @@ public class SoignantController
 
     public void setSoignantConnexion(String login) throws BDConnexionErreur, SoignantInexistant, ErreurrNull
     {
-            business.setUtilisateurCourant(business.getUtilisateurCourantDansLaBD(login));
+            business.setUtilisateurCourant(business.getSoignantansLaBD(login));
     }
     public void setSoignantData(Soignant soignant) throws ErreurInsertionSoignant {
         business.setSoignantData(soignant);
@@ -118,10 +118,10 @@ public class SoignantController
         for(int i=0;i<data.length;i++)data[i]=utilisateurs.get(i);
         return data;
     }
-    public void updateUtilisateur(String ancienMail,String mail,String nameTexte, String lastNameTexte, Integer tel,Boolean estVolontaire ,Integer houseNumber, String noteTexte, String streetTexte,Localite localite)
+    public void updateUtilisateur(String ancienMail,String mail,String nameTexte, String lastNameTexte, Integer tel,Boolean estVolontaire ,Integer houseNumber, String noteTexte, String streetTexte,Localite localite,GregorianCalendar dateEmbauche)
     throws ErreurrNull, BDConnexionErreur,SoignantInexistant
     {
-        business.updateUtilisateurDansLaBD(ancienMail,mail,nameTexte,lastNameTexte,tel,estVolontaire,houseNumber,noteTexte,streetTexte,localite);
+        business.updateUtilisateurDansLaBD(ancienMail,mail,nameTexte,lastNameTexte,tel,estVolontaire,houseNumber,noteTexte,streetTexte,localite,dateEmbauche);
     }
     public void supprimerSoignant(String mail) throws SuppressionUtilisateurCourant, SoignantInexistant, ErreurrNull, BDConnexionErreur
     {
@@ -161,5 +161,9 @@ public class SoignantController
     public Soignant getSoignantParIndex(int index)
     {
         return business.getSoignantParIndex(index);
+    }
+    public void dispose()
+    {
+        business.dispose();
     }
 }

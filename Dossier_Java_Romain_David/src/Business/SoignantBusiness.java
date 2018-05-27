@@ -47,11 +47,10 @@ public class SoignantBusiness {
         this.utilisateurCourant = utilisateurCourant;
     }
 
-    public Soignant getUtilisateurCourantDansLaBD(String id) throws BDConnexionErreur,SoignantInexistant, ErreurrNull
-    {
-        setUtilisateurCourant(daoSoignant.read(id));
-        return utilisateurCourant;
-    }
+   public Soignant getSoignantansLaBD(String id) throws SoignantInexistant,BDConnexionErreur,ErreurrNull
+   {
+       return daoSoignant.read(id);
+   }
 
     public Soignant getUtilisateurCourant() {
         return utilisateurCourant;
@@ -117,7 +116,7 @@ public class SoignantBusiness {
     public ArrayList<String> getTousLesMails() throws BDConnexionErreur {
         return daoSoignant.readallMails();
     }
-    public void updateUtilisateurDansLaBD(String ancienmail, String nouveauMail, String nameTexte, String lastNameTexte, Integer tel,Boolean estVolontaire, Integer houseNumber, String noteTexte, String streetTexte, Localite localite)
+    public void updateUtilisateurDansLaBD(String ancienmail, String nouveauMail, String nameTexte, String lastNameTexte, Integer tel,Boolean estVolontaire, Integer houseNumber, String noteTexte, String streetTexte, Localite localite,GregorianCalendar dateEmbauche)
     throws ErreurrNull, BDConnexionErreur,SoignantInexistant
     {
         Soignant soignant;
@@ -132,6 +131,7 @@ public class SoignantBusiness {
         soignant.setRemarque(noteTexte);
         soignant.setRue(streetTexte);
         soignant.setLocalite(localite);
+        soignant.setDateEmbauche(dateEmbauche);
         daoSoignant.update(ancienmail,soignant);
     }
     public void supprimerUtilisateur(String mail) throws SuppressionUtilisateurCourant,SoignantInexistant, ErreurrNull, BDConnexionErreur
@@ -174,6 +174,10 @@ public class SoignantBusiness {
     public int getNbSoignants()
     {
         return 1+autresUtilisateurs.size();
+    }
+    public void dispose()
+    {
+        instance=null;
     }
 }
 

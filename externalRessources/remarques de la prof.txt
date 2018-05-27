@@ -28,3 +28,5 @@ venir avec le pc le jour de la d?mo (c'est mieux d'utiliser le m?me pc pour les 
 //remarques suppl?mentaires ? la relecture du code
 recherches animaux: cr?er l'objet soignant ? ce moment au lieu d'aller le rechercher une deuxi?me fois dans la bd    ok
 l animal selectionner reste dans la liste disponible en plus de se retrouver dans la liste personnelle
+
+d'un soignant ? l'autre: les animaux restent dans la liste personnelle

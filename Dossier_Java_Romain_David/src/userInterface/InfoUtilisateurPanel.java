@@ -8,6 +8,7 @@ import uIController.SoignantController;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.GregorianCalendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -68,12 +69,12 @@ public class InfoUtilisateurPanel extends FormulaireInscriptionSoignantPanel
                 String noteTexte = getNoteText();
                 String streetTexte = getStreetInfo();
                 if(streetTexte.equals("")||streetTexte==null)argumentsIncorrects+="nom de rue";
-
                 if(!argumentsIncorrects.equals("")) throw new ErreurrNull(argumentsIncorrects);
+                GregorianCalendar dateEmbauche=getDateEmbauche();
 
                 int accord = JOptionPane.showConfirmDialog(null, "êtes vous sûr de sauvegarder les changements ?", "confirmation de modification", JOptionPane.YES_NO_OPTION);
                 if (accord == JOptionPane.YES_OPTION) {
-                    userControl.updateUtilisateur(ancienMail,mailTexte,nameTexte,lastNameTexte,tel,estVolontaire(),house,noteTexte,streetTexte,getLocalite());
+                    userControl.updateUtilisateur(ancienMail,mailTexte,nameTexte,lastNameTexte,tel,estVolontaire(),house,noteTexte,streetTexte,getLocalite(),dateEmbauche);
                     JOptionPane.showMessageDialog(null, "vos informations ont été mises à jour", "confirmation", JOptionPane.INFORMATION_MESSAGE);
                     bannierePanel.actualisation();
                 }
