@@ -33,9 +33,12 @@ public class ListeSoignantsPanel extends JPanel
         add(scrollPane);
 
         JButton modifier=new JButton("modifier");
+        modifier.addActionListener(new ModifierListener());
+        modifier.setBounds(900,530,50,30);
         JButton retour= new JButton("retour");
         retour.addActionListener(new RetourListener());
         retour.setBounds(5,530,50,30);
+        add(modifier);
         add(retour);
     }
     private class ModifierListener implements ActionListener

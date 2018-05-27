@@ -71,6 +71,7 @@ public class MainFrame extends JFrame
         modification=new JMenu("modifier...");
         administration.add(modification);
         listeSoignant=new JMenuItem("soignant");
+        listeSoignant.addActionListener(new ToModifierSoignant());
         modification.add(listeSoignant);
 
         account=new JMenu("votre compte");
@@ -204,6 +205,27 @@ public class MainFrame extends JFrame
             catch (BDConnexionErreur connexionError)
             {
                 JOptionPane.showMessageDialog(null, connexionError.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+    private class ToModifierSoignant implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            try {
+                changePanel(new ListeSoignantsPanel(thisFrame));
+            }
+            catch (BDConnexionErreur connexionErreur)
+            {
+                JOptionPane.showMessageDialog(null, connexionErreur.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
+            }
+            catch (ErreurrNull nullE)
+            {
+                JOptionPane.showMessageDialog(null, nullE.getMessage(),"attribut invalide",JOptionPane.ERROR_MESSAGE);
+            }
+            catch (SoignantInexistant erreurExistant)
+            {
+                JOptionPane.showMessageDialog(null, erreurExistant.getMessage(),"utilisateur non trouvé",JOptionPane.ERROR_MESSAGE);
             }
         }
     }
