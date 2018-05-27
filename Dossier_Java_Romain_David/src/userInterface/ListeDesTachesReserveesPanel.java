@@ -34,7 +34,7 @@ public class ListeDesTachesReserveesPanel extends ListeDeTachesPanel
 
         JButton unselect=new JButton("abandonner les soins");
         unselect.addActionListener(new AbandonListener());
-        unselect.setBounds(start.getX(),start.getY()+start.getHeight(),150,30);
+        unselect.setBounds(start.getX(),start.getY()+start.getHeight(),200,30);
 
         add(start);
         add(unselect);

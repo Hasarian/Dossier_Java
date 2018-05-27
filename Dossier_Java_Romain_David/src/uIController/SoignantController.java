@@ -63,6 +63,7 @@ public class SoignantController
                     "remarque sur le soin"*/
             ArrayList<String>row=new ArrayList<String>();
             row.add(soin.getFicheSoin().getFicheSoin().getId().toString());
+            row.add(soin.getSoinMedical().getMailVeto());
             String date=new String();
             date+= soin.getDateHeure().get(Calendar.DAY_OF_MONTH)+"/";
             date+= soin.getDateHeure().get(Calendar.MONTH)+"/";
@@ -81,6 +82,7 @@ public class SoignantController
                 date="nom spécifié";
             }
             row.add(date);
+            row.add(soin.getRemarque() == null ?"Pas de remarque": soin.getRemarque());
             row.add(soin.getFicheSoin().getRemarque());
             data.add(row);
         }

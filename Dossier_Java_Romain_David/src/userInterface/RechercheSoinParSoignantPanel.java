@@ -91,7 +91,6 @@ public class RechercheSoinParSoignantPanel extends JPanel {
                 tablePane.setBounds(getX() + 15, searchButton.getY() + codePosal.getHeight() + 20, getWidth() - 30, 300);
                 add(tablePane);
                 repaint();
-                revalidate();
 
             } catch (BDConnexionErreur connexionError) {
                 JOptionPane.showMessageDialog(null, connexionError.getMessage(), "accès BD", JOptionPane.ERROR_MESSAGE);
@@ -123,10 +122,11 @@ public class RechercheSoinParSoignantPanel extends JPanel {
         private String [] columnNames=
                 {
                         "animal id",
-                        "description",
+                        "Mail du Vétérinaire",
                         "date / heure du soin rendu",
                         "soin médical: heure prévue",
-                        "remarque par le soignant"
+                        "remarque pour le soin effectué",
+                        "remarque pour l'animal"
                 };
 
         public ModelTable(ArrayList<ArrayList<String>> data)
