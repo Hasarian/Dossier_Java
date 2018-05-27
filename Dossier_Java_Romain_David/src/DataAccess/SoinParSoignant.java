@@ -82,18 +82,18 @@ remarque varchar(140),*/
             /*GregorianCalendar dateArrive = new GregorianCalendar();
                 dateArrive.setTime(data.getDate("ficheAnimal.dateArrive"));*/
             GregorianCalendar dateSoin=new GregorianCalendar();
-            dateSoin.setTime((data.wasNull())?null : data.getDate("soinEffectue.dateSoin"));
-            Integer idSoineffectue=(data.wasNull())?null : new Integer(data.getInt("soinEffectue.idSoinEffectue"));
+            dateSoin.setTime( data.getDate("soinEffectue.dateSoin"));
+            Integer idSoineffectue= new Integer(data.getInt("soinEffectue.idSoinEffectue"));
 
-            Integer idSoinMedical=(data.wasNull())?null : new Integer(data.getInt("soinMedical.idSoinMedical"));
+            Integer idSoinMedical= new Integer(data.getInt("soinMedical.idSoinMedical"));
             Animal animal=animalBusiness.getAnimal((data.wasNull())?null : data.getInt("soinMedical.numDossier"));
             GregorianCalendar dateSoinMedical=new GregorianCalendar();
-            dateSoinMedical.setTime((data.wasNull())?null : data.getDate("soinMedical.dateSoinMedical"));//data.getDate("soinMdecial.dateSoinMedical")
+            dateSoinMedical.setTime( data.getDate("soinMedical.dateSoinMedical"));//data.getDate("soinMdecial.dateSoinMedical")
             GregorianCalendar heureSoin=new GregorianCalendar();
-            heureSoin.setTime((data.wasNull())?null : data.getTime("soinMedical.heureSoinMediacl"));
-            String description=(data.wasNull())?null:data.getString("soinMedical.description");
+            heureSoin.setTime((data.wasNull())?null : data.getTime("soinMedical.heureSoinMedical"));
+            String description=data.getString("soinMedical.description");
             String remarqueSoin=(data.wasNull())?null : data.getString("soinMedical.remarque");
-            Integer numOrdonnance=(data.wasNull())?null : new Integer(data.getInt("soinMedical.numOrdonnance"));
+            Integer numOrdonnance=new Integer(data.getInt("soinMedical.numOrdonnance"));
             String mailVeto =(data.wasNull())?null :  data.getString("soinMedical.mailVeto");
             SoinMedical soinMedical=new SoinMedical(idSoinMedical,animal,dateSoin,heureSoin,description,remarqueSoin,numOrdonnance, mailVeto);
 

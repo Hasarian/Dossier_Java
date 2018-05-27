@@ -102,4 +102,7 @@ public class AnimalBusiness {
     {
         return rechercheEntreDates.readAnimalsbetweenDates(dateDebut,dateFin);
     }
+    public static void dispose(){
+        instance = null;
+    }
 }

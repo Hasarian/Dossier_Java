@@ -128,6 +128,7 @@ public class MainFrame extends JFrame
         public void actionPerformed(ActionEvent e)
         {
             dispose();
+            user.dispose();
             ConnexionFrame login=new ConnexionFrame();
         }
     }

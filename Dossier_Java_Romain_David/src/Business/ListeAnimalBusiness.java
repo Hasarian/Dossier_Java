@@ -26,6 +26,7 @@ public class ListeAnimalBusiness {
         animalBusiness=AnimalBusiness.obtenirAnimalBusiness(this);
         animalBusiness.init();
 
+
     }
     public static ListeAnimalBusiness obtenirListAnimalBusiness(SoignantController user)throws BDConnexionErreur, ErreurrNull, SoignantInexistant
     {
@@ -119,5 +120,9 @@ public class ListeAnimalBusiness {
             testArray.add(new SoinMedical(i));
         }
         return testArray;
+    }
+
+    static public void dispose(){
+        instance = null;
     }
 }

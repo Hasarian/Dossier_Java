@@ -2,6 +2,7 @@ package userInterface;
 
 import Model.Localite;
 import erreurs.EmailRegexErreur;
+import erreurs.MauvaiseTailleString;
 import erreurs.NombreExpection;
 import org.junit.Assert;
 import org.junit.Test;
@@ -20,22 +21,22 @@ public class RegexFormSoignantTest {
     }
 
     @Test
-    public void getNameInfo() {
+    public void getNameInfo()throws MauvaiseTailleString {
         Assert.assertEquals("jean-jacques",form.getNameInfo());
     }
 
     @org.junit.Test
-    public void getLastNameInfo() {
+    public void getLastNameInfo() throws MauvaiseTailleString {
         Assert.assertNotEquals("goldmanneuh",form.getLastNameInfo());
     }
 
     @org.junit.Test (expected = EmailRegexErreur.class)
-    public void getMailInfo() throws EmailRegexErreur {
+    public void getMailInfo() throws EmailRegexErreur, MauvaiseTailleString {
         Assert.assertNotEquals("",form.getMailInfo());
     }
 
     @org.junit.Test
-    public void getStreetInfo() {
+    public void getStreetInfo() throws MauvaiseTailleString {
         Assert.assertEquals("grande vue",form.getStreetInfo());
     }
 
@@ -49,7 +50,7 @@ public class RegexFormSoignantTest {
         Assert.assertEquals(new Integer(458621),form.getNumTel());
     }
     @Test
-    public void getNote()
+    public void getNote() throws MauvaiseTailleString
     {
         Assert.assertEquals(null,form.getNoteText());
     }

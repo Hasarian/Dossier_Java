@@ -30,12 +30,12 @@ public class SoinAFairePourAnimal implements DAORechercheSoinAFaire{
               "from ficheAnimal, veto, soinMedical, ficheSoin, race, espece " +
               "where ficheAnimal.id = ? and ficheAnimal.id = ficheSoin.id and" +
               "  soinmedical.numDossier = fichesoin.id and soinmedical.mailVeto = veto.mail and ficheanimal.race=race.libelle and espece.libelle=race.espece";
-      sql+=(date!=null)? "and soinMedical.dateSoinMedical=?":"";
+      //sql+=(date!=null)? "and soinMedical.dateSoinMedical=?":"";
       ArrayList<SoinMedical> soinsMedicaux = new ArrayList<SoinMedical>();
       try{
           PreparedStatement statement = connection.prepareStatement(sql);
           statement.setInt(1, id);
-          statement.setTime(2,new java.sql.Time(date.getTimeInMillis()));
+          //statement.setTime(2,new java.sql.Time(date.getTimeInMillis()));
           ResultSet data = statement.executeQuery();
 
           while (data.next()){

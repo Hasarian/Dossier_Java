@@ -1,5 +1,8 @@
 package uIController;
 
+import Business.AnimalBusiness;
+import Business.ListeAnimalBusiness;
+import Business.ListeEspecebusiness;
 import Business.SoignantBusiness;
 import Model.Soignant;
 import Model.Localite;
@@ -21,6 +24,7 @@ public class SoignantController
 
     public void setSoignantConnexion(String login) throws BDConnexionErreur, SoignantInexistant, ErreurrNull
     {
+        System.out.println(login);
             business.setUtilisateurCourant(business.getUtilisateurCourantDansLaBD(login));
     }
     public void setSoignantData(Soignant soignant) throws ErreurInsertionSoignant {
@@ -62,11 +66,11 @@ public class SoignantController
                     "soin médical: heure prévue",
                     "remarque sur le soin"*/
             ArrayList<String>row=new ArrayList<String>();
-            row.add(soin.getFicheSoin().getFicheSoin().getId().toString());
+            row.add(soin.getFicheSoin().getId().toString());
             row.add(soin.getSoinMedical().getMailVeto());
             String date=new String();
             date+= soin.getDateHeure().get(Calendar.DAY_OF_MONTH)+"/";
-            date+= soin.getDateHeure().get(Calendar.MONTH)+"/";
+            date+= (soin.getDateHeure().get(Calendar.MONTH)+1)+"/";
             date+= soin.getDateHeure().get(Calendar.YEAR)+"  ";
             date+= soin.getDateHeure().get(Calendar.HOUR)+":";
             date+= soin.getDateHeure().get(Calendar.MINUTE);
@@ -74,7 +78,7 @@ public class SoignantController
             date= new String();
             if(soin.getFicheSoin().getDate()!=null) {
                 date += soin.getSoinMedical().getDate().get(Calendar.DAY_OF_MONTH) + "/";
-                date += soin.getSoinMedical().getDate().get(Calendar.MONTH)  + "/";
+                date += (soin.getSoinMedical().getDate().get(Calendar.MONTH)+1)  + "/";
                 date += soin.getSoinMedical().getDate().get(Calendar.YEAR) + "  ";
                 date += soin.getSoinMedical().getHeure().get(Calendar.HOUR) + ":";
                 date += soin.getSoinMedical().getHeure().get(Calendar.MINUTE);
@@ -141,9 +145,10 @@ public class SoignantController
             case 1: return soignant.getMail();
             case 2: return soignant.getNumTel();
             case 3: String date=new String();
-            date+=soignant.getDateEmbauche().get(Calendar.DAY_OF_MONTH);
-            date+=soignant.getDateEmbauche().get(Calendar.MONTH);
+            date+=soignant.getDateEmbauche().get(Calendar.DAY_OF_MONTH)+"/";
+            date+=(soignant.getDateEmbauche().get(Calendar.MONTH)+1)+"/";
             date+=soignant.getDateEmbauche().get(Calendar.YEAR);
+
                 return date;
             case 4: return soignant.getEstBenevole();
             case 5: return soignant.getRemarque();
@@ -161,5 +166,12 @@ public class SoignantController
     public Soignant getSoignantParIndex(int index)
     {
         return business.getSoignantParIndex(index);
+    }
+    public void dispose(){
+        business.dispose();
+        ListeAnimalBusiness.dispose();
+        ListesAnimauxController.dispose();
+        AnimalBusiness.dispose();
+        ListeEspecebusiness.dispose();
     }
 }

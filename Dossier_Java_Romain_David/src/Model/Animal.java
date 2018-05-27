@@ -69,6 +69,7 @@ public class Animal {
     public void setEtatFicheSoin(EtatSoin etatFicheSoin) throws ErreurrNull {
         if(etatFicheSoin == null) throw new ErreurrNull();
         this.etatFicheSoin = etatFicheSoin;
+
     }
 
     public void setRace(Race race) throws ErreurrNull {

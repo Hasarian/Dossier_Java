@@ -250,7 +250,7 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 				int accord = JOptionPane.showConfirmDialog(null,"Etes vous sur de vouloir vous inscrire ?","validation d'inscription",JOptionPane.YES_NO_OPTION);
 				if(accord == JOptionPane.YES_OPTION) {
 					soignantController.setSoignantData(soignant);
-					JOptionPane.showConfirmDialog(null,prenomTexte+" "+nomDeFamilleTexte+" a bien été inscrit","confirmation d'inscription",JOptionPane.YES_OPTION);
+					JOptionPane.showMessageDialog(null,prenomTexte+" "+nomDeFamilleTexte+" a bien été inscrit","confirmation d'inscription",JOptionPane.INFORMATION_MESSAGE);
 					frame.changePanel();
 				}
 			}

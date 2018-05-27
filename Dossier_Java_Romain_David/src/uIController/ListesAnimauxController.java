@@ -113,7 +113,6 @@ public class ListesAnimauxController
         Animal selected= listeAnimalBusiness.getAnimal(id);
         listeAnimalBusiness.retirerAnimal(id);
         listeAnimalBusiness.updateEtatFicheSoin(selected, Animal.EtatSoin.RESERVEE);
-        //trouvemoi listeAnimalBusiness.ajoutAnimal(selected);
     }
     public void abandonnerAnimalVeto(Integer id) throws ErreurrNull, BDConnexionErreur
     {
@@ -126,10 +125,12 @@ public class ListesAnimauxController
         listeAnimalBusiness.retirerAnimal(id);
         Animal selected= listeAnimalBusiness.getAnimal(id);
        listeAnimalBusiness.updateEtatFicheSoin(selected,Animal.EtatSoin.DISPONIBLE);
-       //listeAnimalBusiness.ajoutAnimal(selected);
     }
     public Animal getanimal(Integer id)
     {
         return listeAnimalBusiness.getAnimal(id);
+    }
+    public static void dispose(){
+        instance = null;
     }
 }

@@ -50,4 +50,7 @@ public class ListeEspecebusiness
        }else race=races.get(i);
        return race;
     }
+    public static void dispose(){
+        instance = null;
+    }
 }
