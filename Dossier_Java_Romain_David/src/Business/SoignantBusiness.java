@@ -117,7 +117,7 @@ public class SoignantBusiness {
     public ArrayList<String> getTousLesMails() throws BDConnexionErreur {
         return daoSoignant.readallMails();
     }
-    public void updateUtilisateurDansLaBD(String ancienmail, String nouveauMail, String nameTexte, String lastNameTexte, Integer tel, Integer houseNumber, String noteTexte, String streetTexte, Localite localite)
+    public void updateUtilisateurDansLaBD(String ancienmail, String nouveauMail, String nameTexte, String lastNameTexte, Integer tel,Boolean estVolontaire, Integer houseNumber, String noteTexte, String streetTexte, Localite localite)
     throws ErreurrNull, BDConnexionErreur,SoignantInexistant
     {
         Soignant soignant;
@@ -127,6 +127,7 @@ public class SoignantBusiness {
         soignant.setPrenom(nameTexte);
         soignant.setNomDeFamille(lastNameTexte);
         soignant.setNumTel(tel);
+        soignant.setEstBenevole(estVolontaire);
         soignant.setNumMaison(houseNumber);
         soignant.setRemarque(noteTexte);
         soignant.setRue(streetTexte);

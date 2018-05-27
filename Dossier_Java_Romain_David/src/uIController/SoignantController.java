@@ -116,10 +116,10 @@ public class SoignantController
         for(int i=0;i<data.length;i++)data[i]=utilisateurs.get(i);
         return data;
     }
-    public void updateUtilisateur(String ancienMail,String mail,String nameTexte, String lastNameTexte, Integer tel, Integer houseNumber, String noteTexte, String streetTexte,Localite localite)
+    public void updateUtilisateur(String ancienMail,String mail,String nameTexte, String lastNameTexte, Integer tel,Boolean estVolontaire ,Integer houseNumber, String noteTexte, String streetTexte,Localite localite)
     throws ErreurrNull, BDConnexionErreur,SoignantInexistant
     {
-        business.updateUtilisateurDansLaBD(ancienMail,mail,nameTexte,lastNameTexte,tel,houseNumber,noteTexte,streetTexte,localite);
+        business.updateUtilisateurDansLaBD(ancienMail,mail,nameTexte,lastNameTexte,tel,estVolontaire,houseNumber,noteTexte,streetTexte,localite);
     }
     public void supprimerSoignant(String mail) throws SuppressionUtilisateurCourant, SoignantInexistant, ErreurrNull, BDConnexionErreur
     {

@@ -346,5 +346,6 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
     {
         return localiteController.getToutesLesLocalites().get(locality.getSelectedIndex());
     }
+    public Boolean estVolontaire(){return isVolunteer.isSelected();}
 	//attention: pas terminé:localité n'est pas sélectionné !
 }

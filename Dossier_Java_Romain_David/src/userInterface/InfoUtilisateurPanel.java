@@ -75,7 +75,7 @@ public class InfoUtilisateurPanel extends FormulaireInscriptionSoignantPanel
 
                 int accord = JOptionPane.showConfirmDialog(null, "êtes vous sûr de sauvegarder les changements ?", "confirmation de modification", JOptionPane.YES_NO_CANCEL_OPTION);
                 if (accord == JOptionPane.YES_OPTION) {
-                    userControl.updateUtilisateur(ancienMail,mailTexte,nameTexte,lastNameTexte,tel,house,noteTexte,streetTexte,localite);
+                    userControl.updateUtilisateur(ancienMail,mailTexte,nameTexte,lastNameTexte,tel,estVolontaire(),house,noteTexte,streetTexte,localite);
                     JOptionPane.showMessageDialog(null, "vos informations ont été mises à jour", "confirmation", JOptionPane.INFORMATION_MESSAGE);
                     bannierePanel.actualisation();
                 }
