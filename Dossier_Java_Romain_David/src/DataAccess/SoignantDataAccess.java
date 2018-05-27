@@ -63,7 +63,7 @@ public class SoignantDataAccess implements DAOSoignant {
 
     public void update(Soignant soignant) throws BDConnexionErreur {
         String sql="update soignant" +
-                " set prenom=?,nom=?,rue=?,numMaison=?,numTel=?,remarque=?,estBenevole=?,localite=? " +
+                " set prenom=?,nom=?,rue=?,numMaison=?,numTel=?,remarque=?,estBenevole=?,localite=?, mail=? " +
                 "where mail=?";
                     /*9*/
         /*               1       2    3         4         5          6           7             8*/
@@ -89,7 +89,8 @@ public class SoignantDataAccess implements DAOSoignant {
             statement.setInt(4, soignant.getNumMaison());
             statement.setBoolean(7, soignant.getEstBenevole());
             statement.setInt(8, soignant.getLocalite().getIdLocalite());
-            statement.setString(9, soignant.getMail());
+            statement.setString(9,soignant.getMail());
+            statement.setString(10, soignant.getMail());
             statement.executeUpdate();
         }
         catch (SQLException sqlException)

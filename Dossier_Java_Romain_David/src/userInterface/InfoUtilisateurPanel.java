@@ -23,7 +23,6 @@ public class InfoUtilisateurPanel extends FormulaireInscriptionSoignantPanel
             userControl=user;
             setInfos(user.getPrenomUtilisateurCourant(),user.getNomDeFamilleUtilisateurCourant(),user.getMailUtilisateurCourant(),user.getRueUtilisateurCourant(),user.getNumeroMaisonUtilisateurCourant(),user.getNumTelUtilisateurCourant(),
                     user.getRemarqueUtilisateurCourant(),user.estVolontaire(),user.getLocalite(),user.getDateEmbauche());
-            getMailTextField().setEditable(false);
         /*private JTextField name, lastName, mail, street, houseNumber, telNumber;
         private JTextArea note;
         private JCheckBox isVolunteer;

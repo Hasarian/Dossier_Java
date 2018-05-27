@@ -39,7 +39,7 @@ create table veto(
 mail varchar (50),
 numContact integer(9) not null,
 constraint mail_id_pk primary key(mail),
-constraint mail_fk foreign key (mail) references soignant(mail) on delete cascade
+constraint mail_fk foreign key (mail) references soignant(mail) on delete cascade on update cascade
 );
 
 create table espece(
@@ -82,7 +82,7 @@ etat integer(2) not null,
 email varchar(50),
 constraint ficheSoin_id_pk primary key(id) ,
 constraint ficheAnimal_fk foreign key (id) references ficheAnimal(id),
-constraint ficheSoin_soignant_email_fk foreign key(email) references soignant(mail) on delete set null
+constraint ficheSoin_soignant_email_fk foreign key(email) references soignant(mail) on delete set null on update cascade
 )engine = InnoDB;
 
 create table modificationSoin(
@@ -92,16 +92,16 @@ mail varchar(50),
 idModification integer(10) auto_increment,
 constraint modificationSoin_idModification_pk primary key(idModification),
 constraint modificationSoin_numDossier_fk foreign key (numDossier) references ficheSoin(id),
-constraint modificationSoin_mail_fk foreign key (mail) references veto(mail) on delete set null,
+constraint modificationSoin_mail_fk foreign key (mail) references veto(mail) on delete set null on update cascade,
 constraint localite_numDossier_dateModification_mail_unique unique (numDossier, mail, dateModification)
 )engine = InnoDB;
 
 create table ordonnance(
 numOrdonnance integer(50) auto_increment,
 description varchar(150) not null,
-mailveto varchar(50) not null,
+mailveto varchar(50),
 constraint ordonnance_numOrdance_pk primary key(numOrdonnance),
-constraint veto_mailVeto_fk foreign key (mailVeto) references veto(mail)
+constraint veto_mailVeto_fk foreign key (mailVeto) references veto(mail) on update cascade on delete set null
 )engine = InnoDB;
 
 create table soinMedical(
@@ -110,13 +110,13 @@ dateSoinMedical date not null,
 heureSoinMediacl date,
 description varchar(70) not null,
 remarque varchar(150),
-mailVeto varchar(50) not null,
+mailVeto varchar(50),
 numOrdonnance integer(10) not null,
 idSoinMedical integer(10) auto_increment,
 constraint soinMedical_idSoinMedical_pk primary key(idSoinMedical),
 constraint ficheSoin_numDossier_fk foreign key (numDossier) references ficheSoin(id),
 constraint ordonnance_numOrdonnance_fk foreign key (numOrdonnance) references ordonnance(numOrdonnance),
-constraint ordonnance_mailVeto_fk foreign key (mailVeto) references ordonnance(mailVeto) on delete cascade,
+constraint ordonnance_mailVeto_fk foreign key (mailVeto) references ordonnance(mailVeto) on delete set null on update cascade,
 constraint soinMedical_numDossier_dateSoin_unique unique (numDossier, dateSoinMedical)
 )engine= InnoDB;
 
@@ -127,7 +127,7 @@ numSoinMedical integer(10) not null,
 idSoinEffectue integer(10) auto_increment,
 remarque varchar(140),
 constraint idSoinEffectue_id_pk primary key(idSoinEffectue),
-constraint soignant_mail_fk foreign key (mail) references soignant(mail) on delete cascade,
+constraint soignant_mail_fk foreign key (mail) references soignant(mail) on delete cascade on update cascade,
 constraint soinEffectue_soinMedical_idSoinMediacal_fk foreign key (numSoinMedical) references soinMedical(idSoinMedical)
 )engine = InnoDB;
 
