@@ -1,24 +1,24 @@
-listing soignant
+listing soignant                                               ok
 repasser sur les insertions: valeurs obligatoires
-ordre messages confirmation
+ordre messages confirmation                                    ok
 messages pas clairs
-affichage dans les formulaires
+affichage dans les formulaires                                 ok
 
 
-suppression: ne fonctionne pas (liens)
+suppression: ne fonctionne pas (liens)                          ok
 
 modification: n'importe quelle ligne
 m?me la date et le mail
 attention localit?
 
 
-affichage table model: classes des colonnes
+affichage table model: classes des colonnes                     ok
 
 plus de donn?es sur les soins
 
-terminer la t?che m?tier
+terminer la t?che m?tier                                        ok
 
-orthographe
+orthographe                                                     ok
 
 
 clean code
@@ -26,5 +26,5 @@ clean code
 venir avec le pc le jour de la d?mo (c'est mieux d'utiliser le m?me pc pour les deux ?tudiants du groupe)
 
 //remarques suppl?mentaires ? la relecture du code
-recherches animaux: cr?er l'objet soignant ? ce moment au lieu d'aller le rechercher une deuxi?me fois dans la bd
+recherches animaux: cr?er l'objet soignant ? ce moment au lieu d'aller le rechercher une deuxi?me fois dans la bd    ok
 l animal selectionner reste dans la liste disponible en plus de se retrouver dans la liste personnelle

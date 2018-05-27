@@ -157,22 +157,25 @@ public class SoignantDataAccess implements DAOSoignant {
 
     public Soignant traductionSQL(ResultSet data) throws SQLException,ErreurrNull
     {
-        Localite localite = new Localite((data.wasNull())?null : data.getInt("idLocalite"),
-                (data.wasNull())?null : data.getInt("localite.CodePostal"),
-                (data.wasNull())?null : data.getString("localite.libelle"));
+        Localite localite = new Localite(data.getInt("idLocalite"),
+                data.getInt("localite.CodePostal"),
+                data.getString("localite.libelle"));
         //if(!Business.arrayListLocalite.containt(localite))Business.arrayListLocalite.add(localite);
         //ResultSetMetaData meta = data.getMetaData();
         GregorianCalendar dateEmbauche = new GregorianCalendar();
-        dateEmbauche.setTime((data.wasNull())?null : data.getDate("dateEmbauche"));
+        dateEmbauche.setTime(data.getDate("dateEmbauche"));
         Integer numTel = (data.wasNull() ? null : data.getInt("numTel"));
         String remarque = (data.wasNull() ? null : data.getString("remarque"));
 
         return new Soignant(data.getString("mail"),
-                (data.wasNull())?null : data.getString("prenom"),
-                (data.wasNull())?null : data.getString("nom"),
-                (data.wasNull())?null : data.getString("rue"),
-                (data.wasNull())?null : data.getInt("numMAison"), numTel, remarque,
-                (data.wasNull())?null : data.getBoolean("EstBenevole"),
+                data.getString("prenom"),
+                data.getString("nom"),
+                data.getString("rue"),
+                data.getInt("numMAison"), numTel, remarque,
+                data.getBoolean("EstBenevole"),
                 dateEmbauche, localite );
+
+        /*String mail, String prenom, String nomDeFamille, String rue, Integer numMaison, Integer numTel,
+                    String remarque, Boolean estBenevole, GregorianCalendar dateEmbauche, Localite localite*/
     }
 }

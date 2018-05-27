@@ -47,9 +47,8 @@ public class ListeAnimalBusiness {
     {
        return animalBusiness.getAnimal(id);
     }
-    public void retirerAnimal(Integer id)
+    public void retirerAnimal(Animal animal)
     {
-        Animal animal=getAnimal(id);
         if (animal.getEtatAnimal() != Animal.EtatAnimal.ARCHIVE) {
             switch (animal.getEtatFicheSoin()) {
                 case DISPONIBLE:
@@ -67,11 +66,16 @@ public class ListeAnimalBusiness {
             }
         }
     }
+    public void retirerAnimal(Integer id)
+    {
+        Animal animal=animalBusiness.getAnimal(id);
+        retirerAnimal(animal);
+    }
 
     public void ajoutAnimal(Animal animal)
     {
 
-        if(animalBusiness.existeDeja(animal)) retirerAnimal(animal.getId());
+        if(animalBusiness.existeDeja(animal)) retirerAnimal(animal);
             if (animal.getEtatAnimal() != Animal.EtatAnimal.ARCHIVE) {
                 switch (animal.getEtatFicheSoin()) {
                     case DISPONIBLE:
@@ -94,7 +98,7 @@ public class ListeAnimalBusiness {
 
     public void updateEtatFicheSoin(Animal animal, Animal.EtatSoin nouvelEtat) throws ErreurrNull,BDConnexionErreur
     {
-        //retirerAnimal(animal.getId());
+        //retirerAnimal(animal);
         animal.setEtatFicheSoin(nouvelEtat);
         if(nouvelEtat== Animal.EtatSoin.RESERVEE||nouvelEtat==Animal.EtatSoin.VETORESERVEE)
             animal.setSoignant(controlleurUtilisateur.getSoignant());
