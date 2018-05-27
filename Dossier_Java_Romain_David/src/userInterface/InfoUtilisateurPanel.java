@@ -60,15 +60,15 @@ public class InfoUtilisateurPanel extends FormulaireInscriptionSoignantPanel
                 String argumentsIncorrects="";
                 String mailTexte= getMailInfo();
                 String nameTexte = getNameInfo();
-                if(nameTexte.equals("")||nameTexte==null)argumentsIncorrects+="prénom \n";
+                if(nameTexte==null)argumentsIncorrects+="prénom \n";
                 String lastNameTexte = getLastNameInfo();
-                if(lastNameTexte.equals("")||lastNameTexte==null) argumentsIncorrects+="nom de famille \n";
+                if(lastNameTexte==null) argumentsIncorrects+="nom de famille \n";
                 Integer tel = getNumTel();
                 Integer house = getHouseNumberInfo();
                 if(house<0||house==null) argumentsIncorrects+="numéro de maison \n";
                 String noteTexte = getNoteText();
                 String streetTexte = getStreetInfo();
-                if(streetTexte.equals("")||streetTexte==null)argumentsIncorrects+="nom de rue";
+                if(streetTexte==null)argumentsIncorrects+="nom de rue";
                 if(!argumentsIncorrects.equals("")) throw new ErreurrNull(argumentsIncorrects);
                 GregorianCalendar dateEmbauche=getDateEmbauche();
 

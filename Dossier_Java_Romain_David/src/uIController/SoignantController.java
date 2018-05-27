@@ -86,7 +86,7 @@ public class SoignantController
             }
             row.add(date);
             row.add(soin.getRemarque() == null ?"Pas de remarque": soin.getRemarque());
-            row.add(soin.getFicheSoin().getRemarque());
+            row.add(soin.getSoinMedical().getRemarque());
             data.add(row);
         }
         else

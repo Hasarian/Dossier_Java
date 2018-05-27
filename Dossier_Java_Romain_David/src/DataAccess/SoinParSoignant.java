@@ -58,7 +58,7 @@ dateSoin dateTime not null,
 numSoinMedical integer(10) not null,
 idSoinEffectue integer(10) auto_increment,
 remarque varchar(140),*/
-        String sql="insert into soinEffectue(mail,dateSoin,numSoinMedical) values(?,?,?)";
+        String sql="insert into soinEffectue(mail,dateSoin,numSoinMedical, remarque) values(?,?,?,?)";
         /*                                   1      2          3 */
 
         try {
@@ -66,6 +66,7 @@ remarque varchar(140),*/
             instruction.setString(1,mailSoignant);
             instruction.setDate(2,new java.sql.Date(heureEffectuee.getTimeInMillis()));
             instruction.setInt(3,soinMedical);
+            instruction.setString(4,remarque);
             instruction.execute();
         }catch (SQLException bdConnexionErreur)
         {
