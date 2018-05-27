@@ -25,15 +25,17 @@ public class SoinAFairePourAnimal implements DAORechercheSoinAFaire{
         connection = SingletonDB.getInstance();
         this.business = business;
     }
-    public ArrayList<SoinMedical> readCareToAnimal(int id)throws BDConnexionErreur, ErreurrNull {
+    public ArrayList<SoinMedical> readCareToAnimal(int id,GregorianCalendar date)throws BDConnexionErreur, ErreurrNull {
       String sql = "select*" +
               "from ficheAnimal, veto, soinMedical, ficheSoin, race, espece " +
               "where ficheAnimal.id = ? and ficheAnimal.id = ficheSoin.id and" +
               "  soinmedical.numDossier = fichesoin.id and soinmedical.mailVeto = veto.mail and ficheanimal.race=race.libelle and espece.libelle=race.espece";
+      sql+=(date!=null)? "and soinMedical.dateSoinMedical=?":"";
       ArrayList<SoinMedical> soinsMedicaux = new ArrayList<SoinMedical>();
       try{
           PreparedStatement statement = connection.prepareStatement(sql);
           statement.setInt(1, id);
+          statement.setTime(2,new java.sql.Time(date.getTimeInMillis()));
           ResultSet data = statement.executeQuery();
 
           while (data.next()){
@@ -43,15 +45,15 @@ public class SoinAFairePourAnimal implements DAORechercheSoinAFaire{
 
 
 
-              GregorianCalendar date = new GregorianCalendar();
-              date.setTime((data.wasNull())?null : data.getDate("soinMedical.dateSoinMedical"));
+              GregorianCalendar dateObtenue = new GregorianCalendar();
+              dateObtenue.setTime((data.wasNull())?null : data.getDate("soinMedical.dateSoinMedical"));
               GregorianCalendar heure = (data.wasNull())?null :  new GregorianCalendar();
-              if (heure != null) heure.setTime(data.getDate("soinMedical.heureSoinMediacl"));
+              if (heure != null) heure.setTime(data.getDate("soinMedical.heureSoinMedical"));
               String description=(data.wasNull())?null:data.getString("soinMedical.description");
               String remarque = (data.wasNull())?null : data.getString("soinMedical.remarque");
               Integer numOrdonnance = (data.wasNull())?null : data.getInt("soinMedical.numOrdonnance");
               String mailVeto =(data.wasNull())?null :  data.getString("soinMedical.mailVeto");
-              soinsMedicaux.add(new SoinMedical(idSoinMedical,ficheSoin,date,heure,description,remarque,numOrdonnance,mailVeto));
+              soinsMedicaux.add(new SoinMedical(idSoinMedical,ficheSoin,dateObtenue,heure,description,remarque,numOrdonnance,mailVeto));
           }
       }
       catch(SQLException sqlException) {

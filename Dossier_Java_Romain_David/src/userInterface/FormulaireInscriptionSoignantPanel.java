@@ -245,7 +245,7 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 
 				Soignant soignant = new Soignant(mailTexte, prenomTexte, nomDeFamilleTexte, streetTexte
 						, house, tel, noteTexte, isVolunteer.isSelected(), date,
-						localiteController.getToutesLesLocalites().get(locality.getSelectedIndex()));
+						getLocalite());
 				int accord = JOptionPane.showConfirmDialog(null,"Etes vous sur de vouloir vous inscrire ?","validation d'inscription",JOptionPane.YES_NO_OPTION);
 				if(accord == JOptionPane.YES_OPTION) {
 					soignantController.setSoignantData(soignant);
@@ -325,7 +325,7 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 		this.houseNumber.setText(houseNumber);
 		this.telNumber.setText(telNumber);
         if(note==null) this.note.setText("non précisé"); else this.note.setText(note);
-		this.isVolunteer.setEnabled(isVolunteer);
+		this.isVolunteer.setSelected(isVolunteer);
 		this.hireDate.setText(dateInscription.get(Calendar.DAY_OF_MONTH)+"/"+(dateInscription.get(Calendar.MONTH)+1)+"/"+dateInscription.get(Calendar.YEAR));
 		if(frame!=null) {
             this.inscription.setText("Modification");
@@ -342,6 +342,9 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 	{
 		return inscription;
 	}
-
+    public Localite getLocalite() throws BDConnexionErreur,ErreurrNull
+    {
+        return localiteController.getToutesLesLocalites().get(locality.getSelectedIndex());
+    }
 	//attention: pas terminé:localité n'est pas sélectionné !
 }

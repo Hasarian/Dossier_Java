@@ -9,6 +9,7 @@ import erreurs.SoignantInexistant;
 import uIController.SoignantController;
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 
 public class ListeAnimalBusiness {
     private ArrayList<Animal> listeDisponible, listePersonnelle, listeDisponibleVeto, listePersonnelleVeto;
@@ -106,9 +107,9 @@ public class ListeAnimalBusiness {
         animalBusiness.animalUpdate(animal);
         ajoutAnimal(animal);
     }
-    public ArrayList<SoinMedical> obtenirSoinParAnimal(Integer id) throws BDConnexionErreur,ErreurrNull
+    public ArrayList<SoinMedical> obtenirSoinParAnimal(Integer id, GregorianCalendar calendar) throws BDConnexionErreur,ErreurrNull
     {
-        return animalBusiness.getSoinPourUnAnimal(id);
+        return animalBusiness.getSoinPourUnAnimal(id,calendar);
     }
     public static ArrayList<SoinMedical> obtenirListTachesTest() throws ErreurrNull
     {

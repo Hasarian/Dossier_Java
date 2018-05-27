@@ -29,7 +29,7 @@ public class AnimalController {
     }
     public ArrayList<ArrayList<String >> getSoinParAnimal(Integer id) throws BDConnexionErreur, ErreurrNull {
         ArrayList<ArrayList<String>> soinMedicals = new ArrayList<ArrayList<String>>();
-        for (SoinMedical soinMedical: animalBusiness.getSoinPourUnAnimal(id)) {
+        for (SoinMedical soinMedical: animalBusiness.getSoinPourUnAnimal(id,null)) {
             ArrayList<String> row = new ArrayList<String>();
             row.add(soinMedical.getNumOrdonnance().toString());
             row.add(soinMedical.getIdSoinMedical().toString());

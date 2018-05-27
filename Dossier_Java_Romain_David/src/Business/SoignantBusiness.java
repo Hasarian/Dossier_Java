@@ -4,12 +4,9 @@ import DataAccess.DAO.DAORechercheSoinEffectue;
 import DataAccess.DAO.DAOSoignant;
 import DataAccess.SoignantDataAccess;
 import DataAccess.SoinParSoignant;
-import Model.SoinEffectue;
-import Model.SoinMedical;
-import Model.Veterinaire;
+import Model.*;
 import com.mysql.fabric.xmlrpc.base.Array;
 import erreurs.*;
-import Model.Soignant;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
@@ -24,9 +21,9 @@ public class SoignantBusiness {
     private SoignantBusiness()
     throws BDConnexionErreur
     {
-        //setDaoSoignant();
+        setDaoSoignant();
         instance = this;
-        //accesSoins =new SoinParSoignant ();
+        accesSoins =new SoinParSoignant ();
         autresUtilisateurs =new ArrayList<Soignant>();
     }
     public static SoignantBusiness otebnirSoignantBusiness() throws BDConnexionErreur
@@ -120,7 +117,7 @@ public class SoignantBusiness {
     public ArrayList<String> getTousLesMails() throws BDConnexionErreur {
         return daoSoignant.readallMails();
     }
-    public void updateUtilisateurDansLaBD(String ancienmail,String nouveauMail,String nameTexte, String lastNameTexte, Integer tel, Integer houseNumber, String noteTexte, String streetTexte)
+    public void updateUtilisateurDansLaBD(String ancienmail, String nouveauMail, String nameTexte, String lastNameTexte, Integer tel, Integer houseNumber, String noteTexte, String streetTexte, Localite localite)
     throws ErreurrNull, BDConnexionErreur,SoignantInexistant
     {
         Soignant soignant;
@@ -133,6 +130,7 @@ public class SoignantBusiness {
         soignant.setNumMaison(houseNumber);
         soignant.setRemarque(noteTexte);
         soignant.setRue(streetTexte);
+        soignant.setLocalite(localite);
         daoSoignant.update(soignant);
     }
     public void supprimerUtilisateur(String mail) throws SuppressionUtilisateurCourant,SoignantInexistant, ErreurrNull, BDConnexionErreur

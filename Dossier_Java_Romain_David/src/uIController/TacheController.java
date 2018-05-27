@@ -19,7 +19,7 @@ public class TacheController {
     public TacheController(Integer id) throws BDConnexionErreur, ErreurrNull, SoignantInexistant {
         ListeAnimalBusiness business = ListeAnimalBusiness.obtenirListAnimalBusiness(new SoignantController());
         animal = business.getAnimal(id);
-        listeTaches = business.obtenirSoinParAnimal(id);
+        listeTaches = business.obtenirSoinParAnimal(id,new GregorianCalendar());
     }
     public TacheController() throws ErreurrNull
     {

@@ -1,5 +1,6 @@
 package userInterface;
 
+import Model.Localite;
 import Model.Soignant;
 import erreurs.*;
 import uIController.SoignantController;
@@ -68,12 +69,13 @@ public class InfoUtilisateurPanel extends FormulaireInscriptionSoignantPanel
                 String noteTexte = getNoteText();
                 String streetTexte = getStreetInfo();
                 if(streetTexte.equals("")||streetTexte==null)argumentsIncorrects+="nom de rue";
+                Localite localite=getLocalite();
 
                 if(!argumentsIncorrects.equals("")) throw new ErreurrNull(argumentsIncorrects);
 
                 int accord = JOptionPane.showConfirmDialog(null, "êtes vous sûr de sauvegarder les changements ?", "confirmation de modification", JOptionPane.YES_NO_CANCEL_OPTION);
                 if (accord == JOptionPane.YES_OPTION) {
-                    userControl.updateUtilisateur(ancienMail,mailTexte,nameTexte,lastNameTexte,tel,house,noteTexte,streetTexte);
+                    userControl.updateUtilisateur(ancienMail,mailTexte,nameTexte,lastNameTexte,tel,house,noteTexte,streetTexte,localite);
                     JOptionPane.showMessageDialog(null, "vos informations ont été mises à jour", "confirmation", JOptionPane.INFORMATION_MESSAGE);
                     bannierePanel.actualisation();
                 }

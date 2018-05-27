@@ -34,7 +34,7 @@ public class AnimalBusiness {
         dbAcces.readTousLesAnimaux();
     }
     public static AnimalBusiness obtenirAnimalBusiness(ListeAnimalBusiness listanimals)
-    throws BDConnexionErreur, ErreurrNull, SoignantInexistant
+    throws BDConnexionErreur, ErreurrNull
     {
         if(instance==null)
         {instance=new AnimalBusiness(listanimals);
@@ -53,8 +53,8 @@ public class AnimalBusiness {
     public Animal getAnimalDansLaBD(Integer id) throws ErreurrNull, BDConnexionErreur, SoignantInexistant {
         return dbAcces.read(id);
     }
-    public ArrayList<SoinMedical> getSoinPourUnAnimal(Integer id) throws BDConnexionErreur, ErreurrNull {
-        return rechercheDeSoinParAnimal.readCareToAnimal(id);
+    public ArrayList<SoinMedical> getSoinPourUnAnimal(Integer id,GregorianCalendar date) throws BDConnexionErreur, ErreurrNull {
+        return rechercheDeSoinParAnimal.readCareToAnimal(id,date);
     }
     public void nouvelAnimalDeLaDB(Integer id, String remarque, Integer numCell, String nom, Race race, GregorianCalendar dateArrivee, GregorianCalendar dateFin,
                                    Boolean estDangereux, Animal.EtatAnimal etatAnimal, String remarqueSoin, Animal.EtatSoin etatSoin, Soignant soignant)
