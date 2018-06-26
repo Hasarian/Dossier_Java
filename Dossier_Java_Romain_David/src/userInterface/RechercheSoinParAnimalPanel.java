@@ -1,6 +1,6 @@
 package userInterface;
 
-import erreurs.BDConnexionErreur;
+import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 import erreurs.SoignantInexistant;
 import uIController.AnimalController;
@@ -43,7 +43,7 @@ public class RechercheSoinParAnimalPanel extends JPanel
             retour.setBounds(5,600,50,30);
             add(retour);
 
-        } catch (BDConnexionErreur connexionError) {
+        } catch (DonneePermanenteErreur connexionError) {
             JOptionPane.showMessageDialog(null, connexionError.getMessage(), "accès BD", JOptionPane.ERROR_MESSAGE);
         } catch (ErreurrNull erreurrNull) {
             JOptionPane.showMessageDialog(null, erreurrNull.getMessage(), "db access error", JOptionPane.ERROR_MESSAGE);
@@ -72,7 +72,7 @@ public class RechercheSoinParAnimalPanel extends JPanel
                     repaint();
                     revalidate();
                 }
-                catch(BDConnexionErreur connexionError)
+                catch(DonneePermanenteErreur connexionError)
                 {
                     JOptionPane.showMessageDialog(null, connexionError.getMessage(), "accès BD", JOptionPane.ERROR_MESSAGE);
                 }

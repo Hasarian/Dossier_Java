@@ -1,7 +1,7 @@
 package DataAccess.DAO;
 
 import Model.Soignant;
-import erreurs.BDConnexionErreur;
+import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurInsertionSoignant;
 import erreurs.ErreurrNull;
 import erreurs.SoignantInexistant;
@@ -10,9 +10,9 @@ import java.util.ArrayList;
 
 public interface DAOSoignant {
     void create(Soignant soignant)throws ErreurInsertionSoignant;
-    Soignant read(String id) throws SoignantInexistant, BDConnexionErreur, ErreurrNull;
-    void update(String ancienMail,Soignant soignant) throws BDConnexionErreur;
-    void delete(String id) throws BDConnexionErreur;
-    ArrayList<String> readallMails() throws BDConnexionErreur;
-    ArrayList<Soignant> readTousLesSoignants() throws BDConnexionErreur,ErreurrNull;
+    Soignant read(String id) throws SoignantInexistant, DonneePermanenteErreur, ErreurrNull;
+    void update(String ancienMail,Soignant soignant) throws DonneePermanenteErreur;
+    void delete(String id) throws DonneePermanenteErreur;
+    ArrayList<String> readallMails() throws DonneePermanenteErreur;
+    ArrayList<Soignant> readTousLesSoignants() throws DonneePermanenteErreur,ErreurrNull;
 }

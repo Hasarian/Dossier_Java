@@ -3,9 +3,7 @@ package uIController;
 import Business.ListeAnimalBusiness;
 import Business.SoignantBusiness;
 import Model.Animal;
-import Model.SoinEffectue;
 import Model.SoinMedical;
-import com.mysql.fabric.xmlrpc.base.Array;
 import erreurs.*;
 
 import java.util.ArrayList;
@@ -16,7 +14,7 @@ public class TacheController {
     Animal animal;
     ArrayList<SoinMedical> listeTaches;
 
-    public TacheController(Integer id) throws BDConnexionErreur, ErreurrNull, SoignantInexistant {
+    public TacheController(Integer id) throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant {
         ListeAnimalBusiness business = ListeAnimalBusiness.obtenirListAnimalBusiness(new SoignantController());
         animal = business.getAnimal(id);
         listeTaches = business.obtenirSoinParAnimal(id,new GregorianCalendar());
@@ -95,7 +93,7 @@ public class TacheController {
     public String getRace(){return animal.getRace().getLibelle();}
 
     public void faireSoin(ArrayList<Boolean> ontEteEffectues,ArrayList<String> remarques,Boolean pourVeto)
-            throws BDConnexionErreur,SoinsNonEffectues,ErreurrNull,MauvaiseTailleString,SoignantInexistant
+            throws DonneePermanenteErreur,SoinsNonEffectues,ErreurrNull,MauvaiseTailleString,SoignantInexistant
     {
         int nbSoinNonEffectués=0;
         for(int i=0;i<listeTaches.size();i++)

@@ -2,7 +2,6 @@ package userInterface;
 
 import Business.SoignantBusiness;
 import Model.Soignant;
-import com.mysql.fabric.xmlrpc.base.Data;
 import erreurs.*;
 import Model.Localite;
 import uIController.SoignantController;
@@ -18,8 +17,6 @@ import java.util.GregorianCalendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static com.sun.org.apache.xalan.internal.xsltc.compiler.sym.error;
-
 public class FormulaireInscriptionSoignantPanel extends JPanel{
     private JLabel nameLabel, lastNameLabel, mailLabel, streetLabel, houseNumberLabel,
 			telNumberLabel, noteLabel, isVolunteerLabel, localityLabel, hireDateLabel;
@@ -34,7 +31,7 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
     private LocaliteController localiteController;
     private ActionListener confirmListener;
 
-    FormulaireInscriptionSoignantPanel(MainFrame frame) throws ErreurrNull, BDConnexionErreur{
+    FormulaireInscriptionSoignantPanel(MainFrame frame) throws ErreurrNull, DonneePermanenteErreur {
 		setBounds(0,0,1000,800);
 		//frame.super("Formulaire d'inscription pour les Soignants");
 		this.setLayout(new GridBagLayout());
@@ -223,7 +220,7 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 
 	}
 	public ActionListener getConfirmListener(){return confirmListener;}
-	private String[] iULocatilte()throws ErreurrNull, BDConnexionErreur {
+	private String[] iULocatilte()throws ErreurrNull, DonneePermanenteErreur {
 		localiteController = new LocaliteController();
 		String [] localitesTexte = new String [localiteController.getToutesLesLocalites().size()];
 		int i = 0;
@@ -273,7 +270,7 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 			catch (ErreurInsertionSoignant error){
 				JOptionPane.showMessageDialog(null, error.getMessage(),"Erreur dans la Création du soigneur",JOptionPane.ERROR_MESSAGE);
 			}
-			catch (BDConnexionErreur connexionError)
+			catch (DonneePermanenteErreur connexionError)
 			{
 				JOptionPane.showMessageDialog(null, connexionError.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
 			}
@@ -367,7 +364,7 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 	{
 		return inscription;
 	}
-    public Localite getLocalite() throws BDConnexionErreur,ErreurrNull
+    public Localite getLocalite() throws DonneePermanenteErreur,ErreurrNull
     {
         return localiteController.getToutesLesLocalites().get(locality.getSelectedIndex());
     }

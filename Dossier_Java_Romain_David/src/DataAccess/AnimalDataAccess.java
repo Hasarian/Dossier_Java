@@ -2,28 +2,24 @@ package DataAccess;
 
 import Business.AnimalBusiness;
 import Business.SoignantBusiness;
-import Business.ListeAnimalBusiness;
-import Business.ListeEspecebusiness;
 import DataAccess.DAO.DAOAnimal;
 import Model.*;
-import erreurs.BDConnexionErreur;
+import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 import erreurs.SoignantInexistant;
-import uIController.SoignantController;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
-public class AnimalDBAccess implements DAOAnimal {
+public class AnimalDataAccess implements DAOAnimal {
     private Connection connection;
-    private AnimalBusiness business;
-    public AnimalDBAccess (AnimalBusiness business) throws BDConnexionErreur, ErreurrNull {
+    public AnimalDataAccess() throws DonneePermanenteErreur{
         connection = SingletonDB.getInstance();
-        this.business=business;
     }
 
     @Override
-    public Animal read(int id) throws ErreurrNull, BDConnexionErreur, SoignantInexistant {
+    public Animal read(int id) throws ErreurrNull, DonneePermanenteErreur, SoignantInexistant {
         //business= AnimalBusiness.obtenirAnimalBusiness(ListeAnimalBusiness.obtenirListAnimalBusiness(new SoignantController()));
         String sql = "select * from ficheSoin, ficheAnimal, espece, race where ficheSoin.id = ? " +
                 "and ficheSoin.id = ficheAnimal.id and ficheAnimal.race = race.libelle and race.espece = espece.libelle";
@@ -31,33 +27,33 @@ public class AnimalDBAccess implements DAOAnimal {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, id);
             ResultSet data = statement.executeQuery();
-            resultatVersAnimal(data);
-            return business.getAnimal(data.getInt("ficheAnimal.id"));
+            return resultatVersAnimal(data);
         }
 
         catch(SQLException e){
-            new BDConnexionErreur(e.getMessage());
+            new DonneePermanenteErreur(e.getMessage());
             return null;
         }
     }
-    public void readTousLesAnimaux() throws ErreurrNull, BDConnexionErreur, SoignantInexistant {
+    public ArrayList<Animal> readTousLesAnimaux() throws ErreurrNull, DonneePermanenteErreur, SoignantInexistant {
+        ArrayList<Animal> animaux=new ArrayList<Animal>();
         try{
             String sql = "select * from ficheanimal,fichesoin,race,espece\n" +
                     "where fichesoin.id=ficheanimal.id and ficheanimal.race=race.libelle and espece.libelle=race.espece; ";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet data = statement.executeQuery();
             while(data.next()) {
-                resultatVersAnimal(data);
+               animaux.add(resultatVersAnimal(data));
                 //System.out.println("data suivant");
             }
-
+            return animaux;
         }
         catch(SQLException e){
-            new BDConnexionErreur(e.getMessage());
+            throw  new DonneePermanenteErreur(e.getMessage());
         }
     }
     @Override
-    public void updateEtat(Animal animal) throws BDConnexionErreur {
+    public void updateEtat(Animal animal) throws DonneePermanenteErreur {
             String sql="update ficheSoin set etat=?,email=? where id=?";
             try{
                 PreparedStatement statement=connection.prepareStatement(sql);
@@ -70,29 +66,27 @@ public class AnimalDBAccess implements DAOAnimal {
             }
             catch (SQLException excpt)
             {
-                throw new BDConnexionErreur(excpt.getMessage());
+                throw new DonneePermanenteErreur(excpt.getMessage());
             }
 
     }
 
-    private void resultatVersAnimal(ResultSet data)throws ErreurrNull, BDConnexionErreur, SoignantInexistant {
-        SoignantBusiness userBusiness= SoignantBusiness.otebnirSoignantBusiness();
+    private Animal resultatVersAnimal(ResultSet data)throws ErreurrNull, DonneePermanenteErreur, SoignantInexistant {
         try {
-                ListeEspecebusiness listeEspecebusiness = ListeEspecebusiness.obtenirEspeceBusiness();
                 //System.out.println("il est rentré dans le bloc de tracution dans l'animal db access");
                 String libelleEspece = data.getString("espece.libelle");
                 Boolean estEnVoieDeDisparition = data.getBoolean("espece.estEnVoieDeDisparition");
                 String typeDeplacement =  data.getString("espece.typeDEplacement");
                 String milieuDeVie = data.getString("espece.milieuDeVie");
                 //System.out.println(libelleEspece+" "+estEnVoieDeDisparition+" "+typeDeplacement+milieuDeVie);
-                Espece espece =listeEspecebusiness.obtenirEspece(libelleEspece, estEnVoieDeDisparition, typeDeplacement, milieuDeVie);
+                Espece espece =new Espece(libelleEspece, estEnVoieDeDisparition, typeDeplacement, milieuDeVie);
                 //System.out.println(libelleEspece);
 
                 String libelleRace =  data.getString("race.libelle");
                 String traitDeCaractere = data.getString("race.traitDeCaractere");
                 String caracteristiqueDuMilieuDeVie = (data.wasNull() ? null : data.getString("race.caracteristiqueDuMilieuDeVie"));
                 String tare = (data.wasNull() ? null : data.getString("race.tare"));
-                Race race = listeEspecebusiness.obtenirRace(libelleRace, traitDeCaractere, tare, caracteristiqueDuMilieuDeVie, espece);
+                Race race = new Race(libelleRace, traitDeCaractere, tare, caracteristiqueDuMilieuDeVie, espece);
                 //System.out.println(libelleRace+" "+traitDeCaractere+" "+tare+" "+caracteristiqueDuMilieuDeVie+" "+espece);
 
                 Integer id =  data.getInt("ficheAnimal.id");
@@ -122,12 +116,12 @@ public class AnimalDBAccess implements DAOAnimal {
                                GregorianCalendar dateDeces, Boolean estDangereux, Animal.EtatAnimal etatAnimal, Animal.EtatSoin etatSoin,
                                String remarqueSoin, Animal.EtatSoin etatFicheSoin, Soignant careGiver*/
                 //System.out.println(nom);
-                business.nouvelAnimalDeLaDB(id, remarque, numCell, nom, race, dateArrive, dateDeces, estDangereux, etatAnimal, remarqueSoin, etatSoins, userBusiness.getUtilisateurParMail(email));
+                return new Animal(id, remarque, numCell,  race,nom, dateArrive, dateDeces, estDangereux, etatAnimal, remarqueSoin, etatSoins, (email==null)?null:new SoignantDataAccess().read(email));
 
         }
         catch(SQLException e){
             //System.out.println(e.getMessage());
-            new BDConnexionErreur(e.getMessage());
+            throw new DonneePermanenteErreur(e.getMessage());
         }
     }
 }

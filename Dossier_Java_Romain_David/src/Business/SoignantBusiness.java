@@ -5,37 +5,23 @@ import DataAccess.DAO.DAOSoignant;
 import DataAccess.SoignantDataAccess;
 import DataAccess.SoinParSoignant;
 import Model.*;
-import com.mysql.fabric.xmlrpc.base.Array;
 import erreurs.*;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 public class SoignantBusiness {
-    private Soignant utilisateurCourant;
+    private static String mailUtilisateurCourant;
     private DAOSoignant daoSoignant;
-    private ArrayList<Soignant> autresUtilisateurs;
-    private static SoignantBusiness instance;
     private DAORechercheSoinEffectue accesSoins;
 
-    private SoignantBusiness()
-    throws BDConnexionErreur
+    public SoignantBusiness()
+    throws DonneePermanenteErreur
     {
         setDaoSoignant();
-        instance = this;
         accesSoins =new SoinParSoignant ();
-        autresUtilisateurs =new ArrayList<Soignant>();
     }
-    public static SoignantBusiness otebnirSoignantBusiness() throws BDConnexionErreur
-    {
-        if(instance==null)
-        {
-            instance= new SoignantBusiness();
-        }
-            return instance;
-    }
-
-    public void setDaoSoignant() throws BDConnexionErreur {
+    public void setDaoSoignant() throws DonneePermanenteErreur {
         this.daoSoignant = new SoignantDataAccess();
     }
 
@@ -43,84 +29,53 @@ public class SoignantBusiness {
         daoSoignant.create(Soignant);
     }
 
-    public void setUtilisateurCourant(Soignant utilisateurCourant) {
-        this.utilisateurCourant = utilisateurCourant;
+    public void setUtilisateurCourant(String mail) throws SoignantInexistant,DonneePermanenteErreur,ErreurrNull {
+        this.mailUtilisateurCourant = daoSoignant.read(mail).getMail();
     }
 
-   public Soignant getSoignantansLaBD(String id) throws SoignantInexistant,BDConnexionErreur,ErreurrNull
+   public Soignant getSoignantansLaBD(String id) throws SoignantInexistant, DonneePermanenteErreur,ErreurrNull
    {
        return daoSoignant.read(id);
    }
 
-    public Soignant getUtilisateurCourant() {
-        return utilisateurCourant;
+    public Soignant getUtilisateurCourant() throws SoignantInexistant,DonneePermanenteErreur,ErreurrNull{
+        return daoSoignant.read(mailUtilisateurCourant);
     }
 
-    public String getNomFamilleUtilisateurCourant()
+    public String getNomFamilleUtilisateurCourant()throws SoignantInexistant, DonneePermanenteErreur,ErreurrNull
     {
-        return utilisateurCourant.getNomDeFamille();
+        return getUtilisateurCourant().getNomDeFamille();
     }
-    public String getPrenomUtilisateurCourant()
+    public String getPrenomUtilisateurCourant()throws SoignantInexistant, DonneePermanenteErreur,ErreurrNull
     {
-        return utilisateurCourant.getPrenom();
+        return getUtilisateurCourant().getPrenom();
     }
-    public String getMailUtilisateurCourant()
+    public String getMailUtilisateurCourant()throws SoignantInexistant, DonneePermanenteErreur,ErreurrNull
     {
-        return utilisateurCourant.getMail();
+        return getUtilisateurCourant().getMail();
     }
-    public boolean estVeterinaire()
+    public boolean estVeterinaire()throws SoignantInexistant, DonneePermanenteErreur,ErreurrNull
     {
-        return utilisateurCourant instanceof Veterinaire ;
+        return getUtilisateurCourant() instanceof Veterinaire ;
     }
-    public Soignant getUtilisateurParMail(String mail) throws SoignantInexistant, BDConnexionErreur, ErreurrNull
+    public Soignant getUtilisateurParMail(String mail) throws SoignantInexistant, DonneePermanenteErreur, ErreurrNull
     {
-        if(mail==null)return null;
-        if(estConnu(mail))
-        {
-            for (Soignant utilisateur : autresUtilisateurs) {
-                if (utilisateur.getMail().equals(mail)) return utilisateur;
-            }
-            return utilisateurCourant;
-        }
-        else
-            {
-                Soignant utilisateur= daoSoignant.read(mail);
-                autresUtilisateurs.add(utilisateur);
-                return utilisateur;
-            }
-    }
-    public void getUtilisateurParEmailDansLaBD(String mail) throws SoignantInexistant, BDConnexionErreur, ErreurrNull
-    {
-        Soignant utilisateur=daoSoignant.read(mail);
-        if(utilisateur.getMail().compareTo(utilisateurCourant.getMail())==0) utilisateurCourant =utilisateur;
-        else
-        {
-            if(estConnu(mail)) autresUtilisateurs.remove(getUtilisateurParMail(mail));
-            autresUtilisateurs.add(utilisateur);
-        }
+                return daoSoignant.read(mail);
     }
 
-    public boolean estConnu(String mail)
-    {
-            for (Soignant utilisateur : autresUtilisateurs) {
-                if (utilisateur.getMail().equals(mail)) return true; }
-        return utilisateurCourant.getMail().equals(mail);
-    }
 
-    public ArrayList<SoinEffectue> getSoinsEffectues(String mail) throws BDConnexionErreur, ErreurrNull,SoignantInexistant,MauvaiseTailleString
+    public ArrayList<SoinEffectue> getSoinsEffectues(String mail) throws DonneePermanenteErreur, ErreurrNull,SoignantInexistant,MauvaiseTailleString
     {
         return accesSoins.searchHistory(mail);
     }
 
-    public ArrayList<String> getTousLesMails() throws BDConnexionErreur {
+    public ArrayList<String> getTousLesMails() throws DonneePermanenteErreur {
         return daoSoignant.readallMails();
     }
     public void updateUtilisateurDansLaBD(String ancienmail, String nouveauMail, String nameTexte, String lastNameTexte, Integer tel,Boolean estVolontaire, Integer houseNumber, String noteTexte, String streetTexte, Localite localite,GregorianCalendar dateEmbauche)
-    throws ErreurrNull, BDConnexionErreur,SoignantInexistant
+    throws ErreurrNull, DonneePermanenteErreur,SoignantInexistant
     {
-        Soignant soignant;
-        if(utilisateurCourant.getMail().equals(ancienmail)) soignant=utilisateurCourant;
-        else soignant=getUtilisateurParMail(ancienmail);
+        Soignant soignant=getUtilisateurParMail(ancienmail);
         soignant.setMail(nouveauMail);
         soignant.setPrenom(nameTexte);
         soignant.setNomDeFamille(lastNameTexte);
@@ -133,50 +88,27 @@ public class SoignantBusiness {
         soignant.setDateEmbauche(dateEmbauche);
         daoSoignant.update(ancienmail,soignant);
     }
-    public void supprimerUtilisateur(String mail) throws SuppressionUtilisateurCourant,SoignantInexistant, ErreurrNull, BDConnexionErreur
+    public void supprimerUtilisateur(String mail) throws SuppressionUtilisateurCourant,DonneePermanenteErreur
     {
-        if(mail.equals(utilisateurCourant.getMail())) throw new SuppressionUtilisateurCourant();
-        else
-        {
-            if (estConnu(mail)) autresUtilisateurs.remove(getUtilisateurParMail(mail));
+        if(mail.equals(mailUtilisateurCourant)) throw new SuppressionUtilisateurCourant();
             daoSoignant.delete(mail);
-        }
     }
-    public void supprimerUtilisateurCourant() throws BDConnexionErreur
+    public void supprimerUtilisateurCourant() throws DonneePermanenteErreur
     {
-        daoSoignant.delete(utilisateurCourant.getMail());
+        daoSoignant.delete(mailUtilisateurCourant);
     }
 
-    public void creerSoin(GregorianCalendar dateHeure, SoinMedical soinEffectue,String remarque) throws BDConnexionErreur
+    public void creerSoin(GregorianCalendar dateHeure, SoinMedical soinEffectue,String remarque) throws DonneePermanenteErreur
     {
-        accesSoins.create(utilisateurCourant.getMail(),dateHeure,soinEffectue.getIdSoinMedical(),remarque);
+        accesSoins.create(mailUtilisateurCourant,dateHeure,soinEffectue.getIdSoinMedical(),remarque);
     }
-    public Soignant getSoignantParIndex(int row)
+    public Soignant getSoignantParIndex(int row)  throws DonneePermanenteErreur,ErreurrNull
     {
-        if(row==0) return utilisateurCourant;
-        return autresUtilisateurs.get(row-1);
+       return daoSoignant.readTousLesSoignants().get(row);
     }
-    public void initTousLesSoignants()
-            throws ErreurrNull,BDConnexionErreur,SoignantInexistant
+    public int getNbSoignants()throws DonneePermanenteErreur,ErreurrNull
     {
-        ArrayList<Soignant> soignants=daoSoignant.readTousLesSoignants();
-        for(Soignant soignant:soignants)
-        {
-            if(utilisateurCourant.getMail().equals(soignant.getMail())) setUtilisateurCourant(soignant);
-            else
-            {if (estConnu(soignant.getMail())) autresUtilisateurs.remove(getUtilisateurParMail(soignant.getMail()));
-            autresUtilisateurs.add(soignant);}
-        }
-        /*utilisateurCourant=new Soignant();
-        for(int i=0;i<15;i++) autresUtilisateurs.add(new Soignant());*/
-    }
-    public int getNbSoignants()
-    {
-        return 1+autresUtilisateurs.size();
-    }
-    public void dispose()
-    {
-        instance=null;
+        return daoSoignant.readTousLesSoignants().size();
     }
 }
 

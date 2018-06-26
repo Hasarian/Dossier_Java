@@ -2,8 +2,7 @@ package uIController;
 
 import Business.LocaliteBusiness;
 import Model.Localite;
-import com.mysql.fabric.xmlrpc.base.Array;
-import erreurs.BDConnexionErreur;
+import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 import erreurs.LocaliteInexistante;
 
@@ -12,11 +11,11 @@ import java.util.ArrayList;
 public class LocaliteController {
     private LocaliteBusiness localiteBusiness;
     private ArrayList<Localite> localites;
-    public LocaliteController() throws BDConnexionErreur {
+    public LocaliteController() throws DonneePermanenteErreur {
         localiteBusiness =  new LocaliteBusiness();
     }
 
-    public ArrayList<Localite> getToutesLesLocalites() throws BDConnexionErreur, ErreurrNull {
+    public ArrayList<Localite> getToutesLesLocalites() throws DonneePermanenteErreur, ErreurrNull {
         localites=localiteBusiness.getToutesLesLocalites();
         return localites;
     }

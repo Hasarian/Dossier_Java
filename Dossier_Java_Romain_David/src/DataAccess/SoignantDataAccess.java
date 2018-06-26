@@ -3,8 +3,7 @@ package DataAccess;
 
 import DataAccess.DAO.DAOSoignant;
 import Model.Soignant;
-import com.mysql.fabric.xmlrpc.base.Array;
-import erreurs.BDConnexionErreur;
+import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurInsertionSoignant;
 import Model.Localite;
 import erreurs.ErreurrNull;
@@ -16,7 +15,7 @@ import java.util.GregorianCalendar;
 
 public class SoignantDataAccess implements DAOSoignant {
     private Connection singletonDBAcces;
-    public SoignantDataAccess() throws BDConnexionErreur {
+    public SoignantDataAccess() throws DonneePermanenteErreur {
         singletonDBAcces = SingletonDB.getInstance();
     }
 
@@ -47,7 +46,7 @@ public class SoignantDataAccess implements DAOSoignant {
 
 
 
-    public void delete(String id) throws BDConnexionErreur {
+    public void delete(String id) throws DonneePermanenteErreur {
         String sql="delete from soignant where mail=?";
         try{
             PreparedStatement statement=singletonDBAcces.prepareStatement(sql);
@@ -56,12 +55,12 @@ public class SoignantDataAccess implements DAOSoignant {
         }
         catch (SQLException sqlException)
         {
-            throw new BDConnexionErreur(sqlException.getMessage());
+            throw new DonneePermanenteErreur(sqlException.getMessage());
         }
     }
 
 
-    public void update(String ancianMail,Soignant soignant) throws BDConnexionErreur {
+    public void update(String ancianMail,Soignant soignant) throws DonneePermanenteErreur {
         String sql="update soignant" +
                 " set prenom=?,nom=?,rue=?,numMaison=?,numTel=?,remarque=?,estBenevole=?,localite=?, mail=?, dateEmbauche=?" +
                 "where mail=?";
@@ -96,11 +95,11 @@ public class SoignantDataAccess implements DAOSoignant {
         }
         catch (SQLException sqlException)
         {
-            throw new BDConnexionErreur(sqlException.getMessage());
+            throw new DonneePermanenteErreur(sqlException.getMessage());
         }
     }
 
-    public Soignant read(String id) throws SoignantInexistant, ErreurrNull, BDConnexionErreur
+    public Soignant read(String id) throws SoignantInexistant, ErreurrNull, DonneePermanenteErreur
     {
         String sql = "select * from soignant, localite where soignant.mail = ? and soignant.localite = localite.idLocalite";
 
@@ -114,10 +113,10 @@ public class SoignantDataAccess implements DAOSoignant {
         }
         catch(SQLException sqlException) {
             //System.out.println(sqlException.getMessage());
-            throw new BDConnexionErreur(sqlException.getMessage());
+            throw new DonneePermanenteErreur(sqlException.getMessage());
         }
     }
-    public ArrayList<String> readallMails() throws BDConnexionErreur
+    public ArrayList<String> readallMails() throws DonneePermanenteErreur
     {
         String sql="select mail from soignant";
         try
@@ -134,10 +133,10 @@ public class SoignantDataAccess implements DAOSoignant {
 
         catch (SQLException sqlException)
         {
-            throw new BDConnexionErreur(sqlException.getMessage());
+            throw new DonneePermanenteErreur(sqlException.getMessage());
         }
     }
-    public ArrayList<Soignant> readTousLesSoignants() throws BDConnexionErreur,ErreurrNull
+    public ArrayList<Soignant> readTousLesSoignants() throws DonneePermanenteErreur,ErreurrNull
     {
         String sql="select * from soignant, localite where soignant.localite=localite.idlocalite";
         try {
@@ -152,7 +151,7 @@ public class SoignantDataAccess implements DAOSoignant {
         }
         catch (SQLException sqlE)
         {
-            throw new BDConnexionErreur(sqlE.getMessage());
+            throw new DonneePermanenteErreur(sqlE.getMessage());
         }
     }
     public Soignant traductionSQL(ResultSet data) throws SQLException,ErreurrNull

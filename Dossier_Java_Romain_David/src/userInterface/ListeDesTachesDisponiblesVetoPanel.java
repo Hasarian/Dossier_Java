@@ -1,7 +1,7 @@
 package userInterface;
 
 import Model.Animal;
-import erreurs.BDConnexionErreur;
+import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 import erreurs.SoignantInexistant;
 import uIController.SoignantController;
@@ -49,7 +49,7 @@ public class ListeDesTachesDisponiblesVetoPanel extends ListeDeTachesPanel {
             {
                 JOptionPane.showMessageDialog(null,unknown.getMessage(),"unknown member",JOptionPane.ERROR_MESSAGE);
             }
-            catch (BDConnexionErreur erreur){
+            catch (DonneePermanenteErreur erreur){
                 JOptionPane.showMessageDialog(null,erreur.getMessage(),"Probleme de connection à la BD",JOptionPane.ERROR_MESSAGE);
             }
             getTaskTable().clearSelection();

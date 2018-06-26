@@ -2,25 +2,24 @@ package DataAccess;
 
 import DataAccess.DAO.DAOLocalite;
 import Model.Localite;
-import erreurs.BDConnexionErreur;
+import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 
-import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class LocaliteBDAccess implements DAOLocalite {
+public class LocaliteDataAccess implements DAOLocalite {
     private Connection connexion;
 
-    public LocaliteBDAccess() throws BDConnexionErreur {
+    public LocaliteDataAccess() throws DonneePermanenteErreur {
         connexion = SingletonDB.getInstance();
     }
 
     @Override
-    public ArrayList<Localite> readToutesLesLocalites() throws BDConnexionErreur, ErreurrNull {
+    public ArrayList<Localite> readToutesLesLocalites() throws DonneePermanenteErreur, ErreurrNull {
         ArrayList<Localite> localites = new ArrayList<Localite>();
 
         try {
@@ -34,7 +33,7 @@ public class LocaliteBDAccess implements DAOLocalite {
         }
         catch(SQLException e){
             //JOptionPane.showMessageDialog(null, e.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
-             throw new BDConnexionErreur(e.getMessage());
+             throw new DonneePermanenteErreur(e.getMessage());
         }
         return localites;
     }
@@ -45,7 +44,7 @@ public class LocaliteBDAccess implements DAOLocalite {
             localite = new Localite(data.getInt("idLocalite"), data.getInt("CodePostal"), data.getString("libelle"));
         }
         catch(SQLException e){
-            new BDConnexionErreur(e.getMessage());
+            new DonneePermanenteErreur(e.getMessage());
         }
         return localite;
     }

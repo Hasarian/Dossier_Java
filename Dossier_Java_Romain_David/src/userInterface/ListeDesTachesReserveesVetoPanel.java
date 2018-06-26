@@ -1,7 +1,7 @@
 package userInterface;
 
 import Model.Animal;
-import erreurs.BDConnexionErreur;
+import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 import erreurs.SoignantInexistant;
 import uIController.SoignantController;
@@ -52,8 +52,8 @@ public class ListeDesTachesReserveesVetoPanel extends ListeDeTachesPanel {
             {
                 JOptionPane.showMessageDialog(null,error.getMessage(),"Attribut obligatoir à nullr",JOptionPane.ERROR_MESSAGE);
             }
-            catch (BDConnexionErreur bdConnexionErreur){
-                JOptionPane.showMessageDialog(null,bdConnexionErreur.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
+            catch (DonneePermanenteErreur donneePermanenteErreur){
+                JOptionPane.showMessageDialog(null, donneePermanenteErreur.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
             }
             getTaskTable().clearSelection();
             getTablePane().repaint();

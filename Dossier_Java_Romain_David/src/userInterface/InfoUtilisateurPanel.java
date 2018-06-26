@@ -1,6 +1,5 @@
 package userInterface;
 
-import Model.Localite;
 import Model.Soignant;
 import erreurs.*;
 import uIController.SoignantController;
@@ -17,7 +16,7 @@ public class InfoUtilisateurPanel extends FormulaireInscriptionSoignantPanel
     BannierePanel bannierePanel;
     SoignantController userControl;
     String ancienMail;
-    public InfoUtilisateurPanel(SoignantController user, MainFrame frame, BannierePanel bannierePanel) throws BDConnexionErreur, ErreurrNull
+    public InfoUtilisateurPanel(SoignantController user, MainFrame frame, BannierePanel bannierePanel) throws DonneePermanenteErreur, ErreurrNull
     {
             super(frame);
             this.bannierePanel = bannierePanel;
@@ -34,7 +33,7 @@ public class InfoUtilisateurPanel extends FormulaireInscriptionSoignantPanel
             repaint();
             getConfirmButton().addActionListener(new MajListener());
     }
-    public InfoUtilisateurPanel(Soignant soignant,MainFrame frame) throws BDConnexionErreur,ErreurrNull
+    public InfoUtilisateurPanel(Soignant soignant,MainFrame frame) throws DonneePermanenteErreur,ErreurrNull
     {
         super(frame);
         bannierePanel=frame.obtenirBanierePanel();
@@ -91,7 +90,7 @@ public class InfoUtilisateurPanel extends FormulaireInscriptionSoignantPanel
             {
                 JOptionPane.showMessageDialog(null, regexErreur.getMessage(),"attribut invalide",JOptionPane.ERROR_MESSAGE);
             }
-            catch (BDConnexionErreur connexionError)
+            catch (DonneePermanenteErreur connexionError)
             {
                 JOptionPane.showMessageDialog(null, connexionError.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
             }

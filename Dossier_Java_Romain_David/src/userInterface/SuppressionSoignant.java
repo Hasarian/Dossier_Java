@@ -1,6 +1,6 @@
 package userInterface;
 
-import erreurs.BDConnexionErreur;
+import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 import erreurs.SoignantInexistant;
 import erreurs.SuppressionUtilisateurCourant;
@@ -18,7 +18,7 @@ public class SuppressionSoignant extends JPanel
     private SoignantController soignantController;
     private MainFrame frame;
     private String[]users;
-    public SuppressionSoignant(MainFrame frame) throws BDConnexionErreur
+    public SuppressionSoignant(MainFrame frame) throws DonneePermanenteErreur
     {
         soignantController =new SoignantController();
         setBackground(Color.WHITE);
@@ -82,7 +82,7 @@ public class SuppressionSoignant extends JPanel
             {
                 JOptionPane.showMessageDialog(null,"cet utilisateur n'existe pas","utilisateur inconnu",JOptionPane.ERROR_MESSAGE);
             }
-            catch(BDConnexionErreur connectError)
+            catch(DonneePermanenteErreur connectError)
             {
                 JOptionPane.showMessageDialog(null,"unable to connect to the BD","connexion error",JOptionPane.ERROR_MESSAGE);
             }

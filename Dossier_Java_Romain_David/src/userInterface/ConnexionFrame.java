@@ -1,7 +1,7 @@
 package userInterface;
 
 import ThreadAppli.ThreadEcranDeConnexion;
-import erreurs.BDConnexionErreur;
+import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 import erreurs.SoignantInexistant;
 import uIController.SoignantController;
@@ -90,7 +90,7 @@ public class ConnexionFrame extends JFrame
                     threadEcranDeConnexion.stopThread();
                 }
 
-                catch(BDConnexionErreur dbError)
+                catch(DonneePermanenteErreur dbError)
                 {
                     JOptionPane.showMessageDialog(null,dbError.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
                 }

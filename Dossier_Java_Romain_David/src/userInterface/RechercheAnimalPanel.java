@@ -1,6 +1,6 @@
 package userInterface;
 
-import erreurs.BDConnexionErreur;
+import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 import erreurs.SoignantInexistant;
 import uIController.AnimalController;
@@ -22,7 +22,7 @@ public class RechercheAnimalPanel extends JPanel {
     private AnimalController animalController;
     private MainFrame frame;
 
-    public RechercheAnimalPanel(MainFrame frame) throws BDConnexionErreur, ErreurrNull, SoignantInexistant {
+    public RechercheAnimalPanel(MainFrame frame) throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant {
         this.frame=frame;
         setLayout(null);
         setBackground(Color.WHITE);
@@ -81,7 +81,7 @@ public class RechercheAnimalPanel extends JPanel {
                 revalidate();
 
             }
-        catch(BDConnexionErreur connexionError)
+        catch(DonneePermanenteErreur connexionError)
             {
                 JOptionPane.showMessageDialog(null, connexionError.getMessage(), "accès BD", JOptionPane.ERROR_MESSAGE);
             }

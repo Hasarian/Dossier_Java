@@ -1,7 +1,6 @@
 package userInterface;
 
-import Business.ListeAnimalBusiness;
-import erreurs.BDConnexionErreur;
+import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 import erreurs.SoignantInexistant;
 import uIController.SoignantController;
@@ -18,7 +17,7 @@ public class ListeSoignantsPanel extends JPanel
     private MainFrame mainFrame;
     private JTable table;
     private ListeSoignantsPanel cePanneau;
-    public ListeSoignantsPanel(MainFrame mainFrame) throws ErreurrNull,BDConnexionErreur,SoignantInexistant
+    public ListeSoignantsPanel(MainFrame mainFrame) throws ErreurrNull, DonneePermanenteErreur,SoignantInexistant
     {
         cePanneau=this;
         setBackground(Color.white);
@@ -47,7 +46,7 @@ public class ListeSoignantsPanel extends JPanel
             try {
                 mainFrame.changePanel(new InfoUtilisateurPanel(controller.getSoignantParIndex(table.getSelectedRow()),mainFrame));
             }
-            catch (BDConnexionErreur bdErreur)
+            catch (DonneePermanenteErreur bdErreur)
             {
                 JOptionPane.showMessageDialog(null,bdErreur.getMessage(),"erreur de connexion à la BD",JOptionPane.ERROR_MESSAGE);
             }
@@ -77,7 +76,7 @@ public class ListeSoignantsPanel extends JPanel
 
                 };
         public ListingSoignantTableModel()
-                throws ErreurrNull, BDConnexionErreur, SoignantInexistant
+                throws ErreurrNull, DonneePermanenteErreur, SoignantInexistant
         { controller.initSoignant();}
         public int getRowCount() {
                 return controller.nbSoignants();

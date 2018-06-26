@@ -2,7 +2,6 @@ package uIController;
 
 import Business.AnimalBusiness;
 import Business.ListeAnimalBusiness;
-import Business.ListeEspecebusiness;
 import Business.SoignantBusiness;
 import Model.Soignant;
 import Model.Localite;
@@ -17,12 +16,12 @@ public class SoignantController
 {
     private SoignantBusiness business;
 
-    public SoignantController() throws BDConnexionErreur
+    public SoignantController() throws DonneePermanenteErreur
     {
         business= SoignantBusiness.otebnirSoignantBusiness();
     }
 
-    public void setSoignantConnexion(String login) throws BDConnexionErreur, SoignantInexistant, ErreurrNull
+    public void setSoignantConnexion(String login) throws DonneePermanenteErreur, SoignantInexistant, ErreurrNull
     {
             business.setUtilisateurCourant(business.getSoignantansLaBD(login));
     }
@@ -54,7 +53,7 @@ public class SoignantController
         return business.getUtilisateurCourant();
     }
 
-    public ArrayList<ArrayList<String>> soinsFaitsPar(String mail) throws BDConnexionErreur, ErreurrNull, SoignantInexistant,MauvaiseTailleString
+    public ArrayList<ArrayList<String>> soinsFaitsPar(String mail) throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant,MauvaiseTailleString
     {
         ArrayList<SoinEffectue> soinsEffectués=business.getSoinsEffectues(mail);
         ArrayList<ArrayList<String>> data=new ArrayList<ArrayList<String>>();
@@ -98,23 +97,23 @@ public class SoignantController
         }
         return data;
     }
-    public String getTelAutreUtilisateur(String mail) throws SoignantInexistant, BDConnexionErreur, ErreurrNull
+    public String getTelAutreUtilisateur(String mail) throws SoignantInexistant, DonneePermanenteErreur, ErreurrNull
     {
         return business.getUtilisateurParMail(mail).getNumTel().toString();
     }
-    public String getNomDeFamilleAutreUtilisateur(String mail) throws SoignantInexistant, ErreurrNull, BDConnexionErreur
+    public String getNomDeFamilleAutreUtilisateur(String mail) throws SoignantInexistant, ErreurrNull, DonneePermanenteErreur
     {
         return business.getUtilisateurParMail(mail).getPrenom()+" "+business.getUtilisateurParMail(mail).getNomDeFamille();
     }
-    public String AutreUtilisateurEstBenevole(String mail) throws SoignantInexistant, ErreurrNull, BDConnexionErreur
+    public String AutreUtilisateurEstBenevole(String mail) throws SoignantInexistant, ErreurrNull, DonneePermanenteErreur
     {
         return(business.getUtilisateurParMail(mail).getEstBenevole())?"(bénévole)":"(salarié)";
     }
-    public String getCodePostalAutreUtilisateur(String mail) throws SoignantInexistant, ErreurrNull, BDConnexionErreur
+    public String getCodePostalAutreUtilisateur(String mail) throws SoignantInexistant, ErreurrNull, DonneePermanenteErreur
     {
         return business.getUtilisateurParMail(mail).getLocalite().getCodePostal()+" "+ business.getUtilisateurParMail(mail).getLocalite().getLibelle();
     }
-    public String[] getTousLesUtilisateurs()throws BDConnexionErreur
+    public String[] getTousLesUtilisateurs()throws DonneePermanenteErreur
     {
         ArrayList<String> utilisateurs=business.getTousLesMails();
         String[] data=new String[utilisateurs.size()];
@@ -122,15 +121,15 @@ public class SoignantController
         return data;
     }
     public void updateUtilisateur(String ancienMail,String mail,String nameTexte, String lastNameTexte, Integer tel,Boolean estVolontaire ,Integer houseNumber, String noteTexte, String streetTexte,Localite localite,GregorianCalendar dateEmbauche)
-    throws ErreurrNull, BDConnexionErreur,SoignantInexistant
+    throws ErreurrNull, DonneePermanenteErreur,SoignantInexistant
     {
         business.updateUtilisateurDansLaBD(ancienMail,mail,nameTexte,lastNameTexte,tel,estVolontaire,houseNumber,noteTexte,streetTexte,localite,dateEmbauche);
     }
-    public void supprimerSoignant(String mail) throws SuppressionUtilisateurCourant, SoignantInexistant, ErreurrNull, BDConnexionErreur
+    public void supprimerSoignant(String mail) throws SuppressionUtilisateurCourant, SoignantInexistant, ErreurrNull, DonneePermanenteErreur
     {
         business.supprimerUtilisateur(mail);
     }
-    public void supprimerUtilsiateurActuel() throws BDConnexionErreur
+    public void supprimerUtilsiateurActuel() throws DonneePermanenteErreur
     {
         business.supprimerUtilisateurCourant();
     }
@@ -153,7 +152,7 @@ public class SoignantController
             default: return "données inexistantes";
         }
     }
-    public void initSoignant() throws ErreurrNull,BDConnexionErreur,SoignantInexistant
+    public void initSoignant() throws ErreurrNull, DonneePermanenteErreur,SoignantInexistant
     {
         business.initTousLesSoignants();
     }

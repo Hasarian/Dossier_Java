@@ -1,9 +1,6 @@
 package userInterface;
 
-import Model.Soignant;
-import com.mysql.fabric.xmlrpc.base.Array;
 import erreurs.*;
-import uIController.SoignantController;
 import uIController.ListesAnimauxController;
 import uIController.TacheController;
 
@@ -16,7 +13,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.lang.annotation.Documented;
 import java.util.ArrayList;
 
 public class InfoTachePanel extends JPanel
@@ -27,7 +23,7 @@ public class InfoTachePanel extends JPanel
     private ArrayList<JCheckBox> soinsFaits;
     private JCheckBox pourLeVeto,estDangereux;
     private ListeDeTachesPanel listeDeTachesPanel;
-    public InfoTachePanel(Integer id,JPanel parentPanel,MainFrame mainFrame, ListeDeTachesPanel listeDeTachesPanel) throws BDConnexionErreur, ErreurrNull, SoignantInexistant,NombreInvalideException
+    public InfoTachePanel(Integer id,JPanel parentPanel,MainFrame mainFrame, ListeDeTachesPanel listeDeTachesPanel) throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant,NombreInvalideException
     {
         this.listeDeTachesPanel = listeDeTachesPanel;
         this.mainFrame=mainFrame;
@@ -256,7 +252,7 @@ public class InfoTachePanel extends JPanel
                     if(listesAnimauxController.aucunAnimalReserve())mainFrame.getBasePanel().removeTab(listeDeTachesPanel);
                 }
             }
-            catch (BDConnexionErreur connexion)
+            catch (DonneePermanenteErreur connexion)
             {
                 JOptionPane.showMessageDialog(null,connexion.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
             }

@@ -4,8 +4,9 @@ import Business.AnimalBusiness;
 import DataAccess.DAO.DAORechercheSoinAFaire;
 import Model.Animal;
 import Model.SoinMedical;
-import erreurs.BDConnexionErreur;
+import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
+import erreurs.SoignantInexistant;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,12 +21,10 @@ public class SoinAFairePourAnimal implements DAORechercheSoinAFaire{
     private Veterinaire veterinaire;
     private SoinMedical soinMedical;*/
     private Connection connection;
-    private AnimalBusiness business;
-    public SoinAFairePourAnimal(AnimalBusiness business) throws  BDConnexionErreur {
+    public SoinAFairePourAnimal(AnimalBusiness business) throws DonneePermanenteErreur {
         connection = SingletonDB.getInstance();
-        this.business = business;
     }
-    public ArrayList<SoinMedical> readCareToAnimal(int id,GregorianCalendar date)throws BDConnexionErreur, ErreurrNull {
+    public ArrayList<SoinMedical> readCareToAnimal(int id,GregorianCalendar date)throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant {
       String sql = "select*" +
               "from ficheAnimal, veto, soinMedical, ficheSoin, race, espece " +
               "where ficheAnimal.id = ? and ficheAnimal.id = ficheSoin.id and" +
@@ -41,7 +40,7 @@ public class SoinAFairePourAnimal implements DAORechercheSoinAFaire{
           while (data.next()){
               Integer idSoinMedical = (data.wasNull())?null : data.getInt("soinMedical.idSoinMedical");
               //System.out.println(data.getInt("soinMedical.numDossier"));
-              Animal ficheSoin = business.getAnimal((data.wasNull())?null : data.getInt("soinMedical.numDossier"));
+              Animal ficheSoin = new AnimalDataAccess().read((data.getInt("soinMedical.numDossier")));
 
 
 
@@ -57,7 +56,7 @@ public class SoinAFairePourAnimal implements DAORechercheSoinAFaire{
           }
       }
       catch(SQLException sqlException) {
-          throw new BDConnexionErreur(sqlException.getMessage());
+          throw new DonneePermanenteErreur(sqlException.getMessage());
       }
       return soinsMedicaux;
     }

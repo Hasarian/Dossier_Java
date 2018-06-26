@@ -1,6 +1,6 @@
 package userInterface;
 
-import erreurs.BDConnexionErreur;
+import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 import erreurs.MauvaiseTailleString;
 import erreurs.SoignantInexistant;
@@ -22,7 +22,7 @@ public class RechercheSoinParSoignantPanel extends JPanel {
     private JScrollPane tablePane;
     private JLabel idGiverLabel;
     private JList listId;
-    public RechercheSoinParSoignantPanel(MainFrame mainFrame) throws BDConnexionErreur
+    public RechercheSoinParSoignantPanel(MainFrame mainFrame) throws DonneePermanenteErreur
     {
         careGiverControl=new SoignantController();
         this.mainFrame=mainFrame;
@@ -92,7 +92,7 @@ public class RechercheSoinParSoignantPanel extends JPanel {
                 add(tablePane);
                 repaint();
 
-            } catch (BDConnexionErreur connexionError) {
+            } catch (DonneePermanenteErreur connexionError) {
                 JOptionPane.showMessageDialog(null, connexionError.getMessage(), "accès BD", JOptionPane.ERROR_MESSAGE);
             }
             catch (SoignantInexistant soignantInexistant)

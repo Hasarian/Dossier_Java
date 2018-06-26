@@ -7,7 +7,7 @@ import DataAccess.DAO.DAORechercheSoinEffectue;
 import Model.Animal;
 import Model.SoinEffectue;
 import Model.SoinMedical;
-import erreurs.BDConnexionErreur;
+import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 import erreurs.MauvaiseTailleString;
 import erreurs.SoignantInexistant;
@@ -21,13 +21,11 @@ public class SoinParSoignant
 implements DAORechercheSoinEffectue
 {
     private Connection connection;
-    private SoignantBusiness giverBusiness;
-    public SoinParSoignant() throws BDConnexionErreur
+    public SoinParSoignant() throws DonneePermanenteErreur
     {
         connection=SingletonDB.getInstance();
-        giverBusiness= SoignantBusiness.otebnirSoignantBusiness();
     }
-    public ArrayList<SoinEffectue> searchHistory(String mail) throws BDConnexionErreur, ErreurrNull, SoignantInexistant,MauvaiseTailleString {
+    public ArrayList<SoinEffectue> searchHistory(String mail) throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant,MauvaiseTailleString {
         String sql = "select *from soignant, localite, soineffectue, soinmedical\n" +
                 "where soignant.mail = ? and soignant.localite = localite.idLocalite\n" +
                 "and soineffectue.mail = soignant.mail and soineffectue.numSoinMedical = soinmedical.idSoinMedical; ";
@@ -44,14 +42,14 @@ implements DAORechercheSoinEffectue
         }
 
         catch(SQLException e){
-            new BDConnexionErreur(e.getMessage());
+            new DonneePermanenteErreur(e.getMessage());
             return null;
         }
     }
 
     @Override
     public void create(String mailSoignant, GregorianCalendar heureEffectuee, Integer soinMedical, String remarque)
-            throws BDConnexionErreur
+            throws DonneePermanenteErreur
     {
         /*mail varchar(50) not null,
 dateSoin dateTime not null,
@@ -70,15 +68,14 @@ remarque varchar(140),*/
             instruction.execute();
         }catch (SQLException bdConnexionErreur)
         {
-            throw new BDConnexionErreur(bdConnexionErreur.getMessage());
+            throw new DonneePermanenteErreur(bdConnexionErreur.getMessage());
         }
 
     }
 
-    public SoinEffectue traductionSQL(ResultSet data) throws ErreurrNull, BDConnexionErreur, SoignantInexistant, MauvaiseTailleString
+    public SoinEffectue traductionSQL(ResultSet data) throws ErreurrNull, DonneePermanenteErreur, SoignantInexistant, MauvaiseTailleString
     {
         try {
-            AnimalBusiness animalBusiness=AnimalBusiness.obtenirAnimalBusiness(ListeAnimalBusiness.obtenirListAnimalBusiness(new SoignantController()));
             String mail = data.getString("soignant.mail");
             /*GregorianCalendar dateArrive = new GregorianCalendar();
                 dateArrive.setTime(data.getDate("ficheAnimal.dateArrive"));*/
@@ -87,7 +84,7 @@ remarque varchar(140),*/
             Integer idSoineffectue= new Integer(data.getInt("soinEffectue.idSoinEffectue"));
 
             Integer idSoinMedical= new Integer(data.getInt("soinMedical.idSoinMedical"));
-            Animal animal=animalBusiness.getAnimal((data.wasNull())?null : data.getInt("soinMedical.numDossier"));
+            Animal animal=new AnimalDataAccess().read((data.wasNull())?null : data.getInt("soinMedical.numDossier"));
             GregorianCalendar dateSoinMedical=new GregorianCalendar();
             dateSoinMedical.setTime( data.getDate("soinMedical.dateSoinMedical"));//data.getDate("soinMdecial.dateSoinMedical")
             GregorianCalendar heureSoin=new GregorianCalendar();
@@ -100,11 +97,11 @@ remarque varchar(140),*/
 
             String remarque=(data.wasNull())?null:data.getString("soinEffectue.remarque");
 
-            return new SoinEffectue(giverBusiness.getUtilisateurParMail(mail),dateSoin,soinMedical,idSoineffectue,remarque);
+            return new SoinEffectue(new SoignantDataAccess().read(mail),dateSoin,soinMedical,idSoineffectue,remarque);
         }
         catch(SQLException e)
         {
-            new BDConnexionErreur(e.getMessage());
+            new DonneePermanenteErreur(e.getMessage());
             return null;
         }
     }

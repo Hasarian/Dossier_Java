@@ -3,10 +3,9 @@ package DataAccess;
 import Business.AnimalBusiness;
 import Business.SoignantBusiness;
 import Business.ListeAnimalBusiness;
-import Business.ListeEspecebusiness;
 import DataAccess.DAO.DAORechercheAnimalDates;
 import Model.*;
-import erreurs.BDConnexionErreur;
+import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 import erreurs.SoignantInexistant;
 import uIController.SoignantController;
@@ -17,15 +16,12 @@ import java.util.GregorianCalendar;
 
 public class RechercheAnimauxEntreDates implements DAORechercheAnimalDates {
     Connection connection;
-    AnimalBusiness animalBusiness;
-    ListeEspecebusiness listeEspece;
-    SoignantBusiness soignantBusiness;
 
-    public RechercheAnimauxEntreDates() throws BDConnexionErreur {
+    public RechercheAnimauxEntreDates() throws DonneePermanenteErreur {
         connection = SingletonDB.getInstance();
     }
 
-    public ArrayList<Animal> readAnimalsbetweenDates(GregorianCalendar dateDeb, GregorianCalendar dateFin) throws ErreurrNull, BDConnexionErreur, SoignantInexistant {
+    public ArrayList<Animal> readAnimalsbetweenDates(GregorianCalendar dateDeb, GregorianCalendar dateFin) throws ErreurrNull, DonneePermanenteErreur, SoignantInexistant {
         ArrayList<Animal> resultatRecherche = new ArrayList<Animal>();
         try {
 
@@ -47,29 +43,26 @@ public class RechercheAnimauxEntreDates implements DAORechercheAnimalDates {
             }
 
         } catch (SQLException e) {
-            new BDConnexionErreur(e.getMessage());
+            new DonneePermanenteErreur(e.getMessage());
         }
         return resultatRecherche;
     }
 
-    public Animal traductionSQL(ResultSet data) throws SQLException, ErreurrNull, BDConnexionErreur, SoignantInexistant
+    public Animal traductionSQL(ResultSet data) throws SQLException, ErreurrNull, DonneePermanenteErreur, SoignantInexistant
     {
         //System.out.println("on entre dans la fonction qui traduit le sql de la recherche d'animaux entre deux dates");
-        listeEspece = ListeEspecebusiness.obtenirEspeceBusiness();
-        soignantBusiness = SoignantBusiness.otebnirSoignantBusiness();
-        animalBusiness = AnimalBusiness.obtenirAnimalBusiness(ListeAnimalBusiness.obtenirListAnimalBusiness(new SoignantController()));
         String libelleEspece =  data.getString("espece.libelle");
         Boolean estEnVoieDeDisparition =  data.getBoolean("espece.estEnVoieDeDisparition");
         String typeDeplacement = (data.wasNull())?null : data.getString("espece.typeDeplacement");
         String milieuDeVie = data.getString("espece.milieuDeVie");
-        Espece espece = listeEspece.obtenirEspece(libelleEspece, estEnVoieDeDisparition, typeDeplacement, milieuDeVie);
+        Espece espece = new Espece(libelleEspece, estEnVoieDeDisparition, typeDeplacement, milieuDeVie);
 
 
         String libelleRace = data.getString("race.libelle");
         String traitDeCaractere = data.getString("race.traitDeCaractere");
         String caracteristiqueDuMilieuDeVie = (data.wasNull())?null : data.getString("race.caracteristiqueDuMilieuDeVie");
         String tare = (data.wasNull() ? null : data.getString("race.tare"));
-        Race race = listeEspece.obtenirRace(libelleRace, traitDeCaractere, tare, caracteristiqueDuMilieuDeVie, espece);
+        Race race = new Race(libelleRace, traitDeCaractere, tare, caracteristiqueDuMilieuDeVie, espece);
 
         Integer id =  data.getInt("ficheAnimal.id");
         String remarque = (data.wasNull() ? null : data.getString("ficheAnimal.remarque"));
@@ -89,13 +82,13 @@ public class RechercheAnimauxEntreDates implements DAORechercheAnimalDates {
         String remarqueSoin = (data.wasNull() ? null : data.getString("ficheSoin.remarque"));
 
         //ici, l'objet doit être refait(fais toi pas chier, hein, crée le direct)
-        Soignant soignant = soignantBusiness.getUtilisateurParMail(data.wasNull()?null : data.getString("fichesoin.email"));
+        Soignant soignant = new SoignantDataAccess().read(data.getString("fichesoin.email"));
 
-        animalBusiness.nouvelAnimalDeLaDB(id, remarque, numCell, nom, race, dateArrive, dateDeces, estDangereux, etatAnimal, remarqueSoin, etatSoin, soignant);
-        Animal animal = animalBusiness.getAnimal(id);
+        return new Animal(id,remarque,numCell,race,nom,dateArrive,dateDeces,estDangereux,etatAnimal,remarqueSoin,etatSoin,soignant);
         //System.out.println(animal);
-        return animal;
 
+        /*Integer id, String remarqueAnimal, Integer numCellule, Race race, String nomAnimal, GregorianCalendar dateArrive, GregorianCalendar dateDesces,
+                  Boolean estDangereux, EtatAnimal etatAnimal, String remarqueSoin, EtatSoin etatFicheSoin, Soignant soignant*/
     }
 
 

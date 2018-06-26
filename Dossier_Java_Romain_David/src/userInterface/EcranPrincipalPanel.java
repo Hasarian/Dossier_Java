@@ -1,6 +1,6 @@
 package userInterface;
 
-import erreurs.BDConnexionErreur;
+import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 import erreurs.SoignantInexistant;
 import uIController.SoignantController;
@@ -20,7 +20,7 @@ public class EcranPrincipalPanel extends JPanel {
     }
     public MainFrame getFrame(){return frame;}
 
-    public EcranPrincipalPanel(MainFrame frame, SoignantController user) throws ErreurrNull, BDConnexionErreur, SoignantInexistant {
+    public EcranPrincipalPanel(MainFrame frame, SoignantController user) throws ErreurrNull, DonneePermanenteErreur, SoignantInexistant {
         setLayout(null);
         //setBounds(0,400,500,500);
         this.frame = frame;

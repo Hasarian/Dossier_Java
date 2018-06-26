@@ -1,7 +1,7 @@
 package userInterface;
 
 import Model.Animal;
-import erreurs.BDConnexionErreur;
+import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 import erreurs.SoignantInexistant;
 import uIController.SoignantController;
@@ -62,7 +62,7 @@ public class ListeDeTachesPanel extends JPanel
         try {
             listController = ListesAnimauxController.obtenirListController(user);
         }
-        catch (BDConnexionErreur connexionError)
+        catch (DonneePermanenteErreur connexionError)
         {
             JOptionPane.showMessageDialog(null,connexionError.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
         }

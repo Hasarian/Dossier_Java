@@ -1,6 +1,6 @@
 package userInterface;
 
-import erreurs.BDConnexionErreur;
+import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 import erreurs.SoignantInexistant;
 
@@ -23,7 +23,7 @@ public class MainFrame extends JFrame
     private MainFrame thisFrame;
     private SoignantController user;
 
-    public MainFrame(SoignantController loggedIn) throws BDConnexionErreur, ErreurrNull, SoignantInexistant
+    public MainFrame(SoignantController loggedIn) throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
     {
         user=loggedIn;
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -118,7 +118,7 @@ public class MainFrame extends JFrame
                 FormulaireInscriptionSoignantPanel newPanel = new FormulaireInscriptionSoignantPanel(thisFrame);
                 changePanel(newPanel);
             }
-            catch (BDConnexionErreur connexionError)
+            catch (DonneePermanenteErreur connexionError)
             {
                 JOptionPane.showMessageDialog(null, connexionError.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
             }
@@ -160,9 +160,9 @@ public class MainFrame extends JFrame
                 RechercheSoinParSoignantPanel newPanel = new RechercheSoinParSoignantPanel(thisFrame);
                 changePanel(newPanel);
             }
-            catch(BDConnexionErreur bdConnexionErreur)
+            catch(DonneePermanenteErreur donneePermanenteErreur)
             {
-                JOptionPane.showMessageDialog(null, bdConnexionErreur.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, donneePermanenteErreur.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -173,7 +173,7 @@ public class MainFrame extends JFrame
             try {
                 RechercheAnimalPanel newPanel = new RechercheAnimalPanel(thisFrame);
                 changePanel(newPanel);
-            } catch (BDConnexionErreur connexionError)
+            } catch (DonneePermanenteErreur connexionError)
             {
                 JOptionPane.showMessageDialog(null, connexionError.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
             }
@@ -195,7 +195,7 @@ public class MainFrame extends JFrame
             try {
                 changePanel(new InfoUtilisateurPanel(user,thisFrame,(BannierePanel) conteneurPanel.getBanner()));
             }
-            catch (BDConnexionErreur connexionError)
+            catch (DonneePermanenteErreur connexionError)
             {
                 JOptionPane.showMessageDialog(null, connexionError.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
             }
@@ -212,7 +212,7 @@ public class MainFrame extends JFrame
             try {
                 changePanel(new SuppressionSoignant(thisFrame));
             }
-            catch (BDConnexionErreur connexionError)
+            catch (DonneePermanenteErreur connexionError)
             {
                 JOptionPane.showMessageDialog(null, connexionError.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
             }
@@ -225,7 +225,7 @@ public class MainFrame extends JFrame
             try {
                 changePanel(new ListeSoignantsPanel(thisFrame));
             }
-            catch (BDConnexionErreur connexionErreur)
+            catch (DonneePermanenteErreur connexionErreur)
             {
                 JOptionPane.showMessageDialog(null, connexionErreur.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
             }

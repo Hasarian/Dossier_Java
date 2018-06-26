@@ -2,27 +2,16 @@ package uIController;
 
 import Business.ListeAnimalBusiness;
 import Model.Animal;
-import erreurs.BDConnexionErreur;
+import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 import erreurs.SoignantInexistant;
-import sun.awt.image.BadDepthException;
-
-import java.util.ArrayList;
 
 public class ListesAnimauxController
 {
-    private static ListesAnimauxController instance;
     private ListeAnimalBusiness listeAnimalBusiness;
+    public ListesAnimauxController() throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant
+    { listeAnimalBusiness=new ListeAnimalBusiness();}
 
-    private ListesAnimauxController(SoignantController user) throws BDConnexionErreur, ErreurrNull, SoignantInexistant
-    {
-        listeAnimalBusiness = ListeAnimalBusiness.obtenirListAnimalBusiness(user);
-    }
-    public static ListesAnimauxController obtenirListController(SoignantController user) throws BDConnexionErreur, ErreurrNull, SoignantInexistant
-    {
-        if(instance==null)instance=new ListesAnimauxController(user);
-        return instance;
-    }
     public Object getColumn(int column,Animal animal)
     {
         switch(column)
@@ -43,18 +32,18 @@ public class ListesAnimauxController
                 return "unkown data";
         }
     }
-    public Object getDonneeDansListeDisponible(int row, int column)
+    public Object getDonneeDansListeDisponible(int row, int column) throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant
     {
         Animal animal= listeAnimalBusiness.getListeDisponible().get(row);
         return getColumn(column,animal);
     }
-    public int nombreDeLignesListeDisponible(){return listeAnimalBusiness.getListeDisponible().size();}
+    public int nombreDeLignesListeDisponible()throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant{return listeAnimalBusiness.getListeDisponible().size();}
 
-    public Object getDonneeDansListeReservee(int row, int column)
+    public Object getDonneeDansListeReservee(int row, int column)throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant
     {
         return getColumn(column, listeAnimalBusiness.getListePersonnelle().get(row));
     }
-    public int nombreDeLignesListeReservee(){return listeAnimalBusiness.getListePersonnelle().size();}
+    public int nombreDeLignesListeReservee()throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant{return listeAnimalBusiness.getListePersonnelle().size();}
 
     /*public void remplirData(ArrayList<Animal> listeAnimal,ArrayList<ArrayList<String>> data)
     {
@@ -68,69 +57,63 @@ public class ListesAnimauxController
             data.add(row);
         }
     }*/
-    public boolean aucunAnimalReserve()
+    public boolean aucunAnimalReserve()throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant
     {
         return listeAnimalBusiness.getListePersonnelle().size()==0;
     }
-    public Object getDonneeListeVetoDispo(int row, int column)
+    public Object getDonneeListeVetoDispo(int row, int column)throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant
     {
         return getColumn(column, listeAnimalBusiness.getListeDisponibleVeto().get(row));
     }
-    public int nombreLignesListeVetoDispo(){return listeAnimalBusiness.getListeDisponibleVeto().size();}
+    public int nombreLignesListeVetoDispo()throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant{return listeAnimalBusiness.getListeDisponibleVeto().size();}
 
-    public Object getDonneeListVetoReservee(int row, int column)
+    public Object getDonneeListVetoReservee(int row, int column)throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant
     {
         return getColumn(column, listeAnimalBusiness.getListePersonnelleVeto().get(row));
     }
-    public int nombreLignesListeVetoReservee(){return listeAnimalBusiness.getListePersonnelleVeto().size();}
-    public boolean aucunAniumalReserveDansLaListeVeto()
+    public int nombreLignesListeVetoReservee()throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant{return listeAnimalBusiness.getListePersonnelleVeto().size();}
+    public boolean aucunAniumalReserveDansLaListeVeto()throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant
     {
         return listeAnimalBusiness.getListePersonnelleVeto().size()==0;
     }
-    public String getIdDansLaListeDispo(int index)
+    public String getIdDansLaListeDispo(int index)throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant
     {
         return listeAnimalBusiness.getListeDisponible().get(index).getId().toString();
     }
-    public String getIdDansLaListeVetoDispo(int index)
+    public String getIdDansLaListeVetoDispo(int index)throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant
     {
         return listeAnimalBusiness.getListeDisponibleVeto().get(index).getId().toString();
     }
-    public String getIdDansLaListeVetoReservee(int index)
+    public String getIdDansLaListeVetoReservee(int index)throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant
     {
         return listeAnimalBusiness.getListePersonnelleVeto().get(index).getId().toString();
     }
-    public String getIdDansLaListeReservee(int index)
+    public String getIdDansLaListeReservee(int index)throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant
     {
         return listeAnimalBusiness.getListePersonnelle().get(index).getId().toString();
     }
-    public void selectionnerAnimalVeto(Integer id) throws ErreurrNull, BDConnexionErreur
+    public void selectionnerAnimalVeto(Integer id) throws ErreurrNull, DonneePermanenteErreur,SoignantInexistant
     {
         Animal selected= listeAnimalBusiness.getAnimal(id);
         listeAnimalBusiness.updateEtatFicheSoin(selected, Animal.EtatSoin.VETORESERVEE);
     }
-    public void selectionnerAnimal(Integer id) throws ErreurrNull, BDConnexionErreur
+    public void selectionnerAnimal(Integer id) throws ErreurrNull, DonneePermanenteErreur,SoignantInexistant
     {
         Animal selected= listeAnimalBusiness.getAnimal(id);
-        listeAnimalBusiness.retirerAnimal(id);
         listeAnimalBusiness.updateEtatFicheSoin(selected, Animal.EtatSoin.RESERVEE);
     }
-    public void abandonnerAnimalVeto(Integer id) throws ErreurrNull, BDConnexionErreur
+    public void abandonnerAnimalVeto(Integer id) throws ErreurrNull, DonneePermanenteErreur,SoignantInexistant
     {
         Animal selected= listeAnimalBusiness.getAnimal(id);
         listeAnimalBusiness.updateEtatFicheSoin(selected,Animal.EtatSoin.VETODISPO);
-        listeAnimalBusiness.ajoutAnimal(selected);
     }
-    public void abandonnerAnimal(Integer id) throws ErreurrNull, BDConnexionErreur
+    public void abandonnerAnimal(Integer id) throws ErreurrNull, DonneePermanenteErreur,SoignantInexistant
     {
-        listeAnimalBusiness.retirerAnimal(id);
         Animal selected= listeAnimalBusiness.getAnimal(id);
        listeAnimalBusiness.updateEtatFicheSoin(selected,Animal.EtatSoin.DISPONIBLE);
     }
-    public Animal getanimal(Integer id)
+    public Animal getanimal(Integer id)throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant
     {
         return listeAnimalBusiness.getAnimal(id);
-    }
-    public static void dispose(){
-        instance = null;
     }
 }
