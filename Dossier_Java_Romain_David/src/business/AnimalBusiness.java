@@ -1,12 +1,12 @@
-package Business;
+package business;
 
-import DataAccess.AnimalDataAccess;
-import DataAccess.DAO.DAORechercheAnimalDates;
-import DataAccess.DAO.DAORechercheSoinAFaire;
-import DataAccess.SoinAFairePourAnimal;
-import DataAccess.DAO.DAOAnimal;
-import DataAccess.RechercheAnimauxEntreDates;
-import Model.*;
+import dataAccess.AnimalDataAccess;
+import dataAccess.dao.DAORechercheAnimalDates;
+import dataAccess.dao.DAORechercheSoinAFaire;
+import dataAccess.SoinAFairePourAnimal;
+import dataAccess.dao.DAOAnimal;
+import dataAccess.RechercheAnimauxEntreDates;
+import model.*;
 import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 import erreurs.SoignantInexistant;

@@ -1,11 +1,11 @@
 package uIController;
 
-import Business.AnimalBusiness;
-import Business.ListeAnimalBusiness;
-import Business.SoignantBusiness;
-import Model.Soignant;
-import Model.Localite;
-import Model.SoinEffectue;
+import business.AnimalBusiness;
+import business.ListeAnimalBusiness;
+import business.SoignantBusiness;
+import model.Soignant;
+import model.Localite;
+import model.SoinEffectue;
 import erreurs.*;
 
 import java.util.ArrayList;
@@ -18,53 +18,52 @@ public class SoignantController
 
     public SoignantController() throws DonneePermanenteErreur
     {
-        business= SoignantBusiness.otebnirSoignantBusiness();
+        business= new SoignantBusiness();
     }
 
     public void setSoignantConnexion(String login) throws DonneePermanenteErreur, SoignantInexistant, ErreurrNull
     {
-            business.setUtilisateurCourant(business.getSoignantansLaBD(login));
+            business.setUtilisateurCourant(login);
     }
     public void setSoignantData(Soignant soignant) throws ErreurInsertionSoignant {
         business.setSoignantData(soignant);
     }
-    public String getNomDeFamilleUtilisateurCourant()
+    public String getNomDeFamilleUtilisateurCourant() throws DonneePermanenteErreur, SoignantInexistant, ErreurrNull
     {
         return business.getNomFamilleUtilisateurCourant();
     }
-    public String getPrenomUtilisateurCourant()
+    public String getPrenomUtilisateurCourant() throws DonneePermanenteErreur, SoignantInexistant, ErreurrNull
     {
         return business.getPrenomUtilisateurCourant();
     }
-    public String getMailUtilisateurCourant()
+    public String getMailUtilisateurCourant() throws DonneePermanenteErreur, SoignantInexistant, ErreurrNull
     {
         return business.getMailUtilisateurCourant();
     }
-    public boolean estVeterinaire(){return business.estVeterinaire();}
-    public String getRueUtilisateurCourant(){return business.getUtilisateurCourant().getRue();}
-    public String getNumeroMaisonUtilisateurCourant(){return business.getUtilisateurCourant().getNumMaison().toString();}
-    public String getNumTelUtilisateurCourant(){return business.getUtilisateurCourant().getNumTel().toString();}
-    public String getRemarqueUtilisateurCourant(){return business.getUtilisateurCourant().getRemarque();}
-    public boolean estVolontaire(){return business.getUtilisateurCourant().getEstBenevole();}
-    public Localite getLocalite(){return business.getUtilisateurCourant().getLocalite();}
-    public GregorianCalendar getDateEmbauche(){return business.getUtilisateurCourant().getDateEmbauche();}
-    public Soignant getSoignant()
-    {
+    public boolean estVeterinaire() throws DonneePermanenteErreur, SoignantInexistant, ErreurrNull{return business.estVeterinaire();}
+    public String getRueUtilisateurCourant() throws DonneePermanenteErreur, SoignantInexistant, ErreurrNull{return business.getUtilisateurCourant().getRue();}
+    public String getNumeroMaisonUtilisateurCourant() throws DonneePermanenteErreur, SoignantInexistant, ErreurrNull{return business.getUtilisateurCourant().getNumMaison().toString();}
+    public String getNumTelUtilisateurCourant() throws DonneePermanenteErreur, SoignantInexistant, ErreurrNull{return business.getUtilisateurCourant().getNumTel().toString();}
+    public String getRemarqueUtilisateurCourant() throws DonneePermanenteErreur, SoignantInexistant, ErreurrNull{return business.getUtilisateurCourant().getRemarque();}
+    public boolean estVolontaire() throws DonneePermanenteErreur, SoignantInexistant, ErreurrNull{return business.getUtilisateurCourant().getEstBenevole();}
+    public Localite getLocalite() throws DonneePermanenteErreur, SoignantInexistant, ErreurrNull{return business.getUtilisateurCourant().getLocalite();}
+    public GregorianCalendar getDateEmbauche() throws DonneePermanenteErreur, SoignantInexistant, ErreurrNull{return business.getUtilisateurCourant().getDateEmbauche();}
+    public Soignant getSoignant ()throws DonneePermanenteErreur, SoignantInexistant, ErreurrNull{
         return business.getUtilisateurCourant();
     }
 
-    public ArrayList<ArrayList<String>> soinsFaitsPar(String mail) throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant,MauvaiseTailleString
+    public ArrayList<ArrayList<Object>> soinsFaitsPar(String mail) throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant,MauvaiseTailleString
     {
         ArrayList<SoinEffectue> soinsEffectués=business.getSoinsEffectues(mail);
-        ArrayList<ArrayList<String>> data=new ArrayList<ArrayList<String>>();
+        ArrayList<ArrayList<Object>> data=new ArrayList<ArrayList<Object>>();
         if(soinsEffectués!=null)
         for (SoinEffectue soin:soinsEffectués) {
             /*"animal id",
                     "date / heure du soin rendu",
                     "soin médical: heure prévue",
                     "remarque sur le soin"*/
-            ArrayList<String>row=new ArrayList<String>();
-            row.add(soin.getFicheSoin().getId().toString());
+            ArrayList<Object>row=new ArrayList<Object>();
+            row.add(soin.getFicheSoin().getId());
             row.add(soin.getSoinMedical().getMailVeto());
             String date=new String();
             date+= soin.getDateHeure().get(Calendar.DAY_OF_MONTH)+"/";
@@ -90,7 +89,7 @@ public class SoignantController
         }
         else
         {
-            ArrayList<String> nullrow=new ArrayList<String>();
+            ArrayList<Object> nullrow=new ArrayList<Object>();
             for(int i=0;i<5;i++)
             nullrow.add("pas de soin effectué");
             data.add(nullrow);
@@ -125,7 +124,7 @@ public class SoignantController
     {
         business.updateUtilisateurDansLaBD(ancienMail,mail,nameTexte,lastNameTexte,tel,estVolontaire,houseNumber,noteTexte,streetTexte,localite,dateEmbauche);
     }
-    public void supprimerSoignant(String mail) throws SuppressionUtilisateurCourant, SoignantInexistant, ErreurrNull, DonneePermanenteErreur
+    public void supprimerSoignant(String mail) throws SuppressionUtilisateurCourant, DonneePermanenteErreur
     {
         business.supprimerUtilisateur(mail);
     }
@@ -133,7 +132,7 @@ public class SoignantController
     {
         business.supprimerUtilisateurCourant();
     }
-    public Object obtenirInfo(int row, int column)
+    public Object obtenirInfo(int row, int column) throws DonneePermanenteErreur, ErreurrNull
     {
         Soignant soignant;
         soignant=business.getSoignantParIndex(row);
@@ -152,23 +151,12 @@ public class SoignantController
             default: return "données inexistantes";
         }
     }
-    public void initSoignant() throws ErreurrNull, DonneePermanenteErreur,SoignantInexistant
-    {
-        business.initTousLesSoignants();
-    }
-    public int nbSoignants()
+    public int nbSoignants()throws DonneePermanenteErreur, ErreurrNull
     {
         return business.getNbSoignants();
     }
-    public Soignant getSoignantParIndex(int index)
+    public Soignant getSoignantParIndex(int index)throws DonneePermanenteErreur, ErreurrNull
     {
         return business.getSoignantParIndex(index);
-    }
-    public void dispose(){
-        business.dispose();
-        ListeAnimalBusiness.dispose();
-        ListesAnimauxController.dispose();
-        AnimalBusiness.dispose();
-        ListeEspecebusiness.dispose();
     }
 }

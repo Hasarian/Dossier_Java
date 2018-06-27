@@ -1,6 +1,6 @@
 package userInterface;
 
-import Model.Localite;
+import model.Localite;
 import erreurs.EmailRegexErreur;
 import erreurs.MauvaiseTailleString;
 import erreurs.NombreExpection;

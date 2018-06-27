@@ -1,6 +1,6 @@
-package DataAccess.DAO;
+package dataAccess.dao;
 
-import Model.Soignant;
+import model.Soignant;
 import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurInsertionSoignant;
 import erreurs.ErreurrNull;

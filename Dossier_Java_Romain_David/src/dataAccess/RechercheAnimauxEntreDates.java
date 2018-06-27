@@ -1,14 +1,10 @@
-package DataAccess;
+package dataAccess;
 
-import Business.AnimalBusiness;
-import Business.SoignantBusiness;
-import Business.ListeAnimalBusiness;
-import DataAccess.DAO.DAORechercheAnimalDates;
-import Model.*;
+import dataAccess.dao.DAORechercheAnimalDates;
+import model.*;
 import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 import erreurs.SoignantInexistant;
-import uIController.SoignantController;
 
 import java.sql.*;
 import java.util.ArrayList;

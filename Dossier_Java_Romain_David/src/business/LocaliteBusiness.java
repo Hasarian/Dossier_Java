@@ -1,8 +1,8 @@
-package Business;
+package business;
 
-import DataAccess.DAO.DAOLocalite;
-import DataAccess.LocaliteDataAccess;
-import Model.Localite;
+import dataAccess.dao.DAOLocalite;
+import dataAccess.LocaliteDataAccess;
+import model.Localite;
 import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 

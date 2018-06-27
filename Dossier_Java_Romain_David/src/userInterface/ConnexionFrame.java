@@ -1,6 +1,6 @@
 package userInterface;
 
-import ThreadAppli.ThreadEcranDeConnexion;
+import threadAppli.ThreadEcranDeConnexion;
 import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 import erreurs.SoignantInexistant;

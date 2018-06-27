@@ -1,9 +1,9 @@
-package DataAccess;
+package dataAccess;
 
-import Business.AnimalBusiness;
-import DataAccess.DAO.DAORechercheSoinAFaire;
-import Model.Animal;
-import Model.SoinMedical;
+import business.AnimalBusiness;
+import dataAccess.dao.DAORechercheSoinAFaire;
+import model.Animal;
+import model.SoinMedical;
 import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 import erreurs.SoignantInexistant;

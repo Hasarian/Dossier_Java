@@ -1,11 +1,11 @@
-package DataAccess;
+package dataAccess;
 
 
-import DataAccess.DAO.DAOSoignant;
-import Model.Soignant;
+import dataAccess.dao.DAOSoignant;
+import model.Soignant;
 import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurInsertionSoignant;
-import Model.Localite;
+import model.Localite;
 import erreurs.ErreurrNull;
 import erreurs.SoignantInexistant;
 
@@ -159,7 +159,7 @@ public class SoignantDataAccess implements DAOSoignant {
         Localite localite = new Localite(data.getInt("localite.idLocalite"),
                 data.getInt("localite.CodePostal"),
                 data.getString("localite.libelle"));
-        //if(!Business.arrayListLocalite.containt(localite))Business.arrayListLocalite.add(localite);
+        //if(!business.arrayListLocalite.containt(localite))business.arrayListLocalite.add(localite);
         //ResultSetMetaData meta = data.getMetaData();
         GregorianCalendar dateEmbauche = new GregorianCalendar();
         dateEmbauche.setTime(data.getDate("dateEmbauche"));

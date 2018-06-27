@@ -1,12 +1,10 @@
-package Business;
+package business;
 
-import Model.Animal;
-import Model.Soignant;
-import Model.SoinMedical;
+import model.Animal;
+import model.SoinMedical;
 import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 import erreurs.SoignantInexistant;
-import uIController.SoignantController;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;

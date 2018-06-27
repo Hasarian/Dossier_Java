@@ -1,7 +1,7 @@
 package uIController;
 
-import Business.LocaliteBusiness;
-import Model.Localite;
+import business.LocaliteBusiness;
+import model.Localite;
 import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 import erreurs.LocaliteInexistante;

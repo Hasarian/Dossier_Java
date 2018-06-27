@@ -1,9 +1,9 @@
 package uIController;
 
-import Business.ListeAnimalBusiness;
-import Business.SoignantBusiness;
-import Model.Animal;
-import Model.SoinMedical;
+import business.ListeAnimalBusiness;
+import business.SoignantBusiness;
+import model.Animal;
+import model.SoinMedical;
 import erreurs.*;
 
 import java.util.ArrayList;
@@ -11,37 +11,38 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class TacheController {
-    Animal animal;
-    ArrayList<SoinMedical> listeTaches;
-
+    Integer animalId;
+    ListeAnimalBusiness business;
     public TacheController(Integer id) throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant {
-        ListeAnimalBusiness business = ListeAnimalBusiness.obtenirListAnimalBusiness(new SoignantController());
-        animal = business.getAnimal(id);
-        listeTaches = business.obtenirSoinParAnimal(id,new GregorianCalendar());
+        business = new ListeAnimalBusiness();
+        animalId = business.getAnimal(id).getId();
     }
-    public TacheController() throws ErreurrNull
+    public ArrayList<SoinMedical> obtenirSoins()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
     {
-        animal=new Animal();
-        listeTaches=ListeAnimalBusiness.obtenirListTachesTest();
+        return business.obtenirSoinParAnimal(animalId,new GregorianCalendar());
+    }
+    public Animal obtenirAnimal()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
+    {
+        return business.getAnimal(animalId);
+    }
+    public int nbTaches()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant {
+        return obtenirSoins().size();
     }
 
-    public int nbTaches() {
-        return listeTaches.size();
-    }
-
-    public String getDescriptionTache(int i) throws NombreInvalideException {
-        if (i < 0 || i >= listeTaches.size())
+    public String getDescriptionTache(int i) throws NombreInvalideException,DonneePermanenteErreur, ErreurrNull, SoignantInexistant {
+        if (i < 0 || i >= nbTaches())
             throw new NombreInvalideException(i, "le nombre doit se trouver entre " + 0 + " et "
-                    + listeTaches.size() + " pour éviter de sortir du tableau");
-        return listeTaches.get(i).getDescriptionSoin();
+                    + nbTaches() + " pour éviter de sortir du tableau");
+        return obtenirSoins().get(i).getDescriptionSoin();
     }
 
-    public String getDateHeure(int i) throws NombreInvalideException {
-        if (i < 0 || i >= listeTaches.size())
+    public String getDateHeure(int i) throws NombreInvalideException,DonneePermanenteErreur, ErreurrNull, SoignantInexistant{
+        if (i < 0 || i >= nbTaches())
             throw new NombreInvalideException(i, "le nombre doit se trouver entre " + 0 + " et "
-                    + listeTaches.size() + " pour éviter de sortir du tableau");
-        GregorianCalendar date = listeTaches.get(i).getDate();
-        GregorianCalendar heure = listeTaches.get(i).getHeure();
+                    + nbTaches()+ " pour éviter de sortir du tableau");
+        SoinMedical soin=obtenirSoins().get(i);
+        GregorianCalendar date = soin.getDate();
+        GregorianCalendar heure = soin.getHeure();
 
         String dateExec = new String();
         dateExec = date.get(Calendar.DAY_OF_MONTH) + "/";
@@ -56,47 +57,48 @@ public class TacheController {
         return dateExec;
     }
 
-    public String getRemarque(int i) throws NombreInvalideException
+    public String getRemarque(int i) throws NombreInvalideException,DonneePermanenteErreur, ErreurrNull, SoignantInexistant
     {
-        if (i < 0 || i >= listeTaches.size())
+        if (i < 0 || i >= nbTaches())
             throw new NombreInvalideException(i, "le nombre doit se trouver entre " + 0 + " et "
-                    + listeTaches.size() + " pour éviter de sortir du tableau");
-        return listeTaches.get(i).getRemarque();
+                    + nbTaches()+ " pour éviter de sortir du tableau");
+        return obtenirSoins().get(i).getRemarque();
     }
-    public Boolean getDanger()
+    public Boolean getDanger()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
     {
-        return animal.getEstDangereux();
+        return obtenirAnimal().getEstDangereux();
     }
-    public String getRemarqueGeneraleSoin()
+    public String getRemarqueGeneraleSoin()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
     {
-        return animal.getRemaqueSoin();
+        return obtenirAnimal().getRemaqueSoin();
     }
-    public String getNom()
+    public String getNom()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
     {
-        return animal.getNomAnimal();
+        return obtenirAnimal().getNomAnimal();
     }
     public Integer getAnimalId()
     {
         //System.out.println(animal);
-        return animal.getId();
+        return animalId;
     }
     public String getRemarqueAnimal()
+            throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
     {
-        return ( animal.getRemarqueAnimal()==null)?"pas de remarque spécifique": animal.getRemarqueAnimal();
+        return ( obtenirAnimal().getRemarqueAnimal()==null)?"pas de remarque spécifique": obtenirAnimal().getRemarqueAnimal();
     }
-    public String getNumCell()
+    public String getNumCell()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
     {
-        return animal.getNumeroCellule();
+        return obtenirAnimal().getNumeroCellule();
     }
-    public String getId(){return animal.getId().toString();}
-    public String getEspece(){return animal.getRace().getEspeceLibelle();}
-    public String getRace(){return animal.getRace().getLibelle();}
+    public String getId()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant{return obtenirAnimal().getId().toString();}
+    public String getEspece()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant{return obtenirAnimal().getRace().getEspeceLibelle();}
+    public String getRace()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant{return obtenirAnimal().getRace().getLibelle();}
 
     public void faireSoin(ArrayList<Boolean> ontEteEffectues,ArrayList<String> remarques,Boolean pourVeto)
             throws DonneePermanenteErreur,SoinsNonEffectues,ErreurrNull,MauvaiseTailleString,SoignantInexistant
     {
         int nbSoinNonEffectués=0;
-        for(int i=0;i<listeTaches.size();i++)
+        for(int i=0;i<nbTaches();i++)
         {
             if(!ontEteEffectues.get(i)&&remarques.get(i).isEmpty()) nbSoinNonEffectués++;
             if(remarques.get(i).length()>140) throw new MauvaiseTailleString("une remarque ajoutée",remarques.get(i).length(),150);
@@ -104,13 +106,12 @@ public class TacheController {
         if(nbSoinNonEffectués>0) throw new SoinsNonEffectues(nbSoinNonEffectués);
         else
         {
-            for(int i=0;i<listeTaches.size();i++) {
-                SoignantBusiness userBusiness = SoignantBusiness.otebnirSoignantBusiness();
-                userBusiness.creerSoin(new GregorianCalendar(),listeTaches.get(i),remarques.get(i));
+            ArrayList<SoinMedical> soins=obtenirSoins();
+            SoignantBusiness userBusiness = new SoignantBusiness();
+            for(int i=0;i<nbTaches();i++) {
+                userBusiness.creerSoin(new GregorianCalendar(),soins.get(i),remarques.get(i));
             }
-            ListeAnimalBusiness listes=ListeAnimalBusiness.obtenirListAnimalBusiness(null);
-            //listes.retirerAnimal(animal);
-            listes.updateEtatFicheSoin(animal,(pourVeto)? Animal.EtatSoin.VETODISPO: Animal.EtatSoin.DISPONIBLE);
+            business.updateEtatFicheSoin(obtenirAnimal(),(pourVeto)? Animal.EtatSoin.VETODISPO: Animal.EtatSoin.DISPONIBLE);
         }
 
     }

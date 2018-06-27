@@ -1,7 +1,7 @@
 package uIController;
 
-import Business.ListeAnimalBusiness;
-import Model.Animal;
+import business.ListeAnimalBusiness;
+import model.Animal;
 import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 import erreurs.SoignantInexistant;

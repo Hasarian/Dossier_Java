@@ -1,6 +1,6 @@
 package userInterface;
 
-import Model.Soignant;
+import model.Soignant;
 import erreurs.*;
 import uIController.SoignantController;
 

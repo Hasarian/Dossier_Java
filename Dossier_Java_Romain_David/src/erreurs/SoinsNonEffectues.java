@@ -1,7 +1,5 @@
 package erreurs;
 
-import Model.SoinMedical;
-
 public class SoinsNonEffectues extends Exception
 {
     private int nb;

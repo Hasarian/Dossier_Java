@@ -1,17 +1,13 @@
-package DataAccess;
+package dataAccess;
 
-import Business.AnimalBusiness;
-import Business.SoignantBusiness;
-import Business.ListeAnimalBusiness;
-import DataAccess.DAO.DAORechercheSoinEffectue;
-import Model.Animal;
-import Model.SoinEffectue;
-import Model.SoinMedical;
+import dataAccess.dao.DAORechercheSoinEffectue;
+import model.Animal;
+import model.SoinEffectue;
+import model.SoinMedical;
 import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 import erreurs.MauvaiseTailleString;
 import erreurs.SoignantInexistant;
-import uIController.SoignantController;
 
 import java.sql.*;
 import java.util.ArrayList;

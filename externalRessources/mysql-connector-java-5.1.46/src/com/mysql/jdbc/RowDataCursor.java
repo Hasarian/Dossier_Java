@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Model for result set data backed by a cursor. Only works for forward-only result sets (but still works with updatable concurrency).
+ * model for result set data backed by a cursor. Only works for forward-only result sets (but still works with updatable concurrency).
  */
 public class RowDataCursor implements RowData {
 

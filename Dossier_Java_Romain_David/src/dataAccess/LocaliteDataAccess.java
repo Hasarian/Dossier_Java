@@ -1,7 +1,7 @@
-package DataAccess;
+package dataAccess;
 
-import DataAccess.DAO.DAOLocalite;
-import Model.Localite;
+import dataAccess.dao.DAOLocalite;
+import model.Localite;
 import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 

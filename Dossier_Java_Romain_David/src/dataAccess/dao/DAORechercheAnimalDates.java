@@ -1,6 +1,6 @@
-package DataAccess.DAO;
+package dataAccess.dao;
 
-import Model.Animal;
+import model.Animal;
 import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 import erreurs.SoignantInexistant;

@@ -1,4 +1,4 @@
-package ThreadAppli;
+package threadAppli;
 
 import javax.swing.*;
 

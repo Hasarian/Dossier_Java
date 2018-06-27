@@ -1,10 +1,10 @@
-package Business;
+package business;
 
-import DataAccess.DAO.DAORechercheSoinEffectue;
-import DataAccess.DAO.DAOSoignant;
-import DataAccess.SoignantDataAccess;
-import DataAccess.SoinParSoignant;
-import Model.*;
+import dataAccess.dao.DAORechercheSoinEffectue;
+import dataAccess.dao.DAOSoignant;
+import dataAccess.SoignantDataAccess;
+import dataAccess.SoinParSoignant;
+import model.*;
 import erreurs.*;
 
 import java.util.ArrayList;

@@ -1,9 +1,9 @@
 package userInterface;
 
-import Business.SoignantBusiness;
-import Model.Soignant;
+import business.SoignantBusiness;
+import model.Soignant;
 import erreurs.*;
-import Model.Localite;
+import model.Localite;
 import uIController.SoignantController;
 import uIController.LocaliteController;
 

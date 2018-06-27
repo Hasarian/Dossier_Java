@@ -1,6 +1,6 @@
-package DataAccess.DAO;
+package dataAccess.dao;
 
-import Model.Localite;
+import model.Localite;
 import erreurs.DonneePermanenteErreur;
 import erreurs.ErreurrNull;
 

@@ -1,51 +1,57 @@
 package uIController;
 
-import Model.Animal;
+import business.AnimalBusiness;
+import erreurs.DonneePermanenteErreur;
+import erreurs.ErreurrNull;
+import erreurs.SoignantInexistant;
+import model.Animal;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class AnimalInfoDisplayer
 {
-    Animal animal;
-    public AnimalInfoDisplayer(Integer animalId, ListesAnimauxController list){
-
-        this.animal=list.getanimal(animalId);
+    Integer animalId;
+    AnimalBusiness business;
+    public AnimalInfoDisplayer(Integer animalId)throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant {
+        business=new AnimalBusiness();
+        this.animalId=business.getAnimal(animalId).getId();
     }
-    public String getNom()
+    public Animal getAnimal()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant{return business.getAnimal(animalId);}
+    public String getNom()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
     {
-        return animal.getNomAnimal();
+        return getAnimal().getNomAnimal();
     }
     public Integer getAnimalId()
     {
        //System.out.println(animal);
-        return animal.getId();
+        return animalId;
     }
-    public String getRemarque()
+    public String getRemarque()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
     {
-        return ( animal.getRemarqueAnimal()==null)?"pas de remarque spécifique": animal.getRemarqueAnimal();
+        return ( getAnimal().getRemarqueAnimal()==null)?"pas de remarque spécifique": getAnimal().getRemarqueAnimal();
     }
-    public String getNumCell()
+    public String getNumCell()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
     {
-        return animal.getNumeroCellule();
+        return getAnimal().getNumeroCellule();
     }
-    public String getRace()
+    public String getRace()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
     {
-        return animal.getEspece();
+        return getAnimal().getEspece();
     }
 
-    public String getDateArrivee()
+    public String getDateArrivee()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
     {
-        GregorianCalendar date=animal.getDateArrive();
+        GregorianCalendar date=getAnimal().getDateArrive();
         String retour = new String();
         retour+= date.get(Calendar.DAY_OF_MONTH)+"/";
         retour+= date.get(Calendar.MONTH)+"/";
         retour+= date.get(Calendar.YEAR);
         return retour;
     }
-    public String getDatDeces()
+    public String getDatDeces()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
     {
-        GregorianCalendar date=animal.getDateDeces();
+        GregorianCalendar date=getAnimal().getDateDeces();
         String retour = new String();
         if(date!=null) {
 
@@ -57,24 +63,24 @@ public class AnimalInfoDisplayer
     }
      /*
     private String remaqueSoin;*/
-     public String getDanger()
+     public String getDanger()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
      {
-         return (animal.getEstDangereux())?"présente un danger":"ne présente aucun danger";
+         return (getAnimal().getEstDangereux())?"présente un danger":"ne présente aucun danger";
      }
-     public String getEtatSoin()
+     public String getEtatSoin()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
      {
-         switch(animal.getEtatFicheSoin())
+         switch(getAnimal().getEtatFicheSoin())
          {
              case VETORESERVEE:case RESERVEE:
-                 return "soignant actuel: "+animal.getSoignant().toString();
+                 return "soignant actuel: "+getAnimal().getSoignant().toString();
              case VETODISPO:case DISPONIBLE:
                  return "les soins de cet animal n'ont pas encore été effectués";
              case ARCHIVEE:default:
                  return "l'animal n'est actuellement pas dans la SPA";
          }
      }
-     public String getRemarqueSoin()
+     public String getRemarqueSoin()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
      {
-         return animal.getRemaqueSoin();
+         return getAnimal().getRemaqueSoin();
      }
 }
