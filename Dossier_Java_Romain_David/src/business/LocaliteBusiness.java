@@ -2,9 +2,10 @@ package business;
 
 import dataAccess.dao.DAOLocalite;
 import dataAccess.LocaliteDataAccess;
+import erreurs.Erreur;
 import model.Localite;
-import erreurs.DonneePermanenteErreur;
-import erreurs.ErreurrNull;
+import erreurs.erreursExternes.DonneePermanenteErreur;
+import erreurs.erreurFormat.ErreurrNull;
 
 import java.util.ArrayList;
 
@@ -14,7 +15,7 @@ public class LocaliteBusiness {
     public LocaliteBusiness()throws DonneePermanenteErreur {
         daoLocalite = new LocaliteDataAccess();
     }
-    public ArrayList<Localite> getToutesLesLocalites() throws DonneePermanenteErreur, ErreurrNull {
+    public ArrayList<Localite> getToutesLesLocalites() throws Erreur {
         return daoLocalite.readToutesLesLocalites();
     }
 

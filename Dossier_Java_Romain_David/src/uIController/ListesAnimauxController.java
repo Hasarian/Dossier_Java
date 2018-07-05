@@ -1,16 +1,41 @@
 package uIController;
 
 import business.ListeAnimalBusiness;
+import erreurs.Erreur;
 import model.Animal;
-import erreurs.DonneePermanenteErreur;
-import erreurs.ErreurrNull;
-import erreurs.SoignantInexistant;
+
+import java.util.ArrayList;
 
 public class ListesAnimauxController
 {
     private ListeAnimalBusiness listeAnimalBusiness;
-    public ListesAnimauxController() throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant
-    { listeAnimalBusiness=new ListeAnimalBusiness();}
+    private static ArrayList<Integer> idsDispo;
+    private static ArrayList<Integer> idsPerso;
+    private static ArrayList<Integer> idsDispoVeto;
+    private static ArrayList<Integer> idsPersoVeto;
+    public ListesAnimauxController() throws Erreur
+    {
+        listeAnimalBusiness=new ListeAnimalBusiness();
+        initIds();
+    }
+    public void initIds() throws Erreur
+    {
+        idsDispo=new ArrayList<Integer>();
+        ArrayList<Animal> animaux=listeAnimalBusiness.getListeDisponible();
+        for(Animal animal:animaux) idsDispo.add(animal.getId());
+
+        idsPerso=new ArrayList<Integer>();
+        animaux=getListeReservee();
+        for(Animal animal:animaux) idsPerso.add(animal.getId());
+
+        idsDispoVeto=new ArrayList<Integer>();
+        animaux=listeAnimalBusiness.getListeDisponibleVeto();
+        for(Animal animal:animaux) idsDispoVeto.add(animal.getId());
+
+        idsPersoVeto=new ArrayList<Integer>();
+        animaux=getListeVetoReservee();
+        for (Animal animal:animaux) idsPersoVeto.add(animal.getId());
+    }
 
     public Object getColumn(int column,Animal animal)
     {
@@ -32,18 +57,36 @@ public class ListesAnimauxController
                 return "unkown data";
         }
     }
-    public Object getDonneeDansListeDisponible(int row, int column) throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant
+    public String mailUtilisateurCourant() throws Erreur{return new SoignantController().getMailUtilisateurCourant();}
+    public ArrayList<Animal> getListeReservee() throws Erreur
     {
-        Animal animal= listeAnimalBusiness.getListeDisponible().get(row);
+        ArrayList<Animal> animaux=listeAnimalBusiness.obtenirTousLesAnimaux();
+        ArrayList<Animal> animauxReserves=new ArrayList<Animal>();
+        for(Animal animal:animaux) if(animal.getEtatFicheSoin()== Animal.EtatSoin.RESERVEE&&animal.getSoignant().getMail().equals(mailUtilisateurCourant())) animauxReserves.add(animal);
+        return animauxReserves;
+    }
+    public ArrayList<Animal> getListeVetoReservee() throws Erreur
+    {
+        ArrayList<Animal> animaux = listeAnimalBusiness.obtenirTousLesAnimaux();
+        ArrayList<Animal> animauxReserves = new ArrayList<Animal>();
+        for (Animal animal : animaux)
+            if (animal.getEtatFicheSoin() == Animal.EtatSoin.VETORESERVEE && animal.getSoignant().getMail().equals(mailUtilisateurCourant()))
+                animauxReserves.add(animal);
+        return animauxReserves;
+    }
+    public Object getDonneeDansListeDisponible(int row, int column) throws Erreur
+    {
+        initIds();
+        Animal animal= listeAnimalBusiness.getAnimal(idsDispo.get(row));
         return getColumn(column,animal);
     }
-    public int nombreDeLignesListeDisponible()throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant{return listeAnimalBusiness.getListeDisponible().size();}
+    public int nombreDeLignesListeDisponible()throws Erreur{return listeAnimalBusiness.getListeDisponible().size();}
 
-    public Object getDonneeDansListeReservee(int row, int column)throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant
+    public Object getDonneeDansListeReservee(int row, int column)throws Erreur
     {
-        return getColumn(column, listeAnimalBusiness.getListePersonnelle().get(row));
+        return getColumn(column, getListeReservee().get(row));
     }
-    public int nombreDeLignesListeReservee()throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant{return listeAnimalBusiness.getListePersonnelle().size();}
+    public int nombreDeLignesListeReservee()throws Erreur{return getListeReservee().size();}
 
     /*public void remplirData(ArrayList<Animal> listeAnimal,ArrayList<ArrayList<String>> data)
     {
@@ -57,62 +100,69 @@ public class ListesAnimauxController
             data.add(row);
         }
     }*/
-    public boolean aucunAnimalReserve()throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant
+    public boolean aucunAnimalReserve()throws Erreur
     {
-        return listeAnimalBusiness.getListePersonnelle().size()==0;
+        return getListeReservee().size()==0;
     }
-    public Object getDonneeListeVetoDispo(int row, int column)throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant
+    public Object getDonneeListeVetoDispo(int row, int column)throws Erreur
     {
-        return getColumn(column, listeAnimalBusiness.getListeDisponibleVeto().get(row));
+        initIds();
+        return getColumn(column, listeAnimalBusiness.getAnimal(idsDispoVeto.get(row)));
     }
-    public int nombreLignesListeVetoDispo()throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant{return listeAnimalBusiness.getListeDisponibleVeto().size();}
+    public int nombreLignesListeVetoDispo()
+            throws Erreur
+    {return listeAnimalBusiness.getListeDisponibleVeto().size();}
 
-    public Object getDonneeListVetoReservee(int row, int column)throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant
+    public Object getDonneeListVetoReservee(int row, int column)throws Erreur
     {
-        return getColumn(column, listeAnimalBusiness.getListePersonnelleVeto().get(row));
+        return getColumn(column, getListeVetoReservee().get(row));
     }
-    public int nombreLignesListeVetoReservee()throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant{return listeAnimalBusiness.getListePersonnelleVeto().size();}
-    public boolean aucunAniumalReserveDansLaListeVeto()throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant
+    public int nombreLignesListeVetoReservee()throws Erreur{return getListeVetoReservee().size();}
+    public boolean aucunAniumalReserveDansLaListeVeto()throws Erreur
     {
-        return listeAnimalBusiness.getListePersonnelleVeto().size()==0;
+        return getListeVetoReservee().size()==0;
     }
-    public String getIdDansLaListeDispo(int index)throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant
+    public Integer getIdDansLaListeDispo(int index)
     {
-        return listeAnimalBusiness.getListeDisponible().get(index).getId().toString();
+        return idsDispo.get(index);
     }
-    public String getIdDansLaListeVetoDispo(int index)throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant
+    public Integer getIdDansLaListeVetoDispo(int index)
     {
-        return listeAnimalBusiness.getListeDisponibleVeto().get(index).getId().toString();
+        return idsDispoVeto.get(index);
     }
-    public String getIdDansLaListeVetoReservee(int index)throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant
+    public Integer getIdDansLaListeVetoReservee(int index)
     {
-        return listeAnimalBusiness.getListePersonnelleVeto().get(index).getId().toString();
+        return idsPersoVeto.get(index);
     }
-    public String getIdDansLaListeReservee(int index)throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant
+    public Integer getIdDansLaListeReservee(int index)
     {
-        return listeAnimalBusiness.getListePersonnelle().get(index).getId().toString();
+        return idsPerso.get(index);
     }
-    public void selectionnerAnimalVeto(Integer id) throws ErreurrNull, DonneePermanenteErreur,SoignantInexistant
+    public void selectionnerAnimalVeto(Integer index) throws Erreur
     {
-        Animal selected= listeAnimalBusiness.getAnimal(id);
-        listeAnimalBusiness.updateEtatFicheSoin(selected, Animal.EtatSoin.VETORESERVEE);
+        Animal selected= listeAnimalBusiness.getAnimal(idsDispoVeto.get(index));
+        listeAnimalBusiness.updateEtatFicheSoin(mailUtilisateurCourant(),selected, Animal.EtatSoin.VETORESERVEE);
+        initIds();
     }
-    public void selectionnerAnimal(Integer id) throws ErreurrNull, DonneePermanenteErreur,SoignantInexistant
+    public void selectionnerAnimal(Integer index) throws Erreur
     {
-        Animal selected= listeAnimalBusiness.getAnimal(id);
-        listeAnimalBusiness.updateEtatFicheSoin(selected, Animal.EtatSoin.RESERVEE);
+        Animal selected= listeAnimalBusiness.getAnimal(idsDispo.get(index));
+        listeAnimalBusiness.updateEtatFicheSoin(mailUtilisateurCourant(),selected, Animal.EtatSoin.RESERVEE);
+        initIds();
     }
-    public void abandonnerAnimalVeto(Integer id) throws ErreurrNull, DonneePermanenteErreur,SoignantInexistant
+    public void abandonnerAnimalVeto(Integer index) throws Erreur
     {
-        Animal selected= listeAnimalBusiness.getAnimal(id);
-        listeAnimalBusiness.updateEtatFicheSoin(selected,Animal.EtatSoin.VETODISPO);
+        Animal selected= listeAnimalBusiness.getAnimal(idsPersoVeto.get(index));
+        listeAnimalBusiness.updateEtatFicheSoin(mailUtilisateurCourant(),selected,Animal.EtatSoin.VETODISPO);
+        initIds();
     }
-    public void abandonnerAnimal(Integer id) throws ErreurrNull, DonneePermanenteErreur,SoignantInexistant
+    public void abandonnerAnimal(Integer index) throws Erreur
     {
-        Animal selected= listeAnimalBusiness.getAnimal(id);
-       listeAnimalBusiness.updateEtatFicheSoin(selected,Animal.EtatSoin.DISPONIBLE);
+        Animal selected= listeAnimalBusiness.getAnimal(idsPerso.get(index));
+       listeAnimalBusiness.updateEtatFicheSoin(mailUtilisateurCourant(),selected,Animal.EtatSoin.DISPONIBLE);
+       initIds();
     }
-    public Animal getanimal(Integer id)throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant
+    public Animal getanimal(Integer id)throws Erreur
     {
         return listeAnimalBusiness.getAnimal(id);
     }

@@ -1,13 +1,13 @@
 package dataAccess;
 
 import dataAccess.dao.DAORechercheSoinEffectue;
+import erreurs.Erreur;
 import model.Animal;
 import model.SoinEffectue;
 import model.SoinMedical;
-import erreurs.DonneePermanenteErreur;
-import erreurs.ErreurrNull;
-import erreurs.MauvaiseTailleString;
-import erreurs.SoignantInexistant;
+import erreurs.erreursExternes.DonneePermanenteErreur;
+import erreurs.erreurFormat.ErreurrNull;
+import erreurs.erreurFormat.MauvaiseTailleString;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ implements DAORechercheSoinEffectue
     {
         connection=SingletonDB.getInstance();
     }
-    public ArrayList<SoinEffectue> searchHistory(String mail) throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant,MauvaiseTailleString {
+    public ArrayList<SoinEffectue> searchHistory(String mail) throws Erreur {
         String sql = "select *from soignant, localite, soineffectue, soinmedical\n" +
                 "where soignant.mail = ? and soignant.localite = localite.idLocalite\n" +
                 "and soineffectue.mail = soignant.mail and soineffectue.numSoinMedical = soinmedical.idSoinMedical; ";
@@ -69,7 +69,7 @@ remarque varchar(140),*/
 
     }
 
-    public SoinEffectue traductionSQL(ResultSet data) throws ErreurrNull, DonneePermanenteErreur, SoignantInexistant, MauvaiseTailleString
+    public SoinEffectue traductionSQL(ResultSet data) throws Erreur
     {
         try {
             String mail = data.getString("soignant.mail");

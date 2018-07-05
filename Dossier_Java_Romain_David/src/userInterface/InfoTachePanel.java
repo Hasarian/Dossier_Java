@@ -1,6 +1,8 @@
 package userInterface;
 
-import erreurs.*;
+import erreurs.Erreur;
+import erreurs.erreurFormat.MauvaiseTailleString;
+import erreurs.erreurFormat.NombreInvalideException;
 import uIController.ListesAnimauxController;
 import uIController.TacheController;
 
@@ -23,7 +25,7 @@ public class InfoTachePanel extends JPanel
     private ArrayList<JCheckBox> soinsFaits;
     private JCheckBox pourLeVeto,estDangereux;
     private ListeDeTachesPanel listeDeTachesPanel;
-    public InfoTachePanel(Integer id,JPanel parentPanel,MainFrame mainFrame, ListeDeTachesPanel listeDeTachesPanel) throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant,NombreInvalideException
+    public InfoTachePanel(Integer id,JPanel parentPanel,MainFrame mainFrame, ListeDeTachesPanel listeDeTachesPanel) throws Erreur
     {
         this.listeDeTachesPanel = listeDeTachesPanel;
         this.mainFrame=mainFrame;
@@ -82,64 +84,7 @@ public class InfoTachePanel extends JPanel
         add(estDangereux);
 
     }
-    public InfoTachePanel(JFrame testFrame) throws NombreInvalideException,ErreurrNull
-    {
 
-        setLayout(null);
-        setBounds(2,2,testFrame.getWidth()-15,testFrame.getHeight()-15);
-        remarques=new ArrayList<JTextArea>();
-        soinsFaits=new ArrayList<JCheckBox>();
-        setBackground(Color.WHITE);
-        controller=new TacheController();
-        TacheContainer container=new TacheContainer();
-        container.setBounds(3,150,getWidth()-15,getHeight()*1/2);
-        container.initContainer();
-        //System.out.println("containerPanel: "+container.getX()+" "+container.getY()+" "+container.getWidth()+" "+container.getHeight());
-        add(container);
-
-        JButton boutonSuivant=new JButton("suite >");
-        boutonSuivant.addActionListener(new SuivantListener());
-        boutonSuivant.setBounds(875,container.getY()-30,100,25);
-        add(boutonSuivant);
-
-        pourLeVeto=new JCheckBox();
-        pourLeVeto.setBounds(boutonSuivant.getX()-30,boutonSuivant.getY()-40,20,20);
-        pourLeVeto.setBackground(Color.WHITE);
-        add(pourLeVeto);
-        JLabel pourLeVetoLabel=new JLabel("pour le vétérinaire");
-        pourLeVetoLabel.setBounds(pourLeVeto.getX()+pourLeVeto.getWidth(),pourLeVeto.getY(),110,25);
-        add(pourLeVetoLabel);
-
-        JLabel idAnimal,numCell,nomAnimal,remarqueSoin,remarqueAnimal,espece,race;
-        idAnimal=new JLabel("id: "+controller.getId());
-        idAnimal.setBounds(0,0,50,25);
-        numCell=new JLabel("numero de cellule: "+controller.getNumCell());
-        numCell.setBounds(0,idAnimal.getY()+idAnimal.getHeight(),150,25);
-        nomAnimal=new JLabel("nom: "+controller.getNom());
-        nomAnimal.setBounds(idAnimal.getX()+idAnimal.getWidth()+25,idAnimal.getY(),50,25);
-        estDangereux=new JCheckBox("est dangereux",controller.getDanger());
-        estDangereux.addItemListener(new LockedBoxListener());
-        estDangereux.setBounds(150,75,250,25);
-        estDangereux.setBackground(Color.WHITE);
-        remarqueSoin=new JLabel(controller.getRemarqueGeneraleSoin());
-        remarqueSoin.setBounds(5,125,500,25);
-        remarqueAnimal=new JLabel(controller.getRemarqueAnimal());
-        remarqueAnimal.setBounds(5,100,500,25);
-        espece=new JLabel(controller.getEspece());
-        espece.setBounds(nomAnimal.getX()+nomAnimal.getWidth()+50,nomAnimal.getY(),45,25);
-        race=new JLabel("- "+controller.getRace());
-        race.setBounds(espece.getX()+espece.getWidth(),espece.getY(),75,25);
-
-        add(race);
-        add(espece);
-        add(remarqueAnimal);
-        add(remarqueSoin);
-        add(idAnimal);
-        add(numCell);
-        add(nomAnimal);
-        add(estDangereux);
-
-    }
 
     private class TacheContainer extends JScrollPane
     {
@@ -155,6 +100,7 @@ public class InfoTachePanel extends JPanel
             container.setBackground(Color.WHITE);
             setViewportView(container);
             container.setLayout(null);
+            try{
             container.setPreferredSize(new Dimension(950,100*controller.nbTaches()));
             int x=0;
             int width=955;
@@ -171,6 +117,11 @@ public class InfoTachePanel extends JPanel
             }
             //System.out.println("taille check box array: "+soinsFaits.size());
             //System.out.println("taille remarques array: "+remarques.size());
+            }
+            catch (Erreur err)
+            {
+                JOptionPane.showMessageDialog(null,err.getMessage(),err.getTitre(),JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
     private class TachePane extends JPanel
@@ -183,7 +134,7 @@ public class InfoTachePanel extends JPanel
             JLabel description,remarque,heure;
             JCheckBox soinEffectue;
             JTextArea remarqueSoin;
-
+            try{
             description=new JLabel(controller.getDescriptionTache(index));
             description.setBounds(5,0,width/2,25);
             //System.out.println("description: "+description.getX()+" "+description.getY()+" "+description.getWidth()+" "+description.getHeight()+" "+description.getText());
@@ -227,6 +178,11 @@ public class InfoTachePanel extends JPanel
             add(remarqueLabel);
             add(conditionLabel);
             //System.out.println("remarque soin: "+remarqueSoin.getX()+" "+remarqueSoin.getY()+" "+remarqueSoin.getWidth()+" "+remarqueSoin.getHeight());
+            }
+            catch (Erreur err)
+            {
+                JOptionPane.showMessageDialog(null,err.getMessage(),err.getTitre(),JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
     private class SuivantListener implements ActionListener
@@ -248,29 +204,13 @@ public class InfoTachePanel extends JPanel
                     controller.faireSoin(sontFaits, remarquesFaites, pourLeVeto.isSelected());
                     mainFrame.setPanelActuel(null);
                     mainFrame.changePanel();
-                    ListesAnimauxController listesAnimauxController = ListesAnimauxController.obtenirListController(null);
+                    ListesAnimauxController listesAnimauxController = new ListesAnimauxController();
                     if(listesAnimauxController.aucunAnimalReserve())mainFrame.getBasePanel().removeTab(listeDeTachesPanel);
                 }
             }
-            catch (DonneePermanenteErreur connexion)
+            catch (Erreur err)
             {
-                JOptionPane.showMessageDialog(null,connexion.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
-            }
-            catch (SoinsNonEffectues problemeSoin)
-            {
-                JOptionPane.showMessageDialog(null,problemeSoin.getMessage(),"soins incomplets",JOptionPane.ERROR_MESSAGE);
-            }
-            catch (MauvaiseTailleString mauvaiseTailleString)
-            {
-                JOptionPane.showMessageDialog(null,mauvaiseTailleString.getMessage(),"remarque trop longue",JOptionPane.ERROR_MESSAGE);
-            }
-            catch (ErreurrNull erreurrNull)
-            {
-                JOptionPane.showMessageDialog(null,erreurrNull.getMessage(),"argument invalide",JOptionPane.ERROR_MESSAGE);
-            }
-            catch (SoignantInexistant existePas)
-            {
-                JOptionPane.showMessageDialog(null,existePas.getMessage(),"soignant inconnu",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null,err.getMessage(),err.getTitre(),JOptionPane.ERROR_MESSAGE);
             }
 
         }
@@ -280,7 +220,13 @@ public class InfoTachePanel extends JPanel
 
         @Override
         public void itemStateChanged(ItemEvent e) {
-                estDangereux.setSelected(controller.getDanger());
+            try{
+            estDangereux.setSelected(controller.getDanger());
+            }
+            catch (Erreur err)
+            {
+                JOptionPane.showMessageDialog(null,err.getMessage(),err.getTitre(),JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
     private class NbCaracteresListener implements DocumentListener

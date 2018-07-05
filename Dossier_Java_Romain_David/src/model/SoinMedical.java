@@ -1,6 +1,6 @@
 package model;
 
-import erreurs.ErreurrNull;
+import erreurs.erreurFormat.ErreurrNull;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -98,7 +98,7 @@ public class SoinMedical {
     }
 
     public void setDate(GregorianCalendar date) throws ErreurrNull {
-        if(date == null) throw new ErreurrNull();
+        if(date == null) throw new ErreurrNull("date où le soin doit être effectué");
         this.date = date;
     }
 
@@ -108,7 +108,7 @@ public class SoinMedical {
     }*/
     public void setDescriptionSoin(String descriptionSoin) throws ErreurrNull
     {
-        if(descriptionSoin == null) throw new ErreurrNull();
+        if(descriptionSoin == null) throw new ErreurrNull("desciption des soins");
         this.descriptionSoin=descriptionSoin;
     }
     public void setRemarque(String remarque){
@@ -117,22 +117,22 @@ public class SoinMedical {
     }
 
     public void setFicheSoin(Animal ficheSoin) throws ErreurrNull {
-        if(ficheSoin == null) throw new ErreurrNull();
+        if(ficheSoin == null) throw new ErreurrNull("fiche soin référence");
         this.ficheSoin = ficheSoin;
     }
 
     public void setIdSoinMedical(Integer idSoinMedical) throws ErreurrNull {
-        if(idSoinMedical == null) throw new ErreurrNull();
+        if(idSoinMedical == null) throw new ErreurrNull("id soin Médical");
         this.idSoinMedical = idSoinMedical;
     }
 
     public void setNumOrdonnance(Integer numOrdonnance) throws ErreurrNull {
-        if(numOrdonnance == null) throw new ErreurrNull();
+        if(numOrdonnance == null) throw new ErreurrNull("numéro de l'ordonnance");
         this.numOrdonnance = numOrdonnance;
     }
 
     public void setMailVeto(String mailVeto) throws ErreurrNull {
-        if(numOrdonnance == null) throw new ErreurrNull();
+        if(numOrdonnance == null) throw new ErreurrNull("mail du vétérinaire");
         this.mailVeto = mailVeto;
     }
 

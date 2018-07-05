@@ -1,8 +1,5 @@
 package userInterface;
 
-import erreurs.ErreurrNull;
-import erreurs.NombreInvalideException;
-
 import javax.swing.*;
 import java.awt.*;
 

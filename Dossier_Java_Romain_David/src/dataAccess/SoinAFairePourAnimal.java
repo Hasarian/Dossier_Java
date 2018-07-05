@@ -2,11 +2,11 @@ package dataAccess;
 
 import business.AnimalBusiness;
 import dataAccess.dao.DAORechercheSoinAFaire;
+import erreurs.Erreur;
 import model.Animal;
 import model.SoinMedical;
-import erreurs.DonneePermanenteErreur;
-import erreurs.ErreurrNull;
-import erreurs.SoignantInexistant;
+import erreurs.erreursExternes.DonneePermanenteErreur;
+import erreurs.erreurFormat.ErreurrNull;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,7 +24,7 @@ public class SoinAFairePourAnimal implements DAORechercheSoinAFaire{
     public SoinAFairePourAnimal(AnimalBusiness business) throws DonneePermanenteErreur {
         connection = SingletonDB.getInstance();
     }
-    public ArrayList<SoinMedical> readCareToAnimal(int id,GregorianCalendar date)throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant {
+    public ArrayList<SoinMedical> readCareToAnimal(int id,GregorianCalendar date)throws Erreur {
       String sql = "select*" +
               "from ficheAnimal, veto, soinMedical, ficheSoin, race, espece " +
               "where ficheAnimal.id = ? and ficheAnimal.id = ficheSoin.id and" +

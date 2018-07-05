@@ -1,9 +1,7 @@
 package userInterface;
 
-import erreurs.DonneePermanenteErreur;
-import erreurs.ErreurrNull;
-import erreurs.SoignantInexistant;
-import erreurs.SuppressionUtilisateurCourant;
+import erreurs.Erreur;
+import erreurs.erreurApplication.SuppressionUtilisateurCourant;
 import uIController.SoignantController;
 
 import javax.swing.*;
@@ -18,7 +16,7 @@ public class SuppressionSoignant extends JPanel
     private SoignantController soignantController;
     private MainFrame frame;
     private String[]users;
-    public SuppressionSoignant(MainFrame frame) throws DonneePermanenteErreur
+    public SuppressionSoignant(MainFrame frame) throws Erreur
     {
         soignantController =new SoignantController();
         setBackground(Color.WHITE);
@@ -78,16 +76,9 @@ public class SuppressionSoignant extends JPanel
                     }
                 }
             }
-            catch(SoignantInexistant soignantInexistant)
+            catch (Erreur err)
             {
-                JOptionPane.showMessageDialog(null,"cet utilisateur n'existe pas","utilisateur inconnu",JOptionPane.ERROR_MESSAGE);
-            }
-            catch(DonneePermanenteErreur connectError)
-            {
-                JOptionPane.showMessageDialog(null,"unable to connect to the BD","connexion error",JOptionPane.ERROR_MESSAGE);
-            }
-            catch (ErreurrNull erreurrNull) {
-                JOptionPane.showMessageDialog(null, erreurrNull.getMessage(), "db access error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null,err.getMessage(),err.getTitre(),JOptionPane.ERROR_MESSAGE);
             }
         }
     }

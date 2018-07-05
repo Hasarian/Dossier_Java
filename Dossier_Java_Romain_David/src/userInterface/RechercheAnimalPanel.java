@@ -1,8 +1,8 @@
 package userInterface;
 
-import erreurs.DonneePermanenteErreur;
-import erreurs.ErreurrNull;
-import erreurs.SoignantInexistant;
+import erreurs.Erreur;
+import erreurs.erreursExternes.DonneePermanenteErreur;
+import erreurs.erreurFormat.ErreurrNull;
 import uIController.AnimalController;
 
 import javax.swing.*;
@@ -22,7 +22,7 @@ public class RechercheAnimalPanel extends JPanel {
     private AnimalController animalController;
     private MainFrame frame;
 
-    public RechercheAnimalPanel(MainFrame frame) throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant {
+    public RechercheAnimalPanel(MainFrame frame) throws Erreur {
         this.frame=frame;
         setLayout(null);
         setBackground(Color.WHITE);
@@ -81,29 +81,21 @@ public class RechercheAnimalPanel extends JPanel {
                 revalidate();
 
             }
-        catch(DonneePermanenteErreur connexionError)
+            catch (Erreur err)
             {
-                JOptionPane.showMessageDialog(null, connexionError.getMessage(), "accès BD", JOptionPane.ERROR_MESSAGE);
-            }
-			catch(ErreurrNull erreurrNull)
-            {
-                JOptionPane.showMessageDialog(null, erreurrNull.getMessage(), "db access error", JOptionPane.ERROR_MESSAGE);
-            }
-            catch(SoignantInexistant unknown)
-            {
-                JOptionPane.showMessageDialog(null,unknown.getMessage(),"unknown member",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null,err.getMessage(),err.getTitre(),JOptionPane.ERROR_MESSAGE);
             }
         }
     }
     private class ModelTable extends AbstractTableModel
     {
-        private ArrayList<ArrayList<String>> data;
+        private ArrayList<ArrayList<Object>> data;
         private String [] columnNames=
                 {
                         "Nom", "est dangereux", "num cellule", "espece", "race", "date arrive"
                 };
 
-        public ModelTable(ArrayList<ArrayList<String>> data)
+        public ModelTable(ArrayList<ArrayList<Object>> data)
         {
             this.data=data;
         }
@@ -128,5 +120,13 @@ public class RechercheAnimalPanel extends JPanel {
             return false;
         }
 
+        public Class<?> getColumnClass(int columnIndex) {
+            switch (columnIndex)
+            {
+                case 2: return Integer.class;
+                case 1: return Boolean.class;
+                default: return String.class;
+            }
+        }
     }
 }

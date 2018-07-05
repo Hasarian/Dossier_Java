@@ -1,9 +1,7 @@
 package userInterface;
 
+import erreurs.Erreur;
 import model.Animal;
-import erreurs.DonneePermanenteErreur;
-import erreurs.ErreurrNull;
-import erreurs.SoignantInexistant;
 import uIController.SoignantController;
 
 import javax.swing.*;
@@ -13,7 +11,7 @@ import java.awt.event.ActionListener;
 public class ListeDesTachesReserveesVetoPanel extends ListeDeTachesPanel {
     MainFrame frame;
     ListeDeTachesPanel listeDeTachesPanel;
-    public ListeDesTachesReserveesVetoPanel(EcranPrincipalPanel parentPanel, SoignantController user, MainFrame frame) throws SoignantInexistant {
+    public ListeDesTachesReserveesVetoPanel(EcranPrincipalPanel parentPanel, SoignantController user, MainFrame frame) throws Erreur {
         super(parentPanel, user);
         this.listeDeTachesPanel = this;
         this.frame = frame;
@@ -45,15 +43,12 @@ public class ListeDesTachesReserveesVetoPanel extends ListeDeTachesPanel {
             int[] selectedRows=getTaskTable().getSelectedRows();
             try {
                 for (int i : selectedRows) {
-                    getListController().abandonnerAnimalVeto(new Integer(getListController().getIdDansLaListeVetoReservee(i)));
+                    getListController().abandonnerAnimalVeto(getListController().getIdDansLaListeVetoReservee(i));
                 }
             }
-            catch (ErreurrNull error)
+            catch (Erreur err)
             {
-                JOptionPane.showMessageDialog(null,error.getMessage(),"Attribut obligatoir à nullr",JOptionPane.ERROR_MESSAGE);
-            }
-            catch (DonneePermanenteErreur donneePermanenteErreur){
-                JOptionPane.showMessageDialog(null, donneePermanenteErreur.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null,err.getMessage(),err.getTitre(),JOptionPane.ERROR_MESSAGE);
             }
             getTaskTable().clearSelection();
             getTablePane().repaint();
@@ -64,7 +59,7 @@ public class ListeDesTachesReserveesVetoPanel extends ListeDeTachesPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                Integer id=Integer.parseInt(getListController().getIdDansLaListeReservee(getTaskTable().getSelectedRow()));
+                Integer id=getListController().getIdDansLaListeVetoReservee(getTaskTable().getSelectedRow());
                 getParentPanel().getFrame().changePanel(new InfoTachePanel(id,getParentPanel(), frame, listeDeTachesPanel));
             }
             catch (Exception error)

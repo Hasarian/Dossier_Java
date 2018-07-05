@@ -1,8 +1,6 @@
 package userInterface;
 
-import erreurs.DonneePermanenteErreur;
-import erreurs.ErreurrNull;
-import erreurs.SoignantInexistant;
+import erreurs.Erreur;
 import uIController.SoignantController;
 import uIController.ListesAnimauxController;
 
@@ -20,11 +18,11 @@ public class EcranPrincipalPanel extends JPanel {
     }
     public MainFrame getFrame(){return frame;}
 
-    public EcranPrincipalPanel(MainFrame frame, SoignantController user) throws ErreurrNull, DonneePermanenteErreur, SoignantInexistant {
+    public EcranPrincipalPanel(MainFrame frame, SoignantController user) throws Erreur {
         setLayout(null);
         //setBounds(0,400,500,500);
         this.frame = frame;
-        listController= ListesAnimauxController.obtenirListController(user);
+        listController= new ListesAnimauxController();
         setBackground(Color.WHITE);
         tabbedPane = new JTabbedPane();
         tabbedPane.insertTab("liste de taches", null, new ListeDesTachesDisponiblesPanel(this,user,frame), "", 0);

@@ -1,6 +1,6 @@
 package model;
 
-import erreurs.ErreurrNull;
+import erreurs.erreurFormat.ErreurrNull;
 
 //setter des String pour empecher les texte trop long
 public class Race {

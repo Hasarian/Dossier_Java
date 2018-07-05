@@ -1,7 +1,7 @@
 package model;
 
-import erreurs.ErreurrNull;
-import erreurs.MauvaiseTailleString;
+import erreurs.erreurFormat.ErreurrNull;
+import erreurs.erreurFormat.MauvaiseTailleString;
 
 import java.util.GregorianCalendar;
 
@@ -22,7 +22,7 @@ public class SoinEffectue {
     }
 
     public void setFicheSoin(SoinMedical ficheSoin) throws ErreurrNull {
-        if(ficheSoin == null) throw new ErreurrNull();
+        if(ficheSoin == null) throw new ErreurrNull("soin référence");
         this.soinMedical = ficheSoin;
     }
     public void setRemarque(String remarque) throws MauvaiseTailleString
@@ -37,12 +37,12 @@ public class SoinEffectue {
     }
 
     public void setSoignant(Soignant soignant) throws ErreurrNull {
-        if(soignant == null) throw new ErreurrNull();
+        if(soignant == null) throw new ErreurrNull("soignant");
         this.soignant = soignant;
     }
 
     public void setDateHeure(GregorianCalendar dateHeure) throws ErreurrNull {
-        if(dateHeure == null) throw new ErreurrNull();
+        if(dateHeure == null) throw new ErreurrNull("heure d'exécution");
         this.dateHeure = dateHeure;
     }
 

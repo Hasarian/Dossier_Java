@@ -1,9 +1,7 @@
 package userInterface;
 
+import erreurs.Erreur;
 import model.Animal;
-import erreurs.DonneePermanenteErreur;
-import erreurs.ErreurrNull;
-import erreurs.SoignantInexistant;
 import uIController.SoignantController;
 
 import javax.swing.*;
@@ -13,7 +11,7 @@ import java.awt.event.ActionListener;
 public class ListeDesTachesDisponiblesPanel extends ListeDeTachesPanel
 {
     MainFrame frame;
-    public ListeDesTachesDisponiblesPanel(EcranPrincipalPanel parentPanel, SoignantController user, MainFrame frame) throws SoignantInexistant {
+    public ListeDesTachesDisponiblesPanel(EcranPrincipalPanel parentPanel, SoignantController user, MainFrame frame) throws Erreur {
         super(parentPanel,user);
         this.frame = frame;
         TaskTableModel model = new TaskTableModel(Animal.EtatSoin.DISPONIBLE);
@@ -42,22 +40,13 @@ public class ListeDesTachesDisponiblesPanel extends ListeDeTachesPanel
             try {
                 if(getListController().aucunAnimalReserve())getParentPanel().insertTab(new ListeDesTachesReserveesPanel(getParentPanel(),getUser(),frame ),"personnal list");
                 int[] selectedRows=getTaskTable().getSelectedRows();
-                int nbRetrait = 0;
                 for (int i : selectedRows) {
-                    getListController().selectionnerAnimal(new Integer(getListController().getIdDansLaListeDispo(i - nbRetrait)));
-                    nbRetrait++;
+                    getListController().selectionnerAnimal(i);
                 }
             }
-            catch(SoignantInexistant notFoundError)
+            catch (Erreur err)
             {
-                JOptionPane.showMessageDialog(null,notFoundError.getMessage(),"member not found",JOptionPane.ERROR_MESSAGE);
-            }
-            catch (ErreurrNull error)
-            {
-                JOptionPane.showMessageDialog(null,error.getMessage(),"Attribut obligatoir a null",JOptionPane.ERROR_MESSAGE);
-            }
-            catch (DonneePermanenteErreur error){
-                JOptionPane.showMessageDialog(null,error.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null,err.getMessage(),err.getTitre(),JOptionPane.ERROR_MESSAGE);
             }
             getTaskTable().clearSelection();
         }

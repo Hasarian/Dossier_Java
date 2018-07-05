@@ -1,9 +1,7 @@
 package userInterface;
 
+import erreurs.Erreur;
 import model.Animal;
-import erreurs.DonneePermanenteErreur;
-import erreurs.ErreurrNull;
-import erreurs.SoignantInexistant;
 import uIController.SoignantController;
 
 import javax.swing.*;
@@ -14,7 +12,7 @@ public class ListeDesTachesReserveesPanel extends ListeDeTachesPanel
 {
     ListeDesTachesReserveesPanel thisPanel;
     MainFrame frame;
-    public ListeDesTachesReserveesPanel(EcranPrincipalPanel parentPanel, SoignantController user,MainFrame frame) throws SoignantInexistant {
+    public ListeDesTachesReserveesPanel(EcranPrincipalPanel parentPanel, SoignantController user,MainFrame frame) throws Erreur {
         super(parentPanel, user);
         thisPanel=this;
         this.frame=frame;
@@ -44,23 +42,18 @@ public class ListeDesTachesReserveesPanel extends ListeDeTachesPanel
         @Override
         public void actionPerformed(ActionEvent e) {
             int[] selectedRows=getTaskTable().getSelectedRows();
-            int nbRetrait = 0;
             try {
                 for (int i : selectedRows) {
 
-                    getListController().abandonnerAnimal(new Integer(getListController().getIdDansLaListeReservee(i - nbRetrait)));
-                    nbRetrait++;
+                    getListController().abandonnerAnimal(getListController().getIdDansLaListeReservee(i));
                 }
-            }
-            catch (ErreurrNull error)
-            {
-                JOptionPane.showMessageDialog(null,error.getMessage(),"Attribut obligatoir mit à null",JOptionPane.ERROR_MESSAGE);
-            }
-            catch (DonneePermanenteErreur erreur){
-                JOptionPane.showMessageDialog(null,erreur.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
-            }
             getTaskTable().clearSelection();
             if(getListController().aucunAnimalReserve())getParentPanel().removeTab(thisPanel);
+            }
+            catch (Erreur err)
+            {
+                JOptionPane.showMessageDialog(null,err.getMessage(),err.getTitre(),JOptionPane.ERROR_MESSAGE);
+            }
             getTablePane().repaint();
         }
     }
@@ -71,7 +64,7 @@ public class ListeDesTachesReserveesPanel extends ListeDeTachesPanel
             try {
                 int choix=JOptionPane.showConfirmDialog(null,"vous ne pourrez plus revenir en arrière avant d'avoir fini. Continuer ?","confirmation",JOptionPane.YES_NO_OPTION);
                 if(choix==JOptionPane.YES_OPTION) {
-                    Integer id = Integer.parseInt(getListController().getIdDansLaListeReservee(getTaskTable().getSelectedRow()));
+                    Integer id = getListController().getIdDansLaListeReservee(getTaskTable().getSelectedRow());
                     InfoTachePanel tache = new InfoTachePanel(id, getParentPanel(), frame, thisPanel);
                     getParentPanel().getFrame().changePanel(tache);
                     frame.setPanelActuel(tache);

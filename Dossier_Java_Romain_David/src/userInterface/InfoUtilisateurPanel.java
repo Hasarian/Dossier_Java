@@ -1,7 +1,9 @@
 package userInterface;
 
+import erreurs.Erreur;
+import erreurs.erreurFormat.ErreurrNull;
+import erreurs.erreurFormat.NombreExpection;
 import model.Soignant;
-import erreurs.*;
 import uIController.SoignantController;
 
 import javax.swing.*;
@@ -16,7 +18,7 @@ public class InfoUtilisateurPanel extends FormulaireInscriptionSoignantPanel
     BannierePanel bannierePanel;
     SoignantController userControl;
     String ancienMail;
-    public InfoUtilisateurPanel(SoignantController user, MainFrame frame, BannierePanel bannierePanel) throws DonneePermanenteErreur, ErreurrNull
+    public InfoUtilisateurPanel(SoignantController user, MainFrame frame, BannierePanel bannierePanel) throws Erreur
     {
             super(frame);
             this.bannierePanel = bannierePanel;
@@ -33,7 +35,7 @@ public class InfoUtilisateurPanel extends FormulaireInscriptionSoignantPanel
             repaint();
             getConfirmButton().addActionListener(new MajListener());
     }
-    public InfoUtilisateurPanel(Soignant soignant,MainFrame frame) throws DonneePermanenteErreur,ErreurrNull
+    public InfoUtilisateurPanel(Soignant soignant,MainFrame frame) throws Erreur
     {
         super(frame);
         bannierePanel=frame.obtenirBanierePanel();
@@ -78,29 +80,9 @@ public class InfoUtilisateurPanel extends FormulaireInscriptionSoignantPanel
                     bannierePanel.actualisation();
                 }
             }
-            catch (MauvaiseTailleString tailleString)
+            catch (Erreur err)
             {
-                JOptionPane.showMessageDialog(null, tailleString.getMessage(),"chaîne de caractère trop longue",JOptionPane.ERROR_MESSAGE);
-            }
-            catch (SoignantInexistant inexistant)
-            {
-                JOptionPane.showMessageDialog(null, inexistant.getMessage(),"le soignant inexistant",JOptionPane.ERROR_MESSAGE);
-            }
-            catch (EmailRegexErreur regexErreur)
-            {
-                JOptionPane.showMessageDialog(null, regexErreur.getMessage(),"attribut invalide",JOptionPane.ERROR_MESSAGE);
-            }
-            catch (DonneePermanenteErreur connexionError)
-            {
-                JOptionPane.showMessageDialog(null, connexionError.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
-            }
-            catch (ErreurrNull erreurrNull)
-            {
-                JOptionPane.showMessageDialog(null, erreurrNull.getMessage(),"attribut invalide",JOptionPane.ERROR_MESSAGE);
-            }
-            catch (NombreExpection nombreExpection)
-            {
-                JOptionPane.showMessageDialog(null, nombreExpection.getMessage(),"nombre invalide",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null,err.getMessage(),err.getTitre(),JOptionPane.ERROR_MESSAGE);
             }
         }
     }

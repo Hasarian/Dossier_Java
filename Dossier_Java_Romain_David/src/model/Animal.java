@@ -1,6 +1,6 @@
 package model;
 
-import erreurs.ErreurrNull;
+import erreurs.erreurFormat.ErreurrNull;
 
 import java.util.GregorianCalendar;
 
@@ -57,33 +57,33 @@ public class Animal {
     }
 
     public void setDateArrive(GregorianCalendar dateArrive) throws ErreurrNull {
-        if(dateArrive == null) throw new ErreurrNull();
+        if(dateArrive == null) throw new ErreurrNull("date d'arrivée");
         this.dateArrive = dateArrive;
     }
 
     public void setNomAnimal(String nomAnimal) throws ErreurrNull {
-        if(nomAnimal == null) throw new ErreurrNull();
+        if(nomAnimal == null) throw new ErreurrNull("nom de l'animal");
         this.nomAnimal = nomAnimal;
     }
 
     public void setEtatFicheSoin(EtatSoin etatFicheSoin) throws ErreurrNull {
-        if(etatFicheSoin == null) throw new ErreurrNull();
+        if(etatFicheSoin == null) throw new ErreurrNull("fiche soin");
         this.etatFicheSoin = etatFicheSoin;
 
     }
 
     public void setRace(Race race) throws ErreurrNull {
-        if(race == null) throw new ErreurrNull();
+        if(race == null) throw new ErreurrNull("race");
         this.race = race;
     }
 
     public void setEtatAnimal(EtatAnimal etatAnimal) throws ErreurrNull {
-        if(etatAnimal == null)
+        if(etatAnimal == null) throw  new ErreurrNull("état de l'animal");
         this.etatFicheAnimal = etatAnimal;
     }
 
     public void setEstDangereux(Boolean estDangereux) throws ErreurrNull {
-        if(estDangereux == null) throw new ErreurrNull();
+        if(estDangereux == null) throw new ErreurrNull("dangerosité");
         this.estDangereux = estDangereux;
     }
 
@@ -96,12 +96,12 @@ public class Animal {
     }
 
     public void setNumCellule(Integer numCellule) throws ErreurrNull {
-        if(numCellule == null) throw new ErreurrNull();
+        if(numCellule == null) throw new ErreurrNull("numéro de cellule");
         this.numCellule = numCellule;
     }
 
     public void setId(Integer id) throws ErreurrNull {
-        if(id == null) throw new ErreurrNull();
+        if(id == null) throw new ErreurrNull("id de l'animal");
         this.id = id;
     }
 

@@ -1,57 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/SoignantController.java" line="53" />
-    <bookmark url="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/SoignantController.java" line="62" />
+    <bookmark url="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/SoignantController.java" line="56" />
+    <bookmark url="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/SoignantController.java" line="65" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e633ca09-66ed-4f9a-b57c-daa42bf763d4" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/business/AnimalBusiness.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/business/ListeAnimalBusiness.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/business/LocaliteBusiness.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/business/SoignantBusiness.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/AnimalDataAccess.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/DAO/DAOAnimal.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/DAO/DAORechercheSoinEffectue.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/RechercheAnimauxEntreDates.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/SingletonDB.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/SoignantDataAccess.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/SoinAFairePourAnimal.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/SoinParSoignant.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAORechercheAnimalDates.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAORechercheSoinAFaire.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAOSoignant.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Animal.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Espece.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Localite.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Race.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Soignant.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/SoinEffectue.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/SoinMedical.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Vaccin.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Vaccination.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Veterinaire.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/Erreur.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/erreurApplication/ErreurAppli.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/erreurFormat/ErreurFormat.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/erreursExternes/DonneeInexistante.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/erreursExternes/ErreurExterne.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/DataAccess/DAO/DAOLocalite.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAOLocalite.java" />
-      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/DataAccess/LocaliteDataAccess.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/LocaliteDataAccess.java" />
-      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/ThreadAppli/ThreadEcranDeConnexion.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/threadAppli/ThreadEcranDeConnexion.java" />
-      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/SoinsNonEffectues.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/SoinsNonEffectues.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/business/AnimalBusiness.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/business/AnimalBusiness.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/business/ListeAnimalBusiness.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/business/ListeAnimalBusiness.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/business/LocaliteBusiness.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/business/LocaliteBusiness.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/business/SoignantBusiness.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/business/SoignantBusiness.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/AnimalDataAccess.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/AnimalDataAccess.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/LocaliteDataAccess.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/LocaliteDataAccess.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/RechercheAnimauxEntreDates.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/RechercheAnimauxEntreDates.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/SingletonDB.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/SingletonDB.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/SoignantDataAccess.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/SoignantDataAccess.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/SoinAFairePourAnimal.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/SoinAFairePourAnimal.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/SoinParSoignant.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/SoinParSoignant.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAOAnimal.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAOAnimal.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAOLocalite.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAOLocalite.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAORechercheAnimalDates.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAORechercheAnimalDates.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAORechercheSoinAFaire.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAORechercheSoinAFaire.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAORechercheSoinEffectue.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAORechercheSoinEffectue.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAOSoignant.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAOSoignant.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/EmailRegexErreur.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/erreurFormat/EmailRegexErreur.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/ErreurInsertionAnimal.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/erreursExternes/ErreurInsertionAnimal.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/ErreurInsertionSoignant.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/erreursExternes/ErreurInsertionSoignant.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/ErreurrNull.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/erreurFormat/ErreurrNull.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/LocaliteInexistante.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/MauvaiseTailleString.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/erreurFormat/MauvaiseTailleString.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/NombreExpection.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/erreurFormat/NombreExpection.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/NombreInvalideException.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/erreurFormat/NombreInvalideException.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/SoignantInexistant.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/SoinsNonEffectues.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/erreurApplication/SoinsNonEffectues.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/SuppressionUtilisateurCourant.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/erreurApplication/SuppressionUtilisateurCourant.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Animal.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Animal.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Espece.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Espece.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Localite.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Localite.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Race.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Race.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Soignant.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Soignant.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/SoinEffectue.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/SoinEffectue.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/SoinMedical.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/SoinMedical.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Vaccin.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Vaccin.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Vaccination.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Vaccination.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Veterinaire.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Veterinaire.java" />
       <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/AnimalController.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/AnimalController.java" />
       <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/AnimalInfoDisplayer.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/AnimalInfoDisplayer.java" />
       <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/ListesAnimauxController.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/ListesAnimauxController.java" />
       <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/LocaliteController.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/LocaliteController.java" />
       <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/SoignantController.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/SoignantController.java" />
       <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/TacheController.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/TacheController.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/BannierePanel.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/BannierePanel.java" />
       <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ConnexionFrame.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ConnexionFrame.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/EcranPrincipalPanel.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/EcranPrincipalPanel.java" />
       <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/FormulaireInscriptionSoignantPanel.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/FormulaireInscriptionSoignantPanel.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/InfoAnimalFrame.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/InfoAnimalFrame.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/InfoTachePanel.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/InfoTachePanel.java" />
       <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/InfoUtilisateurPanel.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/InfoUtilisateurPanel.java" />
       <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeDeTachesPanel.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeDeTachesPanel.java" />
       <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeDesTachesDisponiblesPanel.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeDesTachesDisponiblesPanel.java" />
       <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeDesTachesDisponiblesVetoPanel.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeDesTachesDisponiblesVetoPanel.java" />
       <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeDesTachesReserveesPanel.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeDesTachesReserveesPanel.java" />
       <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeDesTachesReserveesVetoPanel.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeDesTachesReserveesVetoPanel.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeSoignantsPanel.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeSoignantsPanel.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/Main.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/Main.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainFrame.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainFrame.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RechercheAnimalPanel.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RechercheAnimalPanel.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RechercheSoinParAnimalPanel.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RechercheSoinParAnimalPanel.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RechercheSoinParSoignantPanel.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RechercheSoinParSoignantPanel.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/SuppressionSoignant.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/SuppressionSoignant.java" />
+      <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TestFrame.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TestFrame.java" />
       <change beforePath="$PROJECT_DIR$/Dossier_Java_Romain_David/test/java/userInterface/RegexFormSoignantTest.java" afterPath="$PROJECT_DIR$/Dossier_Java_Romain_David/test/java/userInterface/RegexFormSoignantTest.java" />
-      <change beforePath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/RowDataCursor.java" afterPath="$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/RowDataCursor.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -84,110 +109,124 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SoignantBusiness.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/business/SoignantBusiness.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="31" column="11" lean-forward="false" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AnimalController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/AnimalController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="52" column="72" lean-forward="false" selection-start-line="52" selection-start-column="72" selection-end-line="52" selection-end-column="72" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AnimalInfoDisplayer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/AnimalInfoDisplayer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="19" column="128" lean-forward="false" selection-start-line="19" selection-start-column="128" selection-end-line="19" selection-end-column="128" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ListesAnimauxController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/ListesAnimauxController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="11" column="97" lean-forward="false" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="97" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LocaliteController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/LocaliteController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="SoignantController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/SoignantController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2550">
-              <caret line="160" column="5" lean-forward="false" selection-start-line="160" selection-start-column="5" selection-end-line="160" selection-end-column="5" />
+            <state relative-caret-position="170">
+              <caret line="41" column="45" lean-forward="false" selection-start-line="41" selection-start-column="45" selection-end-line="41" selection-end-column="45" />
               <folding>
-                <element signature="e#3102#3121#0" expanded="true" />
-                <element signature="e#3425#3433#0" expanded="true" />
-                <element signature="e#4800#4808#0" expanded="true" />
+                <element signature="e#1328#1329#0" expanded="true" />
+                <element signature="e#1373#1374#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TacheController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/TacheController.java">
+      <file leaf-file-name="SoignantDataAccess.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/SoignantDataAccess.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1700">
-              <caret line="108" column="56" lean-forward="false" selection-start-line="108" selection-start-column="56" selection-end-line="108" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AnimalDataAccess.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/AnimalDataAccess.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="16" column="5" lean-forward="false" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+            <state relative-caret-position="208">
+              <caret line="110" column="58" lean-forward="false" selection-start-line="110" selection-start-column="58" selection-end-line="110" selection-end-column="58" />
               <folding>
-                <marker date="1530135064270" expanded="true" signature="724:921" ph="select * fro... ficheSoin" />
-                <marker date="1530135064270" expanded="true" signature="1502:1674" ph="select * fro... ficheanimal" />
-                <marker date="1530135064270" expanded="true" signature="2225:2271" ph="update ficheSoin... " />
+                <marker date="1530833157601" expanded="true" signature="734:872" ph="insert into soignant... " />
+                <marker date="1530833157601" expanded="true" signature="2029:2062" ph="delete from soignant... " />
+                <marker date="1530833157601" expanded="true" signature="2495:2670" ph="update soignant... " />
+                <marker date="1530833157601" expanded="true" signature="4485:4585" ph="select * fro... soignant" />
+                <marker date="1530833157601" expanded="true" signature="5239:5264" ph="select mail soignant" />
+                <marker date="1530833157601" expanded="true" signature="5893:5969" ph="select * fro... soignant" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AnimalBusiness.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/business/AnimalBusiness.java">
+      <file leaf-file-name="SoinAFairePourAnimal.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/SoinAFairePourAnimal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="34" column="150" lean-forward="false" selection-start-line="34" selection-start-column="150" selection-end-line="34" selection-end-column="150" />
+            <state relative-caret-position="153">
+              <caret line="28" column="78" lean-forward="false" selection-start-line="28" selection-start-column="78" selection-end-line="28" selection-end-column="78" />
+              <folding>
+                <marker date="1530833173203" expanded="true" signature="951:1279" ph="select*from ficheAnimal... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SoinParSoignant.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/SoinParSoignant.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="71" column="67" lean-forward="false" selection-start-line="71" selection-start-column="67" selection-end-line="71" selection-end-column="67" />
+              <folding>
+                <marker date="1530833183883" expanded="true" signature="716:984" ph="select *from... soignant" />
+                <marker date="1530833183883" expanded="true" signature="1916:1996" ph="insert into soinEffectue... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RechercheSoinParAnimalPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RechercheSoinParAnimalPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-34">
+              <caret line="20" column="69" lean-forward="false" selection-start-line="20" selection-start-column="69" selection-end-line="20" selection-end-column="69" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ListeAnimalBusiness.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/business/ListeAnimalBusiness.java">
+      <file leaf-file-name="RechercheAnimalPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RechercheAnimalPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1037">
-              <caret line="68" column="155" lean-forward="false" selection-start-line="68" selection-start-column="155" selection-end-line="68" selection-end-column="155" />
+            <state relative-caret-position="170">
+              <caret line="24" column="62" lean-forward="false" selection-start-line="24" selection-start-column="62" selection-end-line="24" selection-end-column="62" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainFrame.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="143" column="89" lean-forward="false" selection-start-line="143" selection-start-column="89" selection-end-line="143" selection-end-column="89" />
+              <folding>
+                <element signature="e#3126#3127#0" expanded="true" />
+                <element signature="e#3175#3176#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="8" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RechercheSoinParSoignantPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RechercheSoinParSoignantPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1207">
+              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RechercheAnimauxEntreDates.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/RechercheAnimauxEntreDates.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="163">
+              <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+              <folding>
+                <marker date="1530833130193" expanded="true" signature="755:1077" ph="select* from... ficheAnimal" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -214,6 +253,8 @@
       <find>CareGiver</find>
       <find>Desces</find>
       <find>db</find>
+      <find>throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant</find>
+      <find>throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -227,57 +268,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/AttributNull.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/DataAccess/SoignantDataAccess.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Model/Espece.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/EcranPrincipalPanel.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeDesTachesDisponiblesPanel.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeDesTachesDisponiblesVetoPanel.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeDeTachesPanel.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Model/Localite.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/erreursExternes/SoignantInexistant.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Animal.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Espece.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Localite.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Soignant.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/SoinEffectue.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/SoinMedical.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Vaccin.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/BannierePanel.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ConnexionFrame.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/NombreInvalideException.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/InfoAnimalFrame.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ConteneurPanel.java" />
-        <option value="$PROJECT_DIR$/externalRessources/BDSPAConstruction.txt" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Model/Race.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Model/Soignant.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Model/Veterinaire.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Model/SoinMedical.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/Main.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TestFrame.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Model/Animal.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/InfoTachePanel.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeDesTachesReserveesPanel.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/DataAccess/AnimalDBAccess.java" />
-        <option value="$PROJECT_DIR$/externalRessources/remarques de la prof.txt" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/BDConnexionErreur.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/ErreurrNull.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/SoignantInexistant.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeSoignants.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/LocaliteInexistante.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/InfoUtilisateurPanel.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/EcranPrincipalPanel.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/SingletonDB.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/LocaliteDataAccess.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAOLocalite.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAORechercheAnimalDates.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAORechercheSoinAFaire.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAORechercheSoinEffectue.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAOSoignant.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/business/LocaliteBusiness.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/business/SoignantBusiness.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/business/AnimalBusiness.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/business/ListeAnimalBusiness.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeDeTachesPanel.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/LocaliteController.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/FormulaireInscriptionSoignantPanel.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RechercheAnimalPanel.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RechercheSoinParAnimalPanel.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeDesTachesReserveesVetoPanel.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainFrame.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/DataAccess/DAO/DAOAnimal.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/ListeEspecebusiness.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/SoignantBusiness.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/DataAccess/RechercheAnimauxEntreDates.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/DataAccess/AnimalDataAccess.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/DataAccess/SoinAFairePourAnimal.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/DataAccess/DAO/DAORechercheSoinAFaire.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/DataAccess/SoinParSoignant.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/AnimalBusiness.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/ListeAnimalBusiness.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/AnimalController.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/ListesAnimauxController.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/AnimalDataAccess.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/SoignantController.java" />
-        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/AnimalInfoDisplayer.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/SuppressionSoignant.java" />
         <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/TacheController.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/InfoTachePanel.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/AnimalInfoDisplayer.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/AnimalController.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RechercheSoinParSoignantPanel.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeDesTachesDisponiblesPanel.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeDesTachesDisponiblesVetoPanel.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeDesTachesReserveesVetoPanel.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeDesTachesReserveesPanel.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/ListesAnimauxController.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAOAnimal.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/erreursExternes/DonneeInexistante.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/AnimalDataAccess.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeSoignantsPanel.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/SoignantController.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/RechercheAnimauxEntreDates.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/SoignantDataAccess.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/SoinAFairePourAnimal.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/SoinParSoignant.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RechercheSoinParAnimalPanel.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RechercheAnimalPanel.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainFrame.java" />
+        <option value="$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/Main.java" />
       </list>
     </option>
   </component>
@@ -297,7 +338,7 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="width" value="855" />
+    <option name="width" value="769" />
     <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -321,9 +362,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -356,6 +397,28 @@
               <item name="Dossier_Java_Romain_David" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="dataAccess" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Dossier_Java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dossier_Java" type="462c0819:PsiDirectoryNode" />
+              <item name="Dossier_Java_Romain_David" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="dataAccess" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Dossier_Java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dossier_Java" type="462c0819:PsiDirectoryNode" />
+              <item name="Dossier_Java_Romain_David" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="uIController" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Dossier_Java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dossier_Java" type="462c0819:PsiDirectoryNode" />
+              <item name="Dossier_Java_Romain_David" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="userInterface" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Dossier_Java" type="b2602c69:ProjectViewProjectNode" />
@@ -625,7 +688,10 @@
       <workItem from="1528999657633" duration="597000" />
       <workItem from="1529004129604" duration="61000" />
       <workItem from="1530025127623" duration="7879000" />
-      <workItem from="1530134568633" duration="2835000" />
+      <workItem from="1530134568633" duration="2964000" />
+      <workItem from="1530547288838" duration="11856000" />
+      <workItem from="1530701568650" duration="3814000" />
+      <workItem from="1530820419222" duration="9984000" />
     </task>
     <task id="LOCAL-00001" summary="login frame sans les events">
       <created>1522594410214</created>
@@ -921,7 +987,14 @@
       <option name="project" value="LOCAL" />
       <updated>1530046142084</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="-les packages sont en minuscule&#10;-les classes du package controller ont été révisée pour correspondre aux attentes">
+      <created>1530137566888</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1530137566888</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -933,7 +1006,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="303973000" />
+    <option name="totallyTimeSpent" value="329756000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -949,19 +1022,19 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31241998" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32522407" sideWeight="0.5026774" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299866" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32522407" sideWeight="0.49732262" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33546734" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33546734" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25301206" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19009371" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299866" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33034572" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24966533" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -973,8 +1046,8 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31241998" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33034572" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1040,7 +1113,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="mardi 8/5:&#10;aprem" />
     <MESSAGE value="Bypass de tes list car inutilisable pour les recherches ... donc de doublement de certaines parties du code... &#10;mais premiere recherche a 90% finie" />
     <MESSAGE value="premiere recherche finie a 90%&#10;et the-read entamé" />
     <MESSAGE value="gestion des listes Animal finie" />
@@ -1065,11 +1137,20 @@
     <MESSAGE value="rien à part la création d'une classe" />
     <MESSAGE value="boutons retour" />
     <MESSAGE value="[PATCH POST EXAMEN DE JUIN]&#10;&#10;-les listes sont retirées&#10;-le noeud entre la couche business et la couche data est aboli&#10;-les singletons de la couche business sont retirés. Il ne reste qu'un attribut statique: le mail de l'utilisateur courant&#10;-J'ai commencé à changer la couche controller, tu remarqueras facilement qu'il reste des trucs à faire&#10;-je n'ai pas encore touché à la couche UI&#10;-J'ai transformé l'array d'array de String en array d'array d'Object, en prévision de la modification de classe des cellules des tableaux&#10;-les noms des erreurs de donnée permanente ont été changés (DBConnexion-&gt;DonneesPermanente)&#10;-les classes &quot;espèces business&quot; sont supprimées, elles ne servent plus à rien&#10;-les classes business ont été épurées: les méthodes doublon ont été retirées, ainsi que les méthodes en trop" />
-    <option name="LAST_COMMIT_MESSAGE" value="[PATCH POST EXAMEN DE JUIN]&#10;&#10;-les listes sont retirées&#10;-le noeud entre la couche business et la couche data est aboli&#10;-les singletons de la couche business sont retirés. Il ne reste qu'un attribut statique: le mail de l'utilisateur courant&#10;-J'ai commencé à changer la couche controller, tu remarqueras facilement qu'il reste des trucs à faire&#10;-je n'ai pas encore touché à la couche UI&#10;-J'ai transformé l'array d'array de String en array d'array d'Object, en prévision de la modification de classe des cellules des tableaux&#10;-les noms des erreurs de donnée permanente ont été changés (DBConnexion-&gt;DonneesPermanente)&#10;-les classes &quot;espèces business&quot; sont supprimées, elles ne servent plus à rien&#10;-les classes business ont été épurées: les méthodes doublon ont été retirées, ainsi que les méthodes en trop" />
+    <MESSAGE value="-les packages sont en minuscule&#10;-les classes du package controller ont été révisée pour correspondre aux attentes" />
+    <option name="LAST_COMMIT_MESSAGE" value="-les packages sont en minuscule&#10;-les classes du package controller ont été révisée pour correspondre aux attentes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="32" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeDeTachesPanel.java</url>
+          <line>117</line>
+          <properties />
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="49" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1078,390 +1159,504 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/TestFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="18" column="52" lean-forward="false" selection-start-line="18" selection-start-column="52" selection-end-line="18" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeDesTachesReserveesPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="74" column="83" lean-forward="false" selection-start-line="74" selection-start-column="83" selection-end-line="74" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/externalRessources/BDSPAConstruction.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="32" column="6" lean-forward="false" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/EmailRegexErreur.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/ErreurInsertionAnimal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/ErreurInsertionSoignant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/NombreExpection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/NombreInvalideException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="79" lean-forward="false" selection-start-line="7" selection-start-column="79" selection-end-line="7" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/SoignantInexistant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/SuppressionUtilisateurCourant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/externalRessources/remarques de la prof.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="16" lean-forward="true" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeSoignants.java" />
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/ErreurrNull.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/LocaliteInexistante.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/InfoAnimalFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/FormulaireInscriptionSoignantPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4726">
-          <caret line="299" column="5" lean-forward="false" selection-start-line="293" selection-start-column="4" selection-end-line="299" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/InfoTachePanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4046">
-          <caret line="255" column="123" lean-forward="false" selection-start-line="255" selection-start-column="123" selection-end-line="255" selection-end-column="123" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeDesTachesReserveesVetoPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="29" column="53" lean-forward="false" selection-start-line="29" selection-start-column="53" selection-end-line="29" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/InfoUtilisateurPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="63" column="57" lean-forward="false" selection-start-line="63" selection-start-column="57" selection-end-line="63" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeDesTachesDisponiblesPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="43" column="46" lean-forward="false" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
+        <state relative-caret-position="202">
+          <caret line="50" column="105" lean-forward="false" selection-start-line="50" selection-start-column="105" selection-end-line="50" selection-end-column="105" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RechercheAnimalPanel.java">
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeDesTachesDisponiblesVetoPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="52" column="7" lean-forward="false" selection-start-line="52" selection-start-column="7" selection-end-line="55" selection-end-column="20" />
+        <state relative-caret-position="238">
+          <caret line="41" column="66" lean-forward="true" selection-start-line="41" selection-start-column="66" selection-end-line="41" selection-end-column="66" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RechercheSoinParAnimalPanel.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/javax/swing/JOptionPane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="40" column="49" lean-forward="false" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="49" />
+        <state relative-caret-position="157">
+          <caret line="665" column="0" lean-forward="false" selection-start-line="665" selection-start-column="0" selection-end-line="665" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeDeTachesPanel.java">
+    <entry file="file://$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/EscapeProcessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1887">
-          <caret line="141" column="34" lean-forward="false" selection-start-line="141" selection-start-column="34" selection-end-line="141" selection-end-column="34" />
+        <state relative-caret-position="145">
+          <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RechercheSoinParSoignantPanel.java">
+    <entry file="file://$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4DatabaseMetaData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2652">
-          <caret line="173" column="82" lean-forward="false" selection-start-line="173" selection-start-column="82" selection-end-line="173" selection-end-column="82" />
+        <state relative-caret-position="153">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
-            <element signature="e#3801#3802#0" expanded="false" />
-            <element signature="e#3846#3847#0" expanded="false" />
+            <element signature="e#1460#1461#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/DonneePermanenteErreur.java">
+    <entry file="file://$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/DatabaseMetaData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="128">
+          <caret line="785" column="0" lean-forward="false" selection-start-line="785" selection-start-column="0" selection-end-line="785" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAORechercheSoinEffectue.java">
+    <entry file="file://$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC4PreparedStatement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+        <state relative-caret-position="238">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAOSoignant.java">
+    <entry file="file://$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/JDBC42PreparedStatement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="16" column="22" lean-forward="false" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+        <state relative-caret-position="221">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAORechercheAnimalDates.java">
+    <entry file="file://$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ResultSetRow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        <state relative-caret-position="244">
+          <caret line="1241" column="0" lean-forward="false" selection-start-line="1241" selection-start-column="0" selection-end-line="1241" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAOLocalite.java">
+    <entry file="file://$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/RowDataStatic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAOAnimal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/Business/ListeEspecebusiness.java" />
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/LocaliteDataAccess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/RechercheAnimauxEntreDates.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1326">
-          <caret line="90" column="127" lean-forward="false" selection-start-line="90" selection-start-column="127" selection-end-line="90" selection-end-column="127" />
-          <folding />
+        <state relative-caret-position="247">
+          <caret line="162" column="0" lean-forward="false" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+          <folding>
+            <element signature="e#4570#4571#0" expanded="false" />
+            <element signature="e#4609#4610#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/SingletonDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="16" column="44" lean-forward="false" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+        <state relative-caret-position="323">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/SoignantDataAccess.java">
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/InfoTachePanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        <state relative-caret-position="-3655">
+          <caret line="31" column="129" lean-forward="false" selection-start-line="31" selection-start-column="129" selection-end-line="31" selection-end-column="129" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAORechercheSoinAFaire.java">
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/InfoAnimalFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="-940">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/SoinAFairePourAnimal.java">
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeDesTachesDisponiblesPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-155">
-          <caret line="26" column="143" lean-forward="false" selection-start-line="26" selection-start-column="143" selection-end-line="26" selection-end-column="143" />
+        <state relative-caret-position="157">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/SoinParSoignant.java">
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/EcranPrincipalPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1496">
-          <caret line="103" column="55" lean-forward="true" selection-start-line="103" selection-start-column="55" selection-end-line="103" selection-end-column="55" />
+        <state relative-caret-position="326">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/business/LocaliteBusiness.java">
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/business/SoignantBusiness.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="17" column="52" lean-forward="false" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="52" />
+        <state relative-caret-position="148">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/BannierePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ConteneurPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/threadAppli/ThreadEcranDeConnexion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding>
+            <element signature="e#927#928#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ConnexionFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ResultSetImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="6287" column="0" lean-forward="false" selection-start-line="6287" selection-start-column="0" selection-end-line="6287" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/model/Animal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="27" column="125" lean-forward="false" selection-start-line="26" selection-start-column="18" selection-end-line="27" selection-end-column="125" />
-          <folding />
+        <state relative-caret-position="165">
+          <caret line="116" column="0" lean-forward="false" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+          <folding>
+            <element signature="e#3945#3946#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/business/AnimalBusiness.java">
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/ListesAnimauxController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="34" column="150" lean-forward="false" selection-start-line="34" selection-start-column="150" selection-end-line="34" selection-end-column="150" />
-          <folding />
+        <state relative-caret-position="140">
+          <caret line="83" column="49" lean-forward="false" selection-start-line="83" selection-start-column="49" selection-end-line="83" selection-end-column="49" />
+          <folding>
+            <element signature="e#2172#2180#0" expanded="false" />
+            <element signature="e#4805#4806#0" expanded="false" />
+            <element signature="e#4847#4848#0" expanded="false" />
+            <element signature="e#4909#4910#0" expanded="false" />
+            <element signature="e#4955#4956#0" expanded="false" />
+            <element signature="e#5020#5021#0" expanded="false" />
+            <element signature="e#5066#5067#0" expanded="false" />
+            <element signature="e#5127#5128#0" expanded="false" />
+            <element signature="e#5169#5170#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/business/ListeAnimalBusiness.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1037">
-          <caret line="68" column="155" lean-forward="false" selection-start-line="68" selection-start-column="155" selection-end-line="68" selection-end-column="155" />
+        <state relative-caret-position="184">
+          <caret line="42" column="43" lean-forward="true" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
+          <folding>
+            <element signature="e#629#637#0" expanded="false" />
+            <element signature="e#1121#1129#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeDeTachesPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="145" column="0" lean-forward="false" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
+          <folding>
+            <element signature="e#997#998#0" expanded="false" />
+            <element signature="e#1029#1030#0" expanded="false" />
+            <element signature="e#1208#1209#0" expanded="false" />
+            <element signature="e#1240#1241#0" expanded="false" />
+            <element signature="e#1369#1370#0" expanded="false" />
+            <element signature="e#1400#1401#0" expanded="false" />
+            <element signature="e#3251#3252#0" expanded="false" />
+            <element signature="e#3289#3290#0" expanded="false" />
+            <element signature="e#4173#4174#0" expanded="false" />
+            <element signature="e#4222#4223#0" expanded="false" />
+            <element signature="e#5194#5195#0" expanded="false" />
+            <element signature="e#5241#5242#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/business/AnimalBusiness.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/CharsetMapping.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="679" column="0" lean-forward="false" selection-start-line="679" selection-start-column="0" selection-end-line="679" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="130" column="0" lean-forward="false" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+          <folding>
+            <element signature="e#4129#4130#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/StringUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="577" column="0" lean-forward="false" selection-start-line="577" selection-start-column="0" selection-end-line="577" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/StatementImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="444" column="0" lean-forward="false" selection-start-line="444" selection-start-column="0" selection-end-line="444" selection-end-column="0" />
+          <folding>
+            <element signature="e#95130#95131#0" expanded="false" />
+            <element signature="e#95178#95179#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/MysqlIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="2278" column="0" lean-forward="false" selection-start-line="2278" selection-start-column="0" selection-end-line="2278" selection-end-column="0" />
+          <folding>
+            <element signature="e#38688#38689#0" expanded="false" />
+            <element signature="e#38734#38735#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ConnectionPropertiesImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="2409" column="0" lean-forward="false" selection-start-line="2409" selection-start-column="0" selection-end-line="2409" selection-end-column="0" />
+          <folding>
+            <element signature="e#2863#2864#0" expanded="false" />
+            <element signature="e#2939#2940#0" expanded="false" />
+            <element signature="e#96804#96805#0" expanded="false" />
+            <element signature="e#96874#96875#0" expanded="false" />
+            <element signature="e#113021#113022#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/ConnectionImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="5272" column="0" lean-forward="false" selection-start-line="5272" selection-start-column="0" selection-end-line="5272" selection-end-column="0" />
+          <folding>
+            <element signature="e#4231#4232#0" expanded="false" />
+            <element signature="e#4312#4313#0" expanded="false" />
+            <element signature="e#4732#4733#0" expanded="false" />
+            <element signature="e#4809#4810#0" expanded="false" />
+            <element signature="e#153120#153121#0" expanded="false" />
+            <element signature="e#153166#153167#0" expanded="false" />
+            <element signature="e#208430#208431#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/PreparedStatement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="2201" column="0" lean-forward="false" selection-start-line="2201" selection-start-column="0" selection-end-line="2201" selection-end-column="0" />
+          <folding>
+            <element signature="e#178726#178727#0" expanded="true" />
+            <element signature="e#178750#178751#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/externalRessources/mysql-connector-java-5.1.46/src/com/mysql/jdbc/Buffer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="185" column="0" lean-forward="false" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
+          <folding>
+            <element signature="e#2306#2307#0" expanded="true" />
+            <element signature="e#2359#2360#0" expanded="true" />
+            <element signature="e#6103#6104#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/dao/DAOAnimal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/LocaliteDataAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding>
+            <marker date="1530702596473" expanded="true" signature="752:774" ph="select * fro... localite" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/erreursExternes/SoignantInexistant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/erreurs/erreursExternes/DonneeInexistante.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/AnimalDataAccess.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="16" column="5" lean-forward="false" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+        <state relative-caret-position="157">
+          <caret line="28" column="68" lean-forward="false" selection-start-line="28" selection-start-column="68" selection-end-line="28" selection-end-column="68" />
           <folding>
-            <marker date="1530135064270" expanded="true" signature="724:921" ph="select * fro... ficheSoin" />
-            <marker date="1530135064270" expanded="true" signature="1502:1674" ph="select * fro... ficheanimal" />
-            <marker date="1530135064270" expanded="true" signature="2225:2271" ph="update ficheSoin... " />
+            <element signature="e#1482#1490#0" expanded="true" />
+            <marker date="1530833075533" expanded="true" signature="746:916" ph="select * fro... ficheSoin" />
+            <marker date="1530833075533" expanded="true" signature="1533:1705" ph="select * fro... ficheanimal" />
+            <marker date="1530833075533" expanded="true" signature="2256:2302" ph="update ficheSoin... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/business/SoignantBusiness.java">
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/ListeSoignantsPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="31" column="11" lean-forward="false" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/AnimalController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="52" column="72" lean-forward="false" selection-start-line="52" selection-start-column="72" selection-end-line="52" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/AnimalInfoDisplayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="19" column="128" lean-forward="false" selection-start-line="19" selection-start-column="128" selection-end-line="19" selection-end-column="128" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/ListesAnimauxController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="11" column="97" lean-forward="false" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="97" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/TacheController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1700">
-          <caret line="108" column="56" lean-forward="false" selection-start-line="108" selection-start-column="56" selection-end-line="108" selection-end-column="56" />
+        <state relative-caret-position="170">
+          <caret line="19" column="65" lean-forward="false" selection-start-line="19" selection-start-column="65" selection-end-line="19" selection-end-column="65" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/SoignantController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2550">
-          <caret line="160" column="5" lean-forward="false" selection-start-line="160" selection-start-column="5" selection-end-line="160" selection-end-column="5" />
+        <state relative-caret-position="170">
+          <caret line="41" column="45" lean-forward="false" selection-start-line="41" selection-start-column="45" selection-end-line="41" selection-end-column="45" />
           <folding>
-            <element signature="e#3102#3121#0" expanded="true" />
-            <element signature="e#3425#3433#0" expanded="true" />
-            <element signature="e#4800#4808#0" expanded="true" />
+            <element signature="e#1328#1329#0" expanded="true" />
+            <element signature="e#1373#1374#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/uIController/LocaliteController.java">
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/RechercheAnimauxEntreDates.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="31" />
+        <state relative-caret-position="163">
+          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <marker date="1530833130193" expanded="true" signature="755:1077" ph="select* from... ficheAnimal" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RechercheSoinParAnimalPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="20" column="69" lean-forward="false" selection-start-line="20" selection-start-column="69" selection-end-line="20" selection-end-column="69" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RechercheAnimalPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="24" column="62" lean-forward="false" selection-start-line="24" selection-start-column="62" selection-end-line="24" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="143" column="89" lean-forward="false" selection-start-line="143" selection-start-column="89" selection-end-line="143" selection-end-column="89" />
+          <folding>
+            <element signature="e#3126#3127#0" expanded="true" />
+            <element signature="e#3175#3176#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="8" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/userInterface/RechercheSoinParSoignantPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1207">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/SoignantDataAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="110" column="58" lean-forward="false" selection-start-line="110" selection-start-column="58" selection-end-line="110" selection-end-column="58" />
+          <folding>
+            <marker date="1530833157601" expanded="true" signature="734:872" ph="insert into soignant... " />
+            <marker date="1530833157601" expanded="true" signature="2029:2062" ph="delete from soignant... " />
+            <marker date="1530833157601" expanded="true" signature="2495:2670" ph="update soignant... " />
+            <marker date="1530833157601" expanded="true" signature="4485:4585" ph="select * fro... soignant" />
+            <marker date="1530833157601" expanded="true" signature="5239:5264" ph="select mail soignant" />
+            <marker date="1530833157601" expanded="true" signature="5893:5969" ph="select * fro... soignant" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/SoinParSoignant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="71" column="67" lean-forward="false" selection-start-line="71" selection-start-column="67" selection-end-line="71" selection-end-column="67" />
+          <folding>
+            <marker date="1530833183883" expanded="true" signature="716:984" ph="select *from... soignant" />
+            <marker date="1530833183883" expanded="true" signature="1916:1996" ph="insert into soinEffectue... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dossier_Java_Romain_David/src/dataAccess/SoinAFairePourAnimal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="28" column="78" lean-forward="false" selection-start-line="28" selection-start-column="78" selection-end-line="28" selection-end-column="78" />
+          <folding>
+            <marker date="1530833173203" expanded="true" signature="951:1279" ph="select*from ficheAnimal... " />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,14 +1,12 @@
-package DataAccess.DAO;
+package dataAccess.dao;
 
-import Model.Animal;
-import erreurs.DonneePermanenteErreur;
-import erreurs.ErreurrNull;
-import erreurs.SoignantInexistant;
+import erreurs.Erreur;
+import model.Animal;
 
 import java.util.ArrayList;
 
 public interface DAOAnimal {
-    Animal read(int id) throws ErreurrNull, DonneePermanenteErreur, SoignantInexistant;
-    ArrayList<Animal> readTousLesAnimaux() throws ErreurrNull, DonneePermanenteErreur, SoignantInexistant;
-    void updateEtat(Animal animal) throws DonneePermanenteErreur;
+    Animal read(Integer id) throws Erreur;
+    ArrayList<Animal> readTousLesAnimaux() throws Erreur;
+    void updateEtat(Animal animal) throws Erreur;
 }

@@ -1,6 +1,6 @@
 package model;
 
-import erreurs.ErreurrNull;
+import erreurs.erreurFormat.ErreurrNull;
 
 import java.util.GregorianCalendar;
 

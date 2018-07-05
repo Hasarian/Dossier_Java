@@ -1,8 +1,6 @@
 package userInterface;
 
-import erreurs.DonneePermanenteErreur;
-import erreurs.ErreurrNull;
-import erreurs.SoignantInexistant;
+import erreurs.Erreur;
 import uIController.AnimalController;
 
 import javax.swing.*;
@@ -20,7 +18,7 @@ public class RechercheSoinParAnimalPanel extends JPanel
     private JButton confirmer;
     private MainFrame frame;
 
-    public RechercheSoinParAnimalPanel(MainFrame frame) throws SoignantInexistant {
+    public RechercheSoinParAnimalPanel(MainFrame frame) throws Erreur {
         try {
             this.frame=frame;
             animalController = new AnimalController();
@@ -43,10 +41,10 @@ public class RechercheSoinParAnimalPanel extends JPanel
             retour.setBounds(5,600,50,30);
             add(retour);
 
-        } catch (DonneePermanenteErreur connexionError) {
-            JOptionPane.showMessageDialog(null, connexionError.getMessage(), "accès BD", JOptionPane.ERROR_MESSAGE);
-        } catch (ErreurrNull erreurrNull) {
-            JOptionPane.showMessageDialog(null, erreurrNull.getMessage(), "db access error", JOptionPane.ERROR_MESSAGE);
+        }
+        catch (Erreur err)
+        {
+            JOptionPane.showMessageDialog(null,err.getMessage(),err.getTitre(),JOptionPane.ERROR_MESSAGE);
         }
     }
     private class CancelButtonListener implements ActionListener
@@ -60,8 +58,8 @@ public class RechercheSoinParAnimalPanel extends JPanel
         {
             public void actionPerformed(ActionEvent e)  {
                 try {
-                    if(resultat!=null) remove(resultat);
-                    String stringAnimal =(String) animals.getSelectedValue();
+                    if (resultat != null) remove(resultat);
+                    String stringAnimal = (String) animals.getSelectedValue();
                     int id = Integer.parseInt(stringAnimal.substring(0, stringAnimal.indexOf(":")));
                     ModelTable model = new ModelTable(animalController.getSoinParAnimal(id));
                     JTable animalTable = new JTable(model);
@@ -72,19 +70,15 @@ public class RechercheSoinParAnimalPanel extends JPanel
                     repaint();
                     revalidate();
                 }
-                catch(DonneePermanenteErreur connexionError)
-                {
-                    JOptionPane.showMessageDialog(null, connexionError.getMessage(), "accès BD", JOptionPane.ERROR_MESSAGE);
-                }
-                catch(ErreurrNull erreurrNull)
-                {
-                    JOptionPane.showMessageDialog(null, erreurrNull.getMessage(), "db access error", JOptionPane.ERROR_MESSAGE);
-                }
+                catch (Erreur err)
+                    {
+                        JOptionPane.showMessageDialog(null,err.getMessage(),err.getTitre(),JOptionPane.ERROR_MESSAGE);
+                    }
             }
         }
         private class ModelTable extends AbstractTableModel
         {
-            private ArrayList<ArrayList<String>> data;
+            private ArrayList<ArrayList<Object>> data;
             private String [] columnNames=
                     {
                             "NumOrdonnance",
@@ -94,7 +88,7 @@ public class RechercheSoinParAnimalPanel extends JPanel
                             "date",
                     };
 
-            public ModelTable(ArrayList<ArrayList<String>> data)
+            public ModelTable(ArrayList<ArrayList<Object>> data)
             {
                 this.data=data;
             }
@@ -117,6 +111,13 @@ public class RechercheSoinParAnimalPanel extends JPanel
             @Override
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return false;
+            }
+            public Class<?> getColumnClass(int columnIndex) {
+                switch (columnIndex)
+                {
+                    case 0: case 1: return Integer.class;
+                    default: return String.class;
+                }
             }
 
         }

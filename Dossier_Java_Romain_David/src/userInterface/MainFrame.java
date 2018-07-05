@@ -1,8 +1,6 @@
 package userInterface;
 
-import erreurs.DonneePermanenteErreur;
-import erreurs.ErreurrNull;
-import erreurs.SoignantInexistant;
+import erreurs.Erreur;
 
 import uIController.SoignantController;
 
@@ -23,7 +21,7 @@ public class MainFrame extends JFrame
     private MainFrame thisFrame;
     private SoignantController user;
 
-    public MainFrame(SoignantController loggedIn) throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
+    public MainFrame(SoignantController loggedIn) throws Erreur
     {
         user=loggedIn;
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -118,13 +116,9 @@ public class MainFrame extends JFrame
                 FormulaireInscriptionSoignantPanel newPanel = new FormulaireInscriptionSoignantPanel(thisFrame);
                 changePanel(newPanel);
             }
-            catch (DonneePermanenteErreur connexionError)
+            catch (Erreur erreur)
             {
-                JOptionPane.showMessageDialog(null, connexionError.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
-            }
-            catch (ErreurrNull erreurrNull)
-            {
-                JOptionPane.showMessageDialog(null, erreurrNull.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, erreur.getMessage(),erreur.getTitre(),JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -133,7 +127,6 @@ public class MainFrame extends JFrame
         public void actionPerformed(ActionEvent e)
         {
             dispose();
-            user.dispose();
             ConnexionFrame login=new ConnexionFrame();
         }
     }
@@ -146,9 +139,9 @@ public class MainFrame extends JFrame
                 RechercheSoinParAnimalPanel newPanel = new RechercheSoinParAnimalPanel(thisFrame);
                 changePanel(newPanel);
             }
-            catch (SoignantInexistant soignantInexistant)
+            catch (Erreur erreur)
             {
-                JOptionPane.showMessageDialog(null, soignantInexistant.getMessage(),"unkown member",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, erreur.getMessage(),erreur.getTitre(),JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -160,9 +153,9 @@ public class MainFrame extends JFrame
                 RechercheSoinParSoignantPanel newPanel = new RechercheSoinParSoignantPanel(thisFrame);
                 changePanel(newPanel);
             }
-            catch(DonneePermanenteErreur donneePermanenteErreur)
+            catch(Erreur erreur)
             {
-                JOptionPane.showMessageDialog(null, donneePermanenteErreur.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, erreur.getMessage(),erreur.getTitre(),JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -173,17 +166,10 @@ public class MainFrame extends JFrame
             try {
                 RechercheAnimalPanel newPanel = new RechercheAnimalPanel(thisFrame);
                 changePanel(newPanel);
-            } catch (DonneePermanenteErreur connexionError)
-            {
-                JOptionPane.showMessageDialog(null, connexionError.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
             }
-            catch (ErreurrNull erreurrNull)
+            catch (Erreur erreur)
             {
-                JOptionPane.showMessageDialog(null, erreurrNull.getMessage(),"argument invalide",JOptionPane.ERROR_MESSAGE);
-            }
-            catch (SoignantInexistant loginError)
-            {
-                JOptionPane.showMessageDialog(null,loginError.getMessage(),"unknown login",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, erreur.getMessage(),erreur.getTitre(),JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -195,13 +181,9 @@ public class MainFrame extends JFrame
             try {
                 changePanel(new InfoUtilisateurPanel(user,thisFrame,(BannierePanel) conteneurPanel.getBanner()));
             }
-            catch (DonneePermanenteErreur connexionError)
+            catch (Erreur err)
             {
-                JOptionPane.showMessageDialog(null, connexionError.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
-            }
-            catch (ErreurrNull erreurrNull)
-            {
-                JOptionPane.showMessageDialog(null, erreurrNull.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null,err.getMessage(),err.getTitre(),JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -212,9 +194,9 @@ public class MainFrame extends JFrame
             try {
                 changePanel(new SuppressionSoignant(thisFrame));
             }
-            catch (DonneePermanenteErreur connexionError)
+            catch (Erreur erreur)
             {
-                JOptionPane.showMessageDialog(null, connexionError.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, erreur.getMessage(),erreur.getTitre(),JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -225,17 +207,9 @@ public class MainFrame extends JFrame
             try {
                 changePanel(new ListeSoignantsPanel(thisFrame));
             }
-            catch (DonneePermanenteErreur connexionErreur)
+            catch (Erreur erreur)
             {
-                JOptionPane.showMessageDialog(null, connexionErreur.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
-            }
-            catch (ErreurrNull nullE)
-            {
-                JOptionPane.showMessageDialog(null, nullE.getMessage(),"attribut invalide",JOptionPane.ERROR_MESSAGE);
-            }
-            catch (SoignantInexistant erreurExistant)
-            {
-                JOptionPane.showMessageDialog(null, erreurExistant.getMessage(),"utilisateur non trouvé",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, erreur.getMessage(),erreur.getTitre(),JOptionPane.ERROR_MESSAGE);
             }
         }
     }

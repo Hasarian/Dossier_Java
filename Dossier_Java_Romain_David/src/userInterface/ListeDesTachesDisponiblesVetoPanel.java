@@ -1,9 +1,7 @@
 package userInterface;
 
+import erreurs.Erreur;
 import model.Animal;
-import erreurs.DonneePermanenteErreur;
-import erreurs.ErreurrNull;
-import erreurs.SoignantInexistant;
 import uIController.SoignantController;
 
 import javax.swing.*;
@@ -12,7 +10,7 @@ import java.awt.event.ActionListener;
 
 public class ListeDesTachesDisponiblesVetoPanel extends ListeDeTachesPanel {
     MainFrame frame;
-    public ListeDesTachesDisponiblesVetoPanel(EcranPrincipalPanel parentPanel, SoignantController user, MainFrame frame) throws SoignantInexistant {
+    public ListeDesTachesDisponiblesVetoPanel(EcranPrincipalPanel parentPanel, SoignantController user, MainFrame frame) throws Erreur {
         super(parentPanel, user);
         this.frame = frame;
         TaskTableModel model = new TaskTableModel(Animal.EtatSoin.VETODISPO);
@@ -38,19 +36,12 @@ public class ListeDesTachesDisponiblesVetoPanel extends ListeDeTachesPanel {
                 if(getListController().aucunAniumalReserveDansLaListeVeto())getParentPanel().insertTab(new ListeDesTachesReserveesVetoPanel(getParentPanel(),getUser(), frame),"liste personnelle vete");
                 int[] selectedRows=getTaskTable().getSelectedRows();
                 for (int i : selectedRows) {
-                    getListController().selectionnerAnimalVeto(new Integer(getListController().getIdDansLaListeVetoDispo(i)));
+                    getListController().selectionnerAnimalVeto(i);
                 }
             }
-            catch (ErreurrNull error)
+            catch (Erreur err)
             {
-                JOptionPane.showMessageDialog(null,error.getMessage(),"Attribut obligatoir a null",JOptionPane.ERROR_MESSAGE);
-            }
-            catch(SoignantInexistant unknown)
-            {
-                JOptionPane.showMessageDialog(null,unknown.getMessage(),"unknown member",JOptionPane.ERROR_MESSAGE);
-            }
-            catch (DonneePermanenteErreur erreur){
-                JOptionPane.showMessageDialog(null,erreur.getMessage(),"Probleme de connection à la BD",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null,err.getMessage(),err.getTitre(),JOptionPane.ERROR_MESSAGE);
             }
             getTaskTable().clearSelection();
             getTablePane().repaint();

@@ -1,9 +1,9 @@
 package userInterface;
 
+import erreurs.Erreur;
 import model.Animal;
-import erreurs.DonneePermanenteErreur;
-import erreurs.ErreurrNull;
-import erreurs.SoignantInexistant;
+import erreurs.erreursExternes.DonneePermanenteErreur;
+import erreurs.erreurFormat.ErreurrNull;
 import uIController.SoignantController;
 import uIController.ListesAnimauxController;
 
@@ -56,11 +56,11 @@ public class ListeDeTachesPanel extends JPanel
         return openFile;
     }
 
-    public ListeDeTachesPanel(EcranPrincipalPanel parentPanel, SoignantController user) throws SoignantInexistant
+    public ListeDeTachesPanel(EcranPrincipalPanel parentPanel, SoignantController user) throws Erreur
     {
         this.user=user;
         try {
-            listController = ListesAnimauxController.obtenirListController(user);
+            listController = new ListesAnimauxController();
         }
         catch (DonneePermanenteErreur connexionError)
         {
@@ -89,7 +89,7 @@ public class ListeDeTachesPanel extends JPanel
         public void actionPerformed(ActionEvent e) {
             //System.out.println(getTaskTable().getValueAt(getTaskTable().getSelectedRow(),0));
             Integer id= Integer.parseInt(getTaskTable().getValueAt(getTaskTable().getSelectedRow(),1).toString());
-            InfoAnimalFrame info=new InfoAnimalFrame(listController,id);
+            InfoAnimalFrame info=new InfoAnimalFrame(id);
             getTaskTable().clearSelection();
         }
     }
@@ -112,18 +112,25 @@ public class ListeDeTachesPanel extends JPanel
         {
             this.etat=etat;
         }
-        public int getRowCount() {
-            switch (etat)
+        public int getRowCount()  {
+            try {
+                switch (etat) {
+                    case DISPONIBLE:
+                        return listController.nombreDeLignesListeDisponible();
+                    case RESERVEE:
+                        return listController.nombreDeLignesListeReservee();
+                    case VETODISPO:
+                        return listController.nombreLignesListeVetoDispo();
+                    case VETORESERVEE:
+                        return listController.nombreLignesListeVetoReservee();
+                    default:
+                        return 0;
+                }
+            }
+            catch (Erreur err)
             {
-                case DISPONIBLE:
-                    return listController.nombreDeLignesListeDisponible();
-                case RESERVEE:
-                    return listController.nombreDeLignesListeReservee();
-                case VETODISPO:
-                    return listController.nombreLignesListeVetoDispo();
-                case VETORESERVEE:
-                    return listController.nombreLignesListeVetoReservee();
-                    default: return 0;
+                JOptionPane.showMessageDialog(null,err.getMessage(),err.getTitre(),JOptionPane.ERROR_MESSAGE);
+                return 0;
             }
         }
 
@@ -132,6 +139,7 @@ public class ListeDeTachesPanel extends JPanel
         }
 
         public Object getValueAt(int rowIndex, int columnIndex) {
+            try{
             switch (etat) {
                 case DISPONIBLE:
                     return listController.getDonneeDansListeDisponible(rowIndex,columnIndex);
@@ -142,6 +150,12 @@ public class ListeDeTachesPanel extends JPanel
                 case VETORESERVEE:
                     return listController.getDonneeListVetoReservee(rowIndex,columnIndex);
                     default: return "données inexistantes";
+            }
+            }
+            catch (Erreur err)
+            {
+                JOptionPane.showMessageDialog(null,err.getMessage(),err.getTitre(),JOptionPane.ERROR_MESSAGE);
+                return "données inexistantes";
             }
         }
 
@@ -160,7 +174,7 @@ public class ListeDeTachesPanel extends JPanel
             {
 
                 case 1:  case 2:
-                    return int.class ;
+                    return Integer.class ;
                 case 5:
                     return Boolean.class;
                 default: return String.class;

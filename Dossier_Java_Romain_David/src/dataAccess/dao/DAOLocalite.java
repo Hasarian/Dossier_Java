@@ -1,12 +1,13 @@
 package dataAccess.dao;
 
+import erreurs.Erreur;
 import model.Localite;
-import erreurs.DonneePermanenteErreur;
-import erreurs.ErreurrNull;
+import erreurs.erreursExternes.DonneePermanenteErreur;
+import erreurs.erreurFormat.ErreurrNull;
 
 import java.util.ArrayList;
 
 public interface DAOLocalite {
-    ArrayList<Localite> readToutesLesLocalites() throws DonneePermanenteErreur, ErreurrNull;
+    ArrayList<Localite> readToutesLesLocalites() throws Erreur;
 
 }

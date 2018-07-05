@@ -1,9 +1,7 @@
 package uIController;
 
 import business.AnimalBusiness;
-import erreurs.DonneePermanenteErreur;
-import erreurs.ErreurrNull;
-import erreurs.SoignantInexistant;
+import erreurs.Erreur;
 import model.Animal;
 
 import java.util.Calendar;
@@ -13,12 +11,12 @@ public class AnimalInfoDisplayer
 {
     Integer animalId;
     AnimalBusiness business;
-    public AnimalInfoDisplayer(Integer animalId)throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant {
+    public AnimalInfoDisplayer(Integer animalId)throws Erreur {
         business=new AnimalBusiness();
         this.animalId=business.getAnimal(animalId).getId();
     }
-    public Animal getAnimal()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant{return business.getAnimal(animalId);}
-    public String getNom()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
+    public Animal getAnimal()throws Erreur{return business.getAnimal(animalId);}
+    public String getNom()throws Erreur
     {
         return getAnimal().getNomAnimal();
     }
@@ -27,20 +25,20 @@ public class AnimalInfoDisplayer
        //System.out.println(animal);
         return animalId;
     }
-    public String getRemarque()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
+    public String getRemarque()throws Erreur
     {
         return ( getAnimal().getRemarqueAnimal()==null)?"pas de remarque spécifique": getAnimal().getRemarqueAnimal();
     }
-    public String getNumCell()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
-    {
+    public String getNumCell()throws Erreur
+        {
         return getAnimal().getNumeroCellule();
     }
-    public String getRace()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
+    public String getRace()throws Erreur
     {
         return getAnimal().getEspece();
     }
 
-    public String getDateArrivee()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
+    public String getDateArrivee()throws Erreur
     {
         GregorianCalendar date=getAnimal().getDateArrive();
         String retour = new String();
@@ -49,7 +47,7 @@ public class AnimalInfoDisplayer
         retour+= date.get(Calendar.YEAR);
         return retour;
     }
-    public String getDatDeces()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
+    public String getDatDeces()throws Erreur
     {
         GregorianCalendar date=getAnimal().getDateDeces();
         String retour = new String();
@@ -63,11 +61,11 @@ public class AnimalInfoDisplayer
     }
      /*
     private String remaqueSoin;*/
-     public String getDanger()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
+     public String getDanger()throws Erreur
      {
          return (getAnimal().getEstDangereux())?"présente un danger":"ne présente aucun danger";
      }
-     public String getEtatSoin()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
+     public String getEtatSoin()throws Erreur
      {
          switch(getAnimal().getEtatFicheSoin())
          {
@@ -79,7 +77,7 @@ public class AnimalInfoDisplayer
                  return "l'animal n'est actuellement pas dans la SPA";
          }
      }
-     public String getRemarqueSoin()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
+     public String getRemarqueSoin()throws Erreur
      {
          return getAnimal().getRemaqueSoin();
      }

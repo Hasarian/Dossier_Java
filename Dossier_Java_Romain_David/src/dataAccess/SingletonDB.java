@@ -1,6 +1,6 @@
 package dataAccess;
 
-import erreurs.DonneePermanenteErreur;
+import erreurs.erreursExternes.DonneePermanenteErreur;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,7 +14,7 @@ public class SingletonDB {
     public static Connection getInstance()throws DonneePermanenteErreur {
         if(connectionSingleton == null){
             try {
-                connectionSingleton = DriverManager.getConnection("jdbc:mysql://localhost:3306/spa?useSSL=false", "root", "Sd246aEq");
+                connectionSingleton = DriverManager.getConnection("jdbc:mysql://localhost:3306/spa?useSSL=false", "root", "Dr944pEn");
                 //pwMySQLie2017
             } catch (SQLException SQLE) {
                //System.out.println(SQLE.getMessage());

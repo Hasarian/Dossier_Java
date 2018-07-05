@@ -1,9 +1,6 @@
 package userInterface;
 
-import erreurs.DonneePermanenteErreur;
-import erreurs.ErreurrNull;
-import erreurs.MauvaiseTailleString;
-import erreurs.SoignantInexistant;
+import erreurs.Erreur;
 import uIController.SoignantController;
 
 import javax.swing.*;
@@ -22,7 +19,7 @@ public class RechercheSoinParSoignantPanel extends JPanel {
     private JScrollPane tablePane;
     private JLabel idGiverLabel;
     private JList listId;
-    public RechercheSoinParSoignantPanel(MainFrame mainFrame) throws DonneePermanenteErreur
+    public RechercheSoinParSoignantPanel(MainFrame mainFrame) throws Erreur
     {
         careGiverControl=new SoignantController();
         this.mainFrame=mainFrame;
@@ -92,20 +89,10 @@ public class RechercheSoinParSoignantPanel extends JPanel {
                 add(tablePane);
                 repaint();
 
-            } catch (DonneePermanenteErreur connexionError) {
-                JOptionPane.showMessageDialog(null, connexionError.getMessage(), "accès BD", JOptionPane.ERROR_MESSAGE);
             }
-            catch (SoignantInexistant soignantInexistant)
+            catch (Erreur err)
             {
-                JOptionPane.showMessageDialog(null, soignantInexistant.getMessage(), "utlisateur inexistant", JOptionPane.ERROR_MESSAGE);
-            }
-            catch (ErreurrNull nullerr)
-            {
-                JOptionPane.showMessageDialog(null, nullerr.getMessage(), "invalid data", JOptionPane.ERROR_MESSAGE);
-            }
-            catch (MauvaiseTailleString stringErr)
-            {
-                JOptionPane.showMessageDialog(null, stringErr.getMessage(), "chaine de caractère invalide", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null,err.getMessage(),err.getTitre(),JOptionPane.ERROR_MESSAGE);
             }
 
             revalidate();
@@ -118,7 +105,7 @@ public class RechercheSoinParSoignantPanel extends JPanel {
 
     private class ModelTable extends AbstractTableModel
     {
-        private ArrayList<ArrayList<String>> data;
+        private ArrayList<ArrayList<Object>> data;
         private String [] columnNames=
                 {
                         "animal id",
@@ -129,7 +116,7 @@ public class RechercheSoinParSoignantPanel extends JPanel {
                         "remarque pour l'animal"
                 };
 
-        public ModelTable(ArrayList<ArrayList<String>> data)
+        public ModelTable(ArrayList<ArrayList<Object>> data)
         {
             this.data=data;
         }
@@ -152,6 +139,13 @@ public class RechercheSoinParSoignantPanel extends JPanel {
         @Override
         public boolean isCellEditable(int rowIndex, int columnIndex) {
             return false;
+        }
+        public Class<?> getColumnClass(int columnIndex) {
+            switch (columnIndex)
+            {
+                case 0: return Integer.class;
+                default: return String.class;
+            }
         }
 
     }

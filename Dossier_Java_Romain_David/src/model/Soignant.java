@@ -1,6 +1,6 @@
 package model;
 
-import erreurs.ErreurrNull;
+import erreurs.erreurFormat.ErreurrNull;
 
 import java.util.GregorianCalendar;
 
@@ -104,7 +104,7 @@ public class Soignant {
     }
 
     public void setLocalite(Localite localite) throws ErreurrNull {
-        if(localite == null) throw new ErreurrNull();
+        if(localite == null) throw new ErreurrNull("localité");
         this.localite = localite;
     }
 

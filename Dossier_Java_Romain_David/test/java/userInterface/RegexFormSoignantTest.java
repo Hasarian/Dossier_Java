@@ -1,9 +1,9 @@
 package userInterface;
 
 import model.Localite;
-import erreurs.EmailRegexErreur;
-import erreurs.MauvaiseTailleString;
-import erreurs.NombreExpection;
+import erreurs.erreurFormat.EmailRegexErreur;
+import erreurs.erreurFormat.MauvaiseTailleString;
+import erreurs.erreurFormat.NombreExpection;
 import org.junit.Assert;
 import org.junit.Test;
 

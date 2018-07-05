@@ -1,6 +1,6 @@
 package model;
 
-import erreurs.ErreurrNull;
+import erreurs.erreurFormat.ErreurrNull;
 
 public class Espece {
     private String libelle;
@@ -25,7 +25,7 @@ public class Espece {
     public void setEstEnVoieDeDisparition(Boolean estEnVoieDeDisparitionArg) throws ErreurrNull {
         if(estEnVoieDeDisparitionArg != null)
             this.estEnVoieDeDisparition = estEnVoieDeDisparitionArg;
-        else throw new ErreurrNull();
+        else throw new ErreurrNull("disant si l'animal est en voie de disparition ou non");
     }
 
     public void setLibelle(String libelleArg) throws ErreurrNull {

@@ -1,6 +1,6 @@
 package model;
 
-import erreurs.ErreurrNull;
+import erreurs.erreurFormat.ErreurrNull;
 //faire toString
 
 public class Localite {
@@ -33,17 +33,17 @@ public class Localite {
     }
 
     public void setLibelle(String libelle) throws ErreurrNull {
-        if(libelle == null) throw new ErreurrNull();
+        if(libelle == null) throw new ErreurrNull("libellé de la localité");
         this.libelle = libelle;
     }
 
     public void setCodePostal(Integer codePostal) throws ErreurrNull {
-        if(codePostal == null) throw new ErreurrNull();
+        if(codePostal == null) throw new ErreurrNull("code postal de la localité");
         this.codePostal = codePostal;
     }
 
     public void setIdLocalite(Integer idLocalite) throws ErreurrNull {
-        if(idLocalite == null) throw new ErreurrNull();
+        if(idLocalite == null) throw new ErreurrNull("id de la localité");
         this.idLocalite = idLocalite;
     }
 }

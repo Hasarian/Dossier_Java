@@ -1,8 +1,11 @@
 package userInterface;
 
 import business.SoignantBusiness;
+import erreurs.Erreur;
+import erreurs.erreurFormat.EmailRegexErreur;
+import erreurs.erreurFormat.MauvaiseTailleString;
+import erreurs.erreurFormat.NombreExpection;
 import model.Soignant;
-import erreurs.*;
 import model.Localite;
 import uIController.SoignantController;
 import uIController.LocaliteController;
@@ -31,7 +34,7 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
     private LocaliteController localiteController;
     private ActionListener confirmListener;
 
-    FormulaireInscriptionSoignantPanel(MainFrame frame) throws ErreurrNull, DonneePermanenteErreur {
+    FormulaireInscriptionSoignantPanel(MainFrame frame) throws Erreur {
 		setBounds(0,0,1000,800);
 		//frame.super("Formulaire d'inscription pour les Soignants");
 		this.setLayout(new GridBagLayout());
@@ -220,7 +223,7 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 
 	}
 	public ActionListener getConfirmListener(){return confirmListener;}
-	private String[] iULocatilte()throws ErreurrNull, DonneePermanenteErreur {
+	private String[] iULocatilte()throws Erreur {
 		localiteController = new LocaliteController();
 		String [] localitesTexte = new String [localiteController.getToutesLesLocalites().size()];
 		int i = 0;
@@ -263,29 +266,10 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 					frame.changePanel();
 				}
 			}
-			catch (MauvaiseTailleString tailleString)
-            {
-                JOptionPane.showMessageDialog(null, tailleString.getMessage(),"chaîne de caractère trop longue",JOptionPane.ERROR_MESSAGE);
-            }
-			catch (ErreurInsertionSoignant error){
-				JOptionPane.showMessageDialog(null, error.getMessage(),"Erreur dans la Création du soigneur",JOptionPane.ERROR_MESSAGE);
-			}
-			catch (DonneePermanenteErreur connexionError)
+			catch (Erreur err)
 			{
-				JOptionPane.showMessageDialog(null, connexionError.getMessage(),"accès BD",JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null,err.getMessage(),err.getTitre(),JOptionPane.ERROR_MESSAGE);
 			}
-			catch (ErreurrNull erreurrNull)
-			{
-				JOptionPane.showMessageDialog(null, erreurrNull.getMessage(),"argument invalide",JOptionPane.ERROR_MESSAGE);
-			}
-			catch (NombreExpection nombreExpection)
-			{
-				JOptionPane.showMessageDialog(null, nombreExpection.getMessage(),"argument invalide",JOptionPane.ERROR_MESSAGE);
-			}
-			catch (EmailRegexErreur emailErreur)
-            {
-                JOptionPane.showMessageDialog(null,emailErreur.getMessage(),"argument invalide",JOptionPane.ERROR_MESSAGE);
-            }
 		}
 	}
 	private class CancelButtonListener implements ActionListener
@@ -317,7 +301,7 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
         Pattern mailCompatible = Pattern.compile("[a-z]+\\.[a-z]+\\.?\\d*@spa\\.be");
         Matcher isMail=mailCompatible.matcher(mail.getText());
         if(isMail.matches()) return mail.getText();
-        else throw new EmailRegexErreur();
+        else throw new EmailRegexErreur(mail.getText());
     }
 	public String getStreetInfo()throws MauvaiseTailleString{
         if(street.getText()!=null&&street.getText().length()>100) throw new MauvaiseTailleString("nom de rue",name.getText().length(),100);
@@ -353,18 +337,18 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 		    try {
                 this.inscription.setText("Modification");
                 this.locality.setSelectedIndex(localiteController.getIndexLocalite(locality));
-            }
-            catch (LocaliteInexistante inexistante)
-            {
-                JOptionPane.showMessageDialog(null,inexistante.getMessage(),"localité non trouvée",JOptionPane.ERROR_MESSAGE);
-            }
+			}
+			catch (Erreur err)
+			{
+				JOptionPane.showMessageDialog(null,err.getMessage(),err.getTitre(),JOptionPane.ERROR_MESSAGE);
+			}
         }
 	}
 	public JButton getConfirmButton()
 	{
 		return inscription;
 	}
-    public Localite getLocalite() throws DonneePermanenteErreur,ErreurrNull
+    public Localite getLocalite() throws Erreur
     {
         return localiteController.getToutesLesLocalites().get(locality.getSelectedIndex());
     }

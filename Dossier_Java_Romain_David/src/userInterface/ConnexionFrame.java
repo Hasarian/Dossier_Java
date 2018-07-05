@@ -1,9 +1,7 @@
 package userInterface;
 
+import erreurs.Erreur;
 import threadAppli.ThreadEcranDeConnexion;
-import erreurs.DonneePermanenteErreur;
-import erreurs.ErreurrNull;
-import erreurs.SoignantInexistant;
 import uIController.SoignantController;
 
 import javax.swing.*;
@@ -88,19 +86,13 @@ public class ConnexionFrame extends JFrame
                     MainFrame newFrame = new MainFrame(loginControl);
                     frame.dispose();
                     threadEcranDeConnexion.stopThread();
-                }
 
-                catch(DonneePermanenteErreur dbError)
-                {
-                    JOptionPane.showMessageDialog(null,dbError.getMessage(),"db access error",JOptionPane.ERROR_MESSAGE);
-                }
-                catch (SoignantInexistant loginError)
-                {
-                    JOptionPane.showMessageDialog(null,loginError.getMessage(),"unknown login",JOptionPane.ERROR_MESSAGE);
-                }
-                catch (ErreurrNull erreurrNull){
-                    JOptionPane.showMessageDialog(null, erreurrNull.getMessage(),"Attribut obligatoir non rempli",JOptionPane.ERROR_MESSAGE);
-                }
+            }
+        catch (
+            Erreur err)
+            {
+                JOptionPane.showMessageDialog(null,err.getMessage(),err.getTitre(),JOptionPane.ERROR_MESSAGE);
+            }
             }
         }
 

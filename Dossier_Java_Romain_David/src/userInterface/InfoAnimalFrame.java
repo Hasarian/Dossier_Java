@@ -1,5 +1,6 @@
 package userInterface;
 
+import erreurs.Erreur;
 import uIController.AnimalInfoDisplayer;
 import uIController.ListesAnimauxController;
 
@@ -9,9 +10,15 @@ import java.awt.*;
 public class InfoAnimalFrame extends JFrame
 {
     AnimalInfoDisplayer infoDisplayer;
-    public InfoAnimalFrame(ListesAnimauxController listControl, Integer idAnimal)
+    public InfoAnimalFrame(Integer idAnimal)
     {
-         infoDisplayer=new AnimalInfoDisplayer(idAnimal,listControl);
+        try{
+         infoDisplayer=new AnimalInfoDisplayer(idAnimal);
+        }
+        catch (Erreur err)
+        {
+            JOptionPane.showMessageDialog(null,err.getMessage(),err.getTitre(),JOptionPane.ERROR_MESSAGE);
+        }
          setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         Container container=getContentPane();
         //container.setBackground(Color.white);
@@ -45,7 +52,7 @@ public class InfoAnimalFrame extends JFrame
             JLabel id,name,numCell,remarque,race,dates,danger,etatSoin,remarqueSoin;
             id= new JLabel("id: "+infoDisplayer.getAnimalId());
             add(id);
-
+            try{
             name=new JLabel("nom: "+infoDisplayer.getNom());
             add(name);
 
@@ -69,6 +76,11 @@ public class InfoAnimalFrame extends JFrame
 
             remarqueSoin=new JLabel(infoDisplayer.getRemarqueSoin());
             add(remarqueSoin);
+            }
+            catch (Erreur err)
+            {
+                JOptionPane.showMessageDialog(null,err.getMessage(),err.getTitre(),JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 }

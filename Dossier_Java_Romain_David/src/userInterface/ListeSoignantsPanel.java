@@ -1,8 +1,8 @@
 package userInterface;
 
-import erreurs.DonneePermanenteErreur;
-import erreurs.ErreurrNull;
-import erreurs.SoignantInexistant;
+import erreurs.Erreur;
+import erreurs.erreursExternes.DonneePermanenteErreur;
+import erreurs.erreurFormat.ErreurrNull;
 import uIController.SoignantController;
 
 import javax.swing.*;
@@ -17,7 +17,7 @@ public class ListeSoignantsPanel extends JPanel
     private MainFrame mainFrame;
     private JTable table;
     private ListeSoignantsPanel cePanneau;
-    public ListeSoignantsPanel(MainFrame mainFrame) throws ErreurrNull, DonneePermanenteErreur,SoignantInexistant
+    public ListeSoignantsPanel(MainFrame mainFrame) throws Erreur
     {
         cePanneau=this;
         setBackground(Color.white);
@@ -46,13 +46,9 @@ public class ListeSoignantsPanel extends JPanel
             try {
                 mainFrame.changePanel(new InfoUtilisateurPanel(controller.getSoignantParIndex(table.getSelectedRow()),mainFrame));
             }
-            catch (DonneePermanenteErreur bdErreur)
+            catch (Erreur err)
             {
-                JOptionPane.showMessageDialog(null,bdErreur.getMessage(),"erreur de connexion à la BD",JOptionPane.ERROR_MESSAGE);
-            }
-            catch (ErreurrNull erreurrNull)
-            {
-                JOptionPane.showMessageDialog(null,erreurrNull.getMessage(),"attribut invalide",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null,err.getMessage(),err.getTitre(),JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -75,17 +71,26 @@ public class ListeSoignantsPanel extends JPanel
                     "remarque"
 
                 };
-        public ListingSoignantTableModel()
-                throws ErreurrNull, DonneePermanenteErreur, SoignantInexistant
-        { controller.initSoignant();}
         public int getRowCount() {
-                return controller.nbSoignants();
+                try {return controller.nbSoignants();
+                }
+                catch (Erreur err)
+                {
+                    JOptionPane.showMessageDialog(null,err.getMessage(),err.getTitre(),JOptionPane.ERROR_MESSAGE);
+                    return 0;
+                }
             }
 
         @Override
         public Object getValueAt(int rowIndex, int columnIndex)
         {
-                return controller.obtenirInfo(rowIndex, columnIndex);
+            try{
+                return controller.obtenirInfo(rowIndex, columnIndex); }
+            catch (Erreur err)
+            {
+                JOptionPane.showMessageDialog(null,err.getMessage(),err.getTitre(),JOptionPane.ERROR_MESSAGE);
+                return "valeur inconnue";
+            }
         }
         public int getColumnCount() {
             return columnNames.length;
@@ -100,7 +105,7 @@ public class ListeSoignantsPanel extends JPanel
         public Class<?> getColumnClass(int columnIndex) {
             switch (columnIndex)
             {
-                case 2: return int.class;
+                case 2: return Integer.class;
                 case 4: return Boolean.class;
                 default: return String.class;
             }

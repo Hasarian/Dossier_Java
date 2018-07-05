@@ -1,6 +1,6 @@
 package model;
 
-import erreurs.ErreurrNull;
+import erreurs.erreurFormat.ErreurrNull;
 
 public class Vaccin {
     private String libelle;
@@ -12,12 +12,12 @@ public class Vaccin {
     }
 
     public void setLibelle(String libelle) throws ErreurrNull {
-        if(libelle == null) throw new ErreurrNull();
+        if(libelle == null) throw new ErreurrNull("libellé du vaccin");
         this.libelle = libelle;
     }
 
     public void setNumVaccin(Integer numVaccin) throws ErreurrNull {
-        if(numVaccin == null) throw new ErreurrNull();
+        if(numVaccin == null) throw new ErreurrNull("numéro du vaccin");
         this.numVaccin = numVaccin;
     }
 

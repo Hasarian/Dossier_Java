@@ -1,9 +1,10 @@
 package dataAccess;
 
 import dataAccess.dao.DAOLocalite;
+import erreurs.Erreur;
 import model.Localite;
-import erreurs.DonneePermanenteErreur;
-import erreurs.ErreurrNull;
+import erreurs.erreursExternes.DonneePermanenteErreur;
+import erreurs.erreurFormat.ErreurrNull;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,7 +20,7 @@ public class LocaliteDataAccess implements DAOLocalite {
     }
 
     @Override
-    public ArrayList<Localite> readToutesLesLocalites() throws DonneePermanenteErreur, ErreurrNull {
+    public ArrayList<Localite> readToutesLesLocalites() throws Erreur {
         ArrayList<Localite> localites = new ArrayList<Localite>();
 
         try {
@@ -38,13 +39,13 @@ public class LocaliteDataAccess implements DAOLocalite {
         return localites;
     }
 
-    private Localite resultatVersLocalite(ResultSet data)throws ErreurrNull {
+    private Localite resultatVersLocalite(ResultSet data)throws Erreur {
         Localite localite = null;
         try{
             localite = new Localite(data.getInt("idLocalite"), data.getInt("CodePostal"), data.getString("libelle"));
         }
         catch(SQLException e){
-            new DonneePermanenteErreur(e.getMessage());
+            throw new DonneePermanenteErreur(e.getMessage());
         }
         return localite;
     }

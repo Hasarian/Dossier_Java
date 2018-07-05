@@ -2,9 +2,12 @@ package uIController;
 
 import business.ListeAnimalBusiness;
 import business.SoignantBusiness;
+import erreurs.Erreur;
+import erreurs.erreurApplication.SoinsNonEffectues;
+import erreurs.erreurFormat.MauvaiseTailleString;
+import erreurs.erreurFormat.NombreInvalideException;
 import model.Animal;
 import model.SoinMedical;
-import erreurs.*;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -13,30 +16,30 @@ import java.util.GregorianCalendar;
 public class TacheController {
     Integer animalId;
     ListeAnimalBusiness business;
-    public TacheController(Integer id) throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant {
+    public TacheController(Integer id) throws Erreur {
         business = new ListeAnimalBusiness();
         animalId = business.getAnimal(id).getId();
     }
-    public ArrayList<SoinMedical> obtenirSoins()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
+    public ArrayList<SoinMedical> obtenirSoins()throws Erreur
     {
         return business.obtenirSoinParAnimal(animalId,new GregorianCalendar());
     }
-    public Animal obtenirAnimal()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
+    public Animal obtenirAnimal()throws Erreur
     {
         return business.getAnimal(animalId);
     }
-    public int nbTaches()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant {
+    public int nbTaches()throws Erreur {
         return obtenirSoins().size();
     }
 
-    public String getDescriptionTache(int i) throws NombreInvalideException,DonneePermanenteErreur, ErreurrNull, SoignantInexistant {
+    public String getDescriptionTache(int i) throws Erreur {
         if (i < 0 || i >= nbTaches())
             throw new NombreInvalideException(i, "le nombre doit se trouver entre " + 0 + " et "
                     + nbTaches() + " pour éviter de sortir du tableau");
         return obtenirSoins().get(i).getDescriptionSoin();
     }
 
-    public String getDateHeure(int i) throws NombreInvalideException,DonneePermanenteErreur, ErreurrNull, SoignantInexistant{
+    public String getDateHeure(int i) throws Erreur{
         if (i < 0 || i >= nbTaches())
             throw new NombreInvalideException(i, "le nombre doit se trouver entre " + 0 + " et "
                     + nbTaches()+ " pour éviter de sortir du tableau");
@@ -57,22 +60,22 @@ public class TacheController {
         return dateExec;
     }
 
-    public String getRemarque(int i) throws NombreInvalideException,DonneePermanenteErreur, ErreurrNull, SoignantInexistant
+    public String getRemarque(int i) throws Erreur
     {
         if (i < 0 || i >= nbTaches())
             throw new NombreInvalideException(i, "le nombre doit se trouver entre " + 0 + " et "
                     + nbTaches()+ " pour éviter de sortir du tableau");
         return obtenirSoins().get(i).getRemarque();
     }
-    public Boolean getDanger()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
+    public Boolean getDanger()throws Erreur
     {
         return obtenirAnimal().getEstDangereux();
     }
-    public String getRemarqueGeneraleSoin()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
+    public String getRemarqueGeneraleSoin()throws Erreur
     {
         return obtenirAnimal().getRemaqueSoin();
     }
-    public String getNom()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
+    public String getNom()throws Erreur
     {
         return obtenirAnimal().getNomAnimal();
     }
@@ -82,20 +85,20 @@ public class TacheController {
         return animalId;
     }
     public String getRemarqueAnimal()
-            throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
+            throws Erreur
     {
         return ( obtenirAnimal().getRemarqueAnimal()==null)?"pas de remarque spécifique": obtenirAnimal().getRemarqueAnimal();
     }
-    public String getNumCell()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
+    public String getNumCell()throws Erreur
     {
         return obtenirAnimal().getNumeroCellule();
     }
-    public String getId()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant{return obtenirAnimal().getId().toString();}
-    public String getEspece()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant{return obtenirAnimal().getRace().getEspeceLibelle();}
-    public String getRace()throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant{return obtenirAnimal().getRace().getLibelle();}
+    public String getId()throws Erreur{return obtenirAnimal().getId().toString();}
+    public String getEspece()throws Erreur{return obtenirAnimal().getRace().getEspeceLibelle();}
+    public String getRace()throws Erreur{return obtenirAnimal().getRace().getLibelle();}
 
     public void faireSoin(ArrayList<Boolean> ontEteEffectues,ArrayList<String> remarques,Boolean pourVeto)
-            throws DonneePermanenteErreur,SoinsNonEffectues,ErreurrNull,MauvaiseTailleString,SoignantInexistant
+            throws Erreur
     {
         int nbSoinNonEffectués=0;
         for(int i=0;i<nbTaches();i++)
@@ -107,11 +110,12 @@ public class TacheController {
         else
         {
             ArrayList<SoinMedical> soins=obtenirSoins();
-            SoignantBusiness userBusiness = new SoignantBusiness();
+            String mailUtilisateurCourant= new SoignantController().getMailUtilisateurCourant();
+            SoignantBusiness userBusiness=new SoignantBusiness();
             for(int i=0;i<nbTaches();i++) {
-                userBusiness.creerSoin(new GregorianCalendar(),soins.get(i),remarques.get(i));
+                userBusiness.creerSoin(mailUtilisateurCourant,new GregorianCalendar(),soins.get(i),remarques.get(i));
             }
-            business.updateEtatFicheSoin(obtenirAnimal(),(pourVeto)? Animal.EtatSoin.VETODISPO: Animal.EtatSoin.DISPONIBLE);
+            business.updateEtatFicheSoin(mailUtilisateurCourant,obtenirAnimal(),(pourVeto)? Animal.EtatSoin.VETODISPO: Animal.EtatSoin.DISPONIBLE);
         }
 
     }

@@ -1,10 +1,11 @@
 package dataAccess;
 
 import dataAccess.dao.DAOAnimal;
+import erreurs.Erreur;
+import erreurs.erreursExternes.DonneeInexistante;
 import model.*;
-import erreurs.DonneePermanenteErreur;
-import erreurs.ErreurrNull;
-import erreurs.SoignantInexistant;
+import erreurs.erreursExternes.DonneePermanenteErreur;
+import erreurs.erreurFormat.ErreurrNull;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -17,15 +18,15 @@ public class AnimalDataAccess implements DAOAnimal {
     }
 
     @Override
-    public Animal read(int id) throws ErreurrNull, DonneePermanenteErreur, SoignantInexistant {
+    public Animal read(Integer id) throws Erreur {
         //business= AnimalBusiness.obtenirAnimalBusiness(ListeAnimalBusiness.obtenirListAnimalBusiness(new SoignantController()));
-        String sql = "select * from ficheSoin, ficheAnimal, espece, race where ficheSoin.id = ? " +
-                "and ficheSoin.id = ficheAnimal.id and ficheAnimal.race = race.libelle and race.espece = espece.libelle";
+        String sql = "select * from ficheSoin, ficheAnimal, espece, race where ficheSoin.id = ? AND ficheanimal.id=fichesoin.id AND espece.libelle=race.espece AND ficheanimal.race=race.libelle";
         try{
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, id);
             ResultSet data = statement.executeQuery();
-            return resultatVersAnimal(data);
+            if(data.next()) return resultatVersAnimal(data);
+            else throw new DonneeInexistante("l'animal recherché ");
         }
 
         catch(SQLException e){
@@ -33,7 +34,7 @@ public class AnimalDataAccess implements DAOAnimal {
             return null;
         }
     }
-    public ArrayList<Animal> readTousLesAnimaux() throws ErreurrNull, DonneePermanenteErreur, SoignantInexistant {
+    public ArrayList<Animal> readTousLesAnimaux() throws Erreur {
         ArrayList<Animal> animaux=new ArrayList<Animal>();
         try{
             String sql = "select * from ficheanimal,fichesoin,race,espece\n" +
@@ -69,7 +70,7 @@ public class AnimalDataAccess implements DAOAnimal {
 
     }
 
-    private Animal resultatVersAnimal(ResultSet data)throws ErreurrNull, DonneePermanenteErreur, SoignantInexistant {
+    private Animal resultatVersAnimal(ResultSet data)throws Erreur {
         try {
                 //System.out.println("il est rentré dans le bloc de tracution dans l'animal db access");
                 String libelleEspece = data.getString("espece.libelle");
@@ -82,19 +83,23 @@ public class AnimalDataAccess implements DAOAnimal {
 
                 String libelleRace =  data.getString("race.libelle");
                 String traitDeCaractere = data.getString("race.traitDeCaractere");
-                String caracteristiqueDuMilieuDeVie = (data.wasNull() ? null : data.getString("race.caracteristiqueDuMilieuDeVie"));
-                String tare = (data.wasNull() ? null : data.getString("race.tare"));
+                String caracteristiqueDuMilieuDeVie =  data.getString("race.caracteristiqueDuMilieuDeVie");
+                if(data.wasNull()) caracteristiqueDuMilieuDeVie=null;
+                String tare = data.getString("race.tare");
+                if(data.wasNull()) tare=null;
                 Race race = new Race(libelleRace, traitDeCaractere, tare, caracteristiqueDuMilieuDeVie, espece);
                 //System.out.println(libelleRace+" "+traitDeCaractere+" "+tare+" "+caracteristiqueDuMilieuDeVie+" "+espece);
 
                 Integer id =  data.getInt("ficheAnimal.id");
-                String remarque = (data.wasNull())?null : data.getString("ficheAnimal.remarque");
-                Integer numCell = (data.wasNull())?null : data.getInt("ficheAnimal.numCellule");
+                String remarque =  data.getString("ficheAnimal.remarque");
+                if(data.wasNull()) remarque=null;
+                Integer numCell =  data.getInt("ficheAnimal.numCellule");
                 String nom = data.getString("ficheAnimal.nomAnimal");
                 GregorianCalendar dateArrive = new GregorianCalendar();
-                dateArrive.setTime((data.wasNull())?null :data.getDate("ficheAnimal.dateArrive"));
+                dateArrive.setTime(data.getDate("ficheAnimal.dateArrive"));
                 GregorianCalendar dateDeces = null;
                 Object tempDate = data.getDate("ficheAnimal.dateDeces");
+                if(data.wasNull()) tempDate=null;
 
                 if(tempDate != null){
 
@@ -107,8 +112,10 @@ public class AnimalDataAccess implements DAOAnimal {
                 Animal.EtatSoin etatSoins = Animal.EtatSoin.values()[data.getInt("ficheSoin.etat")];
                 Animal.EtatAnimal etatAnimal = Animal.EtatAnimal.values()[data.getInt("ficheAnimal.etat")];
 
-                String remarqueSoin = (data.wasNull()) ? null : data.getString("ficheSoin.remarque");
+                String remarqueSoin = data.getString("ficheSoin.remarque");
+                if(data.wasNull()) remarqueSoin=null;
                 String email = data.getString("ficheSoin.email");
+                if(data.wasNull()) email=null;
 
             /*(Integer id, String remarque, Integer numCell, String nomAnimal, Race race, GregorianCalendar dateArrivee,
                                GregorianCalendar dateDeces, Boolean estDangereux, Animal.EtatAnimal etatAnimal, Animal.EtatSoin etatSoin,

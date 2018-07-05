@@ -1,11 +1,10 @@
 package uIController;
 
 import business.AnimalBusiness;
+import erreurs.Erreur;
 import model.Animal;
 import model.SoinMedical;
-import erreurs.DonneePermanenteErreur;
-import erreurs.ErreurrNull;
-import erreurs.SoignantInexistant;
+import erreurs.erreursExternes.DonneePermanenteErreur;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -17,7 +16,7 @@ public class AnimalController {
     public  AnimalController()throws DonneePermanenteErreur{
         animalBusiness = new AnimalBusiness();
     }
-    public String[] getTableauStringAnimaux() throws DonneePermanenteErreur,ErreurrNull,SoignantInexistant
+    public String[] getTableauStringAnimaux() throws Erreur
     {
         String[] animals= new String[animalBusiness.getTousLesAnimaux().size()];
         int i = 0;
@@ -27,12 +26,12 @@ public class AnimalController {
         }
         return animals;
     }
-    public ArrayList<ArrayList<String >> getSoinParAnimal(Integer id) throws DonneePermanenteErreur, ErreurrNull,SoignantInexistant {
-        ArrayList<ArrayList<String>> soinMedicals = new ArrayList<ArrayList<String>>();
+    public ArrayList<ArrayList<Object >> getSoinParAnimal(Integer id) throws Erreur {
+        ArrayList<ArrayList<Object>> soinMedicals = new ArrayList<ArrayList<Object>>();
         for (SoinMedical soinMedical: animalBusiness.getSoinPourUnAnimal(id,null)) {
-            ArrayList<String> row = new ArrayList<String>();
-            row.add(soinMedical.getNumOrdonnance().toString());
-            row.add(soinMedical.getIdSoinMedical().toString());
+            ArrayList<Object> row = new ArrayList<Object>();
+            row.add(soinMedical.getNumOrdonnance());
+            row.add(soinMedical.getIdSoinMedical());
             row.add(soinMedical.getRemarque());
             row.add(soinMedical.getMailVeto());
             String date=new String();
@@ -44,10 +43,10 @@ public class AnimalController {
         }
         return soinMedicals;
     }
-    public Animal getAnimal(int id ) throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant {
+    public Animal getAnimal(int id ) throws Erreur {
         return animalBusiness.getAnimal(id);
     }
-    public ArrayList<ArrayList<Object>> getAnimauxEntreDates(GregorianCalendar dateDebTemp, GregorianCalendar dateFinTemp) throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant
+    public ArrayList<ArrayList<Object>> getAnimauxEntreDates(GregorianCalendar dateDebTemp, GregorianCalendar dateFinTemp) throws Erreur
     {
         ArrayList<Animal> animaux =animalBusiness.getAnimauxEntreDates(dateDebTemp,dateFinTemp);
         ArrayList<ArrayList<Object>> data=new ArrayList<ArrayList<Object>>();

@@ -1,10 +1,7 @@
-package DataAccess.DAO;
+package dataAccess.dao;
 
-import Model.SoinEffectue;
-import erreurs.DonneePermanenteErreur;
-import erreurs.ErreurrNull;
-import erreurs.MauvaiseTailleString;
-import erreurs.SoignantInexistant;
+import erreurs.Erreur;
+import model.SoinEffectue;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
@@ -12,7 +9,7 @@ import java.util.GregorianCalendar;
 public interface DAORechercheSoinEffectue
 {
     ArrayList<SoinEffectue> searchHistory(String mail)
-            throws DonneePermanenteErreur, ErreurrNull, SoignantInexistant, MauvaiseTailleString;
+            throws Erreur;
     void create(String mailSoignant, GregorianCalendar heureEffectuee, Integer soinMedical, String remarque)
-            throws DonneePermanenteErreur;
+            throws Erreur;
 }

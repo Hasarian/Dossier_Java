@@ -2,12 +2,13 @@ package dataAccess;
 
 
 import dataAccess.dao.DAOSoignant;
+import erreurs.Erreur;
+import erreurs.erreursExternes.DonneeInexistante;
 import model.Soignant;
-import erreurs.DonneePermanenteErreur;
-import erreurs.ErreurInsertionSoignant;
+import erreurs.erreursExternes.DonneePermanenteErreur;
+import erreurs.erreursExternes.ErreurInsertionSoignant;
 import model.Localite;
-import erreurs.ErreurrNull;
-import erreurs.SoignantInexistant;
+import erreurs.erreurFormat.ErreurrNull;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -99,7 +100,7 @@ public class SoignantDataAccess implements DAOSoignant {
         }
     }
 
-    public Soignant read(String id) throws SoignantInexistant, ErreurrNull, DonneePermanenteErreur
+    public Soignant read(String id) throws Erreur
     {
         String sql = "select * from soignant, localite where soignant.mail = ? and soignant.localite = localite.idLocalite";
 
@@ -107,7 +108,7 @@ public class SoignantDataAccess implements DAOSoignant {
             PreparedStatement statement = singletonDBAcces.prepareStatement(sql);
             statement.setString(1, id);
             ResultSet data = statement.executeQuery();
-            if (!data.next()) throw new SoignantInexistant();
+            if (!data.next()) throw new DonneeInexistante(id);
             //recherche arraylist localoite sur l'id
             return traductionSQL(data);
         }
