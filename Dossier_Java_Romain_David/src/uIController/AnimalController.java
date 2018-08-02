@@ -13,7 +13,7 @@ import java.util.GregorianCalendar;
 public class AnimalController {
     private AnimalBusiness animalBusiness;
 
-    public  AnimalController()throws DonneePermanenteErreur{
+    public  AnimalController()throws Erreur{
         animalBusiness = new AnimalBusiness();
     }
     public String[] getTableauStringAnimaux() throws Erreur

@@ -3,10 +3,9 @@ package dataAccess;
 import business.AnimalBusiness;
 import dataAccess.dao.DAORechercheSoinAFaire;
 import erreurs.Erreur;
+import erreurs.erreursExternes.ErreurTraduction;
 import model.Animal;
 import model.SoinMedical;
-import erreurs.erreursExternes.DonneePermanenteErreur;
-import erreurs.erreurFormat.ErreurrNull;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -21,7 +20,7 @@ public class SoinAFairePourAnimal implements DAORechercheSoinAFaire{
     private Veterinaire veterinaire;
     private SoinMedical soinMedical;*/
     private Connection connection;
-    public SoinAFairePourAnimal(AnimalBusiness business) throws DonneePermanenteErreur {
+    public SoinAFairePourAnimal(AnimalBusiness business) throws Erreur {
         connection = SingletonDB.getInstance();
     }
     public ArrayList<SoinMedical> readCareToAnimal(int id,GregorianCalendar date)throws Erreur {
@@ -56,7 +55,7 @@ public class SoinAFairePourAnimal implements DAORechercheSoinAFaire{
           }
       }
       catch(SQLException sqlException) {
-          throw new DonneePermanenteErreur(sqlException.getMessage());
+          throw new ErreurTraduction(sqlException.getMessage());
       }
       return soinsMedicaux;
     }

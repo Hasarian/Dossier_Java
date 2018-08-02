@@ -17,7 +17,7 @@ public class AnimalBusiness {
     private DAORechercheAnimalDates rechercheEntreDates;
     private DAORechercheSoinAFaire rechercheDeSoinParAnimal;
     private DAOAnimal dataAcces;
-    public AnimalBusiness()throws DonneePermanenteErreur {
+    public AnimalBusiness()throws Erreur {
         dataAcces=new AnimalDataAccess();
 
         rechercheEntreDates =new RechercheAnimauxEntreDates();

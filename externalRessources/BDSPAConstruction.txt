@@ -17,7 +17,8 @@ create table localite(
 libelle varchar(100) not null,
 codePostal integer(4) not null,
 idLocalite integer(10) auto_increment, constraint localite_id_pk primary key(idlocalite),
-constraint localite_codePostal_idLocalite_unique unique (libelle, codePostal)
+constraint localite_codePostal_idLocalite_unique unique (libelle, codePostal),
+constraint chk_codePostal check (codePostal>999)
 );
 
 create table soignant(
@@ -32,14 +33,17 @@ create table soignant(
  dateEmbauche date not null,
 localite integer(10) not null,
 constraint mail_id_pk primary key(mail),
-constraint localite_fk foreign key (localite) references localite(idLocalite)
+constraint localite_fk foreign key (localite) references localite(idLocalite),
+constraint chk_positive check (numMaison>0 AND numTel>0)
+
 )engine = InnoDB;
 
 create table veto(
 mail varchar (50),
 numContact integer(9) not null,
 constraint mail_id_pk primary key(mail),
-constraint mail_fk foreign key (mail) references soignant(mail) on delete cascade on update cascade
+constraint mail_fk foreign key (mail) references soignant(mail) on delete cascade on update cascade,
+constraint chk_numTel check (numContact>0)
 );
 
 create table espece(
@@ -72,7 +76,9 @@ dateDeces date,
 estDangereux boolean not null,
 etat integer(2) not null,
 constraint ficheAnimal_id_pk primary key(id),
-constraint race_fk foreign key (race) references race(libelle)
+constraint race_fk foreign key (race) references race(libelle),
+constraint check_positive check (numCellule>0 and poids>0),
+constraint check_etat check(etat>=0 AND etat<=2)
 )engine = InnoDB;
 
 create table ficheSoin(
@@ -82,7 +88,8 @@ etat integer(2) not null,
 email varchar(50),
 constraint ficheSoin_id_pk primary key(id) ,
 constraint ficheAnimal_fk foreign key (id) references ficheAnimal(id),
-constraint ficheSoin_soignant_email_fk foreign key(email) references soignant(mail) on delete set null on update cascade
+constraint ficheSoin_soignant_email_fk foreign key(email) references soignant(mail) on delete set null on update cascade,
+constraint check_soinEtat check (etat>=0 and etat <=4)
 )engine = InnoDB;
 
 create table modificationSoin(
@@ -137,7 +144,7 @@ nature varchar(50) not null,
 qantite integer(10)not null,
 remarque varchar(150),
 constraint alimentation_numDossier_pk primary key(numDossier) ,
-constraint alimentation_fichesoin_numDossier_fk foreign key (numDossier) references ficheSoin(id)
+constraint alimentation_fichesoin_numDossier_fk foreign key (numDossier) references ficheSoin(id) on delete cascade on update cascade
 )engine = InnoDB;
 
 create table vaccin(
@@ -263,13 +270,13 @@ insert into soinMedical
 values(3,str_to_date('24-3-2005','%e-%m-%Y'),str_to_date('12:30','%H:%i'),"3kg de bambou","pas trop","demoustiez.romain@spa.be",1,1);
 
 insert into soineffectue
-values("servais.david@spa.be",str_to_date('24-3-2005','%e-%m-%Y'),1,1);
+values("servais.david@spa.be",str_to_date('24-3-2005','%e-%m-%Y'),1,1,null);
 
 insert into soinMedical
 values(3,str_to_date('25-3-2005','%e-%m-%Y'),str_to_date('12:30','%H:%i'),"2kg de bambou","il est au regime","demoustiez.romain@spa.be",1,2);
 
 insert into soineffectue
-values("servais.david@spa.be",str_to_date('24-3-2005','%e-%m-%Y'),2,2);
+values("servais.david@spa.be",str_to_date('24-3-2005','%e-%m-%Y'),2,2,null);
 
 insert into soineffectue
-values("demoustiez.romain@spa.be",str_to_date('26-8-2005','%e-%m-%Y'),2,3);
+values("demoustiez.romain@spa.be",str_to_date('26-8-2005','%e-%m-%Y'),2,3,null);
