@@ -1,14 +1,13 @@
 package business;
 
-import dataAccess.AnimalDataAccess;
-import dataAccess.dao.DAORechercheAnimalDates;
-import dataAccess.dao.DAORechercheSoinAFaire;
-import dataAccess.SoinAFairePourAnimal;
-import dataAccess.dao.DAOAnimal;
-import dataAccess.RechercheAnimauxEntreDates;
+import accesDonnees.AnimalDonnees;
+import accesDonnees.dao.DAORechercheAnimalDates;
+import accesDonnees.dao.DAORechercheSoinAFaire;
+import accesDonnees.SoinAFairePourAnimal;
+import accesDonnees.dao.DAOAnimal;
+import accesDonnees.RechercheAnimauxEntreDates;
 import erreurs.Erreur;
-import model.*;
-import erreurs.erreursExternes.DonneePermanenteErreur;
+import modèle.*;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
@@ -18,7 +17,7 @@ public class AnimalBusiness {
     private DAORechercheSoinAFaire rechercheDeSoinParAnimal;
     private DAOAnimal dataAcces;
     public AnimalBusiness()throws Erreur {
-        dataAcces=new AnimalDataAccess();
+        dataAcces=new AnimalDonnees();
 
         rechercheEntreDates =new RechercheAnimauxEntreDates();
         rechercheDeSoinParAnimal = new SoinAFairePourAnimal(this);

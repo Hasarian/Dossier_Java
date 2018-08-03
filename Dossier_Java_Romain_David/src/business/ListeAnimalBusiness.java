@@ -1,8 +1,8 @@
 package business;
 
 import erreurs.Erreur;
-import model.Animal;
-import model.SoinMedical;
+import modèle.Animal;
+import modèle.SoinMedical;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;

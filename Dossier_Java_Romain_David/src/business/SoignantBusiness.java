@@ -1,12 +1,12 @@
 package business;
 
-import dataAccess.dao.DAORechercheSoinEffectue;
-import dataAccess.dao.DAOSoignant;
-import dataAccess.SoignantDataAccess;
-import dataAccess.SoinParSoignant;
+import accesDonnees.dao.DAORechercheSoinEffectue;
+import accesDonnees.dao.DAOSoignant;
+import accesDonnees.SoignantDonnees;
+import accesDonnees.SoinParSoignant;
 import erreurs.Erreur;
 import erreurs.erreursExternes.DonneePermanenteErreur;
-import model.*;
+import modèle.*;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
@@ -22,7 +22,7 @@ public class SoignantBusiness {
         accesSoins =new SoinParSoignant ();
     }
     public void setDaoSoignant() throws DonneePermanenteErreur {
-        this.daoSoignant = new SoignantDataAccess();
+        this.daoSoignant = new SoignantDonnees();
     }
 
     public void setSoignantData(Soignant Soignant) throws Erreur {
