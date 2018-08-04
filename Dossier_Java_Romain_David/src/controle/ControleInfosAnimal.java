@@ -1,4 +1,4 @@
-package controlle;
+package controle;
 
 import business.AnimalBusiness;
 import erreurs.Erreur;
@@ -9,8 +9,8 @@ import java.util.GregorianCalendar;
 
 public class ControleInfosAnimal
 {
-    Integer animalId;
-    AnimalBusiness business;
+    private Integer animalId;
+    private AnimalBusiness business;
     public ControleInfosAnimal(Integer animalId)throws Erreur {
         business=new AnimalBusiness();
         this.animalId=business.getAnimal(animalId).getId();

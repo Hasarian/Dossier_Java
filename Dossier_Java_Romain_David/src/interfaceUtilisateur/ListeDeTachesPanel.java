@@ -4,8 +4,8 @@ import erreurs.Erreur;
 import modèle.Animal;
 import erreurs.erreursExternes.DonneePermanenteErreur;
 import erreurs.erreurFormat.ErreurrNull;
-import controlle.ControleSoignant;
-import controlle.ControleListesAnimaux;
+import controle.ControleSoignant;
+import controle.ControleListesAnimaux;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;

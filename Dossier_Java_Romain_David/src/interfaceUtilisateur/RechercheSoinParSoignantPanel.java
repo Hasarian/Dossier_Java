@@ -1,6 +1,6 @@
 package interfaceUtilisateur;
 
-import controlle.ControleSoignant;
+import controle.ControleSoignant;
 import erreurs.Erreur;
 
 import javax.swing.*;

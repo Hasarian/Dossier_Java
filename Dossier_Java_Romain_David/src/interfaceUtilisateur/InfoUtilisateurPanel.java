@@ -1,6 +1,6 @@
 package interfaceUtilisateur;
 
-import controlle.ControleSoignant;
+import controle.ControleSoignant;
 import erreurs.Erreur;
 import erreurs.erreurFormat.ErreurrNull;
 import erreurs.erreurFormat.NombreExpection;
@@ -15,9 +15,9 @@ import java.util.regex.Pattern;
 
 public class InfoUtilisateurPanel extends FormulaireInscriptionSoignantPanel
 {
-    BannierePanel bannierePanel;
-    ControleSoignant userControl;
-    String ancienMail;
+    private BannierePanel bannierePanel;
+    private ControleSoignant userControl;
+    private String ancienMail;
     public InfoUtilisateurPanel(ControleSoignant user, MainFrame frame, BannierePanel bannierePanel) throws Erreur
     {
             super(frame);

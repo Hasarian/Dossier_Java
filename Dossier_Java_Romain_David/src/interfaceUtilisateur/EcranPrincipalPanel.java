@@ -1,17 +1,17 @@
 package interfaceUtilisateur;
 
 import erreurs.Erreur;
-import controlle.ControleSoignant;
-import controlle.ControleListesAnimaux;
+import controle.ControleSoignant;
+import controle.ControleListesAnimaux;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class EcranPrincipalPanel extends JPanel {
-    MainFrame frame;
-    JTabbedPane tabbedPane;
-    ListeDeTachesPanel personnelPanel;
-    ControleListesAnimaux listController;
+    private MainFrame frame;
+    private JTabbedPane tabbedPane;
+    private ListeDeTachesPanel personnelPanel;
+    private ControleListesAnimaux listController;
 
     public ListeDeTachesPanel getPersonnelPanel() {
         return personnelPanel;

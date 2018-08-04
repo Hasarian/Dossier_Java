@@ -1,14 +1,14 @@
 package interfaceUtilisateur;
 
 import business.SoignantBusiness;
-import controlle.ControleSoignant;
+import controle.ControleSoignant;
 import erreurs.Erreur;
 import erreurs.erreurFormat.EmailRegexErreur;
 import erreurs.erreurFormat.MauvaiseTailleString;
 import erreurs.erreurFormat.NombreExpection;
 import modèle.Soignant;
 import modèle.Localite;
-import controlle.ControleLocalite;
+import controle.ControleLocalite;
 
 import javax.swing.*;
 import java.awt.*;
@@ -336,7 +336,7 @@ public class FormulaireInscriptionSoignantPanel extends JPanel{
 		this.street.setText(street);
 		this.houseNumber.setText(houseNumber.toString());
 		this.telNumber.setText((telNumber==null)?"":telNumber.toString());
-        if(note==null) this.note.setText("non précisé"); else this.note.setText(note);
+        if(note==null) this.note.setText(""); else this.note.setText(note);
 		this.isVolunteer.setSelected(isVolunteer);
 		this.hireDate.setValue(dateInscription.getTime());
 		if(frame!=null) {

@@ -3,8 +3,8 @@ package interfaceUtilisateur;
 import erreurs.Erreur;
 import erreurs.erreurFormat.MauvaiseTailleString;
 import erreurs.erreurFormat.NombreInvalideException;
-import controlle.ControleListesAnimaux;
-import controlle.ControleTache;
+import controle.ControleListesAnimaux;
+import controle.ControleTache;
 
 import javax.swing.*;
 import javax.swing.border.Border;

@@ -2,7 +2,7 @@ package interfaceUtilisateur;
 
 import erreurs.Erreur;
 import modèle.Animal;
-import controlle.ControleSoignant;
+import controle.ControleSoignant;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -10,8 +10,8 @@ import java.awt.event.ActionListener;
 
 public class ListeDesTachesReserveesPanel extends ListeDeTachesPanel
 {
-    ListeDesTachesReserveesPanel thisPanel;
-    MainFrame frame;
+    private ListeDesTachesReserveesPanel thisPanel;
+    private MainFrame frame;
     public ListeDesTachesReserveesPanel(EcranPrincipalPanel parentPanel, ControleSoignant user, MainFrame frame) throws Erreur {
         super(parentPanel, user);
         thisPanel=this;

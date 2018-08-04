@@ -1,6 +1,6 @@
 package interfaceUtilisateur;
 
-import controlle.ControleSoignant;
+import controle.ControleSoignant;
 
 import javax.swing.*;
 import java.awt.*;

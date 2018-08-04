@@ -1,4 +1,4 @@
-package controlle;
+package controle;
 
 import business.SoignantBusiness;
 import erreurs.Erreur;

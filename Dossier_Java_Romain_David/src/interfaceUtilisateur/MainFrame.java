@@ -2,7 +2,7 @@ package interfaceUtilisateur;
 
 import erreurs.Erreur;
 
-import controlle.ControleSoignant;
+import controle.ControleSoignant;
 
 import javax.swing.*;
 import java.awt.*;

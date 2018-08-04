@@ -1,4 +1,4 @@
-package controlle;
+package controle;
 
 import business.AnimalBusiness;
 import erreurs.Erreur;

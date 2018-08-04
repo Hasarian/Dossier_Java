@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 public class RechercheAnimauxEntreDates implements DAORechercheAnimalDates {
-    Connection connection;
+    private Connection connection;
 
     public RechercheAnimauxEntreDates() throws DonneePermanenteErreur {
         connection = SingletonDB.getInstance();

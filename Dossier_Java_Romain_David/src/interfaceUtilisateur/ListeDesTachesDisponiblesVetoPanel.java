@@ -1,6 +1,6 @@
 package interfaceUtilisateur;
 
-import controlle.ControleSoignant;
+import controle.ControleSoignant;
 import erreurs.Erreur;
 import modèle.Animal;
 
@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ListeDesTachesDisponiblesVetoPanel extends ListeDeTachesPanel {
-    MainFrame frame;
+    private MainFrame frame;
     public ListeDesTachesDisponiblesVetoPanel(EcranPrincipalPanel parentPanel, ControleSoignant user, MainFrame frame) throws Erreur {
         super(parentPanel, user);
         this.frame = frame;

@@ -1,6 +1,6 @@
 package interfaceUtilisateur;
 
-import controlle.ControleInfosAnimal;
+import controle.ControleInfosAnimal;
 import erreurs.Erreur;
 
 import javax.swing.*;
@@ -8,7 +8,7 @@ import java.awt.*;
 
 public class InfoAnimalFrame extends JFrame
 {
-    ControleInfosAnimal infoDisplayer;
+    private ControleInfosAnimal infoDisplayer;
     public InfoAnimalFrame(Integer idAnimal)
     {
         try{

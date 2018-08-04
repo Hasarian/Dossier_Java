@@ -1,7 +1,7 @@
 package interfaceUtilisateur;
 
 import erreurs.Erreur;
-import controlle.ControleAnimal;
+import controle.ControleAnimal;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;

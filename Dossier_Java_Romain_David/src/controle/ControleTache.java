@@ -1,4 +1,4 @@
-package controlle;
+package controle;
 
 import business.ListeAnimalBusiness;
 import business.SoignantBusiness;
@@ -14,8 +14,8 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class ControleTache {
-    Integer animalId;
-    ListeAnimalBusiness business;
+    private Integer animalId;
+    private ListeAnimalBusiness business;
     public ControleTache(Integer id) throws Erreur {
         business = new ListeAnimalBusiness();
         animalId = business.getAnimal(id).getId();
