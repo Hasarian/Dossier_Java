@@ -43,9 +43,11 @@ public class ListeDesTachesReserveesPanel extends ListeDeTachesPanel
         public void actionPerformed(ActionEvent e) {
             int[] selectedRows=getTaskTable().getSelectedRows();
             try {
+                int nbAnimaux=0;
                 for (int i : selectedRows) {
 
-                    getListController().abandonnerAnimal(i);
+                    getListController().abandonnerAnimal(i-nbAnimaux);
+                    nbAnimaux++;
                 }
             getTaskTable().clearSelection();
             if(getListController().aucunAnimalReserve())getParentPanel().removeTab(thisPanel);

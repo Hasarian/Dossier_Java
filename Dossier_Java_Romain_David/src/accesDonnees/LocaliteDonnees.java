@@ -39,7 +39,7 @@ public class LocaliteDonnees implements DAOLocalite {
     }
 
     private Localite resultatVersLocalite(ResultSet data)throws Erreur {
-        Localite localite = null;
+        Localite localite;
         try{
             localite = new Localite(data.getInt("idLocalite"), data.getInt("CodePostal"), data.getString("libelle"));
         }

@@ -40,8 +40,10 @@ public class ListeDesTachesDisponiblesPanel extends ListeDeTachesPanel
             try {
                 if(getListController().aucunAnimalReserve())getParentPanel().insertTab(new ListeDesTachesReserveesPanel(getParentPanel(),getUser(),frame ),"personnal list");
                 int[] selectedRows=getTaskTable().getSelectedRows();
+                int nbAnimaux=0;
                 for (int i : selectedRows) {
-                    getListController().selectionnerAnimal(i);
+                    getListController().selectionnerAnimal(i-nbAnimaux);
+                    nbAnimaux++;
                 }
             }
             catch (Erreur err)
