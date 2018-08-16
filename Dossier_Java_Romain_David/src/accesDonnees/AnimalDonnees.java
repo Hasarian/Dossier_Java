@@ -69,7 +69,7 @@ public class AnimalDonnees implements DAOAnimal {
 
     }
 
-    private Animal resultatVersAnimal(ResultSet data)throws Erreur {
+    public Animal resultatVersAnimal(ResultSet data)throws Erreur {
         try {
                 //System.out.println("il est rentré dans le bloc de tracution dans l'animal db access");
                 String libelleEspece = data.getString("espece.libelle");

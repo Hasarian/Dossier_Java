@@ -1,6 +1,7 @@
 package controle;
 
 import business.AnimalBusiness;
+import com.mysql.fabric.xmlrpc.base.Array;
 import erreurs.Erreur;
 import modèle.Animal;
 import modèle.SoinMedical;
@@ -26,21 +27,39 @@ public class ControleAnimal {
         return animals;
     }
     public ArrayList<ArrayList<Object >> getSoinParAnimal(Integer id) throws Erreur {
-        ArrayList<ArrayList<Object>> soinMedicals = new ArrayList<ArrayList<Object>>();
-        for (SoinMedical soinMedical: animalBusiness.getSoinPourUnAnimal(id,null)) {
-            ArrayList<Object> row = new ArrayList<Object>();
-            row.add(soinMedical.getNumOrdonnance());
-            row.add(soinMedical.getIdSoinMedical());
-            row.add(soinMedical.getRemarque());
-            row.add(soinMedical.getMailVeto());
-            String date=new String();
-            date+=soinMedical.getDate().get(Calendar.DAY_OF_MONTH)+"/";
-            date+=soinMedical.getDate().get(Calendar.MONTH)+"/";
-            date+=soinMedical.getDate().get(Calendar.YEAR);
-            row.add(date);
-            soinMedicals.add(row);
+        ArrayList<ArrayList<Object>> soinMedicaux = new ArrayList<ArrayList<Object>>();
+        ArrayList<SoinMedical> soins =animalBusiness.getSoinPourUnAnimal(id,null);
+        if(soins.size()>0&&soins.get(0).getFicheSoin().getEtatFicheSoin()!= Animal.EtatSoin.ARCHIVEE) {
+        for (SoinMedical soinMedical:soins ) {
+                ArrayList<Object> row = new ArrayList<Object>();
+                row.add(soinMedical.getNumOrdonnance());
+                row.add(soinMedical.getIdSoinMedical());
+                row.add(soinMedical.getRemarque());
+                row.add(soinMedical.getMailVeto());
+                String date = new String();
+                date += soinMedical.getDate().get(Calendar.DAY_OF_MONTH) + "/";
+                date += soinMedical.getDate().get(Calendar.MONTH) + "/";
+                date += soinMedical.getDate().get(Calendar.YEAR);
+                row.add(date);
+                soinMedicaux.add(row);
+            }
         }
-        return soinMedicals;
+        else {
+            ArrayList<Object> message=new ArrayList<Object>();
+            int i=0;
+            while(i<2){
+                message.add("");
+                i++;
+            }
+            message.add("pas de soin enregistré");
+            while(i<5) {
+                message.add("");
+                i++;
+            }
+            soinMedicaux.add(message);
+
+        }
+        return soinMedicaux;
     }
     public Animal getAnimal(int id ) throws Erreur {
         return animalBusiness.getAnimal(id);

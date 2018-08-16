@@ -78,15 +78,21 @@ remarque varchar(140),*/
             Integer idSoineffectue= new Integer(data.getInt("soinEffectue.idSoinEffectue"));
 
             Integer idSoinMedical= new Integer(data.getInt("soinMedical.idSoinMedical"));
-            Animal animal=new AnimalDonnees().read((data.wasNull())?null : data.getInt("soinMedical.numDossier"));
+            Integer numDossier= data.getInt("soinMedical.numDossier");
+            Animal animal=null;
+            if(!data.wasNull())animal= new AnimalDonnees().read(numDossier);
             GregorianCalendar dateSoinMedical=new GregorianCalendar();
             dateSoinMedical.setTime( data.getDate("soinMedical.dateSoinMedical"));//data.getDate("soinMdecial.dateSoinMedical")
             GregorianCalendar heureSoin=new GregorianCalendar();
-            heureSoin.setTime((data.wasNull())?null : data.getTime("soinMedical.heureSoinMedical"));
+            Time heure=data.getTime("soinMedical.heureSoinMedical");
+            if (data.wasNull()) heureSoin=null;
+            else heureSoin.setTime(heure);
             String description=data.getString("soinMedical.description");
-            String remarqueSoin=(data.wasNull())?null : data.getString("soinMedical.remarque");
+            String remarqueSoin=data.getString("soinMedical.remarque");
+            if(data.wasNull()) remarqueSoin=null;
             Integer numOrdonnance=new Integer(data.getInt("soinMedical.numOrdonnance"));
-            String mailVeto =(data.wasNull())?null :  data.getString("soinMedical.mailVeto");
+            String mailVeto =data.getString("soinMedical.mailVeto");
+            if(data.wasNull())mailVeto =null ;
             SoinMedical soinMedical=new SoinMedical(idSoinMedical,animal,dateSoin,heureSoin,description,remarqueSoin,numOrdonnance, mailVeto);
 
             String remarque=(data.wasNull())?null:data.getString("soinEffectue.remarque");

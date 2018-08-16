@@ -58,7 +58,7 @@ public class MainFrame extends JFrame
         searchAnimal=new JMenuItem("animal");
         search.add(searchAnimal);
         searchAnimal.addActionListener(new ToAnimalSearchListener());
-        searchCare=new JMenuItem("soins effectués sur un animal");
+        searchCare=new JMenuItem("soins à effectuer sur un animal");
         search.add(searchCare);
         searchCare.addActionListener(new ToCareSearchListener());
         searchTask=new JMenuItem("tâches effectuées par un soignant");

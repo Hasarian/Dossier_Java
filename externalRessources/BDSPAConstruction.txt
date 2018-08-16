@@ -163,3 +163,4 @@ constraint ficheAnimal_id_fk foreign key (id) references ficheAnimal(id),
 constraint vaccin_numVaccin_fk foreign key (numVaccin) references vaccin(numVaccin),
 constraint vaccination_numVaccin_id_unique unique (numVaccin, id)
 )engine = InnoDB;
+

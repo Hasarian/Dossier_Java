@@ -79,8 +79,10 @@ public class ControleSoignant
                 date += soin.getSoinMedical().getDate().get(Calendar.DAY_OF_MONTH) + "/";
                 date += (soin.getSoinMedical().getDate().get(Calendar.MONTH)+1)  + "/";
                 date += soin.getSoinMedical().getDate().get(Calendar.YEAR) + "  ";
-                date += soin.getSoinMedical().getHeure().get(Calendar.HOUR) + ":";
-                date += soin.getSoinMedical().getHeure().get(Calendar.MINUTE);
+                if(soin.getSoinMedical().getHeure()!=null) {
+                    date += soin.getSoinMedical().getHeure().get(Calendar.HOUR) + ":";
+                    date += soin.getSoinMedical().getHeure().get(Calendar.MINUTE);
+                }
             }else{
                 date="nom spécifié";
             }
